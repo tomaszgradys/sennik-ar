@@ -1,0 +1,41 @@
+# Sennik.tv — Znaczenie snu
+
+> Sennik.tv to spokojny, nowoczesny polski sennik online. Oferuje jasne, ciepłe interpretacje snów bez straszenia — oparte na symbolice i psychologii. Zawiera tysiące haseł snów (symbole i konkretne warianty), znaczenie kolorów i liczb, horoskop dzienny, fazy Księżyca oraz prywatny dziennik snów.
+
+Każda strona snu zaczyna się od krótkiej, konkretnej odpowiedzi „co oznacza ten sen", a dalej podaje dobre i złe znaki, praktyczną wskazówkę oraz najczęstsze pytania (FAQ). Treści mają charakter informacyjny i refleksyjny; nie są poradą medyczną, psychologiczną ani prawną. Interpretacje są pisane z szacunkiem do wierzeń czytelnika — bez straszenia i bez kategorycznych przepowiedni.
+
+## Kategorie snów (huby tematyczne)
+
+- [Sny o zwierzętach](https://sennik.tv/sny/zwierzeta/): pies, kot, wąż, koń, pająk i inne
+- [Sny o ludziach i relacjach](https://sennik.tv/sny/ludzie-i-relacje/): bliscy, były partner, rodzina, osoby zmarłe
+- [Sny o domu i miejscach](https://sennik.tv/sny/dom-i-miejsca/): dom, pokoje, schody, obce miejsca
+- [Sny o naturze i pogodzie](https://sennik.tv/sny/natura-i-pogoda/): woda, morze, las, burza, ogień
+- [Sny o ciele i zdrowiu](https://sennik.tv/sny/cialo-i-zdrowie/): zęby, włosy, krew, choroba, ciąża
+- [Sny o podróżach i pojazdach](https://sennik.tv/sny/podroze-i-pojazdy/): samochód, pociąg, samolot, droga
+- [Sny o pracy, pieniądzach i szkole](https://sennik.tv/sny/praca-pieniadze-i-szkola/): pieniądze, egzamin, szef
+- [Sny o zagrożeniach i silnych emocjach](https://sennik.tv/sny/zagrozenia-emocje-i-wydarzenia/): śmierć, spadanie, pościg
+- [Sny o czynnościach i ruchu](https://sennik.tv/sny/czynnosci-i-ruch/): lot, bieganie, pływanie, upadek
+- [Sny o rzeczach i symbolach](https://sennik.tv/sny/rzeczy-codzienne-i-symbole/): klucz, lustro, pierścionek, telefon
+- [Sny o jedzeniu i napojach](https://sennik.tv/sny/jedzenie-i-napoje/): chleb, mięso, owoce, alkohol, woda
+- [Sny o technologii i internecie](https://sennik.tv/sny/technologia-i-internet/): telefon, komputer, wiadomość
+
+## Narzędzia i sekcje
+
+- [Znaczenie kolorów](https://sennik.tv/kolory/): symbolika barw w snach i emocjach
+- [Znaczenie liczb](https://sennik.tv/liczby/): symbolika liczb w snach i codziennych znakach
+- [Horoskop dzienny](https://sennik.tv/horoskop/): 12 znaków zodiaku, świeży codziennie
+- [Faza Księżyca](https://sennik.tv/faza-ksiezyca/): dzisiejsza faza Księżyca i krótka wskazówka
+- [Blog](https://sennik.tv/blog/): artykuły o snach, symbolice i psychologii snu
+- [Dziennik snów](https://sennik.tv/moj-dziennik/): prywatny zapis własnych snów (wymaga konta)
+
+## Zaufanie i informacje
+
+- [O nas](https://sennik.tv/o-nas/): kto tworzy serwis i jak powstają interpretacje
+- [Kontakt](https://sennik.tv/kontakt/)
+- [Regulamin](https://sennik.tv/regulamin/)
+- [Polityka prywatności](https://sennik.tv/polityka-prywatnosci/)
+
+## Zasoby
+
+- Mapa strony (sitemap): https://sennik.tv/sitemap.xml
+- Język: polski (pl-PL)

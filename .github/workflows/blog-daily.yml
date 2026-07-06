@@ -1,0 +1,71 @@
+name: Codzienny wpis blogowy
+
+# Publikuje JEDEN wpis dziennie o LOSOWEJ porze między 09:00 a 18:00 (Europe/Warsaw),
+# żeby nie wyglądało to na sztywny automat. Workflow budzi się co godzinę w oknie,
+# a scripts/blog-gate.mjs losowo wybiera właściwą godzinę (gwarantuje 1 wpis/dzień).
+# Ręczne odpalenie (Run workflow) publikuje od razu.
+# WYMAGA sekretów repo: ANTHROPIC_API_KEY, FAL_KEY, VERCEL_TOKEN.
+on:
+  schedule:
+    - cron: "0 7-16 * * *" # co godzinę 07-16 UTC = ~09-18 w PL
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: blog-daily
+  cancel-in-progress: false
+
+jobs:
+  post:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Czy publikować teraz?
+        id: gate
+        env:
+          EVENT: ${{ github.event_name }}
+        run: node scripts/blog-gate.mjs >> "$GITHUB_OUTPUT"
+
+      - name: Losowe opóźnienie w godzinie
+        if: steps.gate.outputs.proceed == 'true' && github.event_name == 'schedule'
+        run: sleep $(( RANDOM % 2700 )) # 0-45 min
+
+      - name: Instalacja zależności
+        if: steps.gate.outputs.proceed == 'true'
+        run: npm install --no-audit --no-fund
+
+      - name: Wygeneruj wpis
+        if: steps.gate.outputs.proceed == 'true'
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          FAL_KEY: ${{ secrets.FAL_KEY }}
+        run: node scripts/blog.mjs generate
+
+      - name: Commit nowego wpisu
+        id: commit
+        if: steps.gate.outputs.proceed == 'true'
+        run: |
+          git config user.name "Sennik Bot"
+          git config user.email "bot@sennik.tv"
+          git add src/data/blog public/blog-img
+          if git diff --cached --quiet; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            echo "Brak nowego wpisu (kolejka pusta?)."
+          else
+            git commit -m "Blog: nowy wpis (auto)"
+            git push
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Deploy na Vercel
+        if: steps.commit.outputs.changed == 'true'
+        run: npx --yes vercel@latest deploy --prod --yes --token "$VERCEL_TOKEN"
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}

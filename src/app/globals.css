@@ -1,0 +1,905 @@
+@import "tailwindcss";
+@import "./fonts.css";
+
+/* ==========================================================================
+   Motyw jasny (dzień) — ciepła biel, dobra do długiego czytania.
+   Sterowanie: html[data-theme="light" | "dark"] ustawiane przez ThemeController.
+   ========================================================================== */
+/* Kolory marki sennik.tv: navy #182344, gold #D3A052, purple #9B8AC5,
+   cream #FFF7EF (z sennik-tv-brand-tokens.css). */
+html[data-theme="light"] {
+  --bg: #fff7ef;
+  --bg-elev: #ffffff;
+  --bg-soft: #f7eee1;
+  --text: #182344; /* navy */
+  --text-muted: #6a6685;
+  --border: #e8ddca;
+  --accent: #74679f; /* purple-dark — dobry kontrast na kremie */
+  --accent-soft: #ece7f4;
+  --accent-contrast: #ffffff;
+  --gold: #d3a052;
+  /* Awatar konta: dzień — głęboki, klejnotowy fiolet na kremie, jasny inicjał. */
+  --avatar-a: #8a79c6;
+  --avatar-b: #4b3f7e;
+  --avatar-c: #2a2550;
+  --avatar-fg: #f4efff;
+  --positive: #2f7d5b;
+  --negative: #b0452f;
+  --shadow: 0 1px 2px rgba(24, 35, 68, 0.06), 0 8px 24px rgba(24, 35, 68, 0.08);
+  color-scheme: light;
+}
+
+/* Motyw ciemny (noc) — DOMYŚLNY dla wszystkich (:root). Głęboki granat marki. */
+:root,
+html[data-theme="dark"] {
+  --bg: #10152a;
+  --bg-elev: #1a2140;
+  --bg-soft: #232b4d;
+  --text: #ede9f5;
+  --text-muted: #a7a2c0;
+  --border: #2e355a;
+  --accent: #b7abd5; /* purple-light */
+  --accent-soft: #262a44;
+  --accent-contrast: #14121f;
+  --gold: #d3a052;
+  /* Awatar konta: noc — świetlisty liliowy, żeby „świecił" na granacie, ciemny inicjał. */
+  --avatar-a: #d9cff6;
+  --avatar-b: #b3a2e6;
+  --avatar-c: #8b78cf;
+  --avatar-fg: #201b38;
+  --positive: #6fd0a0;
+  --negative: #e59079;
+  --shadow: 0 1px 2px rgba(0, 0, 0, 0.4), 0 8px 30px rgba(0, 0, 0, 0.4);
+  color-scheme: dark;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-bg-elev: var(--bg-elev);
+  --color-bg-soft: var(--bg-soft);
+  --color-text: var(--text);
+  --color-text-muted: var(--text-muted);
+  --color-border: var(--border);
+  --color-accent: var(--accent);
+  --color-accent-soft: var(--accent-soft);
+  --color-gold: var(--gold);
+  --color-positive: var(--positive);
+  --color-negative: var(--negative);
+  /* عربي: خط الواجهة/المتن = Tajawal (نظيف حديث)؛ العناوين = Amiri (نسخ كلاسيكي
+     يناسب أجواء «كتاب الأحلام القديم» وتراث تعبير الرؤى). محمّلة من Google Fonts في layout. */
+  --font-sans: "Tajawal", "Noto Sans Arabic", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-serif: "Amiri", "Noto Naskh Arabic", Georgia, serif;
+  --font-display: "Amiri", "Noto Naskh Arabic", Georgia, serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  /* Zawsze rezerwuj miejsce na pasek przewijania, żeby wyśrodkowana treść
+     (m.in. nawigacja) miała tę samą szerokość na stronach z przewijaniem
+     i bez — inaczej układ „skacze" o szerokość paska. */
+  scrollbar-gutter: stable;
+}
+
+body {
+  background-color: var(--bg);
+  /* Papierowa faktura (efekt kartki książki): delikatne ziarno wtopione
+     w kolor tła przez soft-light — celowo ledwo widoczne. */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.55' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3CfeComponentTransfer%3E%3CfeFuncR type='linear' slope='2.2' intercept='-0.6'/%3E%3CfeFuncG type='linear' slope='2.2' intercept='-0.6'/%3E%3CfeFuncB type='linear' slope='2.2' intercept='-0.6'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+  background-size: 260px 260px;
+  background-blend-mode: overlay;
+  color: var(--text);
+  font-family: var(--font-sans);
+  font-size: 18px;
+  line-height: 1.65;
+  margin: 0;
+  min-height: 100dvh;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  -webkit-font-smoothing: antialiased;
+}
+
+@media (min-width: 768px) {
+  body {
+    font-size: 19px;
+  }
+}
+
+/* Delikatny starfield w tle — „senne niebo”, prawdziwie przezroczysty SVG (kafelek),
+   za treścią, nie łapie kliknięć. Mocniej widoczny nocą, subtelniej na kremie. */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image: url("/stars/starfield.svg");
+  background-repeat: repeat;
+  background-size: 600px 600px;
+  /* Parallax: tło przesuwa się ze scrollem, ale 0.3× wolniej niż treść (--star-y = scrollY).
+     Nieskończony kafelek => brak luk niezależnie od głębokości scrolla. */
+  background-position-y: calc(var(--star-y, 0) * -0.3px);
+  opacity: 0.55;
+}
+html[data-theme="dark"] body::before {
+  opacity: 0.8;
+}
+
+/* Okazjonalny, subtelny błysk pojedynczych gwiazdek — warstwa nad starfieldem,
+   za treścią, nie łapie kliknięć. Każda gwiazdka miga rzadko i delikatnie. */
+.twinkles {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  overflow: hidden;
+}
+.twinkle {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  border-radius: 9999px;
+  background: #fff;
+  opacity: 0;
+  box-shadow: 0 0 6px 1px rgba(255, 255, 255, 0.85), 0 0 12px 3px rgba(211, 160, 82, 0.3);
+  animation: twinkleFlash var(--tw-dur, 8s) var(--ease-dream) infinite;
+  animation-delay: var(--tw-delay, 0s);
+  will-change: opacity, transform;
+}
+@keyframes twinkleFlash {
+  0%, 100% { opacity: 0; transform: scale(0.5); }
+  6% { opacity: var(--tw-max, 0.85); transform: scale(1.25); }
+  16% { opacity: 0; transform: scale(0.5); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .twinkle { animation: none; }
+}
+
+/* ============================================================================
+   TRYB 3D (anaglif) — efekty widoczne w okularach czerwono-cyjanowych (red/cyan).
+   Włączany klasą `.threed` na <html> (przełącznik + zapamiętane w localStorage).
+   Technika: podwójny „duch" — czerwony przesunięty w prawo, cyjan w lewo → mózg
+   fuzuje to w głębię. Większy offset = element bliżej widza (mocniej wychodzi).
+   ============================================================================ */
+html.threed h1,
+html.threed h2 {
+  text-shadow: 3px 0 0 rgba(255, 45, 45, 0.5), -3px 0 0 rgba(45, 235, 255, 0.5);
+}
+html.threed h3 {
+  text-shadow: 2px 0 0 rgba(255, 45, 45, 0.45), -2px 0 0 rgba(45, 235, 255, 0.45);
+}
+/* Gwiazdki „pływają" nad tłem (wyraźny pop). */
+html.threed .twinkle {
+  box-shadow:
+    3px 0 0 0 rgba(255, 45, 45, 0.9),
+    -3px 0 0 0 rgba(45, 235, 255, 0.9),
+    0 0 6px 1px rgba(255, 255, 255, 0.55);
+}
+/* Orby kolorów, awatar, medaliony liczb, odznaka zodiaku — wychodzą z ekranu. */
+html.threed .dream-orb,
+html.threed .nav-avatar,
+html.threed .number-tile,
+html.threed .zodiac-badge {
+  box-shadow:
+    4px 0 0 rgba(255, 45, 45, 0.32),
+    -4px 0 0 rgba(45, 235, 255, 0.32),
+    0 8px 22px -8px rgba(0, 0, 0, 0.55);
+}
+/* Znak marki (księżyc) i ilustracje w kartach „odkryj" — mocny pop przez drop-shadow. */
+html.threed header a[aria-label] img,
+html.threed section img.rounded-xl {
+  filter: drop-shadow(3px 0 0 rgba(255, 45, 45, 0.55)) drop-shadow(-3px 0 0 rgba(45, 235, 255, 0.55));
+}
+/* Główna ilustracja snu (hero) lekko „przed" tłem. */
+html.threed article > header img {
+  filter: drop-shadow(4px 0 0 rgba(255, 45, 45, 0.3)) drop-shadow(-4px 0 0 rgba(45, 235, 255, 0.3));
+}
+/* Przycisk „dodaj do dziennika" i aktywny motyw też pop (są już ozdobne). */
+html.threed .dream-save {
+  box-shadow:
+    5px 0 0 -1px rgba(255, 45, 45, 0.28),
+    -5px 0 0 -1px rgba(45, 235, 255, 0.28),
+    0 8px 22px -10px rgba(125, 107, 180, 0.8);
+}
+/* Podpowiedź „załóż okulary" — subtelny, stały banerek na dole. */
+.threed-hint {
+  position: fixed;
+  left: 50%;
+  bottom: 16px;
+  transform: translateX(-50%);
+  z-index: 70;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-radius: 9999px;
+  border: 1px solid var(--border);
+  background: var(--bg-elev);
+  padding: 8px 16px;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  box-shadow: 4px 0 0 rgba(255, 45, 45, 0.4), -4px 0 0 rgba(45, 235, 255, 0.4), 0 10px 30px -8px rgba(0, 0, 0, 0.5);
+}
+
+
+/* Nagłówki jak z okładki baśni — delikatny, elegancki krój. */
+h1 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
+/* Nagłówki sekcji spójne z h1 — ten sam elegancki szeryf (Cormorant). Wyjątek:
+   „eyebrow" etykiety (uppercase) zostają w sans-serif, bo to podpisy, nie tytuły. */
+h2:not(.uppercase),
+h3:not(.uppercase),
+h4:not(.uppercase) {
+  font-family: var(--font-display);
+  letter-spacing: 0.01em;
+}
+
+/* ==========================================================================
+   POKRĘTŁA UKŁADU I CZYTANIA — jedno miejsce sterujące całym serwisem.
+   Zmiana którejkolwiek wartości tutaj propaguje się na WSZYSTKIE podstrony
+   (dziesiątki tysięcy) po jednym przebudowaniu — bez ruszania treści.
+   Treść (JSON/baza) nie zawiera żadnych stylów, więc marginesy/odstępy/szerokości
+   zmienia się TYLKO tu. To celowe rozdzielenie treści od wyglądu.
+   ========================================================================== */
+:root {
+  --reading-measure: 62ch; /* szerokość kolumny tekstu interpretacji */
+  --reading-size: 1.04em; /* wielkość tekstu do czytania */
+  --reading-leading: 1.95; /* interlinia */
+  --reading-para-gap: 1.3em; /* odstęp między akapitami */
+  --reading-letter: 0.004em; /* światło między literami */
+  --page-gap: 2rem; /* pionowy odstęp między sekcjami strony */
+}
+
+/* Treść do czytania — jak strona z bajkowej książki: spokojny szeryf,
+   szeroka interlinia, wygodna miara wiersza. Steruj przez --reading-* wyżej. */
+.prose {
+  font-family: var(--font-serif);
+  max-width: var(--reading-measure);
+  font-size: var(--reading-size);
+  line-height: var(--reading-leading);
+  letter-spacing: var(--reading-letter);
+}
+.prose p {
+  margin: 0 0 var(--reading-para-gap);
+}
+
+/* Pionowy rytm strony (odstępy między sekcjami) sterowany jedną zmienną. */
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--page-gap);
+}
+
+/* Strony prawne (regulamin/polityka/kontakt) — czytelnie, spokojnie. */
+.legal h2 {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 1.9rem 0 0.6rem;
+}
+.legal h3 {
+  font-weight: 600;
+  margin: 1.3rem 0 0.4rem;
+}
+.legal p {
+  margin: 0 0 0.9rem;
+  line-height: 1.7;
+}
+.legal ul {
+  margin: 0 0 0.9rem;
+  padding-left: 1.3rem;
+  line-height: 1.7;
+}
+.legal li {
+  margin: 0.2rem 0;
+}
+.legal a {
+  text-decoration: underline;
+}
+.legal .placeholder {
+  background: var(--accent-soft);
+  color: var(--accent);
+  padding: 0 0.3em;
+  border-radius: 0.25em;
+  font-weight: 600;
+}
+
+/* Inicjał (drop cap) na początku interpretacji — klasyka baśniowej typografii. */
+.prose > p:first-child::first-letter {
+  font-family: var(--font-display);
+  font-weight: 600;
+  float: left;
+  font-size: 3.1em;
+  line-height: 0.82;
+  padding: 0.04em 0.14em 0 0;
+  color: var(--accent);
+}
+
+/* Ozdobny separator między częściami opowieści. */
+.ornament {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.9em;
+  color: var(--text-muted);
+  opacity: 0.7;
+  font-size: 0.95em;
+  user-select: none;
+}
+.ornament::before,
+.ornament::after {
+  content: "";
+  height: 1px;
+  width: 4.5em;
+}
+.ornament::before {
+  background: linear-gradient(to left, var(--border), transparent);
+}
+.ornament::after {
+  background: linear-gradient(to right, var(--border), transparent);
+}
+
+/* ==========================================================================
+   Warstwa efektów „ze snu" — miękkie, płynne, delikatne.
+   Wspólna krzywa czasu (łagodne wytracanie) nadaje wszystkiemu spokojny rytm.
+   ========================================================================== */
+:root {
+  --ease-dream: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Linki: żadnego twardego podkreślenia. Płynna zmiana koloru. */
+a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: color 0.3s var(--ease-dream), opacity 0.3s ease;
+}
+
+/* Elementy interaktywne nie zaznaczają się jak tekst — przypadkowe wejście w tryb
+   zaznaczania/edycji przy klikaniu chipów i przycisków wygląda nieprofesjonalnie.
+   Dotyczy przycisków, chipów, kart i „ozdobnych" przycisków (dream-save itd.).
+   Treść do czytania (akapity, nagłówki) pozostaje normalnie zaznaczalna. */
+button,
+label,
+.chip,
+.dream-save,
+.card,
+.number-tile,
+.nav-avatar,
+[role="button"],
+[role="radio"] {
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+}
+
+/* Miękkie podkreślenie linków tekstowych: gradientowa linia znikająca na
+   końcach, rozświetlająca się i rosnąca od środka przy najechaniu. */
+.link-soft {
+  position: relative;
+}
+.link-soft::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -2px;
+  height: 1.5px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+  transform: scaleX(0.2);
+  opacity: 0;
+  transition: transform 0.45s var(--ease-dream), opacity 0.35s ease;
+}
+.link-soft:hover::after {
+  transform: scaleX(1);
+  opacity: 0.85;
+}
+
+/* Linki w treści opowieści: subtelnie podkreślone od razu (rozpoznawalne),
+   przy najechaniu linia miękko gęstnieje. */
+.prose a {
+  background-image: linear-gradient(var(--accent), var(--accent));
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  background-size: 100% 1px;
+  padding-bottom: 1px;
+  transition: background-size 0.4s var(--ease-dream), color 0.3s ease;
+}
+.prose a:hover {
+  background-size: 100% 2px;
+}
+
+/* Karta: unosi się miękko z delikatnym cieniem i muśnięciem akcentu. */
+.card {
+  position: relative;
+  transition: transform 0.45s var(--ease-dream), box-shadow 0.45s ease,
+    border-color 0.4s ease;
+  will-change: transform;
+}
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow);
+  border-color: color-mix(in srgb, var(--accent) 35%, var(--border));
+}
+/* Spotlight na ramce — obwódka rozświetla się (akcent→złoto) tam, gdzie jest kursor.
+   --mx/--my ustawia JS (CardSpotlight). Maska zostawia świecenie TYLKO na obwódce. */
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  border-radius: inherit;
+  padding: 1.5px;
+  background: radial-gradient(
+    170px circle at var(--mx, 50%) var(--my, 0%),
+    color-mix(in srgb, var(--accent) 80%, var(--gold)),
+    transparent 45%
+  );
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  pointer-events: none;
+}
+.card:hover::before {
+  opacity: 0.9;
+}
+@media (hover: none) {
+  .card::before { display: none; } /* dotyk nie ma kursora — bez efektu */
+}
+
+/* Płynne przewijanie (klik we wskaźnik „przewiń" na hero). */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Wskaźnik „przewiń" na dole pełnoekranowego hero — delikatnie podskakuje. */
+.scroll-hint {
+  position: absolute;
+  bottom: 0.75rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  color: var(--text-muted);
+  text-decoration: none;
+  opacity: 0.7;
+  transition: opacity 0.3s ease, color 0.3s ease;
+}
+.scroll-hint:hover {
+  opacity: 1;
+  color: var(--accent);
+}
+.scroll-chevron {
+  animation: scrollBounce 2s var(--ease-dream) infinite;
+}
+@keyframes scrollBounce {
+  0%, 100% { transform: translateY(0); opacity: 0.75; }
+  50% { transform: translateY(6px); opacity: 1; }
+}
+
+/* Wyłanianie sekcji przy przewijaniu. SEO-BEZPIECZNE: ukrywamy TYLKO gdy JS aktywny
+   (html.js dodaje ScrollReveal). Bez JS / dla botów bez renderu — wszystko widoczne. */
+.reveal {
+  transition: opacity 0.7s var(--ease-dream), transform 0.7s var(--ease-dream);
+}
+html.js .reveal:not(.reveal-in) {
+  opacity: 0;
+  transform: translateY(28px);
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .scroll-chevron { animation: none; }
+  html.js .reveal:not(.reveal-in) { opacity: 1; transform: none; }
+}
+
+/* Chip (pigułka z frazą): płynna zmiana barw + leciutkie uniesienie i poświata. */
+.chip {
+  transition: color 0.3s var(--ease-dream), border-color 0.3s ease,
+    background-color 0.3s ease, box-shadow 0.4s ease,
+    transform 0.4s var(--ease-dream);
+}
+.chip:hover {
+  transform: translateY(-1px);
+  border-color: var(--accent);
+  color: var(--accent);
+  box-shadow: 0 6px 16px -8px color-mix(in srgb, var(--accent) 60%, transparent);
+}
+
+/* Przyciski i interaktywne elementy: wspólne, łagodne przejścia. */
+button {
+  transition: color 0.3s var(--ease-dream), background-color 0.3s ease,
+    border-color 0.3s ease, box-shadow 0.35s ease, transform 0.3s var(--ease-dream);
+}
+
+/* ==========================================================================
+   Filtr niebieskiego światła — ciepła nakładka na całą stronę.
+   Siłę steruje zmienna --blf (0 = wyłączony). Domyślnie lekko włączony,
+   silniejszy nocą. Warstwa nie łapie kliknięć.
+   ========================================================================== */
+:root {
+  --blf: 0.12;
+}
+#blue-light-filter {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  background: #ff9838;
+  mix-blend-mode: multiply;
+  opacity: var(--blf);
+  transition: opacity 0.4s ease;
+}
+
+/* ==========================================================================
+   "Senne" przejście między motywami (View Transitions API).
+   Stary widok rozpływa się w rozmyciu jak obraz snu, nowy łagodnie się
+   wyostrza. Szybkie (~0,5 s); przeglądarki bez wsparcia przełączają od razu.
+   ========================================================================== */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 0.5s;
+  animation-timing-function: ease-in-out;
+}
+::view-transition-old(root) {
+  animation-name: dream-dissolve-out;
+}
+::view-transition-new(root) {
+  animation-name: dream-dissolve-in;
+}
+@keyframes dream-dissolve-out {
+  to {
+    opacity: 0;
+    filter: blur(12px);
+    transform: scale(1.015);
+  }
+}
+@keyframes dream-dissolve-in {
+  from {
+    opacity: 0;
+    filter: blur(12px);
+    transform: scale(0.985);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation: none;
+  }
+}
+
+/* ==========================================================================
+   „Dodaj do dziennika" — przycisk wymuskany, z nutą tajemnicy. Zapisanie snu to
+   zapisanie cząstki siebie: nocny, księżycowy klejnot na kremowej/granatowej stronie.
+   Głęboki fiolet -> indygo z muśnięciem złotego światła (jak poświata Księżyca),
+   oddychająca aura, przy najechaniu delikatny „przesuw światła" (sheen).
+   ========================================================================== */
+.dream-save {
+  position: relative;
+  overflow: hidden;
+  border-radius: 9999px;
+  border: 1px solid rgba(211, 160, 82, 0.35); /* subtelna złota obwódka */
+  color: #f4efff;
+  letter-spacing: 0.03em;
+  background:
+    radial-gradient(140% 120% at 16% -25%, rgba(211, 160, 82, 0.3), transparent 55%),
+    linear-gradient(135deg, #7d6bb4 0%, #4b3f7e 46%, #2a2550 100%);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.22),
+    0 8px 22px -10px rgba(125, 107, 180, 0.8);
+  animation: dreamAura 5.5s var(--ease-dream) infinite;
+  transition: transform 0.5s var(--ease-dream), filter 0.4s ease, box-shadow 0.5s ease;
+}
+.dream-save > * {
+  position: relative;
+  z-index: 1;
+}
+/* Przesuwające się światło (jak muśnięcie Księżyca) — spoczynek ukryty, na hover przechodzi. */
+.dream-save::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: linear-gradient(115deg, transparent 35%, rgba(255, 255, 255, 0.3) 50%, transparent 65%);
+  transform: translateX(-130%);
+  transition: transform 0.9s var(--ease-dream);
+}
+.dream-save:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.07) saturate(1.05);
+}
+.dream-save:hover::before {
+  transform: translateX(130%);
+}
+.dream-save:active {
+  transform: translateY(0) scale(0.99);
+}
+/* Księżyc / iskra przy tekście — leciutko migocze. */
+.dream-save__spark {
+  display: inline-flex;
+  animation: dreamTwinkle 3.4s var(--ease-dream) infinite;
+}
+/* Oddychająca aura wokół przycisku. */
+@keyframes dreamAura {
+  0%, 100% {
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.22), 0 6px 18px -10px rgba(125, 107, 180, 0.7),
+      0 0 0 0 rgba(183, 171, 213, 0);
+  }
+  50% {
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.22), 0 10px 26px -8px rgba(125, 107, 180, 0.9),
+      0 0 22px -4px rgba(183, 171, 213, 0.55);
+  }
+}
+@keyframes dreamTwinkle {
+  0%, 100% { opacity: 0.78; transform: scale(1) rotate(0deg); }
+  50% { opacity: 1; transform: scale(1.16) rotate(8deg); }
+}
+/* Po zapisaniu: spokojny, „zapieczętowany" stan — bez animacji, stonowany. */
+.dream-save--done {
+  background: color-mix(in srgb, var(--accent) 12%, var(--bg-elev));
+  color: var(--accent);
+  border-color: color-mix(in srgb, var(--accent) 45%, transparent);
+  box-shadow: none;
+  animation: none;
+}
+.dream-save--done::before {
+  display: none;
+}
+/* Wariant „spokojny": ta sama estetyka, bez oddychającej aury — do modalu, żeby
+   kilka przycisków nie pulsowało naraz. Gradient, złoto i sheen zostają. */
+.dream-save--calm {
+  animation: none;
+}
+/* Powiadomienie „zapisano" — krótkie, miłe, z delikatnym wejściem. */
+.dream-toast {
+  animation: dreamToastIn 0.4s var(--ease-dream);
+}
+@keyframes dreamToastIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+/* Awatar konta w nawigacji — mały „senny amulet": gradient fiolet+złoto,
+   oddychająca poświata, obracające się halo i muśnięcie światła na hover. */
+.nav-avatar {
+  position: relative;
+  overflow: hidden;
+  border-radius: 9999px;
+  border: 1px solid rgba(211, 160, 82, 0.4);
+  color: var(--avatar-fg);
+  font-weight: 600;
+  text-shadow: 0 1px 3px rgba(20, 16, 34, 0.35);
+  background:
+    radial-gradient(130% 120% at 20% -20%, rgba(211, 160, 82, 0.4), transparent 55%),
+    linear-gradient(140deg, var(--avatar-a) 0%, var(--avatar-b) 48%, var(--avatar-c) 100%);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.22),
+    0 4px 14px -6px rgba(125, 107, 180, 0.75);
+  animation: dreamAura 5.5s var(--ease-dream) infinite;
+  transition: transform 0.45s var(--ease-dream), filter 0.4s ease, box-shadow 0.45s ease;
+}
+.nav-avatar > * {
+  position: relative;
+  z-index: 2;
+}
+/* Obracające się złote halo — widoczne dopiero na hover (przez overflow tworzy łuk światła przy krawędzi). */
+.nav-avatar::after {
+  content: "";
+  position: absolute;
+  inset: -45%;
+  z-index: 0;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0 58%,
+    rgba(211, 160, 82, 0.55) 74%,
+    rgba(183, 171, 213, 0.65) 86%,
+    transparent 100%
+  );
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  animation: navHaloSpin 6s linear infinite;
+}
+.nav-avatar:hover::after,
+.nav-avatar:focus-visible::after {
+  opacity: 0.9;
+}
+/* Muśnięcie światła przesuwające się w poprzek. */
+.nav-avatar::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(115deg, transparent 35%, rgba(255, 255, 255, 0.38) 50%, transparent 65%);
+  transform: translateX(-140%);
+  transition: transform 0.9s var(--ease-dream);
+}
+.nav-avatar:hover::before,
+.nav-avatar:focus-visible::before {
+  transform: translateX(140%);
+}
+.nav-avatar:hover,
+.nav-avatar:focus-visible {
+  transform: translateY(-1px) scale(1.07);
+  filter: brightness(1.08) saturate(1.06);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.26),
+    0 8px 22px -8px rgba(125, 107, 180, 0.9),
+    0 0 20px -4px rgba(183, 171, 213, 0.6);
+}
+.nav-avatar:active {
+  transform: translateY(0) scale(1.02);
+}
+@keyframes navHaloSpin {
+  to { transform: rotate(360deg); }
+}
+
+/* Kolory jako „senne orby": księżycowo oświetlona kula w danym kolorze z kolorową
+   poświatą i delikatnym złotym błyskiem — zamiast płaskiego kółka. */
+.dream-orb {
+  position: relative;
+  height: 4rem;
+  width: 4rem;
+  border-radius: 9999px;
+  background:
+    radial-gradient(circle at 32% 28%,
+      color-mix(in srgb, var(--orb) 62%, #fff) 0%,
+      var(--orb) 44%,
+      color-mix(in srgb, var(--orb) 60%, #000) 100%);
+  box-shadow:
+    0 6px 20px -6px var(--orb),
+    0 0 22px -8px var(--orb),
+    inset 0 2px 6px rgba(255, 255, 255, 0.35),
+    inset 0 -6px 10px rgba(0, 0, 0, 0.28);
+  transition: transform 0.5s var(--ease-dream), box-shadow 0.5s ease;
+}
+.dream-orb::after {
+  content: "✦";
+  position: absolute;
+  top: -3px;
+  right: -1px;
+  font-size: 0.6rem;
+  line-height: 1;
+  color: var(--gold);
+  opacity: 0.75;
+  filter: drop-shadow(0 0 3px color-mix(in srgb, var(--gold) 70%, transparent));
+}
+.group:hover .dream-orb {
+  transform: translateY(-3px) scale(1.06);
+  box-shadow:
+    0 10px 26px -6px var(--orb),
+    0 0 32px -6px var(--orb),
+    inset 0 2px 6px rgba(255, 255, 255, 0.42),
+    inset 0 -6px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Odznaka znaku zodiaku (karta „Horoskop") — złoty glif na sennym, gwiaździstym tle. */
+.zodiac-badge {
+  color: var(--gold);
+  background:
+    radial-gradient(90% 90% at 30% 18%, color-mix(in srgb, var(--accent) 32%, var(--bg-soft)), var(--bg-soft) 75%);
+  border: 1px solid color-mix(in srgb, var(--gold) 38%, var(--border));
+  box-shadow:
+    inset 0 0 12px rgba(0, 0, 0, 0.35),
+    0 0 16px -6px color-mix(in srgb, var(--gold) 65%, transparent);
+  text-shadow: 0 0 10px color-mix(in srgb, var(--gold) 60%, transparent);
+  transition: transform 0.45s var(--ease-dream), box-shadow 0.45s ease;
+}
+.group:hover .zodiac-badge,
+.card:hover .zodiac-badge {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow:
+    inset 0 0 12px rgba(0, 0, 0, 0.35),
+    0 0 22px -4px color-mix(in srgb, var(--gold) 75%, transparent);
+}
+
+/* Liczby jako złociste „medaliony": subtelny gradient, złoty rozbłysk w rogu,
+   numer z gradientem tekstu (od koloru tekstu do złota) i poświata na hover. */
+.number-tile {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(120% 90% at 50% 0%, color-mix(in srgb, var(--accent) 13%, var(--bg-elev)), var(--bg-elev) 72%);
+  border: 1px solid var(--border);
+  transition: transform 0.45s var(--ease-dream), box-shadow 0.45s ease, border-color 0.4s ease;
+}
+.number-tile::before {
+  content: "";
+  position: absolute;
+  top: -28%;
+  right: -28%;
+  width: 58%;
+  height: 58%;
+  background: radial-gradient(circle, color-mix(in srgb, var(--gold) 42%, transparent), transparent 70%);
+  opacity: 0.5;
+  pointer-events: none;
+}
+.number-tile:hover {
+  transform: translateY(-3px);
+  border-color: color-mix(in srgb, var(--gold) 45%, var(--border));
+  box-shadow:
+    0 12px 26px -12px color-mix(in srgb, var(--accent) 60%, transparent),
+    0 0 20px -6px color-mix(in srgb, var(--gold) 50%, transparent);
+}
+.number-tile .num {
+  background: linear-gradient(180deg, var(--text) 30%, color-mix(in srgb, var(--gold) 60%, var(--text)));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dream-orb, .number-tile { transition: none; }
+  .group:hover .dream-orb { transform: none; }
+  .number-tile:hover { transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dream-save { animation: none; }
+  .dream-save::before,
+  .dream-save__spark { animation: none; transition: none; }
+  .dream-toast { animation: none; }
+  .nav-avatar { animation: none; }
+  .nav-avatar::after { animation: none; }
+  .nav-avatar::before { transition: none; }
+}
+
+/* ==========================================================================
+   Wyszukiwarka snów — pole, które „słucha" jak zaufana osoba.
+   W spoczynku leciutko oddycha ciepłą poświatą (zaproszenie do pisania),
+   przy focusie „nachyla się": mocniejsza obwódka + miękki pierścień, a oddech
+   gaśnie, bo teraz naprawdę słucha. Placeholder wpisuje się sam (JS, efekt
+   maszyny do pisania) — jakby ktoś delikatnie podpowiadał, od czego zacząć.
+   ========================================================================== */
+.search-invite {
+  transition: border-color 0.45s var(--ease-dream), box-shadow 0.55s var(--ease-dream),
+    transform 0.5s var(--ease-dream), background-color 0.4s ease;
+  animation: searchBreath 5s var(--ease-dream) infinite;
+}
+.search-invite::placeholder {
+  opacity: 1;
+  transition: color 0.4s ease;
+}
+.search-invite:hover {
+  border-color: color-mix(in srgb, var(--accent) 42%, var(--border));
+}
+.search-invite:focus {
+  border-color: var(--accent);
+  transform: translateY(-1px);
+  box-shadow:
+    0 0 0 4px color-mix(in srgb, var(--accent) 15%, transparent),
+    0 12px 32px -14px color-mix(in srgb, var(--accent) 70%, transparent);
+  animation: none;
+}
+/* Gdy pole ma już treść — spokój, koniec zapraszania (użytkownik pisze). */
+.search-invite.is-filled {
+  animation: none;
+}
+/* Oddech pola: ledwie widoczny puls ciepłego światła wokół obramowania. */
+@keyframes searchBreath {
+  0%, 100% {
+    box-shadow: 0 1px 2px color-mix(in srgb, var(--text) 6%, transparent);
+  }
+  50% {
+    box-shadow:
+      0 1px 2px color-mix(in srgb, var(--text) 6%, transparent),
+      0 0 0 4px color-mix(in srgb, var(--accent) 8%, transparent),
+      0 10px 28px -14px color-mix(in srgb, var(--accent) 55%, transparent);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .search-invite { animation: none; }
+}
+
+/* Dostępność: focus widoczny dla nawigacji klawiaturą. */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}

@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="680" height="180" viewBox="0 0 680 180" role="img" aria-labelledby="title desc">
+  <title id="title">sennik.tv logo</title>
+  <desc id="desc">Uproszczony logotyp sennik.tv z księżycem, gwiazdą i chmurą. Wersja z edytowalnym tekstem.</desc>
+  <style>
+    .wordmark { font-family: 'Noto Serif Display', 'Cormorant Garamond', 'Playfair Display', Georgia, serif; font-weight: 600; font-size: 78px; letter-spacing: -1.25px; }
+    .tagline { font-family: 'Noto Sans', Arial, sans-serif; font-size: 17px; letter-spacing: 2.6px; text-transform: uppercase; }
+    
+  </style>
+
+  <g transform="translate(18 20) scale(0.92)">
+    
+    <g id="mark">
+      <path d="M 66.500 5.398 A 48.000 48.000 0 1 0 66.500 98.602 A 48.000 48.000 0 0 1 66.500 5.398 Z" fill="#D3A052"/>
+      <path d="M 87.000 41.000 C 91.760 50.240 91.760 50.240 101.000 55.000 C 91.760 59.760 91.760 59.760 87.000 69.000 C 82.240 59.760 82.240 59.760 73.000 55.000 C 82.240 50.240 82.240 50.240 87.000 41.000 Z" fill="#182344" opacity="1.0"/>
+      
+    <g class="cloud" transform="translate(10.000 78.000) scale(1.02000)">
+      <rect x="6" y="27" width="92" height="24" rx="12" fill="#B7ABD5"/>
+      <ellipse cx="28" cy="31" rx="25" ry="17" fill="#B7ABD5"/>
+      <ellipse cx="58" cy="28" rx="34" ry="21" fill="#9B8AC5"/>
+      <ellipse cx="85" cy="34" rx="25" ry="15" fill="#74679F"/>
+    </g>
+    </g>
+  </g>
+  <text class="wordmark" x="154" y="113" dominant-baseline="alphabetic">
+    <tspan fill="#182344">sennik</tspan><tspan fill="#D3A052">.</tspan><tspan fill="#9B8AC5">tv</tspan>
+  </text>
+
+</svg>

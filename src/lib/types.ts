@@ -1,0 +1,38 @@
+// Rodzaj gramatyczny — do odmiany czasownika w tytule social (Śnił/Śniła/Śniło).
+export type Gender = "m" | "f" | "n" | "pl";
+
+// Wpis katalogu (z CSV) — lekki, samo „co istnieje i gdzie".
+export interface CatalogEntry {
+  slug: string; // np. "czarny-kot", "taksowka-pod-woda"
+  phrase: string; // np. "czarny kot", "taksówka pod wodą"
+  parent: string; // slug rodzica (fraza_glowna), np. "kot", "taksowka"
+  category: string;
+  priority: number; // 1 = najważniejsze, 3 = długi ogon
+  type: "symbol" | "combo"; // symbol główny vs podfraza
+}
+
+// Treść strony (pisana raz przez AI, trzymana w pliku rodzica). Tylko tekst +
+// gramatyka; ZERO stylów/HTML (rozdzielenie treści od wyglądu).
+export interface FaqItem {
+  q: string;
+  a: string;
+}
+export interface Content {
+  gender: Gender; // rodzaj frazy (do „Śnił/Śniła ci się")
+  locative: string; // fraza po „o": kocie / czarnym kocie / taksówce pod wodą
+  metaDescription: string;
+  quickAnswer: string;
+  intro: string;
+  paragraphs: string[];
+  positive: string;
+  negative: string;
+  advice: string;
+  faq: FaqItem[];
+}
+
+// Rozwiązane hasło = katalog + treść.
+export interface DreamEntry extends CatalogEntry {
+  kind: "symbol" | "combo";
+  parentPhrase: string;
+  content: Content;
+}

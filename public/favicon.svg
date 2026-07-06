@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="192" height="192" viewBox="0 0 192 192" role="img" aria-labelledby="title desc">
+  <title id="title">sennik.tv favicon</title>
+  <desc id="desc">Favicon sennik.tv: okrąg z księżycem, gwiazdą i chmurą.</desc>
+  <style>
+    .wordmark { font-family: 'Noto Serif Display', 'Cormorant Garamond', 'Playfair Display', Georgia, serif; font-weight: 600; font-size: 78px; letter-spacing: -1.25px; }
+    .tagline { font-family: 'Noto Sans', Arial, sans-serif; font-size: 17px; letter-spacing: 2.6px; text-transform: uppercase; }
+    
+  </style>
+
+    <g id="favicon-mark">
+      <circle cx="96" cy="96" r="86" fill="#182344"/>
+      <path d="M 94.500 32.429 A 47.000 47.000 0 1 0 94.500 123.571 A 47.000 47.000 0 0 1 94.500 32.429 Z" fill="#D3A052"/>
+      <path d="M 118.000 65.000 C 123.100 74.900 123.100 74.900 133.000 80.000 C 123.100 85.100 123.100 85.100 118.000 95.000 C 112.900 85.100 112.900 85.100 103.000 80.000 C 112.900 74.900 112.900 74.900 118.000 65.000 Z" fill="#FFFFFF" opacity="1.0"/>
+      <g transform="translate(41 118) scale(1.04)">
+        <rect x="7" y="25" width="88" height="25" rx="12.5" fill="#74679F"/>
+        <ellipse cx="28" cy="29" rx="25" ry="17" fill="#B7ABD5"/>
+        <ellipse cx="58" cy="27" rx="33" ry="21" fill="#9B8AC5"/>
+        <ellipse cx="83" cy="33" rx="25" ry="16" fill="#74679F"/>
+      </g>
+    </g>
+</svg>
