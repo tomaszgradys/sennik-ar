@@ -52,8 +52,8 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = {
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#fff7ef" },
-    { media: "(prefers-color-scheme: dark)", color: "#10152a" },
+    { media: "(prefers-color-scheme: light)", color: "#f9dfc2" },
+    { media: "(prefers-color-scheme: dark)", color: "#0f1326" },
   ],
   width: "device-width",
   initialScale: 1,
@@ -65,11 +65,11 @@ export default function RootLayout({
   return (
     <html lang={SITE.lang} dir={SITE.dir} data-theme="dark" suppressHydrationWarning>
       <head>
-        {/* خطوط عربية: Tajawal للواجهة/المتن، Amiri للعناوين (نسخ كلاسيكي). */}
+        {/* خطوط hulm.pro: Noto Sans Arabic (أساسي) + IBM Plex Sans Arabic + Tajawal. */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
-          href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&family=Amiri:wght@400;700&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;500;700;800&family=IBM+Plex+Sans+Arabic:wght@400;500;700&family=Tajawal:wght@400;500;700&display=swap"
           rel="stylesheet"
         />
         {/* Ustawia motyw i filtr światła przed pierwszym malowaniem (bez migotania). */}

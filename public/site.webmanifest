@@ -1,6 +1,8 @@
 {
-  "name": "sennik.tv",
-  "short_name": "sennik.tv",
+  "name": "hulm.pro",
+  "short_name": "hulm.pro",
+  "lang": "ar",
+  "dir": "rtl",
   "icons": [
     {
       "src": "/android-chrome-192x192.png",
@@ -13,7 +15,7 @@
       "type": "image/png"
     }
   ],
-  "theme_color": "#FFF7EF",
-  "background_color": "#FFF7EF",
+  "theme_color": "#0F1326",
+  "background_color": "#0F1326",
   "display": "standalone"
 }

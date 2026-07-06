@@ -3,11 +3,11 @@
 // URL bierzemy ze zmiennej środowiskowej: po podpięciu sennik.tv w Vercel
 // ustawić NEXT_PUBLIC_SITE_URL=https://sennik.tv (bez zmian w kodzie).
 export const SITE = {
-  name: "معنى الحلم",
-  domain: "",
-  tagline: "تفسير الأحلام أونلاين",
+  name: "hulm.pro",
+  domain: "hulm.pro",
+  tagline: "قاموس أحلام هادئ وواضح",
   description:
-    "تفسير الأحلام أونلاين: اعرف معنى حلمك. آلاف الرموز والتركيبات، تفسير واحد واضح، قراءة مريحة نهارًا وليلًا.",
+    "تفسير الأحلام أونلاين على hulm.pro: اعرف معنى حلمك. آلاف الرموز والتركيبات، قراءة واضحة ومطمئنة بلا ترهيب، نهارًا وليلًا.",
   // الترتيب: متغير صريح -> رابط Vercel الإنتاجي (تلقائي) -> localhost.
   url:
     process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ||

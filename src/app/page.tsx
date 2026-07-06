@@ -107,7 +107,7 @@ export default async function Home() {
         name: SITE.name,
         alternateName: SITE.domain,
         url: SITE.url,
-        logo: `${SITE.url}/brand/sennik-tv-mark-512.png`,
+        logo: `${SITE.url}/brand/hulm-icon-512.png`,
       },
       {
         "@type": "WebSite",

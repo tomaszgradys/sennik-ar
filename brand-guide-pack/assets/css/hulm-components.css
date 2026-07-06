@@ -1,0 +1,9 @@
+/* Component additions for hulm.pro */
+.hpro-btn { display:inline-flex; align-items:center; justify-content:center; min-height:44px; padding:0 18px; border-radius:999px; border:1px solid var(--hp-border); background:var(--hp-surface); color:var(--hp-text); text-decoration:none; font-weight:700; }
+.hpro-btn-primary { background:var(--hp-primary-dark); color:#fff; border-color:var(--hp-primary-light); }
+.hpro-tag { display:inline-flex; align-items:center; border-radius:999px; padding:4px 9px; color:var(--hp-text); background:color-mix(in srgb, var(--hp-oasisTeal) 18%, transparent); border:1px solid color-mix(in srgb, var(--hp-oasisTeal) 40%, transparent); font-size:12px; font-weight:750; }
+.hpro-footer { margin-top:120px; padding:52px 0 42px; border-top:1px solid var(--hp-border); color:var(--hp-body); }
+.hpro-footer-grid { display:grid; grid-template-columns:1.4fr repeat(3,1fr); gap:48px; }
+.hpro-footer h4 { color:var(--hp-muted); font-size:12px; letter-spacing:.08em; text-transform:uppercase; margin:0 0 14px; }
+.hpro-footer a { display:block; color:var(--hp-body); text-decoration:none; margin:10px 0; }
+@media(max-width:760px) { .hpro-footer-grid { grid-template-columns:1fr; gap:26px; } }

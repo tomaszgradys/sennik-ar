@@ -1,0 +1,66 @@
+{
+  "$schema": "https://design-tokens.github.io/community-group/format/",
+  "brand": {
+    "name_display": "hulm.pro",
+    "domain": "hulm.pro",
+    "language": "ar",
+    "direction": "rtl",
+    "positioning": "Spokojny, nowoczesny słownik snów po arabsku, oparty o jasne interpretacje, nie fatalizm.",
+    "local_positioning": "قاموس أحلام هادئ وواضح."
+  },
+  "color": {
+    "night": {
+      "bg": "#0F1326",
+      "bg2": "#12172B",
+      "surface": "#1A1F38",
+      "surface2": "#242943",
+      "border": "#353A56",
+      "text": "#F4DED3",
+      "body": "#BBB0C4",
+      "muted": "#817A92"
+    },
+    "day": {
+      "bg": "#F9DFC2",
+      "bg2": "#FFF0DC",
+      "surface": "#FBE9D4",
+      "surface2": "#FFF4E6",
+      "border": "#E4C39D",
+      "text": "#14203C",
+      "body": "#625A72",
+      "muted": "#8B7B95"
+    },
+    "brand": {
+      "primary": "#B08AC6",
+      "primaryLight": "#D0AEDB",
+      "primaryDark": "#5A4B74",
+      "gold": "#E0A14B",
+      "goldLight": "#F3D89A",
+      "local": "#2F8A84",
+      "localName": "oasisTeal",
+      "localLabel": "oaza / teal"
+    }
+  },
+  "radius": {
+    "sm": "10px",
+    "md": "18px",
+    "lg": "28px",
+    "pill": "999px"
+  },
+  "shadow": {
+    "cardNight": "0 18px 54px rgba(0,0,0,.22)",
+    "cardDay": "0 12px 34px rgba(91,76,55,.14)"
+  },
+  "font": {
+    "display": "Noto Sans Arabic, IBM Plex Sans Arabic, Tajawal, Inter, system-ui, sans-serif",
+    "body": "Noto Sans Arabic, IBM Plex Sans Arabic, Tajawal, Inter, system-ui, sans-serif"
+  },
+  "layout": {
+    "maxWidth": "1040px",
+    "contentWidth": "720px",
+    "gutter": "24px"
+  },
+  "motion": {
+    "focusRing": "180ms ease-out",
+    "themeSwitch": "220ms ease-in-out"
+  }
+}

@@ -1,26 +1,26 @@
 import Link from "next/link";
 
-// Logo marki sennik.tv: znak (księżyc + gwiazda + chmura) + wordmark odtworzony
-// w HTML, żeby dostosowywał się do trybu jasny/ciemny (navy/krem) i używał
-// markowych kolorów. Font display = Cormorant (zgodny ze stylem brandu).
+// شعار hulm.pro: العلامة (هلال ذهبي فوق سحابة لافندر) + wordmark بأحرف صغيرة
+// «hulm.pro» مُعاد في HTML ليتكيّف مع الوضع نهار/ليل ويستخدم ألوان العلامة.
 export default function Logo() {
   return (
-    <Link href="/" aria-label="sennik.tv — strona główna" className="flex items-center gap-2.5 no-underline">
-      {/* eslint-disable-next-line @next/next/no-img-element -- statyczny znak marki */}
+    <Link href="/" aria-label="hulm.pro — الصفحة الرئيسية" className="flex items-center gap-2.5 no-underline">
+      {/* eslint-disable-next-line @next/next/no-img-element -- علامة ثابتة للعلامة التجارية */}
       <img
-        src="/brand/sennik-tv-mark.svg"
-        alt="sennik.tv"
+        src="/brand/hulm-mark.svg"
+        alt="hulm.pro"
         width={38}
         height={38}
         className="h-9 w-9 shrink-0"
       />
       <span
-        className="font-display text-xl font-semibold leading-none tracking-tight sm:text-2xl"
+        dir="ltr"
+        className="text-xl font-extrabold leading-none tracking-tight sm:text-2xl"
         style={{ fontFamily: "var(--font-display)" }}
       >
-        <span style={{ color: "var(--text)" }}>sennik</span>
+        <span style={{ color: "var(--text)" }}>hulm</span>
         <span style={{ color: "var(--gold)" }}>.</span>
-        <span style={{ color: "var(--accent)" }}>tv</span>
+        <span style={{ color: "var(--accent)" }}>pro</span>
       </span>
     </Link>
   );
