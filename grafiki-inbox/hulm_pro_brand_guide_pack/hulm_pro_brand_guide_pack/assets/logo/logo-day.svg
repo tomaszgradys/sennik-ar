@@ -1,8 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="320" height="96" viewBox="0 0 320 96">
-<g transform="translate(8 8)">
-  <mask id="cres"><rect width="70" height="70" fill="white"/><circle cx="39" cy="22" r="22" fill="black"/></mask>
-  <circle cx="28" cy="24" r="22" fill="#E0A14B" mask="url(#cres)"/>
-  <path d="M13 61c0-9 9-16 21-16 7-12 28-11 34 2 12 0 21 7 21 15 0 10-11 18-28 18H34c-14 0-21-8-21-19Z" fill="#D0AEDB"/>
-  <circle cx="50" cy="53" r="17" fill="#B08AC6" opacity=".92"/>
-  <path d="M75 16h8M79 12v8" stroke="#F3D89A" stroke-width="2" stroke-linecap="round"/>
-</g><text x="98" y="57" font-family="Nunito Sans, Inter, system-ui, sans-serif" font-size="33" font-weight="800" fill="#14203C">hulm<tspan fill="#5A4B74">.pro</tspan></text></svg>

@@ -48,3 +48,6 @@ scripts/.batch.json
 scratch_*.log
 
 *.tmp
+
+# folder-skrzynka na grafiki od użytkownika (nie wersjonujemy)
+/grafiki-inbox/

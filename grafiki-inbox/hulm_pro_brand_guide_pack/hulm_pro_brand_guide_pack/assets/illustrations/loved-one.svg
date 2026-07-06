@@ -1,7 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="880" height="500" viewBox="0 0 880 500">
-<rect width="880" height="500" rx="0" fill="#FFF0DC"/>
-<circle cx="500" cy="130" r="105" fill="#F3D89A"/>
-<g opacity=".7"><circle cx="100" cy="80" r="2" fill="#E0A14B"/><circle cx="730" cy="90" r="2" fill="#fff"/><circle cx="250" cy="160" r="2" fill="#B08AC6"/></g>
-<path d="M120 430 C260 360 610 360 760 430" fill="none" stroke="#5A4B74" stroke-width="18" opacity=".45"/>
-<text x="440" y="455" text-anchor="middle" font-family="Inter, system-ui" font-size="24" fill="#5A4B74" opacity=".55">loved</text>
-</svg>
