@@ -5,9 +5,9 @@ import JsonLd from "@/components/JsonLd";
 
 export const revalidate = 86400;
 
-const title = `O nas — kto tworzy ${SITE.name}`;
+const title = `من نحن — من يصنع ${SITE.name}`;
 const description =
-  "Poznaj sennik.tv: kim jesteśmy, jak piszemy interpretacje snów i dlaczego stawiamy na spokój, jakość i szacunek do czytelnika. Ciepły, wiarygodny sennik online.";
+  "تعرّف على hulm.pro: من نحن، كيف نكتب تفسير الأحلام، ولماذا نراهن على الهدوء والجودة واحترام القارئ. قاموس أحلام دافئ وموثوق أونلاين.";
 
 export const metadata: Metadata = {
   title: { absolute: `${title} — ${SITE.name}` },
@@ -20,7 +20,7 @@ export default function AboutPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
-      { "@type": "AboutPage", name: title, description, url: `${SITE.url}/o-nas`, inLanguage: "pl-PL" },
+      { "@type": "AboutPage", name: title, description, url: `${SITE.url}/o-nas`, inLanguage: "ar" },
       {
         "@type": "Organization",
         name: SITE.name,
@@ -33,7 +33,7 @@ export default function AboutPage() {
         "@type": "BreadcrumbList",
         itemListElement: [
           { "@type": "ListItem", position: 1, name: SITE.name, item: SITE.url },
-          { "@type": "ListItem", position: 2, name: "O nas", item: `${SITE.url}/o-nas` },
+          { "@type": "ListItem", position: 2, name: "من نحن", item: `${SITE.url}/o-nas` },
         ],
       },
     ],
@@ -43,54 +43,50 @@ export default function AboutPage() {
     <article className="mx-auto flex max-w-2xl flex-col gap-6">
       <JsonLd data={jsonLd} />
       <header>
-        <h1 className="text-balance text-4xl text-text sm:text-5xl">O nas</h1>
+        <h1 className="text-balance text-4xl text-text sm:text-5xl">من نحن</h1>
         <p className="mt-3 font-serif text-lg italic text-text-muted">
-          Spokojny, wiarygodny sennik online. Bez straszenia, z szacunkiem do czytelnika.
+          قاموس أحلام هادئ وموثوق أونلاين. بلا ترهيب، وباحترام للقارئ.
         </p>
       </header>
 
       <section className="prose text-text">
-        <h2>Kim jesteśmy</h2>
+        <h2>من نحن</h2>
         <p>
-          {SITE.name} ({SITE.domain}) to niezależny portal o znaczeniu snów, symboli, kolorów i liczb.
-          Tworzymy go, bo polskie senniki zwykle są chaotyczne, przepisane w kółko i zasypane reklamami.
-          Chcieliśmy czegoś odwrotnego: jednej jasnej interpretacji, napisanej ciepłym, książkowym
-          językiem, wygodnej do czytania także w nocy.
+          {SITE.name} ({SITE.domain}) موقع مستقل عن معاني الأحلام والرموز والألوان والأرقام.
+          أنشأناه لأن معظم قواميس الأحلام على الإنترنت فوضوية ومكررة ومزدحمة بالإعلانات.
+          أردنا العكس: تفسيرًا واحدًا واضحًا، مكتوبًا بلغة دافئة كأنها من كتاب قديم، مريحًا للقراءة حتى في الليل.
         </p>
 
-        <h2>Jak piszemy interpretacje</h2>
+        <h2>كيف نكتب التفسيرات</h2>
         <p>
-          Każde hasło opisujemy w oparciu o symbolikę kulturową, tradycję senników i psychologię snu.
-          Sen czytamy w trzech warstwach: co dany symbol oznacza najczęściej, jak zmienia go emocja ze snu
-          oraz jaka łagodna wskazówka może z niego wynikać. Zamiast kategorycznych przepowiedni proponujemy
-          punkt wyjścia do własnej refleksji.
+          نصف كل مصطلح استنادًا إلى الرمزية الثقافية وتراث تعبير الرؤى وعلم نفس الأحلام. نقرأ الحلم في
+          ثلاث طبقات: ما يعنيه الرمز غالبًا، كيف يغيّره الشعور الذي رافقه، وأيّ نصيحة لطيفة قد تُستخلص منه.
+          بدل التنبؤات القاطعة نقدّم نقطة انطلاق لتأمّلك الخاص، بروح تجمع بين الهدوء النفسي وتراث ابن سيرين.
         </p>
         <p>
-          Treści redagujemy i sprawdzamy pod kątem poprawnej polszczyzny i spójności. Nie kopiujemy cudzych
-          senników. W artykułach na blogu podajemy źródła, z których korzystaliśmy.
+          نراجع النصوص ونتحقق منها لغةً واتساقًا. لا ننسخ قواميس غيرنا. وفي مقالات المدونة نذكر المصادر التي استعنّا بها.
         </p>
 
-        <h2>Czego u nas nie znajdziesz</h2>
+        <h2>ما لن تجده لدينا</h2>
         <p>
-          Nie straszymy i nie stawiamy diagnoz. Interpretacje snów mają charakter refleksyjny i nie
-          zastępują porady psychologicznej ani medycznej. Jeśli sen wiąże się z trudnymi emocjami, które
-          wracają, warto porozmawiać z bliską osobą lub specjalistą.
+          لا نُرهب ولا نصدر أحكامًا قاطعة. تفسيرات الأحلام ذات طابع تأمّلي ولا تُغني عن استشارة نفسية أو
+          طبية. وإن ارتبط الحلم بمشاعر صعبة تتكرر، فمن الطيب أن تتحدث مع شخص قريب أو مختص.
         </p>
 
-        <h2>Kontakt</h2>
+        <h2>تواصل معنا</h2>
         <p>
-          Masz pytanie, sugestię albo brakuje Ci jakiegoś snu? Napisz do nas przez stronę{" "}
-          <Link href="/kontakt">kontakt</Link>. Zasady korzystania opisujemy w{" "}
-          <Link href="/regulamin">regulaminie</Link>, a sposób przetwarzania danych w{" "}
-          <Link href="/polityka-prywatnosci">polityce prywatności</Link>.
+          لديك سؤال أو اقتراح أو ينقصك حلم ما؟ اكتب إلينا عبر صفحة{" "}
+          <Link href="/kontakt">اتصل بنا</Link>. شروط الاستخدام في{" "}
+          <Link href="/regulamin">شروط الاستخدام</Link>، وطريقة معالجة البيانات في{" "}
+          <Link href="/polityka-prywatnosci">سياسة الخصوصية</Link>.
         </p>
       </section>
 
       <div className="flex flex-wrap gap-2">
-        <Link href="/" className="rounded-full border border-border bg-bg-soft px-4 py-2 text-sm text-text no-underline chip">Sennik</Link>
-        <Link href="/kolory" className="rounded-full border border-border bg-bg-soft px-4 py-2 text-sm text-text no-underline chip">Znaczenie kolorów</Link>
-        <Link href="/liczby" className="rounded-full border border-border bg-bg-soft px-4 py-2 text-sm text-text no-underline chip">Znaczenie liczb</Link>
-        <Link href="/blog" className="rounded-full border border-border bg-bg-soft px-4 py-2 text-sm text-text no-underline chip">Blog</Link>
+        <Link href="/" className="rounded-full border border-border bg-bg-soft px-4 py-2 text-sm text-text no-underline chip">تفسير الأحلام</Link>
+        <Link href="/kolory" className="rounded-full border border-border bg-bg-soft px-4 py-2 text-sm text-text no-underline chip">معاني الألوان</Link>
+        <Link href="/liczby" className="rounded-full border border-border bg-bg-soft px-4 py-2 text-sm text-text no-underline chip">معاني الأرقام</Link>
+        <Link href="/blog" className="rounded-full border border-border bg-bg-soft px-4 py-2 text-sm text-text no-underline chip">المدونة</Link>
       </div>
     </article>
   );

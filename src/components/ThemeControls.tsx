@@ -4,8 +4,8 @@ import { useEffect, useState } from "react";
 import { THEME_KEY, resolveTheme, blfStrength, type ThemeMode } from "@/lib/theme";
 
 const MODES: { value: ThemeMode; label: string; icon: string; title: string }[] = [
-  { value: "light", label: "Dzień", icon: "☀", title: "Tryb jasny" },
-  { value: "dark", label: "Noc", icon: "☾", title: "Tryb ciemny" },
+  { value: "light", label: "نهار", icon: "☀", title: "الوضع النهاري" },
+  { value: "dark", label: "ليل", icon: "☾", title: "الوضع الليلي" },
 ];
 
 function apply(mode: ThemeMode) {

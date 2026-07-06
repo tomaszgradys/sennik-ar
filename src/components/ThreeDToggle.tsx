@@ -36,20 +36,20 @@ export default function ThreeDToggle() {
         type="button"
         onClick={toggle}
         aria-pressed={on}
-        title="Tryb 3D dla okularów czerwono-cyjanowych"
+        title="وضع ثلاثي الأبعاد لنظارات أحمر-سماوي"
         className="link-soft inline-flex items-center gap-1 opacity-70 hover:opacity-100"
       >
-        <span aria-hidden>👓</span> {on ? "Wyłącz 3D" : "Tryb 3D"}
+        <span aria-hidden>👓</span> {on ? "إيقاف 3D" : "وضع 3D"}
       </button>
 
       {on && (
         <div className="threed-hint" role="status">
           <span aria-hidden>👓</span>
-          Załóż okulary 3D (czerwono-cyjanowe)
+          ارتدِ نظارة ثلاثية الأبعاد (أحمر-سماوي)
           <button
             type="button"
             onClick={toggle}
-            aria-label="Wyłącz tryb 3D"
+            aria-label="إيقاف الوضع ثلاثي الأبعاد"
             className="ml-1 rounded-full px-1.5 text-text-muted hover:text-text"
           >
             ✕

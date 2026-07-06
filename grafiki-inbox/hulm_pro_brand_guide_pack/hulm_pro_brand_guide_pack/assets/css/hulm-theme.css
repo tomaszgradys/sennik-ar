@@ -1,0 +1,69 @@
+:root {
+  --hp-font: Noto Sans Arabic, IBM Plex Sans Arabic, Tajawal, Inter, system-ui, sans-serif;
+  --hp-max: 1040px;
+  --hp-radius-card: 18px;
+  --hp-radius-hero: 28px;
+  --hp-gold: #E0A14B;
+  --hp-gold-light: #F3D89A;
+  --hp-primary: #B08AC6;
+  --hp-primary-light: #D0AEDB;
+  --hp-primary-dark: #5A4B74;
+  --hp-oasisTeal: #2F8A84;
+}
+[data-theme="night"] {
+  --hp-bg: #0F1326;
+  --hp-bg-2: #12172B;
+  --hp-surface: #1A1F38;
+  --hp-surface-2: #242943;
+  --hp-border: #353A56;
+  --hp-text: #F4DED3;
+  --hp-body: #BBB0C4;
+  --hp-muted: #817A92;
+  --hp-shadow-card: 0 18px 54px rgba(0,0,0,.22);
+}
+[data-theme="day"] {
+  --hp-bg: #F9DFC2;
+  --hp-bg-2: #FFF0DC;
+  --hp-surface: #FBE9D4;
+  --hp-surface-2: #FFF4E6;
+  --hp-border: #E4C39D;
+  --hp-text: #14203C;
+  --hp-body: #625A72;
+  --hp-muted: #8B7B95;
+  --hp-shadow-card: 0 12px 34px rgba(91,76,55,.14);
+}
+* { box-sizing:border-box; }
+body { margin:0; font-family: var(--hp-font); background:var(--hp-bg); color:var(--hp-text); }
+.hpro-stars {
+  background-image:
+    radial-gradient(circle at 14% 18%, rgba(255,255,255,.78) 0 1px, transparent 1.7px),
+    radial-gradient(circle at 76% 14%, color-mix(in srgb, var(--hp-gold) 78%, transparent) 0 1.2px, transparent 1.8px),
+    radial-gradient(circle at 38% 44%, color-mix(in srgb, var(--hp-primary-light) 58%, transparent) 0 1.4px, transparent 2px),
+    radial-gradient(circle at 85% 76%, rgba(255,255,255,.55) 0 1px, transparent 1.7px);
+  background-size:260px 260px,340px 340px,300px 300px,420px 420px;
+}
+.hpro-container { width:min(var(--hp-max), calc(100% - 48px)); margin-inline:auto; }
+.hpro-nav { height:64px; border-bottom:1px solid var(--hp-border); display:flex; align-items:center; }
+.hpro-nav-inner { display:flex; justify-content:space-between; align-items:center; gap:24px; }
+.hpro-nav a { color:var(--hp-body); text-decoration:none; margin:0 12px; font-size:14px; }
+.hpro-theme-pill { border:1px solid var(--hp-border); border-radius:999px; padding:6px; background:color-mix(in srgb, var(--hp-surface) 80%, transparent); }
+.hpro-theme-pill span { display:inline-block; padding:7px 14px; border-radius:999px; color:var(--hp-body); }
+.hpro-theme-pill .active { background:var(--hp-primary-dark); color:#fff; box-shadow:inset 0 0 0 1px var(--hp-primary-light); }
+.hpro-hero { min-height:520px; display:grid; place-items:center; text-align:center; }
+.hpro-hero h1 { font-size:clamp(44px,7vw,72px); line-height:1; letter-spacing:-.05em; margin:0 0 22px; color:var(--hp-text); }
+.hpro-hero p { max-width:650px; margin:0 auto 28px; color:var(--hp-body); font-size:18px; line-height:1.65; }
+.hpro-search { width:min(650px,100%); min-height:62px; border-radius:22px; border:2px solid var(--hp-primary-light); background:var(--hp-surface); color:var(--hp-text); box-shadow:0 0 0 5px color-mix(in srgb, var(--hp-primary) 18%, transparent); display:flex; align-items:center; padding:0 22px; text-align:start; }
+.hpro-search span { color:var(--hp-body); }
+.hpro-helpers { display:flex; justify-content:center; gap:26px; margin-top:18px; color:var(--hp-body); font-size:14px; }
+.hpro-blog-list { display:grid; gap:20px; width:min(760px, calc(100% - 48px)); margin:0 auto; }
+.hpro-card { display:grid; grid-template-columns:260px 1fr; overflow:hidden; border:1px solid var(--hp-border); background:var(--hp-surface); border-radius:18px; box-shadow:var(--hp-shadow-card); }
+.hpro-card img { width:260px; height:172px; object-fit:cover; display:block; }
+.hpro-card-body { padding:24px 28px; }
+.hpro-kicker { color:var(--hp-muted); font-size:12px; letter-spacing:.08em; font-weight:800; text-transform:uppercase; }
+.hpro-card h3 { margin:.35rem 0 .5rem; font-size:22px; line-height:1.18; color:var(--hp-text); }
+.hpro-card p { color:var(--hp-body); line-height:1.5; margin:0 0 12px; }
+.hpro-meta { color:var(--hp-muted); font-size:13px; }
+[dir="rtl"] .hpro-card { grid-template-columns:1fr 260px; }
+[dir="rtl"] .hpro-hero h1 { letter-spacing:-.02em; }
+[dir="rtl"] .hpro-nav-inner { direction:rtl; }
+@media (max-width:720px) { .hpro-card, [dir="rtl"] .hpro-card { grid-template-columns:1fr; } .hpro-card img { width:100%; height:210px; } .hpro-helpers { flex-direction:column; gap:8px; } }

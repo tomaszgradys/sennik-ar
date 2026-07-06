@@ -3,46 +3,35 @@ import { SITE, LEGAL } from "@/lib/site";
 import LegalPage from "@/components/LegalPage";
 
 export const metadata: Metadata = {
-  title: { absolute: `Kontakt — ${SITE.name}` },
-  description: `Skontaktuj się z serwisem ${SITE.domain}. Adres e-mail, dane operatora i informacje o współpracy.`,
+  title: { absolute: `اتصل بنا — ${SITE.name}` },
+  description: `تواصل مع موقع ${SITE.domain}. البريد الإلكتروني وبيانات المشغّل ومعلومات التعاون.`,
   alternates: { canonical: `${SITE.url}/kontakt/` },
 };
-
-const P = ({ children }: { children: React.ReactNode }) => <>{children}</>;
 
 export default function KontaktPage() {
   return (
     <LegalPage
-      title="Kontakt"
-      intro={`Masz pytanie, uwagę albo propozycję współpracy? Napisz do nas.`}
+      title="اتصل بنا"
+      intro={`لديك سؤال أو ملاحظة أو اقتراح تعاون؟ اكتب إلينا.`}
     >
-      <h2>Adres e-mail</h2>
+      <h2>البريد الإلكتروني</h2>
       <p>
         <a href={`mailto:${LEGAL.email}`}>{LEGAL.email}</a>
       </p>
       <p>
-        Na wiadomości staramy się odpowiadać w ciągu kilku dni roboczych. W sprawach
-        dotyczących danych osobowych (RODO) prosimy o dopisek „dane osobowe” w tytule.
+        نحاول الرد على الرسائل خلال أيام عمل قليلة. في المسائل المتعلقة بالبيانات الشخصية
+        نرجو كتابة «بيانات شخصية» في عنوان الرسالة.
       </p>
 
-      <h2>Dane operatora serwisu</h2>
+      <h2>التعاون والإعلان</h2>
       <p>
-        Serwis {SITE.domain} („{SITE.name}”) prowadzi <P>{LEGAL.operator}</P>,{" "}
-        <P>{LEGAL.operatorForm}</P>, z adresem: <P>{LEGAL.address}</P>. NIP:{" "}
-        <P>{LEGAL.nip}</P>.
+        لطلبات الإعلان والمقالات المموّلة والتعاون، يرجى التواصل عبر البريد الإلكتروني أعلاه.
       </p>
 
-      <h2>Współpraca i reklama</h2>
+      <h2>الإبلاغ عن المحتوى</h2>
       <p>
-        W sprawach reklamowych, artykułów sponsorowanych i współpracy prosimy o kontakt
-        pod powyższym adresem e-mail.
-      </p>
-
-      <h2>Zgłoszenia treści</h2>
-      <p>
-        Jeśli uważasz, że jakaś treść w serwisie narusza prawo lub Twoje prawa, napisz
-        do nas — rozpatrzymy zgłoszenie i w uzasadnionych przypadkach usuniemy lub
-        poprawimy materiał.
+        إن رأيت أن محتوى ما في الموقع يخالف القانون أو حقوقك، فاكتب إلينا. سننظر في البلاغ
+        وسنحذف المادة أو نصحّحها في الحالات المبرَّرة.
       </p>
     </LegalPage>
   );

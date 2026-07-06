@@ -67,14 +67,14 @@ export default function ShareButtons({
 
   return (
     <div className="flex flex-wrap items-center gap-2">
-      <span className="mr-1 text-sm font-semibold text-text-muted">Udostępnij:</span>
+      <span className="ml-1 text-sm font-semibold text-text-muted">شارك:</span>
       {links.map((l) => (
         <a
           key={l.name}
           href={l.href}
           target="_blank"
           rel="noopener noreferrer"
-          aria-label={`Udostępnij na ${l.name}`}
+          aria-label={`شارك على ${l.name}`}
           title={l.name}
           className="flex h-9 w-9 items-center justify-center rounded-full border border-border bg-bg-soft text-text-muted transition-colors hover:border-accent hover:text-accent"
         >
@@ -85,20 +85,20 @@ export default function ShareButtons({
       ))}
       <button
         onClick={copyLink}
-        aria-label="Kopiuj link"
-        title="Kopiuj link"
+        aria-label="انسخ الرابط"
+        title="انسخ الرابط"
         className="flex h-9 items-center gap-1.5 rounded-full border border-border bg-bg-soft px-3 text-sm text-text transition-transform hover:-translate-y-0.5"
       >
         <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden>
           <rect x="9" y="9" width="13" height="13" rx="2" />
           <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
         </svg>
-        {copied ? "Skopiowano!" : "Kopiuj"}
+        {copied ? "تم النسخ!" : "نسخ"}
       </button>
       <button
         onClick={nativeShare}
-        aria-label="Udostępnij (telefon)"
-        title="Udostępnij"
+        aria-label="مشاركة (الهاتف)"
+        title="مشاركة"
         className="flex h-9 items-center gap-1.5 rounded-full border border-border bg-bg-soft px-3 text-sm text-text transition-transform hover:-translate-y-0.5 sm:hidden"
       >
         <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden>
@@ -107,7 +107,7 @@ export default function ShareButtons({
           <circle cx="18" cy="19" r="3" />
           <path d="m8.6 13.5 6.8 4M15.4 6.5l-6.8 4" />
         </svg>
-        Więcej
+        المزيد
       </button>
     </div>
   );

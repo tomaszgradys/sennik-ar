@@ -16,8 +16,8 @@ export default function NumberSearch({ numbers }: { numbers: number[] }) {
           inputMode="numeric"
           value={q}
           onChange={(e) => setQ(e.target.value)}
-          placeholder="Wpisz liczbę, np. 7, 21, 333"
-          aria-label="Szukaj liczby"
+          placeholder="اكتب رقمًا، مثل 7 أو 21 أو 333"
+          aria-label="ابحث عن رقم"
           className="w-full rounded-full border border-border bg-bg-elev px-5 py-3 text-center text-text shadow-sm outline-none focus:border-accent"
         />
       </div>
