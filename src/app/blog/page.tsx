@@ -6,9 +6,9 @@ import JsonLd from "@/components/JsonLd";
 
 export const revalidate = 3600;
 
-const title = `Blog — sny, Księżyc i znaczenia — ${SITE.name}`;
+const title = `المدونة — الأحلام والقمر والمعاني — ${SITE.name}`;
 const description =
-  "Ciekawostki i spokojne artykuły o snach, symbolach, Księżycu i imionach. Nowe wpisy regularnie, pisane po ludzku i z sensem.";
+  "مقالات هادئة وطرائف عن الأحلام والرموز والقمر. مقالات جديدة بانتظام، مكتوبة بأسلوب إنساني ومفيد.";
 
 export const metadata: Metadata = {
   title: { absolute: title },
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 };
 
 function formatDate(iso: string): string {
-  return new Date(iso + "T12:00:00").toLocaleDateString("pl-PL", { day: "numeric", month: "long", year: "numeric" });
+  return new Date(iso + "T12:00:00").toLocaleDateString("ar-EG", { day: "numeric", month: "long", year: "numeric" });
 }
 
 export default function BlogHub() {
@@ -26,12 +26,12 @@ export default function BlogHub() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
-      { "@type": "Blog", name: title, description, url: `${SITE.url}/blog`, inLanguage: "pl-PL" },
+      { "@type": "Blog", name: title, description, url: `${SITE.url}/blog`, inLanguage: "ar" },
       {
         "@type": "BreadcrumbList",
         itemListElement: [
           { "@type": "ListItem", position: 1, name: SITE.name, item: SITE.url },
-          { "@type": "ListItem", position: 2, name: "Blog", item: `${SITE.url}/blog` },
+          { "@type": "ListItem", position: 2, name: "المدونة", item: `${SITE.url}/blog` },
         ],
       },
     ],
@@ -41,10 +41,10 @@ export default function BlogHub() {
     <div className="mx-auto flex max-w-3xl flex-col gap-8">
       <JsonLd data={jsonLd} />
       <header className="text-center">
-        <h1 className="text-3xl font-bold tracking-tight text-text sm:text-4xl">Blog</h1>
+        <h1 className="text-3xl font-bold tracking-tight text-text sm:text-4xl">المدونة</h1>
         <p className="mx-auto mt-3 max-w-xl text-text-muted">
-          Spokojne artykuły i ciekawostki o snach, symbolach, Księżycu i imionach.
-          Krótko, po ludzku i z sensem.
+          مقالات هادئة وطرائف عن الأحلام والرموز والقمر. باختصار، بأسلوب إنساني
+          ومفيد.
         </p>
       </header>
 
@@ -69,7 +69,7 @@ export default function BlogHub() {
                 <h2 className="text-xl font-semibold text-text">{p.title}</h2>
                 <p className="mt-2 text-sm text-text-muted">{p.excerpt}</p>
                 <div className="mt-auto pt-3 text-xs text-text-muted">
-                  {formatDate(p.date)} · {p.readMinutes} min czytania
+                  {formatDate(p.date)} · {p.readMinutes} دقيقة قراءة
                 </div>
               </div>
             </Link>
