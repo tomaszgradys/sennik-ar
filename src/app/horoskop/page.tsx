@@ -59,6 +59,11 @@ export default function HoroscopePage() {
       <p className="text-center text-sm text-text-muted">
         اقرأ الحظ بهدوء، كإلهام لهذا اليوم.
       </p>
+
+      <p className="mx-auto max-w-xl text-center text-xs leading-relaxed text-text-muted/80">
+        ملاحظة: الأبراج هنا للتسلية والإلهام فقط، ولا تُغني عن قرارك ولا تدّعي
+        معرفة الغيب. خذ منها ما يبعث على التفاؤل، ودع القرار لك.
+      </p>
     </div>
   );
 }

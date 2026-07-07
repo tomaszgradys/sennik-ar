@@ -130,6 +130,11 @@ export default async function SignPage({
           ))}
         </div>
       </section>
+
+      <p className="mt-2 max-w-xl text-xs leading-relaxed text-text-muted/80">
+        ملاحظة: الأبراج هنا للتسلية والإلهام فقط، ولا تُغني عن قرارك ولا تدّعي
+        معرفة الغيب.
+      </p>
     </article>
   );
 }
