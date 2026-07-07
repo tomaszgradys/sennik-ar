@@ -123,33 +123,24 @@ export default async function Home() {
     <div className="flex flex-col gap-14">
       <JsonLd data={jsonLd} />
       <AutoReveal />
-      {/* HERO — pełny pierwszy ekran: tylko tytuł + wyszukiwarka na gwiazdach.
-          Reszta strony jest poniżej i pojawia się przy przewinięciu. */}
-      <section className="relative -mt-2 flex min-h-[calc(100svh-7rem)] flex-col items-center justify-center text-center">
+      {/* HERO — zwarty: tytuł + wyszukiwarka u góry, treść (popularne sny) od razu poniżej. */}
+      <section className="pt-4 text-center sm:pt-6">
         <h1 className="mx-auto max-w-2xl text-balance text-[1.75rem] font-bold leading-tight tracking-tight text-text sm:text-5xl sm:leading-tight">
           {T.hero.title}
         </h1>
         <p className="mx-auto mt-3 max-w-md text-sm leading-relaxed text-text-muted sm:mt-4 sm:max-w-xl sm:text-base">
           {T.hero.lead}
         </p>
-        <div className="mx-auto mt-6 w-full max-w-xl sm:mt-8">
+        <div className="mx-auto mt-6 w-full max-w-xl sm:mt-7">
           <SearchBox autoFocus />
         </div>
-        <div className="mx-auto mt-4 w-full max-w-xl sm:mt-5">
+        <div className="mx-auto mt-4 w-full max-w-xl">
           <MissingDreamForm />
         </div>
-
-        {/* Wskaźnik „przewiń" — klik przewija płynnie do treści. Znika, gdy zjedziesz niżej. */}
-        <a href="#odkryj" aria-label="مرّر لاكتشاف المزيد" className="scroll-hint">
-          <span className="text-[0.7rem] uppercase tracking-[0.2em]">مرّر</span>
-          <svg className="scroll-chevron" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
-            <path d="M6 9l6 6 6-6" />
-          </svg>
-        </a>
       </section>
 
       {popular.length > 0 && (
-        <section id="odkryj" className="reveal scroll-mt-24">
+        <section>
           <div className="mb-4 flex items-center gap-3">
             <span className="h-px flex-1 bg-border" />
             <h2 className="text-sm font-semibold uppercase tracking-wider text-text-muted">
