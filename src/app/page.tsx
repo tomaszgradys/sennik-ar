@@ -6,7 +6,6 @@ import AdSlot from "@/components/AdSlot";
 import JsonLd from "@/components/JsonLd";
 import DiscoverCards from "@/components/DiscoverCards";
 import MissingDreamForm from "@/components/MissingDreamForm";
-import AutoReveal from "@/components/AutoReveal";
 import { publishedSymbols, allPublished, dreamPath } from "@/lib/dream";
 import { listPosts, blogPath, heroSrcBlog } from "@/lib/blog";
 import { popularToday } from "@/lib/daily";
@@ -122,7 +121,6 @@ export default async function Home() {
   return (
     <div className="flex flex-col gap-14">
       <JsonLd data={jsonLd} />
-      <AutoReveal />
       {/* HERO — zwarty: tytuł + wyszukiwarka u góry, treść (popularne sny) od razu poniżej. */}
       <section className="pt-4 text-center sm:pt-6">
         <h1 className="mx-auto max-w-2xl text-balance text-[1.75rem] font-bold leading-tight tracking-tight text-text sm:text-5xl sm:leading-tight">
@@ -167,7 +165,7 @@ export default async function Home() {
       )}
 
       {latestPosts.length > 0 && (
-        <section className="reveal">
+        <section>
           <div className="mb-4 flex items-center gap-3">
             <span className="h-px flex-1 bg-border" />
             <h2 className="text-sm font-semibold uppercase tracking-wider text-text-muted">
@@ -222,11 +220,11 @@ export default async function Home() {
 
       <AdSlot slot="homeMiddle" />
 
-      <div className="reveal">
+      <div>
         <DiscoverCards />
       </div>
 
-      <section className="reveal">
+      <section>
         <div className="mb-4 flex items-center gap-3">
           <span className="h-px flex-1 bg-border" />
           <h2 className="text-sm font-semibold uppercase tracking-wider text-text-muted">اكتشف المعاني</h2>
@@ -266,7 +264,7 @@ export default async function Home() {
       {/* Przeglądaj tematy — kompaktowo: kategorie zwinięte, rozwijasz co chcesz.
           Wszystkie linki są w HTML (SEO nie cierpi), a strona jest krótka. */}
       {cats.length > 0 && (
-        <section className="reveal">
+        <section>
           <div className="mb-4 flex items-center gap-3">
             <span className="h-px flex-1 bg-border" />
             <h2 className="text-sm font-semibold uppercase tracking-wider text-text-muted">
@@ -316,7 +314,7 @@ export default async function Home() {
         </section>
       )}
 
-      <section className="reveal">
+      <section>
         <div className="mb-4 flex items-center gap-3">
           <span className="h-px flex-1 bg-border" />
           <h2 className="text-sm font-semibold uppercase tracking-wider text-text-muted">رسالتنا</h2>
@@ -339,7 +337,7 @@ export default async function Home() {
         </div>
       </section>
 
-      <section className="reveal prose mx-auto text-text">
+      <section className="prose mx-auto text-text">
         <h2>تفسير الأحلام أونلاين — كيف تقرأ معنى حلمك</h2>
         <p>
           قاموس الأحلام دليل هادئ إلى الرموز التي تأتينا ليلًا. اكتب في البحث ما تتذكره من حلمك،
@@ -360,7 +358,7 @@ export default async function Home() {
         </p>
       </section>
 
-      <section className="reveal">
+      <section>
         <div className="mb-4 flex items-center gap-3">
           <span className="h-px flex-1 bg-border" />
           <h2 className="text-sm font-semibold uppercase tracking-wider text-text-muted">أسئلة شائعة</h2>
