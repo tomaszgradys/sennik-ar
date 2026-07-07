@@ -138,7 +138,48 @@ async function fetchResults() {
   console.log(`بُني: ${ok} ناجح، ${bad} فشل. ألوان: ${Object.keys(colors).length}، أرقام: ${Object.keys(numbers).length}.`);
 }
 
+// وضع متزامن: نداءات messages مباشرة (بلا batch) بتزامن محدود — فوري لعدد صغير.
+function parseDirect(data) {
+  const text = (data.content || []).map((b) => b.text ?? "").join("");
+  let s = text.slice(text.indexOf("{"), text.lastIndexOf("}") + 1);
+  s = s.replace(/[\u2013\u2014]/g, " ").replace(/[\u0000-\u001f]+/g, " ");
+  return JSON.parse(s);
+}
+async function callOne(t) {
+  const body = JSON.stringify({ model: MODEL, max_tokens: 6000, system: SYSTEM, messages: [{ role: "user", content: userPrompt(t.kind, t.label, t.obj) }] });
+  for (let a = 1; a <= 4; a++) {
+    try {
+      const res = await fetch("https://api.anthropic.com/v1/messages", { method: "POST", headers: H, body });
+      if (res.ok) return parseDirect(await res.json());
+      if (res.status >= 500 || res.status === 429) { await new Promise((r) => setTimeout(r, a * 4000)); continue; }
+      throw new Error(`${res.status}`);
+    } catch { await new Promise((r) => setTimeout(r, a * 4000)); }
+  }
+  return null;
+}
+async function syncRun() {
+  const tasks = buildTasks();
+  const colors = {}, numbers = {};
+  let ok = 0, bad = 0, done = 0;
+  const CONC = 6;
+  for (let i = 0; i < tasks.length; i += CONC) {
+    const chunk = tasks.slice(i, i + CONC);
+    const results = await Promise.all(chunk.map((t) => callOne(t)));
+    for (let k = 0; k < chunk.length; k++) {
+      const t = chunk[k], j = results[k];
+      if (j && j.quickAnswer) { (t.kind === "color" ? colors : numbers)[t.arSlug] = j; ok++; }
+      else bad++;
+    }
+    done += chunk.length;
+    console.log(`${done}/${tasks.length} (نجاح ${ok}، فشل ${bad})`);
+  }
+  if (Object.keys(colors).length) writeFileSync(join(DATA, "colors.json"), JSON.stringify(colors));
+  if (Object.keys(numbers).length) writeFileSync(join(DATA, "numbers.json"), JSON.stringify(numbers));
+  console.log(`تم: ألوان ${Object.keys(colors).length}، أرقام ${Object.keys(numbers).length}.`);
+}
+
 const cmd = process.argv[2];
 if (cmd === "submit") await submit();
 else if (cmd === "fetch") await fetchResults();
-else { console.log("الاستخدام: node scripts/batch-modules-ar.mjs [submit|fetch]"); process.exit(1); }
+else if (cmd === "sync") await syncRun();
+else { console.log("الاستخدام: node scripts/batch-modules-ar.mjs [submit|fetch|sync]"); process.exit(1); }
