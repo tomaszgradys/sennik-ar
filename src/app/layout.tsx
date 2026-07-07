@@ -106,6 +106,9 @@ export default function RootLayout({
               <Logo />
             </div>
             <nav className="hidden items-center gap-4 text-sm md:flex">
+              <Link href="/tafsir-ibn-sirin/" className="text-text-muted no-underline hover:text-text">
+                تفسير ابن سيرين
+              </Link>
               <Link href="/blog/" className="text-text-muted no-underline hover:text-text">
                 المدونة
               </Link>
@@ -150,6 +153,8 @@ export default function RootLayout({
               <div>
                 <h3 className="mb-3 text-xs font-semibold uppercase tracking-wider text-text-muted">اكتشف</h3>
                 <ul className="m-0 flex list-none flex-col gap-2 p-0 text-sm">
+                  <li><Link href="/tafsir-ibn-sirin/" className="link-soft text-text-muted">تفسير الأحلام لابن سيرين</Link></li>
+                  <li><Link href="/anwaa-al-ahlam/" className="link-soft text-text-muted">أنواع الأحلام والرؤى</Link></li>
                   <li><Link href="/blog/" className="link-soft text-text-muted">المدونة</Link></li>
                   <li><Link href="/kolory/" className="link-soft text-text-muted">معاني الألوان</Link></li>
                   <li><Link href="/liczby/" className="link-soft text-text-muted">معاني الأرقام</Link></li>

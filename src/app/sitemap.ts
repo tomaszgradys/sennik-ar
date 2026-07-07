@@ -81,6 +81,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: "monthly" as const,
       priority: 0.7,
     })),
+    // Strony edytorskie natywne kulturowo — wysoki priorytet (EEAT + duże słowa kluczowe)
+    { url: `${SITE.url}/tafsir-ibn-sirin/`, lastModified: now, changeFrequency: "weekly", priority: 0.85 },
+    { url: `${SITE.url}/anwaa-al-ahlam/`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
     { url: `${SITE.url}/o-nas/`, lastModified: now, changeFrequency: "yearly", priority: 0.4 },
     ...["regulamin", "polityka-prywatnosci", "kontakt"].map((p) => ({
       url: `${SITE.url}/${p}/`,
