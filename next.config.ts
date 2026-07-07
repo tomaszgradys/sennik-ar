@@ -26,7 +26,11 @@ const nextConfig: NextConfig = {
       // Stare schematy URL -> nowa struktura /sen/<slug>/ (301, SEO-safe).
       { source: "/sennik/:slug", destination: "/sen/:slug/", permanent: true },
       { source: "/sen-:slug", destination: "/sen/:slug/", permanent: true },
-      { source: "/horoskop-:znak", destination: "/horoskop/:znak/", permanent: true },
+      // Horoskop usunięty (التنجيم nie pasuje kulturowo do wersji AR).
+      // Stare, zaindeksowane URL-e -> strona główna (301), by nie generować 404.
+      { source: "/horoskop", destination: "/", permanent: true },
+      { source: "/horoskop/:znak", destination: "/", permanent: true },
+      { source: "/horoskop-:znak", destination: "/", permanent: true },
     ];
   },
 };

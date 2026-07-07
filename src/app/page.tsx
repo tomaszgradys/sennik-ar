@@ -353,7 +353,8 @@ export default async function Home() {
           إلى جانب آلاف المصطلحات وتركيباتها، تجد لدينا معاني{" "}
           <Link href="/kolory">الألوان</Link> و<Link href="/liczby">الأرقام</Link>،
           و<Link href="/faza-ksiezyca">طور القمر</Link> الحالي،{" "}
-          و<Link href="/horoskop">الأبراج</Link> و<Link href="/blog">المدونة</Link> بطرائف
+          و<Link href="/tafsir-ibn-sirin">تفسير ابن سيرين</Link> و
+          <Link href="/blog">المدونة</Link> بطرائف
           عن الأحلام. كل ذلك لتفهم بهدوء ما يقوله لك خيال الليل.
         </p>
       </section>

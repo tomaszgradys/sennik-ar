@@ -14,7 +14,6 @@ const LINKS = [
   { href: "/blog/", label: "المدونة" },
   { href: "/kolory/", label: "الألوان" },
   { href: "/liczby/", label: "الأرقام" },
-  { href: "/horoskop/", label: "الأبراج" },
   { href: "/faza-ksiezyca/", label: "طور القمر" },
 ];
 

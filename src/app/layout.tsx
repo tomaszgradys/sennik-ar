@@ -118,9 +118,6 @@ export default function RootLayout({
               <Link href="/liczby/" className="text-text-muted no-underline hover:text-text">
                 الأرقام
               </Link>
-              <Link href="/horoskop/" className="text-text-muted no-underline hover:text-text">
-                {T.nav.horoscope}
-              </Link>
               <Link href="/faza-ksiezyca/" className="text-text-muted no-underline hover:text-text">
                 {T.nav.moon}
               </Link>
@@ -158,7 +155,6 @@ export default function RootLayout({
                   <li><Link href="/blog/" className="link-soft text-text-muted">المدونة</Link></li>
                   <li><Link href="/kolory/" className="link-soft text-text-muted">معاني الألوان</Link></li>
                   <li><Link href="/liczby/" className="link-soft text-text-muted">معاني الأرقام</Link></li>
-                  <li><Link href="/horoskop/" className="link-soft text-text-muted">{T.nav.horoscope}</Link></li>
                   <li><Link href="/faza-ksiezyca/" className="link-soft text-text-muted">{T.nav.moon}</Link></li>
                 </ul>
               </div>

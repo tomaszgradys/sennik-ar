@@ -3,7 +3,6 @@
 export const T = {
   nav: {
     home: "تفسير الأحلام",
-    horoscope: "الأبراج",
     moon: "طور القمر",
   },
   hero: {
@@ -35,8 +34,6 @@ export const T = {
   discover: {
     moonTitle: "كيف يؤثّر طور القمر في يومك؟",
     moonLead: "اطّلع على طور اليوم ونصيحة قصيرة لهذا اليوم.",
-    horoscopeTitle: "حظك اليوم",
-    horoscopeLead: "اختر برجك واعرف ما يحمله اليوم.",
   },
   appPromo: {
     title: "احمل تفسير الأحلام معك دائمًا",

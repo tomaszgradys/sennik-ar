@@ -1,6 +1,5 @@
 import type { MetadataRoute } from "next";
 import { allPublished, dreamPath } from "@/lib/dream";
-import { SIGNS } from "@/lib/horoscope";
 import { colorSlugs, colorPath } from "@/lib/colors";
 import { numberSlugs, numberPath } from "@/lib/numbers";
 import { listPosts, blogPath } from "@/lib/blog";
@@ -35,18 +34,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // wpis w sitemap nie był przekierowaniem 308 (marnowanie crawl budgetu, ostrzeżenia GSC).
   const sections: MetadataRoute.Sitemap = [
     { url: `${SITE.url}/`, lastModified: now, changeFrequency: "weekly", priority: 1 },
-    {
-      url: `${SITE.url}/horoskop/`,
-      lastModified: now,
-      changeFrequency: "daily",
-      priority: 0.9,
-    },
-    ...SIGNS.map((s) => ({
-      url: `${SITE.url}/horoskop/${s.slug}/`,
-      lastModified: now,
-      changeFrequency: "daily" as const,
-      priority: 0.7,
-    })),
     {
       url: `${SITE.url}/faza-ksiezyca/`,
       lastModified: now,
