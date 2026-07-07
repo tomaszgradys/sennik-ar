@@ -20,21 +20,21 @@ export interface ColorContent {
   faq: { q: string; a: string }[];
 }
 
-// Kolejność = kolejność na hubie /kolory.
+// الترتيب = الترتيب في محور /kolory. slug عربي (مطبّع بلا همزة ليطابق slugify).
 export const COLORS: ColorMeta[] = [
-  { slug: "czerwony", name: "czerwony", hex: "#C0392B" },
-  { slug: "niebieski", name: "niebieski", hex: "#2E5A88" },
-  { slug: "zielony", name: "zielony", hex: "#3E7C5A" },
-  { slug: "zolty", name: "żółty", hex: "#E0B84C", light: true },
-  { slug: "czarny", name: "czarny", hex: "#2B2B33" },
-  { slug: "bialy", name: "biały", hex: "#F3EFE7", light: true },
-  { slug: "fioletowy", name: "fioletowy", hex: "#6E5AA0" },
-  { slug: "rozowy", name: "różowy", hex: "#D98BA6", light: true },
-  { slug: "pomaranczowy", name: "pomarańczowy", hex: "#D98244", light: true },
-  { slug: "szary", name: "szary", hex: "#8A8A92" },
-  { slug: "brazowy", name: "brązowy", hex: "#7A5A42" },
-  { slug: "zloty", name: "złoty", hex: "#C9A44A", light: true },
-  { slug: "srebrny", name: "srebrny", hex: "#AEB4BC", light: true },
+  { slug: "احمر", name: "أحمر", hex: "#C0392B" },
+  { slug: "ازرق", name: "أزرق", hex: "#2E5A88" },
+  { slug: "اخضر", name: "أخضر", hex: "#3E7C5A" },
+  { slug: "اصفر", name: "أصفر", hex: "#E0B84C", light: true },
+  { slug: "اسود", name: "أسود", hex: "#2B2B33" },
+  { slug: "ابيض", name: "أبيض", hex: "#F3EFE7", light: true },
+  { slug: "بنفسجي", name: "بنفسجي", hex: "#6E5AA0" },
+  { slug: "وردي", name: "وردي", hex: "#D98BA6", light: true },
+  { slug: "برتقالي", name: "برتقالي", hex: "#D98244", light: true },
+  { slug: "رمادي", name: "رمادي", hex: "#8A8A92" },
+  { slug: "بني", name: "بني", hex: "#7A5A42" },
+  { slug: "ذهبي", name: "ذهبي", hex: "#C9A44A", light: true },
+  { slug: "فضي", name: "فضي", hex: "#AEB4BC", light: true },
 ];
 
 const BY_SLUG = new Map(COLORS.map((c) => [c.slug, c]));

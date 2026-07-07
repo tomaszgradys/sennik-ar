@@ -1,141 +1,140 @@
-// Fazy Księżyca liczone astronomicznie (bez zewnętrznego API, bez praw autorskich):
-// wiek Księżyca = dni od znanego nowiu (2000-01-06 18:14 UTC) modulo miesiąc
-// synodyczny. Dokładność ± kilka godzin — w zupełności wystarcza dla serwisu.
+// أطوار القمر محسوبة فلكيًا (بلا API خارجي، بلا حقوق): عمر القمر = أيام منذ محاق
+// معروف (2000-01-06 18:14 UTC) modulo الشهر الاقتراني. الدقة ± ساعات قليلة، تكفي تمامًا.
 const SYNODIC = 29.53058867;
 const REF_NEW_MOON = Date.UTC(2000, 0, 6, 18, 14);
 
 export interface MoonPhase {
-  slug: string;
+  slug: string; // مفتاح داخلي (ليس مسارًا)
   name: string;
   emoji: string;
-  // Opis fazy (stabilny dla całej fazy).
+  // وصف الطور (ثابت للطور كله).
   starting: string;
-  // Pula wskazówek „na dziś" w klimacie fazy — wybór rotuje po dacie (dailyMoonTip).
+  // مجموعة نصائح «لهذا اليوم» بأجواء الطور — يدور الاختيار حسب التاريخ (dailyMoonTip).
   tips: string[];
 }
 
 export const PHASES: MoonPhase[] = [
   {
     slug: "now",
-    name: "Nów",
+    name: "المحاق",
     emoji: "🌑",
     starting:
-      "To symboliczny początek cyklu — najlepszy moment na planowanie i wyznaczanie intencji, jeszcze nie na wielkie starty.",
+      "بداية رمزية للدورة، أفضل وقت للتخطيط وتحديد النوايا، وليس بعدُ للانطلاقات الكبيرة.",
     tips: [
-      "Zapisz dziś jeden cel na nadchodzący miesiąc. Mały, konkretny — i bądź dla siebie łagodny.",
-      "Zamiast wielkich planów, nazwij dziś jedną intencję. Reszta z niej wyrośnie.",
-      "Dobry wieczór na chwilę ciszy i pytanie: czego naprawdę chcę w tym miesiącu?",
-      "Posprzątaj dziś jedno małe miejsce — zrobisz przestrzeń na nowe.",
-      "Nie musisz dziś zaczynać wielkich spraw. Wystarczy je sobie wyobrazić.",
+      "دوّن اليوم هدفًا واحدًا للشهر القادم. صغيرًا وملموسًا، وكن لطيفًا مع نفسك.",
+      "بدل الخطط الكبيرة، سمِّ اليوم نيّة واحدة. الباقي ينبت منها.",
+      "أمسية طيبة للحظة صمت وسؤال: ماذا أريد حقًا هذا الشهر؟",
+      "رتّب اليوم مكانًا صغيرًا واحدًا، فتصنع مساحة للجديد.",
+      "لا حاجة لبدء أمور كبيرة اليوم. يكفي أن تتخيّلها.",
     ],
   },
   {
     slug: "przybywajacy-sierp",
-    name: "Przybywający sierp",
+    name: "الهلال المتزايد",
     emoji: "🌒",
     starting:
-      "Energia rośnie — dobry czas, by zrobić pierwszy mały krok w nowej sprawie.",
+      "الطاقة تنمو، وقت مناسب لخطوة أولى صغيرة في أمر جديد.",
     tips: [
-      "Zacznij od kwadransa pracy nad tym, co odkładasz. Potem nagrodź się spacerem.",
-      "Zrób dziś pierwszy mały krok — nawet najmniejszy liczy się podwójnie.",
-      "Wyślij tę jedną wiadomość, którą odkładasz. Otworzy więcej, niż myślisz.",
-      "Dorzuć dziś jedną cegiełkę do sprawy, na której ci zależy.",
-      "Energia rośnie — wykorzystaj poranek na to, co wymaga zapału.",
+      "ابدأ بربع ساعة عمل على ما تؤجّله، ثم كافئ نفسك بنزهة.",
+      "اخطُ اليوم خطوة أولى صغيرة، حتى أصغرها يُحتسب مضاعفًا.",
+      "أرسل تلك الرسالة الواحدة التي تؤجّلها. ستفتح أكثر مما تظن.",
+      "أضِف اليوم لبنة واحدة لأمر يهمّك.",
+      "الطاقة تنمو، فاستغلّ الصباح لما يحتاج إلى حماس.",
     ],
   },
   {
     slug: "pierwsza-kwadra",
-    name: "Pierwsza kwadra",
+    name: "التربيع الأول",
     emoji: "🌓",
     starting:
-      "Moment decyzji i pokonywania pierwszych przeszkód — działaj, nawet jeśli nie wszystko idzie gładko.",
+      "لحظة قرار وتجاوز العقبات الأولى، تحرّك حتى لو لم يسِر كل شيء بسلاسة.",
     tips: [
-      "Jedna trudna rozmowa lub decyzja dziś zdejmie ci ciężar z ramion. Dasz radę.",
-      "Nie czekaj na idealny moment — dziś działanie znaczy więcej niż plan.",
-      "Pokonaj dziś jedną małą przeszkodę, którą omijasz od tygodnia.",
-      "Podejmij decyzję, którą odkładasz. Ulga przyjdzie szybciej niż żal.",
-      "Postaw dziś granicę tam, gdzie od dawna jej brakuje.",
+      "حديث صعب أو قرار واحد اليوم سيزيح عنك ثقلًا. أنت قادر.",
+      "لا تنتظر اللحظة المثالية، اليوم الفعل أهم من الخطة.",
+      "تجاوز اليوم عقبة صغيرة تتحاشاها منذ أسبوع.",
+      "اتّخذ القرار الذي تؤجّله. الراحة تأتي أسرع من الندم.",
+      "ضَع اليوم حدًّا حيث ينقصك منذ زمن.",
     ],
   },
   {
     slug: "przybywajacy-garb",
-    name: "Przybywający garb",
+    name: "الأحدب المتزايد",
     emoji: "🌔",
     starting:
-      "Dopracowuj i poprawiaj — nowe sprawy zaczęte teraz zdążą dojrzeć przed pełnią.",
+      "حسّن وأتقِن، الأمور التي بدأت الآن ستنضج قبل البدر.",
     tips: [
-      "Dokończ coś, co jest „prawie gotowe”. Wieczorem odpocznij bez ekranu.",
-      "Dopracuj dziś jeden szczegół, który do tej pory pomijałeś.",
-      "Sprawdź, co jeszcze wymaga poprawki, zanim sprawa dojrzeje.",
-      "Zrób dziś krok, który przybliża domknięcie, nie nowy początek.",
-      "Wieczorem odłóż telefon wcześniej — jutro podziękujesz sobie za sen.",
+      "أنهِ شيئًا «شبه جاهز». ومساءً استرِح بلا شاشة.",
+      "أتقِن اليوم تفصيلًا واحدًا كنت تتجاوزه.",
+      "تحقّق مما يحتاج إلى تصحيح قبل أن ينضج الأمر.",
+      "اخطُ اليوم خطوة تقرّبك من الإتمام لا من بداية جديدة.",
+      "مساءً ضع الهاتف مبكرًا، وستشكر نفسك غدًا على النوم.",
     ],
   },
   {
     slug: "pelnia",
-    name: "Pełnia",
+    name: "البدر",
     emoji: "🌕",
     starting:
-      "Kulminacja cyklu — emocje bywają silniejsze, a sen płytszy. Świętuj efekty, ale wielkie starty przełóż o kilka dni.",
+      "ذروة الدورة، المشاعر أقوى والنوم أخفّ. احتفِ بالنتائج وأجّل الانطلاقات الكبيرة أيامًا قليلة.",
     tips: [
-      "Zadbaj dziś o wyciszenie przed snem: ciepły prysznic, herbata, książka zamiast telefonu.",
-      "Emocje bywają dziś silniejsze — daj sobie prawo do spokojniejszego wieczoru.",
-      "Świętuj dziś jeden efekt, z którego jesteś dumny. Zasłużyłeś.",
-      "Jeśli sen jest dziś płytszy, przyciemnij światła godzinę wcześniej.",
-      "Wielkie starty przełóż o kilka dni. Dziś po prostu bądź.",
+      "اعتنِ اليوم بالتهدئة قبل النوم: دُش دافئ، شاي، كتاب بدل الهاتف.",
+      "المشاعر أقوى اليوم، فامنح نفسك حق أمسية أهدأ.",
+      "احتفِ اليوم بنتيجة تفخر بها. تستحقها.",
+      "إن كان نومك أخفّ اليوم، خفّف الأضواء قبل ساعة.",
+      "أجّل الانطلاقات الكبيرة أيامًا قليلة. اليوم كُن فحسب.",
     ],
   },
   {
     slug: "ubywajacy-garb",
-    name: "Ubywający garb",
+    name: "الأحدب المتناقص",
     emoji: "🌖",
     starting:
-      "Czas wniosków i dzielenia się tym, co się udało. Zamiast zaczynać — podsumuj.",
+      "وقت الخلاصات ومشاركة ما نجح. بدل أن تبدأ، لخّص.",
     tips: [
-      "Podziękuj dziś komuś, kto ci ostatnio pomógł. Obojgu wam to poprawi dzień.",
-      "Podsumuj dziś, co się udało — docenienie siebie też jest pracą.",
-      "Podziel się z kimś tym, czego się ostatnio nauczyłeś.",
-      "Zamiast zaczynać nowe, dopieść to, co już masz.",
-      "Zwolnij dziś tempo — najlepsze wnioski przychodzą w ciszy.",
+      "اشكر اليوم من ساعدك مؤخرًا. سيحسّن ذلك يومكما معًا.",
+      "لخّص اليوم ما نجح، فتقدير الذات عمل أيضًا.",
+      "شارك أحدهم ما تعلّمته مؤخرًا.",
+      "بدل بدء الجديد، اعتنِ بما لديك.",
+      "أبطئ اليوم إيقاعك، فأفضل الخلاصات تأتي في الهدوء.",
     ],
   },
   {
     slug: "ostatnia-kwadra",
-    name: "Ostatnia kwadra",
+    name: "التربيع الأخير",
     emoji: "🌗",
     starting:
-      "Dobry moment na porządki i domykanie spraw — odpuść to, co już nie służy.",
+      "وقت مناسب للترتيب وإغلاق الأمور، تخلَّ عمّا لم يعد يخدمك.",
     tips: [
-      "Wykreśl z listy jedną rzecz, której naprawdę nie musisz robić. Ulga gwarantowana.",
-      "Odpuść dziś jedną sprawę, która już ci nie służy.",
-      "Zrób porządek w jednej szufladzie — głowa też to poczuje.",
-      "Domknij dziś coś, co wisi od dawna. Nie musi być idealnie, ma być skończone.",
-      "Powiedz „nie” tam, gdzie od dawna ciśnie się „tak z obowiązku”.",
+      "احذف من قائمتك أمرًا لست مضطرًا لفعله حقًا. الراحة مضمونة.",
+      "تخلَّ اليوم عن أمر لم يعد يخدمك.",
+      "رتّب درجًا واحدًا، وعقلك سيشعر بذلك.",
+      "أغلق اليوم شيئًا معلّقًا منذ زمن. لا يلزم أن يكون مثاليًا، بل منتهيًا.",
+      "قل «لا» حيث تزاحمك «نعم الواجب» منذ زمن.",
     ],
   },
   {
     slug: "ubywajacy-sierp",
-    name: "Ubywający sierp",
+    name: "الهلال المتناقص",
     emoji: "🌘",
     starting:
-      "Cykl się domyka — zwolnij, regeneruj się i zbieraj siły na nowy początek.",
+      "الدورة تُغلَق، أبطئ واستعِد نشاطك واجمع القوى لبداية جديدة.",
     tips: [
-      "Połóż się dziś spać pół godziny wcześniej. Twoje sny będą wdzięczne.",
-      "Zwolnij i zbieraj siły — nowy cykl zaraz się zacznie.",
-      "Dziś nic nie musisz zaczynać. Regeneracja to też działanie.",
-      "Zadbaj wieczorem o ciało: woda, ciepło, cisza.",
-      "Odpuść dziś jedną rzecz z listy i po prostu odpocznij.",
+      "نَم اليوم قبل نصف ساعة من موعدك. ستشكرك أحلامك.",
+      "أبطئ واجمع القوى، فالدورة الجديدة على الأبواب.",
+      "لا شيء عليك أن تبدأه اليوم. الاستعادة فعل أيضًا.",
+      "اعتنِ مساءً بجسدك: ماء، دفء، هدوء.",
+      "تخلَّ اليوم عن أمر من القائمة، واسترِح فحسب.",
     ],
   },
 ];
 
-// Wiek Księżyca w dniach (0 = nów).
+// عمر القمر بالأيام (0 = محاق).
 export function moonAge(date: Date): number {
   const days = (date.getTime() - REF_NEW_MOON) / 86400000;
   return ((days % SYNODIC) + SYNODIC) % SYNODIC;
 }
 
-// Oświetlenie tarczy 0–100%.
+// إضاءة القرص 0–100%.
 export function moonIllumination(date: Date): number {
   const age = moonAge(date);
   return Math.round(((1 - Math.cos((2 * Math.PI * age) / SYNODIC)) / 2) * 100);
@@ -163,9 +162,8 @@ function hashSeed(str: string): number {
   return h >>> 0;
 }
 
-// Wskazówka „na dziś": z puli danej fazy, ale rotowana po DACIE — więc zmienia się
-// każdego dnia (a nie stoi przez całą fazę, jak wcześniej). Deterministyczna: ta sama
-// dla wszystkich w danym dniu, stabilna w ciągu dnia.
+// نصيحة «لهذا اليوم»: من مجموعة الطور، لكنها تدور حسب التاريخ فتتغيّر كل يوم.
+// حتمية: نفسها للجميع في يوم معيّن، ثابتة خلال اليوم.
 export function dailyMoonTip(date = new Date()): string {
   const phase = moonPhase(date);
   const day = date.toISOString().slice(0, 10);

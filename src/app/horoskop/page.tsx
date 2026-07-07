@@ -6,9 +6,9 @@ import AdSlot from "@/components/AdSlot";
 
 export const revalidate = 86400;
 
-const title = `Horoskop dzienny — wszystkie znaki zodiaku — ${SITE.name}`;
+const title = `حظك اليوم — كل أبراج الزودياك — ${SITE.name}`;
 const description =
-  "Horoskop na dziś dla każdego znaku zodiaku: miłość, finanse, energia i rada dnia. Wybierz swój znak i sprawdź, co przyniesie dzień.";
+  "حظ اليوم لكل برج: الحب والمال والطاقة ونصيحة اليوم. اختر برجك واعرف ماذا يحمله اليوم.";
 
 export const metadata: Metadata = {
   title: { absolute: title },
@@ -22,11 +22,11 @@ export default function HoroscopePage() {
     <div className="mx-auto flex max-w-3xl flex-col gap-8">
       <header className="text-center">
         <h1 className="text-3xl font-bold tracking-tight text-text sm:text-4xl">
-          Horoskop na dziś
+          حظك اليوم
         </h1>
         <p className="mx-auto mt-3 max-w-xl text-text-muted">
-          Codzienny horoskop dla każdego znaku zodiaku — krótko i konkretnie:
-          miłość, finanse, energia i jedna rada na dziś. Wybierz swój znak.
+          حظ يومي لكل برج، باختصار ووضوح: الحب والمال والطاقة ونصيحة واحدة لهذا
+          اليوم. اختر برجك.
         </p>
       </header>
 
@@ -39,8 +39,8 @@ export default function HoroscopePage() {
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src={`/zodiac/${s.slug}.jpg`}
-              alt={`Znak zodiaku ${s.name}`}
+              src={`/zodiac/${s.img}.jpg`}
+              alt={`برج ${s.name}`}
               width={400}
               height={400}
               loading="lazy"
@@ -57,7 +57,7 @@ export default function HoroscopePage() {
       <AdSlot slot="inArticle" />
 
       <p className="text-center text-sm text-text-muted">
-        Horoskop czytaj spokojnie, jako inspirację na dziś.
+        اقرأ الحظ بهدوء، كإلهام لهذا اليوم.
       </p>
     </div>
   );

@@ -4,28 +4,31 @@ import { notFound } from "next/navigation";
 import { SITE } from "@/lib/site";
 import { T } from "@/locales/pl";
 import { SIGNS, SIGN_BY_SLUG, dailyHoroscope } from "@/lib/horoscope";
+import { decodeSlug } from "@/lib/polish";
 import AdSlot from "@/components/AdSlot";
 
 export function generateStaticParams() {
   return SIGNS.map((s) => ({ znak: s.slug }));
 }
 
-export const dynamicParams = false;
-export const revalidate = 3600; // horoskop odświeża się w ciągu dnia
+// true: Next 16 لا يطابق المسارات العربية المُرمَّزة مع بارامترات ما قبل التوليد.
+export const dynamicParams = true;
+export const revalidate = 3600; // يتحدّث حظ اليوم خلال اليوم
 
 export async function generateMetadata({
   params,
 }: {
   params: Promise<{ znak: string }>;
 }): Promise<Metadata> {
-  const { znak } = await params;
+  const { znak: raw } = await params;
+  const znak = decodeSlug(raw);
   const sign = SIGN_BY_SLUG.get(znak);
-  if (!sign) return { title: "Nie znaleziono znaku" };
+  if (!sign) return { title: "لم يُعثر على البرج" };
 
-  const title = `Horoskop ${sign.name} na dziś — ${SITE.name}`;
-  const description = `Horoskop dzienny dla znaku ${sign.name} (${sign.dates}): miłość, finanse, energia i rada na dziś. Codziennie nowy horoskop.`;
+  const title = `حظ ${sign.name} اليوم — ${SITE.name}`;
+  const description = `حظ اليوم لبرج ${sign.name} (${sign.dates}): الحب والمال والطاقة ونصيحة اليوم. حظ جديد كل يوم.`;
   const url = `${SITE.url}/horoskop/${sign.slug}`;
-  const ogImage = `${SITE.url}/zodiac/${sign.slug}.jpg`;
+  const ogImage = `${SITE.url}/zodiac/${sign.img}.jpg`;
   return {
     title: { absolute: title },
     description,
@@ -46,14 +49,15 @@ export default async function SignPage({
 }: {
   params: Promise<{ znak: string }>;
 }) {
-  const { znak } = await params;
+  const { znak: raw } = await params;
+  const znak = decodeSlug(raw);
   const sign = SIGN_BY_SLUG.get(znak);
   if (!sign) notFound();
 
   const now = new Date();
   const h = dailyHoroscope(sign.slug, now);
-  const dateLabel = now.toLocaleDateString("pl-PL", {
-    timeZone: "Europe/Warsaw",
+  const dateLabel = now.toLocaleDateString("ar-EG", {
+    timeZone: "Asia/Riyadh",
     day: "numeric",
     month: "long",
     year: "numeric",
@@ -72,15 +76,15 @@ export default async function SignPage({
       <header className="text-center">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src={`/zodiac/${sign.slug}.jpg`}
-          alt={`Znak zodiaku ${sign.name}`}
+          src={`/zodiac/${sign.img}.jpg`}
+          alt={`برج ${sign.name}`}
           width={1024}
           height={1024}
           fetchPriority="high"
           className="mx-auto aspect-square w-56 rounded-2xl border border-border object-cover shadow-sm sm:w-72"
         />
         <h1 className="mt-4 text-3xl font-bold tracking-tight text-text sm:text-4xl">
-          Horoskop {sign.name} na dziś
+          حظ {sign.name} اليوم
         </h1>
         <p className="mt-1 text-text-muted">
           {dateLabel} · {sign.dates}
@@ -89,10 +93,10 @@ export default async function SignPage({
 
       <div className="flex flex-col gap-4">
         {[
-          ["💗 Miłość i relacje", h.love],
-          ["💼 Praca i finanse", h.money],
-          ["🔋 Energia i zdrowie", h.energy],
-          ["✨ Rada na dziś", h.advice],
+          ["💗 الحب والعلاقات", h.love],
+          ["💼 العمل والمال", h.money],
+          ["🔋 الطاقة والصحة", h.energy],
+          ["✨ نصيحة اليوم", h.advice],
         ].map(([label, text]) => (
           <div key={label} className="rounded-xl border border-border bg-bg-elev p-4">
             <div className="mb-1 text-sm font-semibold text-text-muted">{label}</div>
@@ -104,17 +108,17 @@ export default async function SignPage({
       <AdSlot slot="inArticle" />
 
       <section>
-        <h2 className="mb-3 text-lg font-semibold text-text">Inne znaki</h2>
+        <h2 className="mb-3 text-lg font-semibold text-text">أبراج أخرى</h2>
         <div className="flex flex-wrap gap-2">
           {SIGNS.filter((s) => s.slug !== sign.slug).map((s) => (
             <Link
               key={s.slug}
               href={`/horoskop/${s.slug}`}
-              className="flex items-center gap-2 rounded-full border border-border bg-bg-soft py-1 pl-1 pr-3 text-sm text-text no-underline chip"
+              className="flex items-center gap-2 rounded-full border border-border bg-bg-soft py-1 pr-1 pl-3 text-sm text-text no-underline chip"
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src={`/zodiac/${s.slug}.jpg`}
+                src={`/zodiac/${s.img}.jpg`}
                 alt=""
                 width={48}
                 height={48}
