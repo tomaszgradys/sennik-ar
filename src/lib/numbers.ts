@@ -17,8 +17,8 @@ export interface NumberContent {
 // się / „anielskie". Kolejność = kolejność na hubie /liczby.
 export const NUMBERS: number[] = [
   ...Array.from({ length: 101 }, (_, i) => i), // 0-100
+  // أرقام «ملائكية» متكررة رائجة على شبكات التواصل العربية
   111, 222, 333, 444, 555, 666, 777, 888, 999, 1010, 1111, 1212, 1234,
-  2137, // godzina śmierci JPII (21:37) — kultowa liczba w polskim internecie
 ];
 
 const CONTENT = numbersData as Record<string, NumberContent>;

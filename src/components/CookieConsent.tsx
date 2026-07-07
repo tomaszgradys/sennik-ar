@@ -48,10 +48,10 @@ export default function CookieConsent() {
     <div className="fixed inset-x-0 bottom-0 z-[60] border-t border-border bg-bg-elev/95 backdrop-blur">
       <div className="mx-auto max-w-3xl px-4 py-4 text-center text-sm text-text">
         <p className="m-0">
-          Używamy plików cookies, aby serwis działał poprawnie, a za Twoją zgodą także
-          do statystyk i reklam. Szczegóły w{" "}
+          نستخدم ملفات تعريف الارتباط (cookies) ليعمل الموقع بشكل صحيح، وبموافقتك أيضًا
+          للإحصاءات والإعلانات. التفاصيل في{" "}
           <Link href="/polityka-prywatnosci" className="link-soft">
-            Polityce prywatności
+            سياسة الخصوصية
           </Link>
           .
         </p>
@@ -60,7 +60,7 @@ export default function CookieConsent() {
           <div className="mt-3 flex flex-col gap-2 rounded-lg border border-border bg-bg-soft p-3">
             <label className="flex items-center gap-2 text-text-muted">
               <input type="checkbox" checked disabled />
-              Niezbędne (zawsze aktywne)
+              ضرورية (مفعّلة دائمًا)
             </label>
             <label className="flex items-center gap-2">
               <input
@@ -68,7 +68,7 @@ export default function CookieConsent() {
                 checked={analytics}
                 onChange={(e) => setAnalytics(e.target.checked)}
               />
-              Statystyki (Google Analytics)
+              الإحصاءات (Google Analytics)
             </label>
             <label className="flex items-center gap-2">
               <input
@@ -76,7 +76,7 @@ export default function CookieConsent() {
                 checked={marketing}
                 onChange={(e) => setMarketing(e.target.checked)}
               />
-              Reklamy (dopasowane treści)
+              الإعلانات (محتوى مخصّص)
             </label>
           </div>
         )}
@@ -86,27 +86,27 @@ export default function CookieConsent() {
             onClick={() => save({ analytics: false, marketing: false, ts: Date.now() })}
             className="rounded-full border border-border px-4 py-2 text-sm text-text"
           >
-            Tylko niezbędne
+            الضرورية فقط
           </button>
           <button
             onClick={() => save({ analytics: true, marketing: true, ts: Date.now() })}
             className="dream-save dream-save--calm inline-flex items-center px-5 py-2 text-sm font-semibold"
           >
-            Akceptuję wszystkie
+            أوافق على الكل
           </button>
           {customize ? (
             <button
               onClick={() => save({ analytics, marketing, ts: Date.now() })}
               className="rounded-full border border-accent px-4 py-2 text-sm text-accent"
             >
-              Zapisz wybór
+              حفظ الاختيار
             </button>
           ) : (
             <button
               onClick={() => setCustomize(true)}
               className="rounded-full border border-border px-4 py-2 text-sm text-text-muted"
             >
-              Ustawienia
+              الإعدادات
             </button>
           )}
         </div>

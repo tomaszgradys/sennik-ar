@@ -97,22 +97,18 @@ function corpusBg() {
 // Słowa-wypełniacze pomijane przy dopasowaniu (żeby „sen o czarnym kocie" trafiał
 // w „czarny kot"). Zawiera też narracyjne wypełniacze zdań („śniło mi się, że…").
 const STOP = new Set([
-  "sen", "senny", "sennik", "snu", "sny", "snie", "o", "w", "we", "na", "do", "z", "ze",
-  "znaczenie", "co", "oznacza", "mi", "sie", "jak", "moim", "moj", "moja", "moje",
-  // narracja snów
-  "snilo", "snil", "snila", "snilem", "snilam", "przysnil", "przysnilo", "przysnila",
-  "widzialem", "widzialam", "widze", "bylem", "bylam", "byl", "byla", "bylo", "byly",
-  "mialem", "mialam", "mial", "miala", "ostatnio", "dzisiaj", "dzis", "wczoraj",
-  // spójniki / zaimki / przyimki
-  "iz", "i", "a", "ale", "bo", "gdy", "kiedy", "potem", "pozniej", "nagle", "wtedy",
-  "ktory", "ktora", "ktore", "jakis", "jakas", "jakies", "jakby", "chyba", "bardzo",
-  "mnie", "mna", "mojego", "mojej", "moich", "nam", "nas", "ten", "ta", "to", "te",
-  "tym", "tego", "cos", "ktos", "gdzie", "gdzies", "taki", "taka", "takie",
-  "od", "pod", "nad", "przy", "przez", "po", "dla", "u", "za", "obok", "przed",
+  // مفاتيح البحث الشائعة عن الأحلام
+  "حلم", "حلمت", "حلمنا", "الحلم", "احلام", "منام", "المنام", "رؤيا", "رؤيه", "تفسير", "معنى", "معنا",
+  "رايت", "رايته", "شفت", "شاهدت", "اري", "ارى", "كنت", "كان", "كانت",
+  // أدوات وضمائر وحروف جر
+  "ان", "انه", "انها", "في", "فى", "عن", "على", "الى", "من", "مع", "او", "ثم", "لكن", "بعد", "قبل",
+  "ما", "ماذا", "هذا", "هذه", "ذلك", "الذي", "التي", "عندما", "حين", "حينما", "فجاه", "فجأه",
+  "جدا", "قد", "لقد", "هل", "يا", "به", "بها", "له", "لها", "نفسي", "امس", "اليوم", "البارحه",
+  "و", "ال", "اني", "انا",
 ]);
 
-// Kilka „ciekawych" propozycji, gdy nic nie pasuje.
-const INTERESTING = ["kot", "pies", "waz", "woda", "zeby", "smierc", "pieniadze", "spadanie"];
+// اقتراحات «مثيرة» حين لا يطابق شيء — رموز شائعة في الثقافة العربية (موجودة في الكتالوج).
+const INTERESTING = ["كلب", "ثعبان-اسود", "الموت", "الجن", "الكعبه", "تمر", "السحر", "الدم"];
 
 function out(r: { slug: string; phrase: string; parent: string; kind: string }) {
   return { slug: r.slug, phrase: r.phrase, symbol: r.parent, kind: r.kind };

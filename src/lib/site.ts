@@ -19,15 +19,15 @@ export const SITE = {
   dir: "rtl" as const,
 };
 
-// Dane prawne operatora. TYMCZASOWO dane Profivo (z profivo.pl) — do zmiany na
-// osobny podmiot sennik.tv, gdy powstanie. To jedyne miejsce z tymi danymi.
+// بيانات مشغّل الموقع القانونية. مؤقتًا محايدة (بلا كيان قانوني بعدُ لـ hulm.pro).
+// عند تسجيل الكيان: املأ operator/operatorForm/address/taxId ببياناته الحقيقية.
+// هذا المكان الوحيد لهذه البيانات. ملاحظة: لا تُستخدم بيانات شركة أجنبية (بولندية) هنا.
 export const LEGAL = {
-  operator: "Profivo",
-  operatorForm:
-    "spółka wpisana do rejestru przedsiębiorców KRS pod nr 0001181942, REGON 542154491",
-  address: "ul. Paprotna 8B/14, 51-117 Wrocław",
-  nip: "9151835807",
-  email: "kontakt@profivo.pl",
-  // Data ostatniej aktualizacji dokumentów prawnych:
-  lastUpdated: "2026-07-03",
+  operator: "hulm.pro",
+  operatorForm: "", // مثال: «شركة مسجّلة برقم …» — يُملأ عند وجود كيان قانوني
+  address: "", // العنوان الرسمي — يُملأ لاحقًا
+  taxId: "", // الرقم الضريبي — يُملأ لاحقًا
+  email: "contact@hulm.pro",
+  // تاريخ آخر تحديث للوثائق القانونية:
+  lastUpdated: "2026-07-07",
 };
