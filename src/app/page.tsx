@@ -8,7 +8,7 @@ import DiscoverCards from "@/components/DiscoverCards";
 import MissingDreamForm from "@/components/MissingDreamForm";
 import { publishedSymbols, allPublished, dreamPath } from "@/lib/dream";
 import { listPosts, blogPath, heroSrcBlog } from "@/lib/blog";
-import { popularToday } from "@/lib/daily";
+import { popularSymbols } from "@/lib/daily";
 import { customDreamSlugs } from "@/lib/custom";
 import { categoryForName, categoryPath } from "@/lib/categories";
 import { capitalize } from "@/lib/polish";
@@ -65,9 +65,9 @@ export default async function Home() {
   // na stronie głównej (popularne/przeglądaj) — świadoma decyzja.
   const symbols = publishedSymbols().filter((s) => !isSensitive(s.slug));
   const bySlug = new Map(symbols.map((s) => [s.slug, s]));
-  // „Sny, które warto dziś sprawdzić" — rdzeń najczęstszych motywów z łagodną
-  // rotacją z daty (nie statystyka). Dopełniane, gdyby czegoś brakowało.
-  const picked = popularToday(new Date(), 8)
+  // „أحلام شائعة" — statyczna lista najpopularniejszych snów w tej kulturze
+  // (stała kolejność). Dopełniana z katalogu, gdyby któregoś zabrakło.
+  const picked = popularSymbols(8)
     .map((s) => bySlug.get(s))
     .filter((s) => s != null);
   const seen = new Set(picked.map((s) => s!.slug));
