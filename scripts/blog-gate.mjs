@@ -9,7 +9,8 @@ import { fileURLToPath } from "node:url";
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 const INDEX = join(ROOT, "src", "data", "blog", "_index.json");
 const END_HOUR = 18; // koniec okna (włącznie z tą godziną jako „ostatnia szansa")
-const CONFIG_URL = "https://sennik.tv/api/blog-config";
+// TODO: podmienić na https://hulm.pro/api/blog-config po podpięciu domeny.
+const CONFIG_URL = "https://sennik-ar.vercel.app/api/blog-config";
 
 function warsaw(now = new Date()) {
   const p = new Intl.DateTimeFormat("en-CA", {

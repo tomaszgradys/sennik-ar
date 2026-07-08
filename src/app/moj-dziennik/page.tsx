@@ -7,7 +7,7 @@ import JournalDashboard, { type Entry } from "@/components/JournalDashboard";
 
 // Prywatny panel — poza indeksem wyszukiwarek.
 export const metadata: Metadata = {
-  title: { absolute: "Mój dziennik snów — Znaczenie snu" },
+  title: { absolute: "دفتر أحلامي — hulm.pro" },
   robots: { index: false, follow: false },
 };
 

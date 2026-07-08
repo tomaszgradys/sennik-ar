@@ -31,7 +31,7 @@ export async function generateMetadata({
   const { kategoria: rawKat } = await params;
   const kategoria = decodeSlug(rawKat);
   const cat = CATEGORY_BY_SLUG.get(kategoria);
-  if (!cat) return { title: "Nie znaleziono kategorii" };
+  if (!cat) return { title: "لم يتم العثور على هذه الفئة" };
   const url = `${SITE.url}${categoryPath(cat.slug)}`;
   return {
     title: { absolute: `${cat.title} — ${SITE.name}` },
@@ -108,10 +108,10 @@ export default async function CategoryHub({
 
       <section>
         <h2 className="mb-3 text-lg font-semibold text-text">
-          Wszystkie sny z kategorii ({symbols.length})
+          كل أحلام هذه الفئة ({symbols.length})
         </h2>
         {symbols.length === 0 ? (
-          <p className="text-text-muted">Ta kategoria jest w przygotowaniu.</p>
+          <p className="text-text-muted">هذه الفئة قيد الإعداد.</p>
         ) : (
           <div className="flex flex-wrap gap-2">
             {symbols.map((s) => (

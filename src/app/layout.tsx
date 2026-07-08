@@ -106,19 +106,22 @@ export default function RootLayout({
               <Logo />
             </div>
             <nav className="hidden items-center gap-4 text-sm md:flex">
-              <Link href="/tafsir-ibn-sirin/" className="text-text-muted no-underline hover:text-text">
+              <Link href="/" className="text-center text-text-muted no-underline hover:text-text">
+                {T.nav.home}
+              </Link>
+              <Link href="/tafsir-ibn-sirin/" className="text-center text-text-muted no-underline hover:text-text">
                 تفسير ابن سيرين
               </Link>
-              <Link href="/blog/" className="text-text-muted no-underline hover:text-text">
+              <Link href="/blog/" className="text-center text-text-muted no-underline hover:text-text">
                 المدونة
               </Link>
-              <Link href="/kolory/" className="text-text-muted no-underline hover:text-text">
+              <Link href="/kolory/" className="text-center text-text-muted no-underline hover:text-text">
                 الألوان
               </Link>
-              <Link href="/liczby/" className="text-text-muted no-underline hover:text-text">
+              <Link href="/liczby/" className="text-center text-text-muted no-underline hover:text-text">
                 الأرقام
               </Link>
-              <Link href="/faza-ksiezyca/" className="text-text-muted no-underline hover:text-text">
+              <Link href="/faza-ksiezyca/" className="text-center text-text-muted no-underline hover:text-text">
                 {T.nav.moon}
               </Link>
             </nav>
@@ -197,7 +200,7 @@ export default function RootLayout({
               <div className="flex items-center gap-4">
                 <ThreeDToggle />
                 <CookieSettingsButton />
-                <Link href="/panel" rel="nofollow" className="link-soft opacity-60">Panel</Link>
+                <Link href="/panel" rel="nofollow" className="link-soft opacity-60">{T.footer.panel}</Link>
               </div>
             </div>
           </div>

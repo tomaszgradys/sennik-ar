@@ -46,7 +46,7 @@ export default function ThemeControls() {
   return (
     <div
       role="radiogroup"
-      aria-label="Motyw"
+      aria-label="المظهر"
       className="flex rounded-full border border-border bg-bg-soft p-0.5"
     >
       {MODES.map((m) => (

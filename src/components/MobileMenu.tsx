@@ -9,6 +9,7 @@ import ThemeControls from "@/components/ThemeControls";
 // klawiszem Escape i po kliknięciu poza panelem. Zawiera też przełącznik motywu
 // (na telefonie nie mieści się w pasku).
 const LINKS = [
+  { href: "/", label: "تفسير الأحلام" },
   { href: "/tafsir-ibn-sirin/", label: "تفسير ابن سيرين" },
   { href: "/anwaa-al-ahlam/", label: "أنواع الأحلام" },
   { href: "/blog/", label: "المدونة" },

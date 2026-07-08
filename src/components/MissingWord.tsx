@@ -32,11 +32,11 @@ export default function MissingWord({ slug }: { slug: string }) {
       <header className="text-center">
         <div aria-hidden className="text-4xl">🌙</div>
         <h1 className="mt-2 text-3xl font-bold tracking-tight text-text sm:text-4xl">
-          Sen o „{word}"
+          حلم „{word}"
         </h1>
         <p className="mx-auto mt-3 max-w-md text-text-muted">
-          Nie mamy jeszcze osobnej interpretacji dla tego snu, ale zajmiemy się nim.
-          W międzyczasie zobacz podobne sny, które mogą pasować:
+          ليس لدينا بعد تفسير مستقل لهذا الحلم، لكننا سنهتم به قريبًا.
+          في هذه الأثناء، شاهد أحلامًا مشابهة قد تناسبك:
         </p>
       </header>
 
@@ -59,7 +59,7 @@ export default function MissingWord({ slug }: { slug: string }) {
 
       <div>
         <p className="mb-2 text-center text-sm text-text-muted">
-          A może chodziło o coś innego? Poszukaj:
+          ربما تقصد شيئًا آخر؟ ابحث:
         </p>
         <SearchBox />
       </div>

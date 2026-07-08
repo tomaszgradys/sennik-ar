@@ -52,12 +52,12 @@ jobs:
         id: commit
         if: steps.gate.outputs.proceed == 'true'
         run: |
-          git config user.name "Sennik Bot"
-          git config user.email "bot@sennik.tv"
+          git config user.name "Hulm Bot"
+          git config user.email "bot@hulm.pro"
           git add src/data/blog public/blog-img
           if git diff --cached --quiet; then
             echo "changed=false" >> "$GITHUB_OUTPUT"
-            echo "Brak nowego wpisu (kolejka pusta?)."
+            echo "Brak nowego wpisu (temat AI nie powiódł się lub obrazek FLUX zawiódł)."
           else
             git commit -m "Blog: nowy wpis (auto)"
             git push

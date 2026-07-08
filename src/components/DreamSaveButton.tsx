@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState, type FormEvent } from "react";
+import { T } from "@/locales/pl";
 
 // „Dodaj do dziennika": atrakcyjny przycisk przy nagłówku snu + latający widget w rogu
 // na telefonie. Zalogowany zapisuje jednym kliknięciem; niezalogowany dostaje lekki
@@ -76,9 +77,9 @@ export default function DreamSaveButton({ slug, title, sourcePath }: Props) {
     track("dream_journal_cta_view", { dream_slug: slug, cta_location: "symbol_page" });
     const p = new URLSearchParams(window.location.search);
     const s = p.get("saved");
-    if (s === "1") { setState("saved"); showToast("Sen zapisany w dzienniku"); }
-    else if (s === "exists") { setState("exists"); showToast("Ten sen już jest w dzienniku"); }
-    if (p.get("login") === "unavailable") showToast("Logowanie chwilowo niedostępne");
+    if (s === "1") { setState("saved"); showToast(T.save.toastSaved); }
+    else if (s === "exists") { setState("exists"); showToast(T.save.toastExists); }
+    if (p.get("login") === "unavailable") showToast(T.save.toastLoginUnavailable);
 
     // Wracający zalogowany użytkownik, który już zapisał ten sen → pokaż „✓ Zapisano".
     // Odpytujemy TYLKO gdy jest jawna flaga zalogowania (zero zapytań dla niezalogowanych).
@@ -142,25 +143,25 @@ export default function DreamSaveButton({ slug, title, sourcePath }: Props) {
         setModal(true);
         return;
       }
-      if (res.status === 429) { setState("idle"); showToast("Za dużo zapisów naraz. Spróbuj za chwilę."); return; }
+      if (res.status === 429) { setState("idle"); showToast(T.save.toastTooMany); return; }
       const d = await res.json().catch(() => ({}));
       if (d.ok) {
         track("dream_journal_save_success", { dream_slug: slug, logged_in: true, duplicate: !!d.duplicate });
         setState(d.duplicate ? "exists" : "saved");
         if (d.duplicate) {
-          showToast("Ten sen już jest w dzienniku");
+          showToast(T.save.toastExists);
         } else if (d.entry?.id) {
           openDesc(d.entry.id); // drugi, opcjonalny krok: opis + szczegóły
         } else {
-          showToast("Sen zapisany w dzienniku");
+          showToast(T.save.toastSaved);
         }
       } else {
         track("dream_journal_save_failed", { dream_slug: slug });
-        setState("idle"); showToast("Nie udało się zapisać. Spróbuj ponownie.");
+        setState("idle"); showToast(T.save.toastSaveFailed);
       }
     } catch {
       track("dream_journal_save_failed", { dream_slug: slug });
-      setState("idle"); showToast("Nie udało się zapisać. Spróbuj ponownie.");
+      setState("idle"); showToast(T.save.toastSaveFailed);
     }
   }
 
@@ -186,10 +187,10 @@ export default function DreamSaveButton({ slug, title, sourcePath }: Props) {
         body: JSON.stringify(body),
       });
       const d = await res.json().catch(() => ({}));
-      if (d.ok) { track("dream_journal_details_completed", { dream_slug: slug }); setDescOpen(false); showToast("Szczegóły zapisane"); }
-      else setDescError(d.message || "Nie udało się zapisać szczegółów.");
+      if (d.ok) { track("dream_journal_details_completed", { dream_slug: slug }); setDescOpen(false); showToast(T.save.toastDetailsSaved); }
+      else setDescError(d.message || T.save.toastGenericError);
     } catch {
-      setDescError("Coś poszło nie tak. Spróbuj ponownie.");
+      setDescError(T.save.toastGenericError);
     } finally {
       setDescBusy(false);
     }
@@ -197,12 +198,12 @@ export default function DreamSaveButton({ slug, title, sourcePath }: Props) {
 
   function authErrMsg(code: string, status: number): string {
     switch (code) {
-      case "email_taken": return "Konto z tym e-mailem już istnieje. Zaloguj się.";
-      case "weak_password": return "Hasło musi mieć min. 8 znaków.";
-      case "bad_email": return "Podaj poprawny adres e-mail.";
-      case "bad_credentials": return "Błędny e-mail lub hasło.";
-      case "rate_limited": return "Za dużo prób. Spróbuj za chwilę.";
-      default: return status >= 500 ? "Chwilowy błąd serwera. Spróbuj ponownie." : "Nie udało się. Spróbuj ponownie.";
+      case "email_taken": return T.journal.errors.emailTaken;
+      case "weak_password": return T.journal.errors.weakPassword;
+      case "bad_email": return T.journal.errors.badEmail;
+      case "bad_credentials": return T.journal.errors.badCredentials;
+      case "rate_limited": return T.journal.errors.rateLimited;
+      default: return status >= 500 ? T.journal.errors.serverError : T.journal.errors.generic;
     }
   }
 
@@ -229,17 +230,17 @@ export default function DreamSaveButton({ slug, title, sourcePath }: Props) {
         setModal(false);
         setState(d.saved === "exists" ? "exists" : "saved");
         if (d.saved === "exists") {
-          showToast("Ten sen już jest w dzienniku");
+          showToast(T.save.toastExists);
         } else if (d.entryId) {
           openDesc(d.entryId);
         } else {
-          showToast("Sen zapisany w dzienniku");
+          showToast(T.save.toastSaved);
         }
         return;
       }
       setAuthError(authErrMsg(d.error, res.status));
     } catch {
-      setAuthError("Coś poszło nie tak. Spróbuj ponownie.");
+      setAuthError(T.journal.errors.network);
     } finally {
       setAuthBusy(false);
     }
@@ -251,7 +252,7 @@ export default function DreamSaveButton({ slug, title, sourcePath }: Props) {
     `&sourceUrl=${encodeURIComponent(sourcePath)}&sourceType=symbol_page`;
 
   const done = state === "saved" || state === "exists";
-  const label = state === "saving" ? "Zapisuję…" : done ? "Zapisano" : "Dodaj do dziennika";
+  const label = state === "saving" ? T.save.saving : done ? T.save.saved : T.save.add;
 
   return (
     <>
@@ -261,7 +262,7 @@ export default function DreamSaveButton({ slug, title, sourcePath }: Props) {
           type="button"
           onClick={() => save()}
           disabled={state === "saving"}
-          aria-label={done ? "Sen zapisany w dzienniku" : "Dodaj ten sen do dziennika"}
+          aria-label={done ? T.save.savedAria : T.save.addAria}
           className={`dream-save ${done ? "dream-save--done" : ""} inline-flex items-center gap-2.5 px-6 py-3 text-base font-semibold disabled:opacity-80`}
         >
           <span className="dream-save__spark">{done ? "✓" : <MoonIcon />}</span>
@@ -273,7 +274,7 @@ export default function DreamSaveButton({ slug, title, sourcePath }: Props) {
             onClick={() => save(true)}
             className="pl-1 text-sm text-text-muted underline-offset-2 transition-colors hover:text-accent hover:underline"
           >
-            Śnił Ci się znowu? Zapisz jeszcze raz
+            {T.save.saveAgain}
           </button>
         )}
       </div>
@@ -284,11 +285,11 @@ export default function DreamSaveButton({ slug, title, sourcePath }: Props) {
           type="button"
           onClick={() => save(done)}
           disabled={state === "saving"}
-          aria-label={done ? "Śnił Ci się znowu? Zapisz jeszcze raz" : "Zapisz ten sen w dzienniku"}
+          aria-label={done ? T.save.saveAgain : T.save.saveMobileAria}
           className={`dream-save ${done ? "dream-save--done" : ""} flex items-center gap-2 px-4 py-3 text-sm font-semibold disabled:opacity-80`}
         >
           <span className="dream-save__spark">{done ? "✓" : <MoonIcon />}</span>
-          {state === "saving" ? "Zapisuję…" : done ? "Zapisz znów" : "Zapisz sen"}
+          {state === "saving" ? T.save.saving : done ? T.save.saveAgainMobile : T.save.saveMobile}
         </button>
       </div>
 
@@ -299,7 +300,7 @@ export default function DreamSaveButton({ slug, title, sourcePath }: Props) {
           aria-live="polite"
           className="dream-toast fixed inset-x-0 bottom-6 z-[60] mx-auto flex w-fit max-w-[90vw] items-center gap-2 rounded-full border border-border bg-bg-elev px-4 py-2.5 text-sm text-text shadow-lg"
         >
-          {/(zapisan|dzienniku)/i.test(toast) && <span className="text-accent">✓</span>}
+          {/(حفظ|الدفتر)/.test(toast) && <span className="text-accent">✓</span>}
           {toast}
         </div>
       )}
@@ -313,14 +314,14 @@ export default function DreamSaveButton({ slug, title, sourcePath }: Props) {
           <div
             role="dialog"
             aria-modal="true"
-            aria-label="Zapisz sen w prywatnym dzienniku"
+            aria-label={T.save.modalAria}
             onClick={(e) => e.stopPropagation()}
             className="max-h-[90vh] w-full max-w-sm overflow-y-auto rounded-2xl border border-border bg-bg-elev p-5 shadow-xl"
           >
             <div className="mb-4 text-center">
-              <h2 className="m-0 text-base font-bold text-text">Zapisz sen w prywatnym dzienniku</h2>
+              <h2 className="m-0 text-base font-bold text-text">{T.save.modalTitle}</h2>
               <p className="mx-auto mt-1 max-w-[17rem] text-xs text-text-muted">
-                Załóż konto albo zaloguj się, żeby nie stracić tego snu. Tylko Ty widzisz swoje wpisy.
+                {T.save.modalLead}
               </p>
             </div>
 
@@ -334,17 +335,17 @@ export default function DreamSaveButton({ slug, title, sourcePath }: Props) {
                 className="flex w-full items-center justify-center gap-2.5 rounded-full border border-[#dadce0] bg-white px-4 py-2.5 text-sm font-medium no-underline shadow-sm transition-shadow hover:shadow-md"
               >
                 <GoogleG />
-                Kontynuuj z Google
+                {T.journal.googleContinue}
               </a>
             ) : (
               <p className="rounded-xl border border-border bg-bg-soft p-3 text-xs text-text-muted">
-                Logowanie Google będzie wkrótce — na razie załóż konto e-mailem poniżej.
+                {T.journal.googleSoon}
               </p>
             )}
 
             <div className="my-3 flex items-center gap-2 text-xs text-text-muted">
               <span className="h-px flex-1 bg-border" />
-              albo kontem na sennik
+              {T.save.orSiteAccount}
               <span className="h-px flex-1 bg-border" />
             </div>
 
@@ -354,7 +355,7 @@ export default function DreamSaveButton({ slug, title, sourcePath }: Props) {
                   type="text"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
-                  placeholder="Imię (opcjonalnie)"
+                  placeholder={T.journal.namePlaceholder}
                   autoComplete="name"
                   className="rounded-xl border border-border bg-bg-elev px-4 py-2.5 text-text outline-none focus:border-accent"
                 />
@@ -363,7 +364,7 @@ export default function DreamSaveButton({ slug, title, sourcePath }: Props) {
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                placeholder="E-mail"
+                placeholder={T.journal.emailPlaceholder}
                 autoComplete="email"
                 required
                 className="rounded-xl border border-border bg-bg-elev px-4 py-2.5 text-text outline-none focus:border-accent"
@@ -372,7 +373,7 @@ export default function DreamSaveButton({ slug, title, sourcePath }: Props) {
                 type="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                placeholder="Hasło (min. 8 znaków)"
+                placeholder={T.journal.passwordPlaceholder}
                 autoComplete={authMode === "register" ? "new-password" : "current-password"}
                 required
                 minLength={8}
@@ -384,7 +385,7 @@ export default function DreamSaveButton({ slug, title, sourcePath }: Props) {
                 disabled={authBusy}
                 className="dream-save dream-save--calm mt-1 flex w-full items-center justify-center px-4 py-2.5 text-sm font-semibold disabled:opacity-80"
               >
-                {authBusy ? "Chwila…" : authMode === "register" ? "Załóż konto i zapisz sen" : "Zaloguj i zapisz sen"}
+                {authBusy ? T.journal.busy : authMode === "register" ? T.save.createAndSave : T.save.loginAndSave}
               </button>
             </form>
 
@@ -393,7 +394,7 @@ export default function DreamSaveButton({ slug, title, sourcePath }: Props) {
               onClick={() => { setAuthMode((m) => (m === "register" ? "login" : "register")); setAuthError(null); }}
               className="mt-2 w-full text-sm text-accent hover:underline"
             >
-              {authMode === "register" ? "Masz już konto? Zaloguj się" : "Nie masz konta? Załóż konto"}
+              {authMode === "register" ? T.journal.haveAccount : T.journal.noAccount}
             </button>
 
             <button
@@ -401,7 +402,7 @@ export default function DreamSaveButton({ slug, title, sourcePath }: Props) {
               onClick={() => setModal(false)}
               className="mt-1 w-full rounded-full px-4 py-2 text-sm text-text-muted hover:text-text"
             >
-              Na razie nie
+              {T.save.notNow}
             </button>
           </div>
         </div>
@@ -416,17 +417,16 @@ export default function DreamSaveButton({ slug, title, sourcePath }: Props) {
           <div
             role="dialog"
             aria-modal="true"
-            aria-label="Sen zapisany — możesz dopisać szczegóły"
+            aria-label={T.save.detailsDialogAria}
             onClick={(e) => e.stopPropagation()}
             className="max-h-[92vh] w-full max-w-md overflow-y-auto rounded-2xl border border-border bg-bg-elev p-6 shadow-xl"
           >
             <div className="mb-1 flex items-center gap-2 text-sm font-semibold text-accent">
-              <span>✓</span> Sen zapisany w dzienniku
+              <span>✓</span> {T.save.detailsSavedBadge}
             </div>
-            <h2 className="m-0 text-lg font-bold text-text">Chcesz coś dopisać?</h2>
+            <h2 className="m-0 text-lg font-bold text-text">{T.save.detailsPrompt}</h2>
             <p className="mt-1 text-sm text-text-muted">
-              Nic nie musisz — sen już jest zapisany. Ale jeśli chcesz, dodaj kilka słów.
-              Zawsze możesz wrócić do tego w dzienniku.
+              {T.save.detailsLead}
             </p>
             <textarea
               value={desc}
@@ -434,7 +434,7 @@ export default function DreamSaveButton({ slug, title, sourcePath }: Props) {
               rows={4}
               maxLength={5000}
               autoFocus
-              placeholder="Co się działo we śnie? (opcjonalnie)"
+              placeholder={T.save.detailsPlaceholder}
               className="mt-3 w-full resize-y rounded-xl border border-border bg-bg-elev px-4 py-3 text-text outline-none focus:border-accent"
             />
 
@@ -445,31 +445,31 @@ export default function DreamSaveButton({ slug, title, sourcePath }: Props) {
               aria-expanded={moreOpen}
               className="mt-2 flex w-full items-center justify-between rounded-xl px-1 py-1.5 text-sm text-accent hover:underline"
             >
-              <span>{moreOpen ? "Ukryj szczegóły" : "Dodaj więcej szczegółów"}</span>
+              <span>{moreOpen ? T.save.hideDetails : T.save.moreDetails}</span>
               <span className={`transition-transform duration-300 ${moreOpen ? "rotate-180" : ""}`} aria-hidden>⌄</span>
             </button>
 
             {moreOpen && (
               <div className="mt-1 flex flex-col gap-2.5 border-t border-border pt-3">
                 <label className="flex flex-col gap-1">
-                  <span className="text-xs font-medium text-text-muted">Emocje (po przecinku)</span>
-                  <input value={emotions} onChange={(e) => setEmotions(e.target.value)} placeholder="lęk, ciekawość, spokój" className="rounded-xl border border-border bg-bg-elev px-3 py-2 text-text outline-none focus:border-accent" />
+                  <span className="text-xs font-medium text-text-muted">{T.save.emotionsLabel}</span>
+                  <input value={emotions} onChange={(e) => setEmotions(e.target.value)} placeholder={T.save.emotionsPlaceholder} className="rounded-xl border border-border bg-bg-elev px-3 py-2 text-text outline-none focus:border-accent" />
                 </label>
                 <div className="grid grid-cols-2 gap-2.5">
                   <label className="flex flex-col gap-1">
-                    <span className="text-xs font-medium text-text-muted">Osoby</span>
-                    <input value={people} onChange={(e) => setPeople(e.target.value)} placeholder="mama, kolega" className="rounded-xl border border-border bg-bg-elev px-3 py-2 text-text outline-none focus:border-accent" />
+                    <span className="text-xs font-medium text-text-muted">{T.save.peopleLabel}</span>
+                    <input value={people} onChange={(e) => setPeople(e.target.value)} placeholder={T.save.peoplePlaceholder} className="rounded-xl border border-border bg-bg-elev px-3 py-2 text-text outline-none focus:border-accent" />
                   </label>
                   <label className="flex flex-col gap-1">
-                    <span className="text-xs font-medium text-text-muted">Miejsca</span>
-                    <input value={places} onChange={(e) => setPlaces(e.target.value)} placeholder="las, dom" className="rounded-xl border border-border bg-bg-elev px-3 py-2 text-text outline-none focus:border-accent" />
+                    <span className="text-xs font-medium text-text-muted">{T.save.placesLabel}</span>
+                    <input value={places} onChange={(e) => setPlaces(e.target.value)} placeholder={T.save.placesPlaceholder} className="rounded-xl border border-border bg-bg-elev px-3 py-2 text-text outline-none focus:border-accent" />
                   </label>
                 </div>
                 <label className="flex flex-col gap-1">
-                  <span className="text-xs font-medium text-text-muted">Nastrój po przebudzeniu</span>
-                  <input value={mood} onChange={(e) => setMood(e.target.value)} placeholder="np. niepokój, ulga, ciekawość" className="rounded-xl border border-border bg-bg-elev px-3 py-2 text-text outline-none focus:border-accent" />
+                  <span className="text-xs font-medium text-text-muted">{T.save.moodLabel}</span>
+                  <input value={mood} onChange={(e) => setMood(e.target.value)} placeholder={T.save.moodPlaceholder} className="rounded-xl border border-border bg-bg-elev px-3 py-2 text-text outline-none focus:border-accent" />
                 </label>
-                <p className="m-0 text-xs text-text-muted">Resztę (kolory, jakość snu, notatka prywatna) uzupełnisz w dzienniku.</p>
+                <p className="m-0 text-xs text-text-muted">{T.save.restNote}</p>
               </div>
             )}
 
@@ -480,14 +480,14 @@ export default function DreamSaveButton({ slug, title, sourcePath }: Props) {
               disabled={descBusy}
               className="dream-save dream-save--calm mt-3 flex w-full items-center justify-center px-4 py-3 font-semibold disabled:opacity-80"
             >
-              {descBusy ? "Zapisuję…" : "Zapisz szczegóły"}
+              {descBusy ? T.save.saving : T.save.saveDetails}
             </button>
             <button
               type="button"
               onClick={() => setDescOpen(false)}
               className="mt-1 w-full rounded-full px-4 py-2 text-sm text-text-muted hover:text-text"
             >
-              Gotowe, dziękuję
+              {T.save.done}
             </button>
           </div>
         </div>

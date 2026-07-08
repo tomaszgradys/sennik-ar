@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useState } from "react";
 import EntryThumb from "./EntryThumb";
+import { T } from "@/locales/pl";
 
 export interface Entry {
   id: string;
@@ -46,21 +47,20 @@ interface Draft {
 }
 
 const fmt = (d: string | null) =>
-  d ? new Date(d).toLocaleDateString("pl-PL", { day: "numeric", month: "short", year: "numeric" }) : "—";
+  d ? new Date(d).toLocaleDateString("ar", { day: "numeric", month: "short", year: "numeric" }) : "—";
 const csv = (a: string[]) => a.join(", ");
-// Tytuł w dzienniku: krótki „Sen o …" zamiast pytania „Co oznacza sen o …?" (interpretację
-// user już czytał; wraca do niej przyciskiem). Ręczne tytuły zostają bez zmian.
+// عنوان في الدفتر: "حلم ..." قصير بدل سؤال "ما تفسير حلم ...؟" (التفسير قرأه المستخدم
+// بالفعل ويمكنه العودة إليه بزر). العناوين اليدوية تبقى كما هي.
 function journalTitle(t: string): string {
-  const m = t.match(/^Co oznacza(?:ją)?\s+(.+?)\??$/i);
+  const m = t.match(/^ما تفسير حلم\s+(.+?)\s+في المنام\??$/);
   if (!m) return t;
-  const s = m[1].trim();
-  return s.charAt(0).toUpperCase() + s.slice(1);
+  return `حلم ${m[1].trim()}`;
 }
 const splitCsv = (s: string) =>
   s.split(",").map((x) => x.trim()).filter(Boolean).slice(0, 30);
 const todayISO = () => new Date().toISOString().slice(0, 10);
 
-const STATUS_LABEL: Record<string, string> = { saved: "Zapisany", draft: "Szkic", completed: "Uzupełniony" };
+const STATUS_LABEL: Record<string, string> = T.journal.statusLabels;
 
 function emptyDraft(): Draft {
   return {
@@ -120,7 +120,7 @@ export default function JournalDashboard({ initialEntries, userName }: { initial
 
   async function saveDraft() {
     if (!editing || busy) return;
-    if (!editing.title.trim()) { setErr("Tytuł snu jest wymagany."); return; }
+    if (!editing.title.trim()) { setErr(T.journal.titleRequired); return; }
     setBusy(true);
     setErr(null);
     const body: Record<string, unknown> = {
@@ -146,29 +146,29 @@ export default function JournalDashboard({ initialEntries, userName }: { initial
         body: JSON.stringify(body),
       });
       const d = await res.json().catch(() => ({}));
-      if (!d.ok) { setErr(d.message || "Nie udało się zapisać."); return; }
+      if (!d.ok) { setErr(d.message || T.journal.saveFailed); return; }
       setEntries((prev) => {
         const e = d.entry as Entry;
         const rest = prev.filter((x) => x.id !== e.id);
         return [e, ...rest];
       });
       setEditing(null);
-      showToast(isEdit ? "Zmiany zapisane" : "Sen dodany do dziennika");
+      showToast(isEdit ? T.journal.changesSaved : T.journal.dreamAdded);
     } catch {
-      setErr("Coś poszło nie tak. Spróbuj ponownie.");
+      setErr(T.journal.genericError);
     } finally {
       setBusy(false);
     }
   }
 
   async function del(id: string) {
-    if (!window.confirm("Usunąć ten sen z dziennika? Tej operacji nie cofniesz.")) return;
+    if (!window.confirm(T.journal.confirmDeleteEntry)) return;
     const res = await fetch(`/api/journal/${id}/`, { method: "DELETE" });
-    if (res.ok) { setEntries((p) => p.filter((e) => e.id !== id)); showToast("Sen usunięty"); }
+    if (res.ok) { setEntries((p) => p.filter((e) => e.id !== id)); showToast(T.journal.entryDeleted); }
   }
 
   async function deleteAccount() {
-    if (!window.confirm("Usunąć konto i WSZYSTKIE Twoje sny? Tej operacji nie da się cofnąć.")) return;
+    if (!window.confirm(T.journal.confirmDeleteAccount)) return;
     const res = await fetch("/api/account/", { method: "DELETE" });
     if (res.ok) window.location.href = "/";
   }
@@ -182,9 +182,9 @@ export default function JournalDashboard({ initialEntries, userName }: { initial
     <div className="flex flex-col gap-8">
       <div className="flex flex-wrap items-center justify-between gap-3">
         <div>
-          <h1 className="text-2xl font-bold text-text">Mój dziennik snów</h1>
+          <h1 className="text-2xl font-bold text-text">{T.journal.title}</h1>
           <p className="m-0 text-sm text-text-muted">
-            {userName ? `Cześć, ${userName}. ` : ""}Tylko Ty widzisz swoje wpisy.
+            {userName ? `${T.journal.greetingHi} ${userName}. ` : ""}{T.journal.onlyYouSeeEntries}
           </p>
         </div>
         <div className="flex items-center gap-2">
@@ -192,25 +192,25 @@ export default function JournalDashboard({ initialEntries, userName }: { initial
             onClick={() => { setErr(null); setEditing(emptyDraft()); }}
             className="dream-save dream-save--calm inline-flex items-center gap-2 px-4 py-2.5 text-sm font-semibold"
           >
-            + Dodaj sen
+            {T.journal.addDream}
           </button>
           <button onClick={logout} className="rounded-full border border-border px-3 py-2 text-sm text-text-muted">
-            Wyloguj
+            {T.nav.logout}
           </button>
         </div>
       </div>
 
       {entries.length === 0 ? (
         <div className="rounded-2xl border border-border bg-bg-elev p-8 text-center">
-          <h2 className="m-0 text-lg font-semibold text-text">Twój dziennik snów jest jeszcze pusty</h2>
+          <h2 className="m-0 text-lg font-semibold text-text">{T.journal.emptyTitle}</h2>
           <p className="mx-auto mt-2 max-w-md text-sm text-text-muted">
-            Zapisuj sny jednym kliknięciem podczas czytania sennika albo dodaj własny sen ręcznie.
+            {T.journal.emptyLead}
           </p>
           <button
             onClick={() => { setErr(null); setEditing(emptyDraft()); }}
             className="dream-save mt-4 inline-flex items-center gap-2 px-5 py-2.5 font-semibold"
           >
-            Dodaj pierwszy sen
+            {T.journal.addFirstDream}
           </button>
         </div>
       ) : (
@@ -220,23 +220,23 @@ export default function JournalDashboard({ initialEntries, userName }: { initial
             <input
               value={q}
               onChange={(e) => setQ(e.target.value)}
-              placeholder="Szukaj w snach…"
+              placeholder={T.journal.searchPlaceholder}
               className="min-w-[160px] flex-1 rounded-xl border border-border bg-bg-elev px-3 py-2 text-sm text-text outline-none focus:border-accent"
             />
             <select value={status} onChange={(e) => setStatus(e.target.value)} className="rounded-xl border border-border bg-bg-elev px-3 py-2 text-sm text-text">
-              <option value="all">Wszystkie</option>
-              <option value="saved">Zapisane</option>
-              <option value="completed">Uzupełnione</option>
+              <option value="all">{T.journal.statusAll}</option>
+              <option value="saved">{T.journal.statusSaved}</option>
+              <option value="completed">{T.journal.statusCompleted}</option>
             </select>
             <select value={sort} onChange={(e) => setSort(e.target.value as "savedAt" | "dreamDate")} className="rounded-xl border border-border bg-bg-elev px-3 py-2 text-sm text-text">
-              <option value="savedAt">Wg daty zapisu</option>
-              <option value="dreamDate">Wg daty snu</option>
+              <option value="savedAt">{T.journal.sortBySavedAt}</option>
+              <option value="dreamDate">{T.journal.sortByDreamDate}</option>
             </select>
             <label className="flex items-center gap-1.5 text-sm text-text-muted">
-              <input type="checkbox" checked={recurring} onChange={(e) => setRecurring(e.target.checked)} /> powtarzające się
+              <input type="checkbox" checked={recurring} onChange={(e) => setRecurring(e.target.checked)} /> {T.journal.recurringFilter}
             </label>
             <label className="flex items-center gap-1.5 text-sm text-text-muted">
-              <input type="checkbox" checked={incompleteOnly} onChange={(e) => setIncompleteOnly(e.target.checked)} /> nieuzupełnione
+              <input type="checkbox" checked={incompleteOnly} onChange={(e) => setIncompleteOnly(e.target.checked)} /> {T.journal.incompleteFilter}
             </label>
           </div>
 
@@ -255,8 +255,8 @@ export default function JournalDashboard({ initialEntries, userName }: { initial
                     <div className="min-w-0">
                       <h3 className="m-0 text-base font-semibold text-text">{journalTitle(e.title)}</h3>
                       <p className="m-0 mt-0.5 text-xs text-text-muted">
-                        Sen: {fmt(e.dreamDate)} · zapisano: {fmt(e.savedAt)}
-                        {e.isRecurring ? " · 🔁 powtarza się" : ""}
+                        {T.journal.dreamedOn} {fmt(e.dreamDate)} · {T.journal.savedOn} {fmt(e.savedAt)}
+                        {e.isRecurring ? ` · ${T.journal.recurringBadge}` : ""}
                       </p>
                     </div>
                     <span className="shrink-0 rounded-full bg-bg-soft px-2 py-0.5 text-xs text-text-muted">
@@ -279,15 +279,15 @@ export default function JournalDashboard({ initialEntries, userName }: { initial
 
                   <div className="mt-3 flex flex-wrap items-center gap-2">
                     <button onClick={() => { setErr(null); setEditing(toDraft(e)); }} className="rounded-full border border-border px-3 py-1.5 text-sm text-text hover:border-accent hover:text-accent">
-                      Edytuj
+                      {T.journal.edit}
                     </button>
                     {e.dreamSlug && (
                       <a href={`/sen/${e.dreamSlug}/`} className="rounded-full border border-border px-3 py-1.5 text-sm text-text-muted no-underline hover:text-accent">
-                        Zobacz interpretację
+                        {T.journal.viewInterpretation}
                       </a>
                     )}
                     <button onClick={() => del(e.id)} className="ml-auto rounded-full border border-border px-3 py-1.5 text-sm text-text-muted hover:text-negative">
-                      Usuń
+                      {T.journal.delete}
                     </button>
                   </div>
                 </div>
@@ -295,7 +295,7 @@ export default function JournalDashboard({ initialEntries, userName }: { initial
             ))}
             {filtered.length === 0 && (
               <p className="rounded-xl border border-border bg-bg-elev p-4 text-sm text-text-muted">
-                Brak snów pasujących do filtrów.
+                {T.journal.noMatches}
               </p>
             )}
           </div>
@@ -304,12 +304,12 @@ export default function JournalDashboard({ initialEntries, userName }: { initial
 
       {/* Strefa RODO */}
       <div className="mt-4 rounded-xl border border-border bg-bg-soft/60 p-4">
-        <h2 className="m-0 text-sm font-semibold text-text">Twoje dane</h2>
+        <h2 className="m-0 text-sm font-semibold text-text">{T.journal.yourData}</h2>
         <p className="m-0 mt-1 text-xs text-text-muted">
-          Możesz w każdej chwili usunąć konto wraz ze wszystkimi wpisami. To działanie jest nieodwracalne.
+          {T.journal.dataDeleteNote}
         </p>
         <button onClick={deleteAccount} className="mt-2 rounded-full border border-negative/50 px-3 py-1.5 text-sm text-negative hover:bg-negative hover:text-white">
-          Usuń konto i wszystkie sny
+          {T.journal.deleteAccount}
         </button>
       </div>
 
@@ -319,64 +319,64 @@ export default function JournalDashboard({ initialEntries, userName }: { initial
           <div
             role="dialog"
             aria-modal="true"
-            aria-label={editing.id ? "Edytuj sen" : "Dodaj sen"}
+            aria-label={editing.id ? T.journal.editDreamAria : T.journal.addDreamAria}
             onClick={(ev) => ev.stopPropagation()}
             className="max-h-[92vh] w-full max-w-lg overflow-y-auto rounded-2xl border border-border bg-bg-elev p-5 shadow-xl"
           >
-            <h2 className="m-0 text-lg font-bold text-text">{editing.id ? "Edytuj sen" : "Dodaj własny sen"}</h2>
+            <h2 className="m-0 text-lg font-bold text-text">{editing.id ? T.journal.editDreamTitle : T.journal.addDreamTitle}</h2>
             <div className="mt-3 flex flex-col gap-2.5">
-              <Field label="Tytuł snu *">
-                <input value={editing.title} onChange={(e) => setEditing({ ...editing, title: e.target.value })} className={inputCls} placeholder="np. Sen o wężu" />
+              <Field label={T.journal.fieldTitle}>
+                <input value={editing.title} onChange={(e) => setEditing({ ...editing, title: e.target.value })} className={inputCls} placeholder={T.journal.titlePlaceholder} />
               </Field>
               <div className="grid grid-cols-2 gap-2.5">
-                <Field label="Data snu">
+                <Field label={T.journal.fieldDate}>
                   <input type="date" value={editing.dream_date} onChange={(e) => setEditing({ ...editing, dream_date: e.target.value })} className={inputCls} />
                 </Field>
-                <Field label="Status">
+                <Field label={T.journal.fieldStatus}>
                   <select value={editing.status} onChange={(e) => setEditing({ ...editing, status: e.target.value })} className={inputCls}>
-                    <option value="saved">Zapisany</option>
-                    <option value="completed">Uzupełniony</option>
+                    <option value="saved">{T.journal.statusSaved}</option>
+                    <option value="completed">{T.journal.statusCompleted}</option>
                   </select>
                 </Field>
               </div>
-              <Field label="Opis snu">
-                <textarea value={editing.user_description} onChange={(e) => setEditing({ ...editing, user_description: e.target.value })} rows={4} maxLength={5000} className={inputCls} placeholder="Co się działo we śnie…" />
+              <Field label={T.journal.fieldDescription}>
+                <textarea value={editing.user_description} onChange={(e) => setEditing({ ...editing, user_description: e.target.value })} rows={4} maxLength={5000} className={inputCls} placeholder={T.journal.descriptionPlaceholder} />
               </Field>
-              <Field label="Emocje (po przecinku)">
-                <input value={editing.emotions} onChange={(e) => setEditing({ ...editing, emotions: e.target.value })} className={inputCls} placeholder="lęk, ciekawość, spokój" />
+              <Field label={T.journal.fieldEmotions}>
+                <input value={editing.emotions} onChange={(e) => setEditing({ ...editing, emotions: e.target.value })} className={inputCls} placeholder={T.journal.emotionsPlaceholder} />
               </Field>
               <div className="grid grid-cols-2 gap-2.5">
-                <Field label="Osoby (po przecinku)">
-                  <input value={editing.people} onChange={(e) => setEditing({ ...editing, people: e.target.value })} className={inputCls} placeholder="mama, kolega" />
+                <Field label={T.journal.fieldPeople}>
+                  <input value={editing.people} onChange={(e) => setEditing({ ...editing, people: e.target.value })} className={inputCls} placeholder={T.journal.peoplePlaceholder} />
                 </Field>
-                <Field label="Miejsca (po przecinku)">
-                  <input value={editing.places} onChange={(e) => setEditing({ ...editing, places: e.target.value })} className={inputCls} placeholder="las, dom" />
+                <Field label={T.journal.fieldPlaces}>
+                  <input value={editing.places} onChange={(e) => setEditing({ ...editing, places: e.target.value })} className={inputCls} placeholder={T.journal.placesPlaceholder} />
                 </Field>
               </div>
-              <Field label="Kolory (po przecinku)">
-                <input value={editing.colors} onChange={(e) => setEditing({ ...editing, colors: e.target.value })} className={inputCls} placeholder="czarny, złoty" />
+              <Field label={T.journal.fieldColors}>
+                <input value={editing.colors} onChange={(e) => setEditing({ ...editing, colors: e.target.value })} className={inputCls} placeholder={T.journal.colorsPlaceholder} />
               </Field>
               <div className="grid grid-cols-2 gap-2.5">
-                <Field label="Jak mocno pamiętasz? (1–5)">
+                <Field label={T.journal.fieldMemoryStrength}>
                   <input type="number" min={1} max={5} value={editing.memory_strength} onChange={(e) => setEditing({ ...editing, memory_strength: e.target.value })} className={inputCls} />
                 </Field>
-                <Field label="Jakość snu (1–5)">
+                <Field label={T.journal.fieldSleepQuality}>
                   <input type="number" min={1} max={5} value={editing.sleep_quality} onChange={(e) => setEditing({ ...editing, sleep_quality: e.target.value })} className={inputCls} />
                 </Field>
               </div>
               <label className="flex items-center gap-2 text-sm text-text">
                 <input type="checkbox" checked={editing.is_recurring} onChange={(e) => setEditing({ ...editing, is_recurring: e.target.checked })} />
-                Ten sen się powtarza
+                {T.journal.recurringCheckbox}
               </label>
-              <Field label="Notatka prywatna">
-                <textarea value={editing.user_notes} onChange={(e) => setEditing({ ...editing, user_notes: e.target.value })} rows={2} maxLength={5000} className={inputCls} placeholder="Tylko dla Ciebie…" />
+              <Field label={T.journal.fieldNotes}>
+                <textarea value={editing.user_notes} onChange={(e) => setEditing({ ...editing, user_notes: e.target.value })} rows={2} maxLength={5000} className={inputCls} placeholder={T.journal.notesPlaceholder} />
               </Field>
               {err && <p className="m-0 text-sm text-negative">{err}</p>}
               <button onClick={saveDraft} disabled={busy} className="dream-save dream-save--calm mt-1 flex w-full items-center justify-center px-4 py-3 font-semibold disabled:opacity-80">
-                {busy ? "Zapisuję…" : editing.id ? "Zapisz zmiany" : "Dodaj sen"}
+                {busy ? T.journal.saving : editing.id ? T.journal.saveChanges : T.journal.addDreamSubmit}
               </button>
               <button onClick={() => setEditing(null)} className="w-full rounded-full px-4 py-2 text-sm text-text-muted hover:text-text">
-                Anuluj
+                {T.journal.cancel}
               </button>
             </div>
           </div>

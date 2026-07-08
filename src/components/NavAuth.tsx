@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
+import { T } from "@/locales/pl";
 
 interface Me {
   name?: string | null;
@@ -45,7 +46,7 @@ export default function NavAuth() {
         href="/moj-dziennik"
         className="rounded-full border border-border px-4 py-1.5 text-sm font-medium text-text no-underline transition-colors hover:border-accent hover:text-accent"
       >
-        Zaloguj
+        {T.nav.login}
       </Link>
     );
   }
@@ -56,7 +57,7 @@ export default function NavAuth() {
     <div ref={ref} className="relative">
       <button
         onClick={() => setOpen((o) => !o)}
-        aria-label="Menu konta"
+        aria-label={T.nav.accountMenu}
         aria-expanded={open}
         className="nav-avatar flex h-9 w-9 items-center justify-center text-sm"
       >
@@ -73,10 +74,10 @@ export default function NavAuth() {
             {user.name || user.email}
           </div>
           <Link href="/moj-dziennik" className="block px-4 py-2.5 text-sm text-text no-underline hover:bg-bg-soft">
-            Mój dziennik
+            {T.nav.myJournal}
           </Link>
           <button onClick={logout} className="block w-full px-4 py-2.5 text-left text-sm text-text-muted hover:bg-bg-soft">
-            Wyloguj
+            {T.nav.logout}
           </button>
         </div>
       )}

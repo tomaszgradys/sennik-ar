@@ -303,16 +303,16 @@ export default async function DreamPage({
 
       {(crossColors.length > 0 || crossNumbers.length > 0) && (
         <section className="flex flex-wrap items-center gap-2">
-          <span className="text-sm text-text-muted">Zobacz też znaczenie:</span>
+          <span className="text-sm text-text-muted">{T.dream.seeAlsoMeaning}</span>
           {crossColors.map((cl) => (
             <Link key={cl.slug} href={colorPath(cl.slug)} className="inline-flex items-center gap-1.5 rounded-full border border-border bg-bg-soft px-3 py-1.5 text-sm text-text no-underline chip">
               <span aria-hidden className="h-3 w-3 rounded-full border border-border/60" style={{ background: cl.hex }} />
-              koloru {cl.name}
+              {T.dream.colorPrefix} {cl.name}
             </Link>
           ))}
           {crossNumbers.map((n) => (
             <Link key={n} href={numberPath(n)} className="rounded-full border border-border bg-bg-soft px-3 py-1.5 text-sm text-text no-underline chip">
-              liczby {n}
+              {T.dream.numberPrefix} {n}
             </Link>
           ))}
         </section>
@@ -320,9 +320,9 @@ export default async function DreamPage({
 
       {catInfo && (
         <p className="m-0 text-sm text-text-muted">
-          Więcej podobnych:{" "}
+          {T.dream.moreSimilar}{" "}
           <Link href={categoryPath(catInfo.slug)} className="link-soft text-accent">
-            wszystkie sny z kategorii {catLabel} →
+            {T.dream.allDreamsOfCategory} {catLabel} ←
           </Link>
         </p>
       )}
@@ -371,11 +371,10 @@ export default async function DreamPage({
 
       <footer className="mt-2 flex flex-col gap-2 border-t border-border pt-4 text-xs text-text-muted">
         <p className="m-0">
-          Opracowanie: <Link href="/o-nas" className="link-soft">Redakcja sennik.tv</Link>. Interpretacje
-          piszemy w oparciu o symbolikę kulturową i psychologię snu.
+          {T.dream.editorialPrefix} <Link href="/o-nas" className="link-soft">{T.dream.editorialTeam} {SITE.name}</Link>. {T.dream.editorialNote}
         </p>
         <p className="m-0">
-          Treść ma charakter popularny i refleksyjny. Nie zastępuje porady psychologicznej ani medycznej.
+          {T.dream.disclaimerBottom}
         </p>
       </footer>
     </article>
