@@ -1,5 +1,6 @@
 import DreamImage from "./DreamImage";
 import { thumbSrc } from "@/lib/dream";
+import { T } from "@/locales/pl";
 
 // Miniatura/ilustracja symbolu: prawdziwy obrazek (FLUX) jeśli już wygenerowany,
 // inaczej deterministyczna grafika SVG jako fallback. Jedno miejsce, żeby lista
@@ -21,7 +22,7 @@ export default function SymbolImage({
       // eslint-disable-next-line @next/next/no-img-element -- lokalny plik, zoptymalizowany przy generacji
       <img
         src={src}
-        alt={`Ilustracja snu: ${label}`}
+        alt={`${T.dream.imageAlt} ${label}`}
         width={512}
         height={384}
         loading="lazy"

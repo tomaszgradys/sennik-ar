@@ -13,8 +13,8 @@ const description =
 export const metadata: Metadata = {
   title: { absolute: title },
   description,
-  alternates: { canonical: `${SITE.url}/blog` },
-  openGraph: { title, description, url: `${SITE.url}/blog` },
+  alternates: { canonical: `${SITE.url}/blog/` },
+  openGraph: { title, description, url: `${SITE.url}/blog/` },
 };
 
 function formatDate(iso: string): string {
@@ -26,7 +26,7 @@ export default function BlogHub() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
-      { "@type": "Blog", name: title, description, url: `${SITE.url}/blog`, inLanguage: "ar" },
+      { "@type": "Blog", name: title, description, url: `${SITE.url}/blog/`, inLanguage: "ar" },
       {
         "@type": "BreadcrumbList",
         itemListElement: [

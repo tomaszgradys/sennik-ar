@@ -78,7 +78,7 @@ export default async function ColorPage({ params }: { params: Promise<{ kolor: s
       <JsonLd data={jsonLd} />
       <nav aria-label="المسار" className="text-sm text-text-muted">
         <Link href="/" className="link-soft">الرئيسية</Link>{" / "}
-        <Link href="/kolory" className="link-soft">الألوان</Link>{" / "}
+        <Link href="/kolory/" className="link-soft">الألوان</Link>{" / "}
         <span className="text-text">{name}</span>
       </nav>
 

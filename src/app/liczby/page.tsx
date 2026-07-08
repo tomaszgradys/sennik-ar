@@ -13,8 +13,8 @@ const description =
 export const metadata: Metadata = {
   title: { absolute: title },
   description,
-  alternates: { canonical: `${SITE.url}/liczby` },
-  openGraph: { title, description, url: `${SITE.url}/liczby` },
+  alternates: { canonical: `${SITE.url}/liczby/` },
+  openGraph: { title, description, url: `${SITE.url}/liczby/` },
 };
 
 export default function NumbersHub() {
@@ -22,7 +22,7 @@ export default function NumbersHub() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
-      { "@type": "CollectionPage", name: title, description, url: `${SITE.url}/liczby`, inLanguage: "ar" },
+      { "@type": "CollectionPage", name: title, description, url: `${SITE.url}/liczby/`, inLanguage: "ar" },
       {
         "@type": "BreadcrumbList",
         itemListElement: [

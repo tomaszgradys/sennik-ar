@@ -1,4 +1,5 @@
 import { slugify } from "@/lib/polish";
+import { T } from "@/locales/pl";
 
 // Deterministyczna, „oniryczna" grafika generowana z sluga — spójna dla danego
 // symbolu (ta sama dla „pies", „czarny pies" itd., zgodnie z logiką reuse).
@@ -35,7 +36,7 @@ export default function DreamImage({
     <svg
       viewBox="0 0 400 300"
       role="img"
-      aria-label={`Ilustracja: ${label}`}
+      aria-label={`${T.dream.imageAlt} ${label}`}
       className={className}
       preserveAspectRatio="xMidYMid slice"
     >

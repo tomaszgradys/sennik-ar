@@ -68,7 +68,7 @@ export default async function NumberPage({ params }: { params: Promise<{ n: stri
       <JsonLd data={jsonLd} />
       <nav aria-label="المسار" className="text-sm text-text-muted">
         <Link href="/" className="link-soft">الرئيسية</Link>{" / "}
-        <Link href="/liczby" className="link-soft">الأرقام</Link>{" / "}
+        <Link href="/liczby/" className="link-soft">الأرقام</Link>{" / "}
         <span className="text-text">{n}</span>
       </nav>
 

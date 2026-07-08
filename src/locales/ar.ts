@@ -26,6 +26,7 @@ export const T = {
   dream: {
     breadcrumbRoot: "تفسير الأحلام",
     breadcrumbAria: "المسار",
+    imageAlt: "رسم توضيحي للحلم:", // "رسم توضيحي للحلم: <الرمز>"
     quickAnswer: "باختصار",
     good: "إشارات طيبة",
     warn: "ما ينبغي الانتباه له",

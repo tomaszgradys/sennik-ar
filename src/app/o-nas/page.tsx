@@ -12,15 +12,15 @@ const description =
 export const metadata: Metadata = {
   title: { absolute: `${title} — ${SITE.name}` },
   description,
-  alternates: { canonical: `${SITE.url}/o-nas` },
-  openGraph: { title, description, url: `${SITE.url}/o-nas`, type: "website" },
+  alternates: { canonical: `${SITE.url}/o-nas/` },
+  openGraph: { title, description, url: `${SITE.url}/o-nas/`, type: "website" },
 };
 
 export default function AboutPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
-      { "@type": "AboutPage", name: title, description, url: `${SITE.url}/o-nas`, inLanguage: "ar" },
+      { "@type": "AboutPage", name: title, description, url: `${SITE.url}/o-nas/`, inLanguage: "ar" },
       {
         "@type": "Organization",
         name: SITE.name,
@@ -76,17 +76,17 @@ export default function AboutPage() {
         <h2>تواصل معنا</h2>
         <p>
           لديك سؤال أو اقتراح أو ينقصك حلم ما؟ اكتب إلينا عبر صفحة{" "}
-          <Link href="/kontakt">اتصل بنا</Link>. شروط الاستخدام في{" "}
-          <Link href="/regulamin">شروط الاستخدام</Link>، وطريقة معالجة البيانات في{" "}
-          <Link href="/polityka-prywatnosci">سياسة الخصوصية</Link>.
+          <Link href="/kontakt/">اتصل بنا</Link>. شروط الاستخدام في{" "}
+          <Link href="/regulamin/">شروط الاستخدام</Link>، وطريقة معالجة البيانات في{" "}
+          <Link href="/polityka-prywatnosci/">سياسة الخصوصية</Link>.
         </p>
       </section>
 
       <div className="flex flex-wrap gap-2">
         <Link href="/" className="rounded-full border border-border bg-bg-soft px-4 py-2 text-sm text-text no-underline chip">تفسير الأحلام</Link>
-        <Link href="/kolory" className="rounded-full border border-border bg-bg-soft px-4 py-2 text-sm text-text no-underline chip">معاني الألوان</Link>
-        <Link href="/liczby" className="rounded-full border border-border bg-bg-soft px-4 py-2 text-sm text-text no-underline chip">معاني الأرقام</Link>
-        <Link href="/blog" className="rounded-full border border-border bg-bg-soft px-4 py-2 text-sm text-text no-underline chip">المدونة</Link>
+        <Link href="/kolory/" className="rounded-full border border-border bg-bg-soft px-4 py-2 text-sm text-text no-underline chip">معاني الألوان</Link>
+        <Link href="/liczby/" className="rounded-full border border-border bg-bg-soft px-4 py-2 text-sm text-text no-underline chip">معاني الأرقام</Link>
+        <Link href="/blog/" className="rounded-full border border-border bg-bg-soft px-4 py-2 text-sm text-text no-underline chip">المدونة</Link>
       </div>
     </article>
   );

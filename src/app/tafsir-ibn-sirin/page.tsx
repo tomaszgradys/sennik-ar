@@ -15,8 +15,8 @@ const description =
 export const metadata: Metadata = {
   title: { absolute: `${title} — ${SITE.name}` },
   description,
-  alternates: { canonical: `${SITE.url}/tafsir-ibn-sirin` },
-  openGraph: { title, description, url: `${SITE.url}/tafsir-ibn-sirin`, type: "article" },
+  alternates: { canonical: `${SITE.url}/tafsir-ibn-sirin/` },
+  openGraph: { title, description, url: `${SITE.url}/tafsir-ibn-sirin/`, type: "article" },
 };
 
 // رموز مختارة من الأكثر بحثًا في الثقافة العربية. نعرض المنشور منها فقط (بلا روابط مكسورة).

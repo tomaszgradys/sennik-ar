@@ -13,8 +13,8 @@ const description =
 export const metadata: Metadata = {
   title: { absolute: `${title} — ${SITE.name}` },
   description,
-  alternates: { canonical: `${SITE.url}/anwaa-al-ahlam` },
-  openGraph: { title, description, url: `${SITE.url}/anwaa-al-ahlam`, type: "article" },
+  alternates: { canonical: `${SITE.url}/anwaa-al-ahlam/` },
+  openGraph: { title, description, url: `${SITE.url}/anwaa-al-ahlam/`, type: "article" },
 };
 
 const faq = [

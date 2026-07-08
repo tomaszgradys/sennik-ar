@@ -71,7 +71,7 @@ export default async function CategoryHub({
         name: cat.title,
         description: cat.description,
         url,
-        inLanguage: "pl-PL",
+        inLanguage: "ar",
       },
       {
         "@type": "BreadcrumbList",

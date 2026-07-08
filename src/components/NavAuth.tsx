@@ -43,7 +43,7 @@ export default function NavAuth() {
   if (!user) {
     return (
       <Link
-        href="/moj-dziennik"
+        href="/moj-dziennik/"
         className="rounded-full border border-border px-4 py-1.5 text-sm font-medium text-text no-underline transition-colors hover:border-accent hover:text-accent"
       >
         {T.nav.login}
@@ -73,7 +73,7 @@ export default function NavAuth() {
           <div className="truncate border-b border-border px-4 py-2 text-xs text-text-muted">
             {user.name || user.email}
           </div>
-          <Link href="/moj-dziennik" className="block px-4 py-2.5 text-sm text-text no-underline hover:bg-bg-soft">
+          <Link href="/moj-dziennik/" className="block px-4 py-2.5 text-sm text-text no-underline hover:bg-bg-soft">
             {T.nav.myJournal}
           </Link>
           <button onClick={logout} className="block w-full px-4 py-2.5 text-left text-sm text-text-muted hover:bg-bg-soft">

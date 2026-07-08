@@ -211,7 +211,7 @@ export default async function Home() {
             })}
           </div>
           <div className="mt-4 text-center">
-            <Link href="/blog" className="link-soft text-sm">
+            <Link href="/blog/" className="link-soft text-sm">
               شاهد كل المقالات ←
             </Link>
           </div>
@@ -351,10 +351,10 @@ export default async function Home() {
         </p>
         <p>
           إلى جانب آلاف المصطلحات وتركيباتها، تجد لدينا معاني{" "}
-          <Link href="/kolory">الألوان</Link> و<Link href="/liczby">الأرقام</Link>،
-          و<Link href="/faza-ksiezyca">طور القمر</Link> الحالي،{" "}
-          و<Link href="/tafsir-ibn-sirin">تفسير ابن سيرين</Link> و
-          <Link href="/blog">المدونة</Link> بطرائف
+          <Link href="/kolory/">الألوان</Link> و<Link href="/liczby/">الأرقام</Link>،
+          و<Link href="/faza-ksiezyca/">طور القمر</Link> الحالي،{" "}
+          و<Link href="/tafsir-ibn-sirin/">تفسير ابن سيرين</Link> و
+          <Link href="/blog/">المدونة</Link> بطرائف
           عن الأحلام. كل ذلك لتفهم بهدوء ما يقوله لك خيال الليل.
         </p>
       </section>

@@ -139,7 +139,7 @@ export default async function DreamPage({
         headline: h1,
         about: entry.phrase,
         description: c.quickAnswer,
-        inLanguage: "pl-PL",
+        inLanguage: "ar",
         mainEntityOfPage: url,
         publisher: { "@type": "Organization", name: SITE.name },
       },
@@ -202,7 +202,7 @@ export default async function DreamPage({
           // eslint-disable-next-line @next/next/no-img-element -- lokalny, zoptymalizowany przy generacji
           <img
             src={imageSrc}
-            alt={`Ilustracja snu: ${entry.phrase}`}
+            alt={`${T.dream.imageAlt} ${entry.phrase}`}
             width={800}
             height={600}
             fetchPriority="high"
@@ -371,7 +371,7 @@ export default async function DreamPage({
 
       <footer className="mt-2 flex flex-col gap-2 border-t border-border pt-4 text-xs text-text-muted">
         <p className="m-0">
-          {T.dream.editorialPrefix} <Link href="/o-nas" className="link-soft">{T.dream.editorialTeam} {SITE.name}</Link>. {T.dream.editorialNote}
+          {T.dream.editorialPrefix} <Link href="/o-nas/" className="link-soft">{T.dream.editorialTeam} {SITE.name}</Link>. {T.dream.editorialNote}
         </p>
         <p className="m-0">
           {T.dream.disclaimerBottom}

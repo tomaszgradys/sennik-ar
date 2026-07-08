@@ -12,8 +12,8 @@ const description =
 export const metadata: Metadata = {
   title: { absolute: title },
   description,
-  alternates: { canonical: `${SITE.url}/faza-ksiezyca` },
-  openGraph: { title, description, url: `${SITE.url}/faza-ksiezyca` },
+  alternates: { canonical: `${SITE.url}/faza-ksiezyca/` },
+  openGraph: { title, description, url: `${SITE.url}/faza-ksiezyca/` },
 };
 
 export default function MoonPage() {

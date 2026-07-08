@@ -86,7 +86,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
       <TrackView slug={slug} />
       <nav aria-label="المسار" className="text-sm text-text-muted">
         <Link href="/" className="link-soft">الرئيسية</Link>{" / "}
-        <Link href="/blog" className="link-soft">المدونة</Link>{" / "}
+        <Link href="/blog/" className="link-soft">المدونة</Link>{" / "}
         <span className="text-text">{post.title}</span>
       </nav>
 

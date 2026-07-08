@@ -14,8 +14,8 @@ const description =
 export const metadata: Metadata = {
   title: { absolute: title },
   description,
-  alternates: { canonical: `${SITE.url}/kolory` },
-  openGraph: { title, description, url: `${SITE.url}/kolory` },
+  alternates: { canonical: `${SITE.url}/kolory/` },
+  openGraph: { title, description, url: `${SITE.url}/kolory/` },
 };
 
 export default function ColorsHub() {

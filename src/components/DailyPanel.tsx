@@ -61,7 +61,7 @@ export default function DailyPanel() {
         </Link>
 
         {/* Faza Księżyca */}
-        <Link href="/faza-ksiezyca" className="group flex flex-col overflow-hidden rounded-2xl border border-border bg-bg-elev no-underline shadow-sm card">
+        <Link href="/faza-ksiezyca/" className="group flex flex-col overflow-hidden rounded-2xl border border-border bg-bg-elev no-underline shadow-sm card">
           <span className="flex h-20 w-full items-center justify-center bg-bg-soft text-4xl">{d.moon.emoji}</span>
           <div className="p-3">
             <div className="text-xs text-text-muted">Faza Księżyca</div>
