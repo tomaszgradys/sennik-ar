@@ -105,7 +105,7 @@ export default function RootLayout({
               <MobileMenu />
               <Logo />
             </div>
-            <nav className="hidden items-center gap-4 text-sm md:flex">
+            <nav className="hidden items-center gap-4 text-sm lg:flex">
               <Link href="/" className="text-center text-text-muted no-underline hover:text-text">
                 {T.nav.home}
               </Link>
@@ -127,9 +127,9 @@ export default function RootLayout({
             </nav>
             <div className="flex items-center gap-2 sm:gap-3">
               <NavAuth />
-              {/* Przełącznik motywu w pasku tylko gdy jest miejsce (md+); na telefonie
+              {/* Przełącznik motywu w pasku tylko gdy jest miejsce (lg+); na telefonie
                   ląduje w menu hamburgerowym, żeby nie zapychać/nachodzić na logo. */}
-              <div className="hidden md:block">
+              <div className="hidden lg:block">
                 <ThemeControls />
               </div>
             </div>

@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import ThemeControls from "@/components/ThemeControls";
 
-// Mobilna nawigacja (hamburger po lewej od loga, tylko < md).
+// Mobilna nawigacja (hamburger po lewej od loga, tylko < lg).
 // Rozwija panel pod nagłówkiem; zamyka się po kliknięciu linku,
 // klawiszem Escape i po kliknięciu poza panelem. Zawiera też przełącznik motywu
 // (na telefonie nie mieści się w pasku).
@@ -40,7 +40,7 @@ export default function MobileMenu() {
   }, [open]);
 
   return (
-    <div ref={rootRef} className="md:hidden">
+    <div ref={rootRef} className="lg:hidden">
       <button
         type="button"
         aria-label={open ? "إغلاق القائمة" : "فتح القائمة"}
