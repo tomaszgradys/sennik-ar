@@ -54,6 +54,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: "monthly" as const,
       priority: 0.7,
     })),
+    // Hub „wszystkie kategorie" /sny/ — centralny indeks, skraca głębokość crawla.
+    { url: `${SITE.url}/sny/`, lastModified: now, changeFrequency: "weekly", priority: 0.9 },
     // Huby kategorii (topical) — wysoki priorytet, zbierają symbole danej kategorii.
     ...categorySlugs().map((s) => ({
       url: `${SITE.url}${categoryPath(s)}`,

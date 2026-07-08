@@ -183,7 +183,9 @@ export default function RootLayout({
 
             {/* أحلام حسب الفئة — محاور موضوعية متاحة من كل صفحة (عمق الزحف + موضوعية). */}
             <div className="mt-10 border-t border-border pt-6">
-              <h3 className="mb-3 text-xs font-semibold uppercase tracking-wider text-text-muted">أحلام حسب الفئة</h3>
+              <h3 className="mb-3 text-xs font-semibold uppercase tracking-wider text-text-muted">
+                <Link href="/sny/" className="link-soft text-text-muted">أحلام حسب الفئة</Link>
+              </h3>
               <ul className="m-0 flex list-none flex-wrap gap-x-5 gap-y-2 p-0 text-sm">
                 {CATEGORIES.map((c) => (
                   <li key={c.slug}>
