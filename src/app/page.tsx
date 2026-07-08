@@ -55,7 +55,7 @@ function IconChip({ slug, phrase }: { slug: string; phrase: string }) {
   );
 }
 
-// Self-referencyjny canonical strony głównej (Next doda trailing slash → https://sennik.tv/).
+// Self-referencyjny canonical strony głównej (Next doda trailing slash → https://hulm.pro/).
 export const metadata: Metadata = {
   alternates: { canonical: "/" },
 };

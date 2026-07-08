@@ -67,7 +67,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
         "@type": "BreadcrumbList",
         itemListElement: [
           { "@type": "ListItem", position: 1, name: SITE.name, item: SITE.url },
-          { "@type": "ListItem", position: 2, name: "المدونة", item: `${SITE.url}/blog` },
+          { "@type": "ListItem", position: 2, name: "المدونة", item: `${SITE.url}/blog/` },
           { "@type": "ListItem", position: 3, name: post.title, item: url },
         ],
       },

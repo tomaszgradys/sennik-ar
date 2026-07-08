@@ -31,7 +31,7 @@ export default function BlogHub() {
         "@type": "BreadcrumbList",
         itemListElement: [
           { "@type": "ListItem", position: 1, name: SITE.name, item: SITE.url },
-          { "@type": "ListItem", position: 2, name: "المدونة", item: `${SITE.url}/blog` },
+          { "@type": "ListItem", position: 2, name: "المدونة", item: `${SITE.url}/blog/` },
         ],
       },
     ],

@@ -27,14 +27,14 @@ export default function ColorsHub() {
         "@type": "CollectionPage",
         name: title,
         description,
-        url: `${SITE.url}/kolory`,
+        url: `${SITE.url}/kolory/`,
         inLanguage: "ar",
       },
       {
         "@type": "BreadcrumbList",
         itemListElement: [
           { "@type": "ListItem", position: 1, name: SITE.name, item: SITE.url },
-          { "@type": "ListItem", position: 2, name: "معاني الألوان", item: `${SITE.url}/kolory` },
+          { "@type": "ListItem", position: 2, name: "معاني الألوان", item: `${SITE.url}/kolory/` },
         ],
       },
       {

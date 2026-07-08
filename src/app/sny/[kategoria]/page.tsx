@@ -129,7 +129,7 @@ export default async function CategoryHub({
       </section>
 
       <section className="border-t border-border pt-6">
-        <h2 className="mb-3 text-lg font-semibold text-text">Inne kategorie snów</h2>
+        <h2 className="mb-3 text-lg font-semibold text-text">فئات أحلام أخرى</h2>
         <div className="flex flex-wrap gap-2">
           {others.map((c) => (
             <Link
@@ -137,7 +137,7 @@ export default async function CategoryHub({
               href={categoryPath(c.slug)}
               className="rounded-full border border-border bg-bg-soft px-3 py-1.5 text-sm text-text-muted no-underline chip hover:text-accent"
             >
-              {c.h1.replace(/^Sny o /, "")}
+              {c.h1}
             </Link>
           ))}
         </div>

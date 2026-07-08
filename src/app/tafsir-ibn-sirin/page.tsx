@@ -74,7 +74,7 @@ export default function IbnSirinPage() {
         "@type": "BreadcrumbList",
         itemListElement: [
           { "@type": "ListItem", position: 1, name: SITE.name, item: SITE.url },
-          { "@type": "ListItem", position: 2, name: "تفسير ابن سيرين", item: `${SITE.url}/tafsir-ibn-sirin` },
+          { "@type": "ListItem", position: 2, name: "تفسير ابن سيرين", item: `${SITE.url}/tafsir-ibn-sirin/` },
         ],
       },
     ],

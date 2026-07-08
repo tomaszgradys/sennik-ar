@@ -59,7 +59,7 @@ export default async function ColorPage({ params }: { params: Promise<{ kolor: s
         "@type": "BreadcrumbList",
         itemListElement: [
           { "@type": "ListItem", position: 1, name: SITE.name, item: SITE.url },
-          { "@type": "ListItem", position: 2, name: "معاني الألوان", item: `${SITE.url}/kolory` },
+          { "@type": "ListItem", position: 2, name: "معاني الألوان", item: `${SITE.url}/kolory/` },
           { "@type": "ListItem", position: 3, name: `لون ${c.name}`, item: url },
         ],
       },

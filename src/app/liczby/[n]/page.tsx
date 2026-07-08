@@ -50,7 +50,7 @@ export default async function NumberPage({ params }: { params: Promise<{ n: stri
         "@type": "BreadcrumbList",
         itemListElement: [
           { "@type": "ListItem", position: 1, name: SITE.name, item: SITE.url },
-          { "@type": "ListItem", position: 2, name: "معاني الأرقام", item: `${SITE.url}/liczby` },
+          { "@type": "ListItem", position: 2, name: "معاني الأرقام", item: `${SITE.url}/liczby/` },
           { "@type": "ListItem", position: 3, name: `الرقم ${n}`, item: url },
         ],
       },
