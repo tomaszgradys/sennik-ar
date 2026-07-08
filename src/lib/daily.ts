@@ -52,10 +52,31 @@ export function dailyPicks(date = new Date()): DailyPicks {
 
 // Miękka rotacja „popularnych snów na dziś": stały rdzeń najczęstszych motywów
 // + delikatne przetasowanie zależne od daty, żeby strona nie była codziennie
-// identyczna. Etykieta w UI: „Sny, które warto dziś sprawdzić" (nie statystyka).
+// identyczna. Etykieta w UI: „أحلام شائعة" (nie statystyka).
+//
+// UWAGA (klon arabski hulm.pro): slugi są ARABSKIE, a nie polskie — poprzednia
+// polska lista nie trafiała w żadne hasło, przez co strona główna cicho spadała
+// do kolejności katalogu (pies, koń, krowa, cielę, ŚWINIA…). Poniżej kuratorska
+// pula najczęściej wyszukiwanych snów w kulturze arabsko-muzułmańskiej,
+// uszeregowana wg popularności i ŚWIADOMIE bez motywów drażliwych/haram na
+// froncie (świnia, pies, alkohol, krzyż itp.). Wszystkie slugi są published.
 const CORE_POPULAR = [
-  "kot", "waz", "zeby", "woda", "pieniadze", "ciaza", "pajak", "smierc",
-  "pies", "dom", "dziecko", "krew", "ogien", "spadanie", "mysz", "ryba",
+  "الماء",            // woda — życie/rizq, najczęstszy i pozytywny
+  "الحمل",            // ciąża — bardzo często wyszukiwane
+  "الاسنان",          // zęby (wypadające zęby) — uniwersalny top
+  "افعي",             // wąż/żmija — „wróg", jeden z najczęstszych
+  "طفل",              // dziecko/niemowlę
+  "الذهب",            // złoto — bardzo popularne (rizq)
+  "عرس",              // wesele/ślub
+  "سمك",              // ryba — rizq, pozytywne
+  "نقود",             // pieniądze
+  "الموت",            // śmierć / widzenie zmarłego — jeden z najczęstszych
+  "مطر",              // deszcz — miłosierdzie/rizq
+  "عروس",             // panna młoda
+  "القران",           // Koran — islamskie, pozytywne
+  "الكعبه",           // Kaaba — islamskie, pozytywne
+  "حصان",             // koń — szlachetny
+  "بقره",             // krowa — koraniczny motyw, rizq
 ];
 export function popularToday(date = new Date(), n = 8): string[] {
   const day = dayKey(date);
