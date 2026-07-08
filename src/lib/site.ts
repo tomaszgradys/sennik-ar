@@ -14,7 +14,7 @@ export const SITE = {
     (process.env.VERCEL_PROJECT_PRODUCTION_URL
       ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
       : "http://localhost:3000"),
-  locale: "ar",
+  locale: "ar_AR",
   lang: "ar",
   dir: "rtl" as const,
 };
