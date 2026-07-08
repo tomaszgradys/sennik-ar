@@ -48,6 +48,16 @@ jobs:
           FAL_KEY: ${{ secrets.FAL_KEY }}
         run: node scripts/blog.mjs generate
 
+      # Strażnik obrazków: dopilnowuje, że KAŻDY wpis ma prawdziwy hero z fal.ai
+      # (dogeneruje brakujące/placeholdery). Nie blokuje deploya, jeśli któryś się nie uda.
+      - name: Dopilnuj obrazków (repair)
+        if: steps.gate.outputs.proceed == 'true'
+        continue-on-error: true
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          FAL_KEY: ${{ secrets.FAL_KEY }}
+        run: node scripts/blog.mjs repair
+
       - name: Commit nowego wpisu
         id: commit
         if: steps.gate.outputs.proceed == 'true'
