@@ -17,21 +17,22 @@ mkdirSync(OG_DIR, { recursive: true });
 const W = 1200;
 const H = 630;
 
-// Nakładka: gradient (ciemniejszy u dołu) + złoty księżyc + wordmark + tagline.
+// Nakładka: gradient (ciemniejszy u dołu) + złoty księżyc + wordmark hulm.pro.
+// WYŁĄCZNIE łaciński wordmark (marka „hulm.pro", jak w nagłówku strony) — arabski
+// tekst w SVG przez sharp/librsvg jest zawodny (brak fontu + kształtowanie RTL),
+// a domena hulm.pro jest poprawną, spójną reprezentacją marki. ZERO polskiego.
 function overlaySvg() {
   return Buffer.from(`<svg width="${W}" height="${H}" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <linearGradient id="g" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#0c0a14" stop-opacity="0.18"/>
-      <stop offset="55%" stop-color="#0c0a14" stop-opacity="0.45"/>
-      <stop offset="100%" stop-color="#0c0a14" stop-opacity="0.92"/>
+      <stop offset="0%" stop-color="#0c0a14" stop-opacity="0.15"/>
+      <stop offset="55%" stop-color="#0c0a14" stop-opacity="0.42"/>
+      <stop offset="100%" stop-color="#0c0a14" stop-opacity="0.90"/>
     </linearGradient>
   </defs>
   <rect width="${W}" height="${H}" fill="url(#g)"/>
-  <circle cx="86" cy="74" r="15" fill="#D3A052"/>
-  <text x="116" y="86" font-family="Georgia, 'Times New Roman', serif" font-size="36" fill="#FFF7EF">sennik.tv</text>
-  <text x="80" y="500" font-family="Georgia, 'Times New Roman', serif" font-size="92" font-weight="700" fill="#FFFFFF">Znaczenie snu</text>
-  <text x="84" y="556" font-family="Georgia, 'Times New Roman', serif" font-size="36" fill="#EDE9F5" fill-opacity="0.88">sennik online — sprawdź, co oznacza twój sen</text>
+  <circle cx="88" cy="548" r="20" fill="#D3A052"/>
+  <text x="122" y="566" font-family="Georgia, 'Times New Roman', serif" font-size="66" font-weight="700" fill="#FFFFFF">hulm.pro</text>
 </svg>`);
 }
 

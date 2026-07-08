@@ -55,11 +55,11 @@ export async function generateMetadata({
     if (isKnownWord(slug)) {
       const w = wordLabel(slug) ?? slug;
       return {
-        title: { absolute: `Sen o ${w} — Znaczenie snu` },
+        title: { absolute: `تفسير حلم ${w} — ${SITE.name}` },
         robots: { index: false, follow: true },
       };
     }
-    return { title: "Nie znaleziono snu" };
+    return { title: "لم يتم العثور على الحلم" };
   }
 
   const url = `${SITE.url}${dreamPath(entry.slug)}`;

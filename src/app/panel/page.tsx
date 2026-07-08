@@ -11,7 +11,7 @@ import { getBlogEveryDays } from "@/lib/settings";
 import { getStats } from "@/lib/stats";
 
 export const metadata: Metadata = {
-  title: { absolute: "Panel — Znaczenie snu" },
+  title: { absolute: "لوحة التحكم — hulm.pro" },
   robots: { index: false, follow: false },
 };
 

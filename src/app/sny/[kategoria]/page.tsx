@@ -12,6 +12,7 @@ import { dreamPath } from "@/lib/dream";
 import { listCustomDreams } from "@/lib/custom";
 import { capitalize, decodeSlug } from "@/lib/polish";
 import { SITE } from "@/lib/site";
+import { T } from "@/locales/pl";
 import JsonLd from "@/components/JsonLd";
 
 export const revalidate = 86400;
@@ -75,7 +76,7 @@ export default async function CategoryHub({
       {
         "@type": "BreadcrumbList",
         itemListElement: [
-          { "@type": "ListItem", position: 1, name: "Znaczenie snu", item: `${SITE.url}/` },
+          { "@type": "ListItem", position: 1, name: T.dream.breadcrumbRoot, item: `${SITE.url}/` },
           { "@type": "ListItem", position: 2, name: cat.h1, item: url },
         ],
       },
@@ -95,8 +96,8 @@ export default async function CategoryHub({
     <div className="mx-auto flex max-w-3xl flex-col gap-8">
       <JsonLd data={jsonLd} />
 
-      <nav aria-label="Ścieżka nawigacji" className="text-sm text-text-muted">
-        <Link href="/" className="link-soft">Znaczenie snu</Link>
+      <nav aria-label={T.dream.breadcrumbAria} className="text-sm text-text-muted">
+        <Link href="/" className="link-soft">{T.dream.breadcrumbRoot}</Link>
         {" / "}
         <span className="text-text">{cat.h1}</span>
       </nav>
