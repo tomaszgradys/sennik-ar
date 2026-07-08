@@ -24,7 +24,9 @@ import { CONSENT_INIT_SCRIPT } from "@/lib/consent";
 export const metadata: Metadata = {
   metadataBase: new URL(SITE.url),
   title: {
-    default: `${SITE.name} — تفسير الأحلام أونلاين`,
+    // Fraza na pierwszym miejscu (jak w szablonie podstron „%s — hulm.pro"):
+    // arabski użytkownik skanuje SERP pod „تفسير الأحلام", nie pod nową marką łacińską.
+    default: `تفسير الأحلام أونلاين — ${SITE.name}`,
     template: `%s — ${SITE.name}`,
   },
   description: SITE.description,
