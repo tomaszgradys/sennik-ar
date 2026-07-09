@@ -2,7 +2,7 @@
  "slug": "احلام-العطش-والماء-في-الصيف",
  "title": "لماذا نحلم بالعطش وشرب الماء في ليالي الصيف الحارة؟ وماذا يعني هذا الحلم؟",
  "h1": "لماذا نحلم بالعطش وشرب الماء في ليالي الصيف الحارة؟ وماذا يعني هذا الحلم؟",
- "metaDescription": "لماذا نحلم بالعطش وشرب الماء في ليالي الصيف الحارة؟ تفسير علمي وتراثي دافئ لهذا الحلم المتكرر وأسبابه ودلالاته.",
+ "metaDescription": "لماذا نحلم بالعطش وشرب الماء في ليالي الصيف الحارة؟ قراءة هادئة تجمع علم النوم وتراث ابن سيرين والنابلسي، مع أسباب الحلم المتكرر ودلالاته وطرق التعامل معه.",
  "excerpt": "في الليالي الحارة يزور كثيرين حلم متكرر: عطش لا ينتهي أو ماء لا يُروي. هذا المقال يجمع بين ما يقوله علم النوم وما ورثناه من تفسير ابن سيرين والنابلسي لهذا الحلم.",
  "date": "2026-07-08",
  "category": "تفسير الأحلام",
@@ -85,27 +85,27 @@
  ],
  "sources": [
   {
-   "title": "Thermoregulation And Sleep Ultrahuman",
-   "url": "https://blog.ultrahuman.com/blog/role of thermoregulation in sleep/"
+   "title": "Ultrahuman — Thermoregulation & Sleep",
+   "url": "https://blog.ultrahuman.com/blog/role-of-thermoregulation-in-sleep/"
   },
   {
-   "title": "Can Dehydration Cause Nightmares? | Sleep Science Revealed",
-   "url": "https://doctorguideonline.com/can dehydration cause nightmares/"
+   "title": "Doctor Guide — Dehydration & Nightmares",
+   "url": "https://doctorguideonline.com/can-dehydration-cause-nightmares/"
   },
   {
-   "title": "The Effects of High Temperature Weather on Human Sleep Quality and Appetite PMC",
+   "title": "PMC — Thirst, water balance and sleep",
    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6351950/"
-  },
-  {
-   "title": "تفسير حلم شرب الماء | مجلة سيدتي",
-   "url": "https://www.sayidaty.net/بلس/تفسير أحلام/1806008 تفسير حلم شرب الماء"
-  },
-  {
-   "title": "تفسير رؤية الماء في المنام: دلالات ابن سيرين والنابلسي",
-   "url": "https://mana.ms/blog/ar/تفسير رؤية الماء في المنام"
   }
  ],
  "related": [
+  {
+   "href": "/tafsir-ibn-sirin/",
+   "label": "تفسير ابن سيرين"
+  },
+  {
+   "href": "/sny/",
+   "label": "تصفّح رموز الأحلام"
+  },
   {
    "href": "/blog/",
    "label": "المزيد عن الأحلام في المدونة"
