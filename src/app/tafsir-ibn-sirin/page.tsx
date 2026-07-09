@@ -148,6 +148,9 @@ export default function IbnSirinPage() {
       </section>
 
       <nav className="flex flex-wrap gap-3 text-sm">
+        <Link href="/tafsir-al-nabulsi/" className="rounded-full border border-border bg-bg-soft px-4 py-1.5 text-text no-underline chip">
+          تفسير النابلسي
+        </Link>
         <Link href="/anwaa-al-ahlam/" className="rounded-full border border-border bg-bg-soft px-4 py-1.5 text-text no-underline chip">
           أنواع الأحلام والرؤى
         </Link>

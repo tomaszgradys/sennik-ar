@@ -162,7 +162,12 @@ export default function RootLayout({
                 <h3 className="mb-3 text-xs font-semibold uppercase tracking-wider text-text-muted">اكتشف</h3>
                 <ul className="m-0 flex list-none flex-col gap-2 p-0 text-sm">
                   <li><Link href="/tafsir-ibn-sirin/" className="link-soft text-text-muted">تفسير الأحلام لابن سيرين</Link></li>
+                  <li><Link href="/tafsir-al-nabulsi/" className="link-soft text-text-muted">تفسير الأحلام للنابلسي</Link></li>
                   <li><Link href="/anwaa-al-ahlam/" className="link-soft text-text-muted">أنواع الأحلام والرؤى</Link></li>
+                  <li><Link href="/ruya-al-nabi/" className="link-soft text-text-muted">رؤية النبي في المنام</Link></li>
+                  <li><Link href="/adab-al-ruya/" className="link-soft text-text-muted">آداب الرؤيا</Link></li>
+                  <li><Link href="/al-kawabis/" className="link-soft text-text-muted">الكوابيس</Link></li>
+                  <li><Link href="/salat-al-istikhara/" className="link-soft text-text-muted">صلاة الاستخارة والرؤيا</Link></li>
                   <li><Link href="/blog/" className="link-soft text-text-muted">المدونة</Link></li>
                   <li><Link href="/kolory/" className="link-soft text-text-muted">معاني الألوان</Link></li>
                   <li><Link href="/liczby/" className="link-soft text-text-muted">معاني الأرقام</Link></li>

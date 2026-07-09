@@ -136,6 +136,28 @@ export default function DreamTypesPage() {
         </blockquote>
       </section>
 
+      <section>
+        <h2 className="mb-4 text-2xl font-semibold text-text">تعمّق أكثر في عالم الرؤى</h2>
+        <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+          <Link href="/ruya-al-nabi/" className="rounded-xl border border-border bg-bg-elev p-4 no-underline card">
+            <span className="block font-semibold text-text">رؤية النبي محمد ﷺ في المنام</span>
+            <span className="mt-1 block text-sm text-text-muted">المعنى والآداب، وحديث «من رآني في المنام فقد رآني».</span>
+          </Link>
+          <Link href="/adab-al-ruya/" className="rounded-xl border border-border bg-bg-elev p-4 no-underline card">
+            <span className="block font-semibold text-text">آداب الرؤيا في الإسلام</span>
+            <span className="mt-1 block text-sm text-text-muted">ماذا تفعل بعد الحلم الطيب والمزعج، بخطوات مطمئنة.</span>
+          </Link>
+          <Link href="/al-kawabis/" className="rounded-xl border border-border bg-bg-elev p-4 no-underline card">
+            <span className="block font-semibold text-text">الكوابيس: لماذا نراها</span>
+            <span className="mt-1 block text-sm text-text-muted">بين علم النوم وآداب السنّة، وكيف نقلّلها.</span>
+          </Link>
+          <Link href="/salat-al-istikhara/" className="rounded-xl border border-border bg-bg-elev p-4 no-underline card">
+            <span className="block font-semibold text-text">صلاة الاستخارة والرؤيا</span>
+            <span className="mt-1 block text-sm text-text-muted">هل يلزم أن ترى منامًا بعدها؟ توضيح هادئ.</span>
+          </Link>
+        </div>
+      </section>
+
       <section className="flex flex-col gap-3">
         <h2 className="text-xl font-semibold text-text">أسئلة شائعة</h2>
         {faq.map((f) => (

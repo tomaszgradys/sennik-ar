@@ -72,7 +72,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     })),
     // Strony edytorskie natywne kulturowo — wysoki priorytet (EEAT + duże słowa kluczowe)
     { url: `${SITE.url}/tafsir-ibn-sirin/`, lastModified: now, changeFrequency: "weekly", priority: 0.85 },
+    { url: `${SITE.url}/tafsir-al-nabulsi/`, lastModified: now, changeFrequency: "weekly", priority: 0.85 },
     { url: `${SITE.url}/anwaa-al-ahlam/`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
+    // Klaster wiedzy o rؤyi (EEAT, wysoko-intencyjne encje islamskie)
+    { url: `${SITE.url}/ruya-al-nabi/`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${SITE.url}/adab-al-ruya/`, lastModified: now, changeFrequency: "monthly", priority: 0.75 },
+    { url: `${SITE.url}/salat-al-istikhara/`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
+    { url: `${SITE.url}/al-kawabis/`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
     { url: `${SITE.url}/o-nas/`, lastModified: now, changeFrequency: "yearly", priority: 0.4 },
     ...["regulamin", "polityka-prywatnosci", "kontakt"].map((p) => ({
       url: `${SITE.url}/${p}/`,

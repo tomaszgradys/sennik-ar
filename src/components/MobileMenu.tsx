@@ -11,7 +11,9 @@ import ThemeControls from "@/components/ThemeControls";
 const LINKS = [
   { href: "/", label: "تفسير الأحلام" },
   { href: "/tafsir-ibn-sirin/", label: "تفسير ابن سيرين" },
+  { href: "/tafsir-al-nabulsi/", label: "تفسير النابلسي" },
   { href: "/anwaa-al-ahlam/", label: "أنواع الأحلام" },
+  { href: "/ruya-al-nabi/", label: "رؤية النبي في المنام" },
   { href: "/blog/", label: "المدونة" },
   { href: "/kolory/", label: "الألوان" },
   { href: "/liczby/", label: "الأرقام" },
