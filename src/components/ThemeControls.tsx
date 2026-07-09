@@ -40,32 +40,38 @@ export default function ThemeControls() {
     applyWithTransition(m);
   }
 
+  // Każde kliknięcie w kontrolkę (dowolny chip) od razu przełącza motyw
+  // na przeciwny — nie trzeba trafiać w konkretny segment.
+  function toggleMode() {
+    changeMode(mode === "dark" ? "light" : "dark");
+  }
+
   // Nie renderujemy stanu zależnego od klienta przed hydratacją (unikamy mismatch).
   if (!ready) return <div style={{ width: 150, height: 34 }} aria-hidden />;
 
   return (
-    <div
-      role="radiogroup"
-      aria-label="المظهر"
+    <button
+      type="button"
+      role="switch"
+      aria-checked={mode === "dark"}
+      aria-label="تبديل المظهر (نهار/ليل)"
+      onClick={toggleMode}
       className="flex rounded-full border border-border bg-bg-soft p-0.5"
     >
       {MODES.map((m) => (
-        <button
+        <span
           key={m.value}
-          role="radio"
-          aria-checked={mode === m.value}
           title={m.title}
-          onClick={() => changeMode(m.value)}
           className={`rounded-full px-2 py-1 text-sm transition-colors sm:px-2.5 ${
             mode === m.value
               ? "dream-save dream-save--calm"
-              : "text-text-muted hover:text-text"
+              : "text-text-muted"
           }`}
         >
           <span aria-hidden className="sm:mr-1">{m.icon}</span>
           <span className="hidden sm:inline">{m.label}</span>
-        </button>
+        </span>
       ))}
-    </div>
+    </button>
   );
 }
