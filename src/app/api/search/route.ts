@@ -2,6 +2,7 @@ import { NextResponse, after } from "next/server";
 import { searchCorpus } from "@/lib/dream";
 import { wordsCorpus } from "@/lib/words";
 import { slugify, arNorm } from "@/lib/polish";
+import { synonymTarget } from "@/lib/synonyms";
 import { db, ensureSchema } from "@/lib/db";
 import { bumpMetric } from "@/lib/stats";
 import { overLimit, clientIp } from "@/lib/ipRateLimit";
@@ -202,26 +203,41 @@ export function GET(request: Request) {
   const isSentence = rawWords >= 5 || tokens.length >= 4;
 
   // 1) Dopasowanie tokenowe (WSZYSTKIE tokeny muszą wystąpić — precyzja).
+  // Kandydaci tokenu: on sam + ewentualny cel synonimu (فلوس→المال). Synonim jest
+  // niżej punktowany niż trafienie wprost, więc własna strona hasła zawsze wygrywa.
+  const candsFor = (tok: string): { t: string; syn: boolean }[] => {
+    const cands = [{ t: tok, syn: false }];
+    const s = synonymTarget(tok);
+    if (s && s !== tok) cands.push({ t: s, syn: true });
+    return cands;
+  };
+
   const hits: { r: ReturnType<typeof searchCorpus>[number]; score: number }[] = [];
   for (const r of searchCorpus()) {
     let score = 0;
     let ok = true;
     for (const tok of query) {
-      // نطابق على hay الأصلي أولًا (أدقّ للتهجئة)، ثم على hayN المسوّى (يلتقط «ال»).
-      let idx = r.hay.indexOf(tok);
-      let hay = r.hay;
-      if (idx === -1) {
-        const tokN = arNorm(tok);
-        idx = r.hayN.indexOf(tokN);
-        hay = r.hayN;
+      // Najlepszy wynik spośród: token wprost + cel synonimu. Match najpierw na hay
+      // (dokładna pisownia), potem na hayN (znosi rodzajnik ال).
+      let best = -1;
+      for (const { t, syn } of candsFor(tok)) {
+        const tN = arNorm(t);
+        let idx = r.hay.indexOf(t);
+        let hay = r.hay;
+        if (idx === -1) {
+          idx = r.hayN.indexOf(tN);
+          hay = r.hayN;
+        }
+        if (idx === -1) continue;
+        let sc = r.hay === t || r.hayN === tN ? 60 : idx === 0 || hay[idx - 1] === "-" ? 15 : 4;
+        if (syn) sc = Math.min(sc, 40) - 6; // synonim celowo niżej niż trafienie wprost
+        if (sc > best) best = sc;
       }
-      if (idx === -1) {
+      if (best < 0) {
         ok = false;
         break;
       }
-      if (r.hay === tok || r.hayN === arNorm(tok)) score += 60; // całe hasło == token
-      else if (idx === 0 || hay[idx - 1] === "-") score += 15; // token na początku słowa
-      else score += 4;
+      score += best;
     }
     if (!ok) continue;
     if (r.hay.includes(joined) || r.hayN.includes(joinedN)) score += 30; // spójne, w tej kolejności
