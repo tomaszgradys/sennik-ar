@@ -23,6 +23,7 @@ import DreamImage from "@/components/DreamImage";
 import VariantChips from "@/components/VariantChips";
 import JsonLd from "@/components/JsonLd";
 import { categoryForName, categoryPath } from "@/lib/categories";
+import { canonicalSlug } from "@/lib/catalog";
 import AdSlot from "@/components/AdSlot";
 import ShareButtons from "@/components/ShareButtons";
 import DiscoverCards from "@/components/DiscoverCards";
@@ -62,6 +63,9 @@ export async function generateMetadata({
   }
 
   const url = `${SITE.url}${dreamPath(entry.slug)}`;
+  // Duplikat wtórny (ta sama fraza co inny wpis): canonical → wpis główny, żeby Google
+  // skonsolidował, a nie indeksował identycznych stron „أرنب بري / أرنب بري-2".
+  const canonical = `${SITE.url}${dreamPath(canonicalSlug(entry.slug))}`;
   const ogImage = `${SITE.url}${ogImagePath(imageKey(entry.slug, entry.parent))}`;
   // Bramkowanie jakości: najsłabsze kombinacje (priorytet 3) trzymamy poza indeksem
   // (crawl budget + jakość domeny), ale zostawiamy „follow" — linki działają.
@@ -69,7 +73,7 @@ export async function generateMetadata({
   return {
     title: { absolute: metaTitle(entry) },
     description: entry.content.metaDescription,
-    alternates: { canonical: url },
+    alternates: { canonical },
     robots: weak ? { index: false, follow: true } : undefined,
     openGraph: {
       title: ogTitle(entry),

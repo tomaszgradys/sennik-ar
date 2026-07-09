@@ -1,4 +1,4 @@
-import { publishedSymbols } from "./catalog";
+import { publishedSymbols, isDuplicateSecondary } from "./catalog";
 import type { CatalogEntry } from "./types";
 
 // فئات موضوعية = 12 محورًا تحت /sny/{slug}/. كل محور يجمع رموز فئته، يبني سلطة
@@ -151,6 +151,6 @@ export function categoryForName(name: string): CategoryInfo | null {
 // الرموز المنشورة لفئة معينة، الأهم أولًا (الأولوية ثم الأبجدية العربية).
 export function symbolsInCategory(name: string): CatalogEntry[] {
   return publishedSymbols()
-    .filter((s) => s.category === name)
+    .filter((s) => s.category === name && !isDuplicateSecondary(s.slug))
     .sort((a, b) => a.priority - b.priority || a.phrase.localeCompare(b.phrase, "ar"));
 }

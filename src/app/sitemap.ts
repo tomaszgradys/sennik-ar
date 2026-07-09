@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { allPublished, dreamPath } from "@/lib/dream";
+import { isDuplicateSecondary } from "@/lib/catalog";
 import { colorSlugs, colorPath } from "@/lib/colors";
 import { numberSlugs, numberPath } from "@/lib/numbers";
 import { listPosts, blogPath } from "@/lib/blog";
@@ -23,6 +24,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // marnować na nie crawl budgetu. Zostają symbole i mocniejsze kombinacje.
   const dreams = allPublished()
     .filter((e) => e.type === "symbol" || e.priority < 3)
+    .filter((e) => !isDuplicateSecondary(e.slug)) // wtórne duplikaty poza sitemap (canonical→główny)
     .map((e) => ({
       url: `${SITE.url}${dreamPath(e.slug)}`,
       lastModified: now,

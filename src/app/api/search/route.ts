@@ -1,7 +1,7 @@
 import { NextResponse, after } from "next/server";
 import { searchCorpus } from "@/lib/dream";
 import { wordsCorpus } from "@/lib/words";
-import { slugify } from "@/lib/polish";
+import { slugify, arNorm } from "@/lib/polish";
 import { db, ensureSchema } from "@/lib/db";
 import { bumpMetric } from "@/lib/stats";
 import { overLimit, clientIp } from "@/lib/ipRateLimit";
@@ -114,41 +114,15 @@ function out(r: { slug: string; phrase: string; parent: string; kind: string }) 
   return { slug: r.slug, phrase: r.phrase, symbol: r.parent, kind: r.kind };
 }
 
-// Uproszczony rdzeń słowa: obcięcie typowych końcówek fleksyjnych (na slugach,
-// więc bez diakrytyków). Od najdłuższej, rdzeń musi mieć ≥3 znaki.
-const ENDINGS = [
-  "iami", "iach", "owie", "ego", "emu", "iej", "ymi", "imi", "ami", "ach", "owi",
-  "iem", "ym", "im", "ej", "om", "ow", "ie", "em", "e", "a", "y", "u", "o", "i",
-];
-function stem(t: string): string {
-  for (const suf of ENDINGS) {
-    if (t.endsWith(suf) && t.length - suf.length >= 3) return t.slice(0, -suf.length);
-  }
-  return t;
-}
-// Wyrównanie typowych wymian głosek w rdzeniu (wąż→węża, woda→wodzie, las→lesie).
-// Uwaga: bez rz→r — łańcuch rz→r + e→a robił z „rzeki" fałszywe „rak"/„ręka".
-function norm(t: string): string {
-  return stem(t).replace(/dz/g, "d").replace(/e/g, "a");
-}
-
-// Dopasowanie tokenu odporne (z grubsza) na polską odmianę — rdzeń + wymiany
-// głosek, bez pełnej lematyzacji: kot→kotem, czarny→czarnego, wąż→węża.
-// Celowo ostrożne (pies≠piec, bałam≠bałagan): lepiej przegapić niż podpowiadać bzdury.
+// تطابق الرمز مع مراعاة أداة التعريف والسوابق (كلب↔الكلب، ماء↔الماء). عربية الرمز
+// جذعها غير قياسي (الجموع مكسّرة)، لذا نكتفي بالتطابق بعد التسوية لا التقريب الجذري
+// كي لا نقترح رموزًا خاطئة (الأفضل أن نُغفل رمزًا على أن نوهم بمعنى غير موجود).
 function tokenSim(a: string, b: string): boolean {
-  if (a === b) return true;
-  const sa = stem(a);
-  const sb = stem(b);
-  if (sa === sb) return true;
-  if (norm(a) === norm(b)) return true;
-  const short = Math.min(sa.length, sb.length);
-  let l = 0;
-  while (l < short && sa[l] === sb[l]) l++;
-  return l >= 5 && l >= short - 1; // spadam→spadanie, wypadały→wypadające
+  return a === b || arNorm(a) === arNorm(b);
 }
 
-// Łączniki pomijane w hasłach przy sprawdzaniu pokrycia („wąż W wodzie").
-const CONNECT = new Set(["w", "we", "o", "z", "ze", "na", "do", "od", "u", "i", "a", "po", "dla", "bez", "pod", "nad", "przy", "sie"]);
+// أدوات ربط تُتجاهل عند فحص التغطية في العبارات المركّبة («ثعبان في الماء»).
+const CONNECT = new Set(["في", "فى", "على", "من", "الى", "مع", "و", "عن", "او", "ثم", "ال"]);
 
 // Wyłowienie znanych haseł ze zdania: hasło pasuje, gdy KAŻDY jego znaczący
 // token (poza łącznikami) występuje wśród tokenów zdania (z tolerancją odmiany).
@@ -221,6 +195,7 @@ export function GET(request: Request) {
   const tokens = needle.split("-").filter((t) => t.length >= 2 && !STOP.has(t)).slice(0, 12);
   const query = tokens.length ? tokens : [needle];
   const joined = query.join("-");
+  const joinedN = query.map(arNorm).join("-"); // نسخة مسوّاة (بلا «ال») للتطابق التام
 
   // Zdanie: dłuższa wypowiedź — zapisujemy ją do bazy (do analizy, bez tworzenia snu).
   const rawWords = q.split(/\s+/).filter(Boolean).length;
@@ -232,18 +207,25 @@ export function GET(request: Request) {
     let score = 0;
     let ok = true;
     for (const tok of query) {
-      const idx = r.hay.indexOf(tok);
+      // نطابق على hay الأصلي أولًا (أدقّ للتهجئة)، ثم على hayN المسوّى (يلتقط «ال»).
+      let idx = r.hay.indexOf(tok);
+      let hay = r.hay;
+      if (idx === -1) {
+        const tokN = arNorm(tok);
+        idx = r.hayN.indexOf(tokN);
+        hay = r.hayN;
+      }
       if (idx === -1) {
         ok = false;
         break;
       }
-      if (r.hay === tok) score += 60; // całe hasło == token
-      else if (idx === 0 || r.hay[idx - 1] === "-") score += 15; // token na początku słowa
+      if (r.hay === tok || r.hayN === arNorm(tok)) score += 60; // całe hasło == token
+      else if (idx === 0 || hay[idx - 1] === "-") score += 15; // token na początku słowa
       else score += 4;
     }
     if (!ok) continue;
-    if (r.hay.includes(joined)) score += 30; // spójne, w tej kolejności
-    if (r.hay === joined) score += 60; // idealne trafienie całości
+    if (r.hay.includes(joined) || r.hayN.includes(joinedN)) score += 30; // spójne, w tej kolejności
+    if (r.hay === joined || r.hayN === joinedN) score += 60; // idealne trafienie całości
     if (r.kind === "symbol") score += 20; // symbole wyżej niż kombinacje
     score -= r.phrase.length * 0.05; // krótsze nieco wyżej
     hits.push({ r, score });
