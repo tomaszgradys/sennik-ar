@@ -89,6 +89,14 @@ export default async function CategoryHub({
           url: `${SITE.url}${dreamPath(s.slug)}`,
         })),
       },
+      {
+        "@type": "FAQPage",
+        mainEntity: cat.faq.map((f) => ({
+          "@type": "Question",
+          name: f.q,
+          acceptedAnswer: { "@type": "Answer", text: f.a },
+        })),
+      },
     ],
   };
 
@@ -126,6 +134,16 @@ export default async function CategoryHub({
             ))}
           </div>
         )}
+      </section>
+
+      <section className="flex flex-col gap-3 border-t border-border pt-6">
+        <h2 className="text-xl font-semibold text-text">أسئلة شائعة</h2>
+        {cat.faq.map((f) => (
+          <details key={f.q} className="rounded-xl border border-border bg-bg-elev p-4">
+            <summary className="cursor-pointer font-semibold text-text">{f.q}</summary>
+            <p className="mt-2 text-text-muted">{f.a}</p>
+          </details>
+        ))}
       </section>
 
       <section className="border-t border-border pt-6">
