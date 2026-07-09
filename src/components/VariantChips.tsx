@@ -38,7 +38,7 @@ export default function VariantChips({
             aria-expanded={false}
             className="rounded-full border border-accent/50 bg-accent-soft px-3 py-1.5 text-sm font-medium text-accent transition-colors hover:border-accent"
           >
-            Pokaż więcej ({rest}) ↓
+            عرض المزيد ({rest}) ↓
           </button>
         )}
       </div>
@@ -49,7 +49,7 @@ export default function VariantChips({
           aria-expanded
           className="mt-3 text-sm text-text-muted transition-colors hover:text-accent"
         >
-          Zwiń ↑
+          طيّ ↑
         </button>
       )}
     </section>

@@ -45,7 +45,11 @@ export default function CookieConsent() {
   if (!open) return null;
 
   return (
-    <div className="fixed inset-x-0 bottom-0 z-[60] border-t border-border bg-bg-elev/95 backdrop-blur">
+    <div
+      role="region"
+      aria-label="إعدادات ملفات تعريف الارتباط"
+      className="fixed inset-x-0 bottom-0 z-[60] border-t border-border bg-bg-elev/95 backdrop-blur"
+    >
       <div className="mx-auto max-w-3xl px-4 py-4 text-center text-sm text-text">
         <p className="m-0">
           نستخدم ملفات تعريف الارتباط (cookies) ليعمل الموقع بشكل صحيح، وبموافقتك أيضًا

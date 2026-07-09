@@ -38,7 +38,7 @@ export default function NumberSearch({ numbers }: { numbers: number[] }) {
         </div>
       ) : (
         <p className="text-center text-text-muted">
-          Nie mamy jeszcze znaczenia liczby „{t}". Spróbuj innej.
+          لا نملك بعد معنى الرقم «{t}». جرّب رقمًا آخر.
         </p>
       )}
     </div>

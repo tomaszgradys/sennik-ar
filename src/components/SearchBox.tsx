@@ -169,37 +169,51 @@ export default function SearchBox({ autoFocus = false }: { autoFocus?: boolean }
         onKeyDown={onKey}
         placeholder={ph}
         aria-label="ابحث عن حلم"
+        role="combobox"
+        aria-autocomplete="list"
+        aria-controls="search-listbox"
+        aria-expanded={open && results.length > 0}
+        aria-activedescendant={
+          open && results.length > 0 ? `search-opt-${active}` : undefined
+        }
         className={`search-invite w-full rounded-xl border border-border bg-bg-elev px-4 py-2.5 text-base text-text outline-none placeholder:text-text-muted sm:py-3 ${
           q ? "is-filled" : ""
         }`}
       />
       {open && results.length > 0 && (
-        <ul className="absolute z-40 mt-2 w-full overflow-hidden rounded-xl border border-border bg-bg-elev shadow-lg">
+        <ul
+          id="search-listbox"
+          role="listbox"
+          aria-label="نتائج البحث"
+          className="absolute z-40 mt-2 w-full overflow-hidden rounded-xl border border-border bg-bg-elev shadow-lg"
+        >
           {mode === "phrases" ? (
-            <li className="border-b border-border bg-bg-soft px-4 py-2 text-xs text-text-muted">
+            <li role="presentation" className="border-b border-border bg-bg-soft px-4 py-2 text-xs text-text-muted">
               تعرّفنا في حلمك على هذه المصطلحات، اختر لتعرف المعنى:
             </li>
           ) : (
             !exact && (
-              <li className="border-b border-border bg-bg-soft px-4 py-2 text-xs text-text-muted">
+              <li role="presentation" className="border-b border-border bg-bg-soft px-4 py-2 text-xs text-text-muted">
                 لا نملك «{q.trim()}» تحديدًا. ربما تقصد هذا أو جرّب شيئًا مثيرًا:
               </li>
             )
           )}
           {results.map((r, i) => (
-            <li key={r.slug}>
-              <button
-                onMouseEnter={() => setActive(i)}
-                onClick={() => go(r.slug)}
-                className={`flex w-full items-center justify-between gap-3 px-4 py-2.5 text-start ${
-                  i === active ? "bg-accent-soft" : ""
-                }`}
-              >
-                <span className="text-text">{r.phrase}</span>
-                <span className="text-xs text-text-muted">
-                  {r.kind === "symbol" ? "رمز" : r.symbol}
-                </span>
-              </button>
+            <li
+              key={r.slug}
+              id={`search-opt-${i}`}
+              role="option"
+              aria-selected={i === active}
+              onMouseEnter={() => setActive(i)}
+              onClick={() => go(r.slug)}
+              className={`flex w-full cursor-pointer items-center justify-between gap-3 px-4 py-2.5 text-start ${
+                i === active ? "bg-accent-soft" : ""
+              }`}
+            >
+              <span className="text-text">{r.phrase}</span>
+              <span className="text-xs text-text-muted">
+                {r.kind === "symbol" ? "رمز" : r.symbol}
+              </span>
             </li>
           ))}
         </ul>

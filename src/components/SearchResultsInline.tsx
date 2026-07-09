@@ -40,10 +40,15 @@ export default function SearchResultsInline({ query }: { query: string }) {
   }, [query]);
 
   if (query.trim().length < 2) return null;
-  if (state === "loading") return <p className="text-text-muted">جارٍ البحث…</p>;
+  if (state === "loading")
+    return (
+      <p role="status" aria-live="polite" className="text-text-muted">
+        جارٍ البحث…
+      </p>
+    );
   if (state === "done" && results.length === 0)
     return (
-      <p className="text-text-muted">
+      <p role="status" aria-live="polite" className="text-text-muted">
         لا نتائج لـ «{query.trim()}». جرّب كلمة أبسط أو صف حلمك بجملة أخرى.
       </p>
     );
