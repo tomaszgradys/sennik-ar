@@ -25,16 +25,15 @@ import { T } from "@/locales/pl";
 import { CATEGORIES, categoryPath } from "@/lib/categories";
 import { ADS } from "@/lib/monetization";
 import ThemeControls from "@/components/ThemeControls";
-import NavAuth from "@/components/NavAuth";
 import Twinkles from "@/components/Twinkles";
 import StarParallax from "@/components/StarParallax";
 import ThreeDToggle from "@/components/ThreeDToggle";
 import CardSpotlight from "@/components/CardSpotlight";
 import ScrollReveal from "@/components/ScrollReveal";
-import AppPromoBanner from "@/components/AppPromoBanner";
 import Logo from "@/components/Logo";
 import MobileMenu from "@/components/MobileMenu";
 import CookieConsent from "@/components/CookieConsent";
+// (Logowanie/dziennik snów usunięte — serwis nie zbiera danych osobowych.)
 import CookieSettingsButton from "@/components/CookieSettingsButton";
 import Analytics from "@/components/Analytics";
 import { CONSENT_INIT_SCRIPT } from "@/lib/consent";
@@ -140,7 +139,6 @@ export default function RootLayout({
               </Link>
             </nav>
             <div className="flex items-center gap-2 sm:gap-3">
-              <NavAuth />
               {/* Przełącznik motywu w pasku tylko gdy jest miejsce (lg+); na telefonie
                   ląduje w menu hamburgerowym, żeby nie zapychać/nachodzić na logo. */}
               <div className="hidden lg:block">
@@ -156,7 +154,7 @@ export default function RootLayout({
           <div className="mx-auto max-w-5xl px-4">
             <div aria-hidden className="ornament mb-10">☾ ✦ ☽</div>
 
-            <div className="grid gap-8 sm:grid-cols-2 md:grid-cols-4">
+            <div className="grid gap-8 sm:grid-cols-2 md:grid-cols-3">
               <div className="sm:col-span-2 md:col-span-1">
                 <Logo />
                 <p className="mt-3 max-w-xs text-sm text-text-muted">
@@ -178,14 +176,6 @@ export default function RootLayout({
                   <li><Link href="/kolory/" className="link-soft text-text-muted">معاني الألوان</Link></li>
                   <li><Link href="/liczby/" className="link-soft text-text-muted">معاني الأرقام</Link></li>
                   <li><Link href="/faza-ksiezyca/" className="link-soft text-text-muted">{T.nav.moon}</Link></li>
-                </ul>
-              </div>
-
-              <div>
-                <h3 className="mb-3 text-xs font-semibold uppercase tracking-wider text-text-muted">دفتر أحلامك</h3>
-                <ul className="m-0 flex list-none flex-col gap-2 p-0 text-sm">
-                  <li><Link href="/moj-dziennik/" className="link-soft text-text-muted">دفتر أحلامي</Link></li>
-                  <li><Link href="/moj-dziennik/?new=1" rel="nofollow" className="link-soft text-text-muted">أضف حلمك الخاص</Link></li>
                 </ul>
               </div>
 
@@ -226,7 +216,6 @@ export default function RootLayout({
           </div>
         </footer>
 
-        <AppPromoBanner />
         <CookieConsent />
       </body>
     </html>

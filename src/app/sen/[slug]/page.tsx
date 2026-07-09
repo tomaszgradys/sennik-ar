@@ -20,7 +20,6 @@ import type { DreamEntry } from "@/lib/types";
 import { SITE } from "@/lib/site";
 import { T } from "@/locales/pl";
 import DreamImage from "@/components/DreamImage";
-import DreamSaveButton from "@/components/DreamSaveButton";
 import VariantChips from "@/components/VariantChips";
 import JsonLd from "@/components/JsonLd";
 import { categoryForName, categoryPath } from "@/lib/categories";
@@ -237,7 +236,6 @@ export default async function DreamPage({
         <div>
           <h1 className="text-balance text-4xl text-text sm:text-5xl">{h1}</h1>
           <p className="mt-3 font-serif text-lg italic text-text-muted">{c.intro}</p>
-          <DreamSaveButton slug={entry.slug} title={h1} sourcePath={dreamPath(entry.slug)} />
         </div>
       </header>
 

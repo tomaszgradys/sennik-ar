@@ -17,13 +17,6 @@ export const metadata: Metadata = {
 
 export const dynamic = "force-dynamic";
 
-interface Submission {
-  id: number;
-  body: string;
-  email: string | null;
-  status: string;
-  created_at: string;
-}
 interface Miss {
   query: string;
   hits: number;
@@ -39,13 +32,10 @@ interface Sentence {
 export default async function PanelPage() {
   if (!(await isAdmin())) return <PanelLogin />;
 
-  let submissions: Submission[] = [];
   let misses: Miss[] = [];
   let sentences: Sentence[] = [];
   try {
     await ensureSchema();
-    submissions = (await db()`SELECT id, body, email, status, created_at
-      FROM submissions ORDER BY created_at DESC LIMIT 200`) as Submission[];
     misses = (await db()`SELECT query, hits, last_at
       FROM search_misses ORDER BY hits DESC, last_at DESC LIMIT 200`) as Miss[];
     sentences = (await db()`SELECT query, hits, found, last_at
@@ -72,7 +62,6 @@ export default async function PanelPage() {
 
   return (
     <PanelDashboard
-      submissions={submissions}
       misses={misses}
       sentences={sentences}
       blog={blog}

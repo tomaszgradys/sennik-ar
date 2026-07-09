@@ -1,19 +1,11 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import type { BlogOverview } from "@/lib/blogSchedule";
 import type { CostEstimate, SelfHostedEstimate } from "@/lib/blogCosts";
-import type { AdminUserRow } from "@/lib/adminUsers";
 import type { StatsData } from "@/lib/stats";
 import StatsCharts from "./StatsCharts";
 
-interface Submission {
-  id: number;
-  body: string;
-  email: string | null;
-  status: string;
-  created_at: string;
-}
 interface Miss {
   query: string;
   hits: number;
@@ -36,21 +28,6 @@ function fmtDay(iso: string) {
 }
 const usd = (n: number) => `$${n.toFixed(2)}`;
 const pln = (n: number) => `${n.toFixed(2).replace(".", ",")} zł`;
-const DAY_MS = 86400000;
-function rel(d: string | null): string {
-  if (!d) return "—";
-  const ms = Date.now() - new Date(d).getTime();
-  if (ms < DAY_MS) return "dziś";
-  const days = Math.floor(ms / DAY_MS);
-  if (days < 30) return `${days} dni temu`;
-  const months = Math.floor(days / 30);
-  if (months < 12) return `${months} mies. temu`;
-  return `${Math.floor(months / 12)} lat temu`;
-}
-function activeWithin30(u: { lastEntryAt: string | null; lastLoginAt: string | null }): boolean {
-  const t = u.lastEntryAt || u.lastLoginAt;
-  return t ? Date.now() - new Date(t).getTime() < 30 * DAY_MS : false;
-}
 const FREQ_OPTIONS: { days: number; label: string }[] = [
   { days: 1, label: "Codziennie" },
   { days: 2, label: "Co 2 dni" },
@@ -59,10 +36,9 @@ const FREQ_OPTIONS: { days: number; label: string }[] = [
 ];
 const freqLabel = (days: number) => FREQ_OPTIONS.find((o) => o.days === days)?.label ?? `co ${days} dni`;
 
-type TabId = "sny" | "statystyka" | "blog" | "koszty" | "uzytkownicy" | "zgloszenia" | "szukane" | "zdania";
+type TabId = "sny" | "statystyka" | "blog" | "koszty" | "szukane" | "zdania";
 
 export default function PanelDashboard({
-  submissions,
   misses,
   sentences,
   blog,
@@ -71,7 +47,6 @@ export default function PanelDashboard({
   blogEveryDays,
   stats,
 }: {
-  submissions: Submission[];
   misses: Miss[];
   sentences: Sentence[];
   blog: BlogOverview;
@@ -80,7 +55,6 @@ export default function PanelDashboard({
   blogEveryDays: number;
   stats: StatsData;
 }) {
-  const [subs, setSubs] = useState(submissions);
   const [ms, setMs] = useState(misses);
   const [sents, setSents] = useState(sentences);
   const [busy, setBusy] = useState<string | null>(null);
@@ -110,32 +84,6 @@ export default function PanelDashboard({
       setFreqMsg("Błąd sieci.");
     } finally {
       setFreqBusy(false);
-    }
-  }
-
-  // Użytkownicy — ładowane leniwie przy pierwszym wejściu w zakładkę.
-  const [users, setUsers] = useState<AdminUserRow[] | null>(null);
-  const [usersErr, setUsersErr] = useState<string | null>(null);
-  const [userBusy, setUserBusy] = useState<string | null>(null);
-
-  useEffect(() => {
-    if (tab !== "uzytkownicy" || users !== null) return;
-    let alive = true;
-    fetch("/api/panel/users/")
-      .then((r) => (r.ok ? r.json() : Promise.reject()))
-      .then((d) => { if (alive) setUsers(d.users ?? []); })
-      .catch(() => { if (alive) setUsersErr("Nie udało się wczytać użytkowników (baza?)."); });
-    return () => { alive = false; };
-  }, [tab, users]);
-
-  async function delUser(u: AdminUserRow) {
-    if (!window.confirm(`Usunąć konto ${u.email} i WSZYSTKIE jego sny? Nieodwracalne.`)) return;
-    setUserBusy(u.id);
-    try {
-      const res = await fetch(`/api/panel/users/?id=${encodeURIComponent(u.id)}`, { method: "DELETE" });
-      if (res.ok) setUsers((list) => (list ? list.filter((x) => x.id !== u.id) : list));
-    } finally {
-      setUserBusy(null);
     }
   }
 
@@ -170,14 +118,13 @@ export default function PanelDashboard({
     }
   }
 
-  async function del(type: "submission" | "miss" | "sentence", id: number | string) {
+  async function del(type: "miss" | "sentence", id: number | string) {
     await fetch("/api/panel/delete/", {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify({ type, id }),
     });
-    if (type === "submission") setSubs((s) => s.filter((x) => x.id !== id));
-    else if (type === "miss") setMs((m) => m.filter((x) => x.query !== id));
+    if (type === "miss") setMs((m) => m.filter((x) => x.query !== id));
     else setSents((s) => s.filter((x) => x.query !== id));
   }
 
@@ -200,8 +147,6 @@ export default function PanelDashboard({
     { id: "statystyka", label: "Statystyka" },
     { id: "blog", label: "Blog" },
     { id: "koszty", label: "Koszty" },
-    { id: "uzytkownicy", label: "Użytkownicy", count: users?.length },
-    { id: "zgloszenia", label: "Zgłoszenia", count: subs.length },
     { id: "szukane", label: "Szukane", count: ms.length },
     { id: "zdania", label: "Zdania", count: sents.length },
   ];
@@ -442,112 +387,6 @@ export default function PanelDashboard({
               <code>src/lib/blogCosts.ts</code> (SELF_HOSTED).
             </p>
           </div>
-        </section>
-      )}
-
-      {/* UŻYTKOWNICY */}
-      {tab === "uzytkownicy" && (
-        <section className="flex flex-col gap-4">
-          <div className="flex flex-wrap items-center justify-between gap-2">
-            <h2 className="m-0 text-lg font-semibold text-text">
-              Użytkownicy {users ? `(${users.length})` : ""}
-            </h2>
-            <button
-              onClick={() => { setUsers(null); setUsersErr(null); }}
-              className="rounded-full border border-border px-3 py-1.5 text-sm text-text-muted hover:text-text"
-            >
-              Odśwież
-            </button>
-          </div>
-
-          {usersErr && <p className="m-0 text-sm text-negative">{usersErr}</p>}
-          {!users && !usersErr && <p className="m-0 text-sm text-text-muted">Wczytuję…</p>}
-
-          {users && users.length > 0 && (
-            <>
-              {/* Podsumowanie */}
-              <div className="grid grid-cols-3 gap-2">
-                {[
-                  { label: "Konta", value: users.length },
-                  { label: "Aktywni (30 dni)", value: users.filter(activeWithin30).length },
-                  { label: "Zapisane sny", value: users.reduce((s, u) => s + u.entryCount, 0) },
-                ].map((k) => (
-                  <div key={k.label} className="rounded-xl border border-border bg-bg-elev p-3 text-center">
-                    <div className="text-xl font-bold text-text">{k.value}</div>
-                    <div className="text-xs text-text-muted">{k.label}</div>
-                  </div>
-                ))}
-              </div>
-
-              {/* Lista kont */}
-              <div className="flex flex-col gap-2">
-                {users.map((u) => {
-                  const active = activeWithin30(u);
-                  const initial = (u.name?.trim()?.[0] ?? u.email?.[0] ?? "?").toUpperCase();
-                  return (
-                    <div key={u.id} className="flex flex-wrap items-center gap-3 rounded-xl border border-border bg-bg-elev p-3">
-                      <div className="nav-avatar flex h-9 w-9 shrink-0 items-center justify-center text-sm" aria-hidden>
-                        {u.avatarUrl ? (
-                          // eslint-disable-next-line @next/next/no-img-element -- awatar Google
-                          <img src={u.avatarUrl} alt="" width={36} height={36} className="h-full w-full rounded-full object-cover" referrerPolicy="no-referrer" />
-                        ) : initial}
-                      </div>
-                      <div className="min-w-0 flex-1">
-                        <div className="flex items-center gap-2">
-                          <span className="truncate text-sm font-semibold text-text">{u.name || u.email}</span>
-                          <span className={`shrink-0 rounded-full px-1.5 py-0.5 text-[10px] font-medium ${active ? "bg-positive/15 text-positive" : "bg-bg-soft text-text-muted"}`}>
-                            {active ? "aktywny" : "nieaktywny"}
-                          </span>
-                        </div>
-                        <div className="truncate text-xs text-text-muted">{u.email}</div>
-                        <div className="mt-0.5 flex flex-wrap gap-x-3 gap-y-0.5 text-[11px] text-text-muted">
-                          <span>🌙 {u.entryCount} {u.entryCount === 1 ? "sen" : "snów"}</span>
-                          <span>przez {u.provider === "google" ? "Google" : "e-mail"}</span>
-                          <span>dołączył {rel(u.createdAt)}</span>
-                          <span>ostatni sen {rel(u.lastEntryAt)}</span>
-                        </div>
-                      </div>
-                      <button
-                        onClick={() => delUser(u)}
-                        disabled={userBusy === u.id}
-                        className="shrink-0 rounded-full border border-negative/50 px-3 py-1.5 text-sm text-negative hover:bg-negative hover:text-white disabled:opacity-60"
-                      >
-                        {userBusy === u.id ? "Usuwam…" : "Usuń"}
-                      </button>
-                    </div>
-                  );
-                })}
-              </div>
-            </>
-          )}
-
-          {users && users.length === 0 && (
-            <p className="m-0 rounded-xl border border-border bg-bg-elev p-4 text-sm text-text-muted">
-              Nie ma jeszcze żadnych zarejestrowanych użytkowników.
-            </p>
-          )}
-        </section>
-      )}
-
-      {/* ZGŁOSZENIA */}
-      {tab === "zgloszenia" && (
-        <section>
-          <h2 className="mb-3 text-lg font-semibold text-text">Zgłoszenia „nie znalazłeś snu?" ({subs.length})</h2>
-          {subs.length === 0 ? (
-            <p className="text-sm text-text-muted">Brak zgłoszeń.</p>
-          ) : (
-            <div className="flex flex-col gap-2">
-              {subs.map((s) => (
-                <div key={s.id} className="flex items-start justify-between gap-3 rounded-xl border border-border bg-bg-elev p-3">
-                  <div>
-                    <p className="m-0 text-text">{s.body}</p>
-                    <p className="m-0 mt-1 text-xs text-text-muted">{fmt(s.created_at)}{s.email ? ` · ${s.email}` : ""}</p>
-                  </div>
-                  <button onClick={() => del("submission", s.id)} aria-label="Usuń" className="shrink-0 rounded-full border border-border px-2 py-1 text-xs text-text-muted hover:text-negative">✕</button>
-                </div>
-              ))}
-            </div>
-          )}
         </section>
       )}
 

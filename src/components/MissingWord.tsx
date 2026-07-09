@@ -6,7 +6,6 @@ import { capitalize } from "@/lib/polish";
 import { db, ensureSchema } from "@/lib/db";
 import SymbolImage from "@/components/SymbolImage";
 import SearchBox from "@/components/SearchBox";
-import MissingDreamForm from "@/components/MissingDreamForm";
 
 // Strona słowa, którego snu jeszcze nie mamy: proponujemy sprawdzone alternatywy
 // i logujemy kliknięcie (czego ludzie szukają) — do panelu admina.
@@ -62,10 +61,6 @@ export default function MissingWord({ slug }: { slug: string }) {
           ربما تقصد شيئًا آخر؟ ابحث:
         </p>
         <SearchBox />
-      </div>
-
-      <div className="rounded-2xl border border-border bg-bg-soft p-4">
-        <MissingDreamForm />
       </div>
     </div>
   );

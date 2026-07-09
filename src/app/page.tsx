@@ -5,7 +5,6 @@ import SymbolImage from "@/components/SymbolImage";
 import AdSlot from "@/components/AdSlot";
 import JsonLd from "@/components/JsonLd";
 import DiscoverCards from "@/components/DiscoverCards";
-import MissingDreamForm from "@/components/MissingDreamForm";
 import { publishedSymbols, allPublished, dreamPath } from "@/lib/dream";
 import { listPosts, blogPath, heroSrcBlog } from "@/lib/blog";
 import { popularSymbols } from "@/lib/daily";
@@ -140,9 +139,6 @@ export default async function Home() {
         </p>
         <div className="mx-auto mt-6 w-full max-w-xl sm:mt-7">
           <SearchBox autoFocus />
-        </div>
-        <div className="mx-auto mt-4 w-full max-w-xl">
-          <MissingDreamForm />
         </div>
       </section>
 

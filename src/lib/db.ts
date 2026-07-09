@@ -19,28 +19,24 @@ export function ensureSchema(): Promise<void> {
   if (_schema) return _schema;
   const sql = db();
   _schema = (async () => {
-    await sql`CREATE TABLE IF NOT EXISTS users (
-      id serial PRIMARY KEY,
-      email text UNIQUE NOT NULL,
-      password_hash text NOT NULL,
-      created_at timestamptz NOT NULL DEFAULT now()
-    )`;
-    await sql`CREATE TABLE IF NOT EXISTS dreams (
-      id serial PRIMARY KEY,
-      user_id int NOT NULL REFERENCES users(id) ON DELETE CASCADE,
-      title text,
-      body text NOT NULL,
-      dream_date date,
-      mood text,
-      created_at timestamptz NOT NULL DEFAULT now()
-    )`;
-    await sql`CREATE TABLE IF NOT EXISTS submissions (
-      id serial PRIMARY KEY,
-      body text NOT NULL,
-      email text,
-      status text NOT NULL DEFAULT 'new',
-      created_at timestamptz NOT NULL DEFAULT now()
-    )`;
+    // UWAGA: serwis NIE zbiera danych osobowych ani wrażliwych (brak logowania,
+    // kont, dziennika snów i formularza zgłoszeń). Tabele poniżej to wyłącznie
+    // anonimowa analityka wyszukiwarki, treści z panelu admina i liczniki.
+
+    // ── Sprzątanie compliance (idempotentne) ──────────────────────────────────
+    // Trwale usuwa tabele danych osobowych/wrażliwych z każdej bazy, do której
+    // ten kod się podłączy (produkcja + ewentualne klony). DROP ... IF EXISTS jest
+    // bezpieczne i staje się no-opem, gdy tabele już nie istnieją. CASCADE zdejmuje
+    // zależne klucze obce (dziennik, symbole, raporty).
+    await sql`DROP TABLE IF EXISTS premium_analysis_reports CASCADE`;
+    await sql`DROP TABLE IF EXISTS dream_journal_entry_symbols CASCADE`;
+    await sql`DROP TABLE IF EXISTS dream_journal_entries CASCADE`;
+    await sql`DROP TABLE IF EXISTS app_users CASCADE`;
+    await sql`DROP TABLE IF EXISTS submissions CASCADE`;
+    await sql`DROP TABLE IF EXISTS journal_rate_limits CASCADE`;
+    await sql`DROP TABLE IF EXISTS dreams CASCADE`;
+    await sql`DROP TABLE IF EXISTS users CASCADE`;
+
     await sql`CREATE TABLE IF NOT EXISTS search_misses (
       query text PRIMARY KEY,
       hits int NOT NULL DEFAULT 1,
@@ -77,99 +73,6 @@ export function ensureSchema(): Promise<void> {
       updated_at timestamptz NOT NULL DEFAULT now()
     )`;
 
-    // ── Dziennik snów ─────────────────────────────────────────────────────────
-    // Użytkownicy końcowi (Google LUB e-mail+hasło) — ODDZIELNI od admina panelu.
-    await sql`CREATE TABLE IF NOT EXISTS app_users (
-      id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
-      google_sub text UNIQUE,
-      email text NOT NULL,
-      password_hash text,
-      name text,
-      avatar_url text,
-      provider text NOT NULL DEFAULT 'google',
-      created_at timestamptz NOT NULL DEFAULT now(),
-      updated_at timestamptz NOT NULL DEFAULT now(),
-      last_login_at timestamptz,
-      deleted_at timestamptz
-    )`;
-    // Migracje dla istniejącej bazy (idempotentne): konto e-mail + unikalny e-mail.
-    await sql`ALTER TABLE app_users ALTER COLUMN google_sub DROP NOT NULL`;
-    await sql`ALTER TABLE app_users ADD COLUMN IF NOT EXISTS password_hash text`;
-    await sql`CREATE UNIQUE INDEX IF NOT EXISTS uq_app_users_email ON app_users (lower(email))`;
-
-    // Wpisy dziennika. Wszystko domyślnie prywatne. Soft delete przez deleted_at.
-    await sql`CREATE TABLE IF NOT EXISTS dream_journal_entries (
-      id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
-      user_id uuid NOT NULL REFERENCES app_users(id) ON DELETE CASCADE,
-      dream_symbol_id text,
-      dream_slug text,
-      title text NOT NULL,
-      dream_date date,
-      saved_at timestamptz NOT NULL DEFAULT now(),
-      source_url text,
-      source_type text NOT NULL DEFAULT 'manual',
-      interpretation_snapshot jsonb,
-      user_description text,
-      user_notes text,
-      mood text,
-      emotions jsonb NOT NULL DEFAULT '[]'::jsonb,
-      people jsonb NOT NULL DEFAULT '[]'::jsonb,
-      places jsonb NOT NULL DEFAULT '[]'::jsonb,
-      colors jsonb NOT NULL DEFAULT '[]'::jsonb,
-      tags jsonb NOT NULL DEFAULT '[]'::jsonb,
-      is_recurring boolean NOT NULL DEFAULT false,
-      memory_strength int,
-      sleep_quality int,
-      visibility text NOT NULL DEFAULT 'private',
-      status text NOT NULL DEFAULT 'saved',
-      premium_analysis_status text NOT NULL DEFAULT 'not_requested',
-      created_at timestamptz NOT NULL DEFAULT now(),
-      updated_at timestamptz NOT NULL DEFAULT now(),
-      deleted_at timestamptz
-    )`;
-    await sql`CREATE INDEX IF NOT EXISTS idx_journal_user
-      ON dream_journal_entries (user_id, deleted_at, saved_at DESC)`;
-    await sql`CREATE INDEX IF NOT EXISTS idx_journal_user_slug
-      ON dream_journal_entries (user_id, dream_slug)`;
-    // Jeden quick-save danego symbolu na użytkownika (ochrona przed duplikatem przy
-    // podwójnym kliknięciu). Ręczne wpisy (source_type='manual') NIE są objęte — można
-    // mieć wiele wpisów tego samego symbolu przez „Dodaj jako nowy wpis".
-    await sql`CREATE UNIQUE INDEX IF NOT EXISTS uq_journal_symbol_save
-      ON dream_journal_entries (user_id, dream_slug)
-      WHERE deleted_at IS NULL AND source_type = 'symbol_page'`;
-
-    // Symbole powiązane z wpisem (pod przyszłą analitykę: powtarzające się motywy).
-    await sql`CREATE TABLE IF NOT EXISTS dream_journal_entry_symbols (
-      id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
-      entry_id uuid NOT NULL REFERENCES dream_journal_entries(id) ON DELETE CASCADE,
-      symbol_slug text NOT NULL,
-      symbol_title text,
-      confidence real,
-      created_at timestamptz NOT NULL DEFAULT now()
-    )`;
-    await sql`CREATE INDEX IF NOT EXISTS idx_entry_symbols_entry
-      ON dream_journal_entry_symbols (entry_id)`;
-
-    // Raporty analizy premium — struktura na przyszłość (obecnie nieaktywne).
-    await sql`CREATE TABLE IF NOT EXISTS premium_analysis_reports (
-      id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
-      user_id uuid NOT NULL REFERENCES app_users(id) ON DELETE CASCADE,
-      entry_id uuid REFERENCES dream_journal_entries(id) ON DELETE SET NULL,
-      period_start date,
-      period_end date,
-      analysis_type text NOT NULL DEFAULT 'patterns',
-      status text NOT NULL DEFAULT 'not_requested',
-      result_json jsonb,
-      created_at timestamptz NOT NULL DEFAULT now(),
-      updated_at timestamptz NOT NULL DEFAULT now()
-    )`;
-
-    // Rate-limit dla akcji dziennika/logowania (DB-backed, bo serverless nie dzieli pamięci).
-    await sql`CREATE TABLE IF NOT EXISTS journal_rate_limits (
-      key text PRIMARY KEY,
-      hits int NOT NULL DEFAULT 0,
-      window_start timestamptz NOT NULL DEFAULT now()
-    )`;
     // Proste ustawienia serwisu (klucz→wartość), np. częstotliwość bloga.
     await sql`CREATE TABLE IF NOT EXISTS site_settings (
       key text PRIMARY KEY,
