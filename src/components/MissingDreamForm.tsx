@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { track } from "@/lib/track";
 
 // „Nie znalazłeś snu?" — użytkownik opisuje sen, którego nie ma; leci do panelu admina.
 export default function MissingDreamForm() {
@@ -12,18 +13,30 @@ export default function MissingDreamForm() {
   const [busy, setBusy] = useState(false);
   const [err, setErr] = useState("");
 
+  function openForm() {
+    setOpen(true);
+    track("missing_dream_form_open", { cta_location: "home" });
+  }
+
   async function submit(e: React.FormEvent) {
     e.preventDefault();
+    if (body.trim().length < 3) {
+      setErr("صف الحلم في بضع كلمات.");
+      return;
+    }
     setBusy(true);
     setErr("");
+    track("missing_dream_submit", { with_email: !!email.trim() });
     const res = await fetch("/api/submit/", {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify({ body, email: email || null }),
     });
     setBusy(false);
-    if (res.ok) setDone(true);
-    else {
+    if (res.ok) {
+      track("missing_dream_success", { with_email: !!email.trim() });
+      setDone(true);
+    } else {
       const d = await res.json().catch(() => ({}));
       setErr(d.error || "حدث خطأ ما.");
     }
@@ -42,7 +55,7 @@ export default function MissingDreamForm() {
       <div className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-center text-xs text-text-muted sm:text-sm">
         <span>
           لم تجده؟{" "}
-          <button onClick={() => setOpen(true)} className="link-soft text-accent">
+          <button onClick={openForm} className="link-soft text-accent">
             صف حلمك ←
           </button>
         </span>
@@ -61,17 +74,30 @@ export default function MissingDreamForm() {
         value={body}
         onChange={(e) => setBody(e.target.value)}
         rows={3}
+        maxLength={1000}
         autoFocus
         placeholder="مثال: حلمت ببيت على البحر أضيّع فيه المفاتيح…"
-        className="rounded-xl border border-border bg-bg-soft px-3 py-2 text-text outline-none focus:border-accent"
+        className="rounded-xl border border-border bg-bg-soft px-3 py-2 text-base text-text outline-none focus:border-accent"
       />
       <input
         type="email"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
+        maxLength={200}
+        autoComplete="email"
         placeholder="البريد الإلكتروني (اختياري، سنعلمك)"
         className="rounded-xl border border-border bg-bg-soft px-3 py-2 text-base text-text outline-none focus:border-accent"
       />
+      {/* Zgoda/nota prywatności — pojawia się dopiero gdy user podał e-mail (dane osobowe). */}
+      {email.trim() && (
+        <p className="m-0 text-xs leading-relaxed text-text-muted">
+          بإرسال بريدك توافق على استخدامه لإعلامك بإضافة تفسير هذا الحلم فقط، وفق{" "}
+          <Link href="/polityka-prywatnosci/" className="link-soft text-accent">
+            سياسة الخصوصية
+          </Link>
+          .
+        </p>
+      )}
       {err && <p className="m-0 text-sm text-negative">{err}</p>}
       <div className="flex gap-2">
         <button

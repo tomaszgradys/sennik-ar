@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState, type FormEvent } from "react";
 import { T } from "@/locales/pl";
+import { track } from "@/lib/track";
 
 // „Dodaj do dziennika": atrakcyjny przycisk przy nagłówku snu + latający widget w rogu
 // na telefonie. Zalogowany zapisuje jednym kliknięciem; niezalogowany dostaje lekki
@@ -33,16 +34,6 @@ function GoogleG() {
       <path fill="#EA4335" d="M9 3.58c1.321 0 2.508.454 3.44 1.345l2.582-2.58C13.463.891 11.426 0 9 0A8.997 8.997 0 0 0 .957 4.958L3.964 7.29C4.672 5.163 6.656 3.58 9 3.58z" />
     </svg>
   );
-}
-
-// Analityka: TYLKO bezpieczne parametry (slug/lokalizacja) — nigdy treści snu.
-// No-op, gdy GA nie skonfigurowane.
-function track(event: string, params: Record<string, unknown>) {
-  try {
-    (window as unknown as { gtag?: (...a: unknown[]) => void }).gtag?.("event", event, params);
-  } catch {
-    /* brak GA */
-  }
 }
 
 export default function DreamSaveButton({ slug, title, sourcePath }: Props) {
