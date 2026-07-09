@@ -21,6 +21,25 @@ export const metadata: Metadata = {
   openGraph: { title, description, url },
 };
 
+const faq = [
+  {
+    q: "كيف أجد تفسير رمزٍ رأيته في حلمي؟",
+    a: "اختر الفئة الأقرب إلى حلمك من القائمة أدناه — الحيوانات، الناس، البيت، الطبيعة، الجسد وغيرها — ثم تصفّح رموزها. أو استخدم البحث في أعلى الموقع للوصول مباشرةً إلى الرمز الذي رأيته.",
+  },
+  {
+    q: "هل كل حلمٍ يستحق التفسير؟",
+    a: "لا. في التراث العربي والإسلامي تُقسم المنامات إلى رؤيا صادقة، وحلمٍ مزعج، وحديث نفسٍ يعكس ما يشغلنا في اليقظة. كثيرٌ مما نراه من النوع الأخير. لذلك نقرأ الرموز هنا بهدوء، كإلهامٍ للتأمل لا كحكمٍ قاطع على المستقبل.",
+  },
+  {
+    q: "هل تختلف دلالة الرمز باختلاف السياق؟",
+    a: "نعم، والسياق أساس كل تأويل. الثعبان أو الماء أو سقوط الأسنان قد يحمل معنى في حالٍ ومعنى آخر في حال، بحسب تفاصيل الحلم والشعور المصاحب له. لذلك نعرض لكل رمزٍ وجوهه المختلفة.",
+  },
+  {
+    q: "من أين تُستمدّ هذه التفسيرات؟",
+    a: "نستلهم القراءة من التراث العربي والإسلامي في تعبير الرؤيا — كمدرسة ابن سيرين والنابلسي — ومن التأمل الإنساني وعلم النفس الحديث، بأسلوبٍ مطمئن يوازن بين الموروث والمعنى النفسي، ولغرض الإلهام لا الجزم بالغيب.",
+  },
+];
+
 export default function DreamsIndex() {
   // عدد الرموز المنشورة لكل فئة (يُظهر أن الفئة غير فارغة ويقوّي الربط الداخلي).
   const cats = CATEGORIES.map((c) => ({
@@ -52,6 +71,14 @@ export default function DreamsIndex() {
           position: i + 1,
           name: c.h1,
           url: `${SITE.url}${categoryPath(c.slug)}`,
+        })),
+      },
+      {
+        "@type": "FAQPage",
+        mainEntity: faq.map((f) => ({
+          "@type": "Question",
+          name: f.q,
+          acceptedAnswer: { "@type": "Answer", text: f.a },
         })),
       },
     ],
@@ -92,6 +119,16 @@ export default function DreamsIndex() {
             </li>
           ))}
         </ul>
+      </section>
+
+      <section className="flex flex-col gap-3">
+        <h2 className="text-xl font-semibold text-text">أسئلة شائعة</h2>
+        {faq.map((f) => (
+          <details key={f.q} className="rounded-xl border border-border bg-bg-elev p-4">
+            <summary className="cursor-pointer font-semibold text-text">{f.q}</summary>
+            <p className="mt-2 text-text-muted">{f.a}</p>
+          </details>
+        ))}
       </section>
     </div>
   );

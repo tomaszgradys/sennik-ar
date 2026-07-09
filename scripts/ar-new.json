@@ -1,0 +1,610 @@
+[
+ {
+  "slug": "حصان-عربي",
+  "phrase": "حصان عربي",
+  "parent": "حصان-عربي",
+  "type": "symbol",
+  "priority": 2,
+  "arCategory": "الحيوانات"
+ },
+ {
+  "slug": "كثبان-رمليه",
+  "phrase": "كثبان رملية",
+  "parent": "كثبان-رمليه",
+  "type": "symbol",
+  "priority": 2,
+  "arCategory": "الطبيعة والطقس"
+ },
+ {
+  "slug": "قمر",
+  "phrase": "قمر",
+  "parent": "قمر",
+  "type": "symbol",
+  "priority": 2,
+  "arCategory": "الطبيعة والطقس"
+ },
+ {
+  "slug": "نجمه",
+  "phrase": "نجمة",
+  "parent": "نجمه",
+  "type": "symbol",
+  "priority": 2,
+  "arCategory": "الطبيعة والطقس"
+ },
+ {
+  "slug": "تين",
+  "phrase": "تين",
+  "parent": "تين",
+  "type": "symbol",
+  "priority": 2,
+  "arCategory": "الطعام والشراب"
+ },
+ {
+  "slug": "لبن",
+  "phrase": "لبن",
+  "parent": "لبن",
+  "type": "symbol",
+  "priority": 2,
+  "arCategory": "الطعام والشراب"
+ },
+ {
+  "slug": "مكه",
+  "phrase": "مكة",
+  "parent": "مكه",
+  "type": "symbol",
+  "priority": 2,
+  "arCategory": "البيت والأماكن"
+ },
+ {
+  "slug": "ذهب",
+  "phrase": "ذهب",
+  "parent": "ذهب",
+  "type": "symbol",
+  "priority": 2,
+  "arCategory": "الأشياء والرموز"
+ },
+ {
+  "slug": "فضه",
+  "phrase": "فضة",
+  "parent": "فضه",
+  "type": "symbol",
+  "priority": 2,
+  "arCategory": "الأشياء والرموز"
+ },
+ {
+  "slug": "الحج",
+  "phrase": "الحج",
+  "parent": "الحج",
+  "type": "symbol",
+  "priority": 2,
+  "arCategory": "الأفعال والحركة"
+ },
+ {
+  "slug": "العفريت",
+  "phrase": "العفريت",
+  "parent": "العفريت",
+  "type": "symbol",
+  "priority": 2,
+  "arCategory": "المخاطر والمشاعر والأحداث"
+ },
+ {
+  "slug": "قافله",
+  "phrase": "قافلة",
+  "parent": "قافله",
+  "type": "symbol",
+  "priority": 2,
+  "arCategory": "السفر والمركبات"
+ },
+ {
+  "slug": "دخول-الكعبه",
+  "phrase": "دخول الكعبة",
+  "parent": "الكعبه",
+  "type": "combo",
+  "priority": 3,
+  "arCategory": "البيت والأماكن"
+ },
+ {
+  "slug": "الكعبه-تنهار",
+  "phrase": "الكعبة تنهار",
+  "parent": "الكعبه",
+  "type": "combo",
+  "priority": 3,
+  "arCategory": "البيت والأماكن"
+ },
+ {
+  "slug": "الذهاب-الي-الحج",
+  "phrase": "الذهاب إلى الحج",
+  "parent": "الحج",
+  "type": "combo",
+  "priority": 3,
+  "arCategory": "الأفعال والحركة"
+ },
+ {
+  "slug": "الحج-مع-العائله",
+  "phrase": "الحج مع العائلة",
+  "parent": "الحج",
+  "type": "combo",
+  "priority": 3,
+  "arCategory": "الأفعال والحركة"
+ },
+ {
+  "slug": "تاديه-مناسك-الحج",
+  "phrase": "تأدية مناسك الحج",
+  "parent": "الحج",
+  "type": "combo",
+  "priority": 3,
+  "arCategory": "الأفعال والحركة"
+ },
+ {
+  "slug": "ثعبان-اسود-في-البيت",
+  "phrase": "ثعبان أسود في البيت",
+  "parent": "ثعبان-اسود-2",
+  "type": "combo",
+  "priority": 3,
+  "arCategory": "الحيوانات"
+ },
+ {
+  "slug": "قتل-ثعبان-اسود",
+  "phrase": "قتل ثعبان أسود",
+  "parent": "ثعبان-اسود-2",
+  "type": "combo",
+  "priority": 3,
+  "arCategory": "الحيوانات"
+ },
+ {
+  "slug": "المصحف-ممزق",
+  "phrase": "المصحف ممزق",
+  "parent": "المصحف",
+  "type": "combo",
+  "priority": 3,
+  "arCategory": "الأشياء والرموز"
+ },
+ {
+  "slug": "الصلاه-في-المسجد",
+  "phrase": "الصلاة في المسجد",
+  "parent": "الصلاه",
+  "type": "combo",
+  "priority": 3,
+  "arCategory": "الأفعال والحركة"
+ },
+ {
+  "slug": "لبس-الذهب",
+  "phrase": "لبس الذهب",
+  "parent": "ذهب",
+  "type": "combo",
+  "priority": 3,
+  "arCategory": "الأشياء والرموز"
+ },
+ {
+  "slug": "ذهب-مسروق",
+  "phrase": "ذهب مسروق",
+  "parent": "ذهب",
+  "type": "combo",
+  "priority": 3,
+  "arCategory": "الأشياء والرموز"
+ },
+ {
+  "slug": "شراء-ذهب",
+  "phrase": "شراء ذهب",
+  "parent": "ذهب",
+  "type": "combo",
+  "priority": 3,
+  "arCategory": "الأشياء والرموز"
+ },
+ {
+  "slug": "موت-شخص-حي",
+  "phrase": "موت شخص حي",
+  "parent": "الموت",
+  "type": "combo",
+  "priority": 3,
+  "arCategory": "المخاطر والمشاعر والأحداث"
+ },
+ {
+  "slug": "رؤيه-ميت-يبتسم",
+  "phrase": "رؤية ميت يبتسم",
+  "parent": "الموت",
+  "type": "combo",
+  "priority": 3,
+  "arCategory": "المخاطر والمشاعر والأحداث"
+ },
+ {
+  "slug": "عوده-ميت-للحياه",
+  "phrase": "عودة ميت للحياة",
+  "parent": "الموت",
+  "type": "combo",
+  "priority": 3,
+  "arCategory": "المخاطر والمشاعر والأحداث"
+ },
+ {
+  "slug": "لبس-فستان-العروس",
+  "phrase": "لبس فستان العروس",
+  "parent": "العروس",
+  "type": "combo",
+  "priority": 3,
+  "arCategory": "الناس والعلاقات"
+ },
+ {
+  "slug": "نخله-محمله-بالتمر",
+  "phrase": "نخلة محملة بالتمر",
+  "parent": "نخيل",
+  "type": "combo",
+  "priority": 3,
+  "arCategory": "الأشياء والرموز"
+ },
+ {
+  "slug": "قطع-نخله",
+  "phrase": "قطع نخلة",
+  "parent": "نخيل",
+  "type": "combo",
+  "priority": 3,
+  "arCategory": "الأشياء والرموز"
+ },
+ {
+  "slug": "طرد-الجن",
+  "phrase": "طرد الجن",
+  "parent": "الجن",
+  "type": "combo",
+  "priority": 3,
+  "arCategory": "المخاطر والمشاعر والأحداث"
+ },
+ {
+  "slug": "الجنه",
+  "phrase": "الجنة",
+  "parent": "الجنه",
+  "type": "symbol",
+  "priority": 2,
+  "arCategory": "المخاطر والمشاعر والأحداث"
+ },
+ {
+  "slug": "جهنم",
+  "phrase": "جهنم",
+  "parent": "جهنم",
+  "type": "symbol",
+  "priority": 2,
+  "arCategory": "المخاطر والمشاعر والأحداث"
+ },
+ {
+  "slug": "الصراط",
+  "phrase": "الصراط",
+  "parent": "الصراط",
+  "type": "symbol",
+  "priority": 2,
+  "arCategory": "المخاطر والمشاعر والأحداث"
+ },
+ {
+  "slug": "عذاب-القبر",
+  "phrase": "عذاب القبر",
+  "parent": "عذاب-القبر",
+  "type": "symbol",
+  "priority": 2,
+  "arCategory": "المخاطر والمشاعر والأحداث"
+ },
+ {
+  "slug": "الكفن",
+  "phrase": "الكفن",
+  "parent": "الكفن",
+  "type": "symbol",
+  "priority": 2,
+  "arCategory": "الأشياء والرموز"
+ },
+ {
+  "slug": "التيمم",
+  "phrase": "التيمم",
+  "parent": "التيمم",
+  "type": "symbol",
+  "priority": 2,
+  "arCategory": "الأفعال والحركة"
+ },
+ {
+  "slug": "عرفات",
+  "phrase": "عرفات",
+  "parent": "عرفات",
+  "type": "symbol",
+  "priority": 2,
+  "arCategory": "الأفعال والحركة"
+ },
+ {
+  "slug": "البعث",
+  "phrase": "البعث",
+  "parent": "البعث",
+  "type": "symbol",
+  "priority": 2,
+  "arCategory": "المخاطر والمشاعر والأحداث"
+ },
+ {
+  "slug": "الرقيه",
+  "phrase": "الرقية",
+  "parent": "الرقيه",
+  "type": "symbol",
+  "priority": 2,
+  "arCategory": "المخاطر والمشاعر والأحداث"
+ },
+ {
+  "slug": "مس-الجن",
+  "phrase": "مس الجن",
+  "parent": "مس-الجن",
+  "type": "symbol",
+  "priority": 2,
+  "arCategory": "المخاطر والمشاعر والأحداث"
+ },
+ {
+  "slug": "ابليس",
+  "phrase": "إبليس",
+  "parent": "ابليس",
+  "type": "symbol",
+  "priority": 2,
+  "arCategory": "المخاطر والمشاعر والأحداث"
+ },
+ {
+  "slug": "ايه-الكرسي",
+  "phrase": "آية الكرسي",
+  "parent": "ايه-الكرسي",
+  "type": "symbol",
+  "priority": 2,
+  "arCategory": "الأشياء والرموز"
+ },
+ {
+  "slug": "الخطبه",
+  "phrase": "الخطبة",
+  "parent": "الخطبه",
+  "type": "symbol",
+  "priority": 2,
+  "arCategory": "الناس والعلاقات"
+ },
+ {
+  "slug": "عقد-القران",
+  "phrase": "عقد القران",
+  "parent": "عقد-القران",
+  "type": "symbol",
+  "priority": 2,
+  "arCategory": "الناس والعلاقات"
+ },
+ {
+  "slug": "الرضاعه",
+  "phrase": "الرضاعة",
+  "parent": "الرضاعه",
+  "type": "symbol",
+  "priority": 2,
+  "arCategory": "الجسد والصحة"
+ },
+ {
+  "slug": "الختان",
+  "phrase": "الختان",
+  "parent": "الختان",
+  "type": "symbol",
+  "priority": 2,
+  "arCategory": "الجسد والصحة"
+ },
+ {
+  "slug": "العقيقه",
+  "phrase": "العقيقة",
+  "parent": "العقيقه",
+  "type": "symbol",
+  "priority": 2,
+  "arCategory": "الناس والعلاقات"
+ },
+ {
+  "slug": "الذبح",
+  "phrase": "الذبح",
+  "parent": "الذبح",
+  "type": "symbol",
+  "priority": 2,
+  "arCategory": "الأفعال والحركة"
+ },
+ {
+  "slug": "النذر",
+  "phrase": "النذر",
+  "parent": "النذر",
+  "type": "symbol",
+  "priority": 2,
+  "arCategory": "الأفعال والحركة"
+ },
+ {
+  "slug": "لؤلؤ",
+  "phrase": "لؤلؤ",
+  "parent": "لؤلؤ",
+  "type": "symbol",
+  "priority": 2,
+  "arCategory": "الأشياء والرموز"
+ },
+ {
+  "slug": "دخول-الجنه",
+  "phrase": "دخول الجنة",
+  "parent": "الجنه",
+  "type": "combo",
+  "priority": 3,
+  "arCategory": "المخاطر والمشاعر والأحداث"
+ },
+ {
+  "slug": "رؤيه-الجنه",
+  "phrase": "رؤية الجنة",
+  "parent": "الجنه",
+  "type": "combo",
+  "priority": 3,
+  "arCategory": "المخاطر والمشاعر والأحداث"
+ },
+ {
+  "slug": "الاكل-في-الجنه",
+  "phrase": "الأكل في الجنة",
+  "parent": "الجنه",
+  "type": "combo",
+  "priority": 3,
+  "arCategory": "المخاطر والمشاعر والأحداث"
+ },
+ {
+  "slug": "النجاه-من-النار",
+  "phrase": "النجاة من النار",
+  "parent": "جهنم",
+  "type": "combo",
+  "priority": 3,
+  "arCategory": "المخاطر والمشاعر والأحداث"
+ },
+ {
+  "slug": "رؤيه-جهنم",
+  "phrase": "رؤية جهنم",
+  "parent": "جهنم",
+  "type": "combo",
+  "priority": 3,
+  "arCategory": "المخاطر والمشاعر والأحداث"
+ },
+ {
+  "slug": "تكفين-ميت",
+  "phrase": "تكفين ميت",
+  "parent": "الكفن",
+  "type": "combo",
+  "priority": 3,
+  "arCategory": "الأشياء والرموز"
+ },
+ {
+  "slug": "لبس-الكفن",
+  "phrase": "لبس الكفن",
+  "parent": "الكفن",
+  "type": "combo",
+  "priority": 3,
+  "arCategory": "الأشياء والرموز"
+ },
+ {
+  "slug": "قراءه-الرقيه",
+  "phrase": "قراءة الرقية",
+  "parent": "الرقيه",
+  "type": "combo",
+  "priority": 3,
+  "arCategory": "المخاطر والمشاعر والأحداث"
+ },
+ {
+  "slug": "الرقيه-الشرعيه",
+  "phrase": "الرقية الشرعية",
+  "parent": "الرقيه",
+  "type": "combo",
+  "priority": 3,
+  "arCategory": "المخاطر والمشاعر والأحداث"
+ },
+ {
+  "slug": "علاج-مس-الجن",
+  "phrase": "علاج مس الجن",
+  "parent": "مس-الجن",
+  "type": "combo",
+  "priority": 3,
+  "arCategory": "المخاطر والمشاعر والأحداث"
+ },
+ {
+  "slug": "فسخ-الخطبه",
+  "phrase": "فسخ الخطبة",
+  "parent": "الخطبه",
+  "type": "combo",
+  "priority": 3,
+  "arCategory": "الناس والعلاقات"
+ },
+ {
+  "slug": "خطبه-العزباء",
+  "phrase": "خطبة العزباء",
+  "parent": "الخطبه",
+  "type": "combo",
+  "priority": 3,
+  "arCategory": "الناس والعلاقات"
+ },
+ {
+  "slug": "ذبح-خروف",
+  "phrase": "ذبح خروف",
+  "parent": "الذبح",
+  "type": "combo",
+  "priority": 3,
+  "arCategory": "الأفعال والحركة"
+ },
+ {
+  "slug": "ذبح-الاضحيه",
+  "phrase": "ذبح الأضحية",
+  "parent": "الذبح",
+  "type": "combo",
+  "priority": 3,
+  "arCategory": "الأفعال والحركة"
+ },
+ {
+  "slug": "عقد-لؤلؤ",
+  "phrase": "عقد لؤلؤ",
+  "parent": "لؤلؤ",
+  "type": "combo",
+  "priority": 3,
+  "arCategory": "الأشياء والرموز"
+ },
+ {
+  "slug": "لؤلؤه-بيضاء",
+  "phrase": "لؤلؤة بيضاء",
+  "parent": "لؤلؤ",
+  "type": "combo",
+  "priority": 3,
+  "arCategory": "الأشياء والرموز"
+ },
+ {
+  "slug": "الوقوف-بعرفه",
+  "phrase": "الوقوف بعرفة",
+  "parent": "عرفات",
+  "type": "combo",
+  "priority": 3,
+  "arCategory": "الأفعال والحركة"
+ },
+ {
+  "slug": "رضاعه-طفل",
+  "phrase": "رضاعة طفل",
+  "parent": "الرضاعه",
+  "type": "combo",
+  "priority": 3,
+  "arCategory": "الجسد والصحة"
+ },
+ {
+  "slug": "ختان-ولد",
+  "phrase": "ختان ولد",
+  "parent": "الختان",
+  "type": "combo",
+  "priority": 3,
+  "arCategory": "الجسد والصحة"
+ },
+ {
+  "slug": "ذبح-العقيقه",
+  "phrase": "ذبح العقيقة",
+  "parent": "العقيقه",
+  "type": "combo",
+  "priority": 3,
+  "arCategory": "الناس والعلاقات"
+ },
+ {
+  "slug": "سقوط-سن-واحد",
+  "phrase": "سقوط سن واحد",
+  "parent": "الاسنان",
+  "type": "combo",
+  "priority": 3,
+  "arCategory": "الجسد والصحة"
+ },
+ {
+  "slug": "سقوط-الاسنان-بدون-دم",
+  "phrase": "سقوط الأسنان بدون دم",
+  "parent": "الاسنان",
+  "type": "combo",
+  "priority": 3,
+  "arCategory": "الجسد والصحة"
+ },
+ {
+  "slug": "سقوط-الاسنان-العلويه",
+  "phrase": "سقوط الأسنان العلوية",
+  "parent": "الاسنان",
+  "type": "combo",
+  "priority": 3,
+  "arCategory": "الجسد والصحة"
+ },
+ {
+  "slug": "الشفاء-من-الحسد",
+  "phrase": "الشفاء من الحسد",
+  "parent": "الحسد",
+  "type": "combo",
+  "priority": 3,
+  "arCategory": "المخاطر والمشاعر والأحداث"
+ },
+ {
+  "slug": "الوضوء-للصلاه",
+  "phrase": "الوضوء للصلاة",
+  "parent": "الوضوء",
+  "type": "combo",
+  "priority": 3,
+  "arCategory": "الأفعال والحركة"
+ }
+]
