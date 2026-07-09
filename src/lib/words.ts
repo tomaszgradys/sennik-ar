@@ -1,14 +1,18 @@
-import wordsData from "@/data/words.json";
-import altData from "@/data/words-alt.json";
 import { isPublished, publishedSymbols } from "./catalog";
 
+// Słowniki „słów bez snu" (words.json) i alternatyw (words-alt.json) były
+// odziedziczone z polskiego sennika — 6733 POLSKICH haseł (abażur, abonament…),
+// bezużyteczne dla wersji arabskiej: nigdy nie trafiały w arabskie zapytania,
+// a isKnownWord robił z polskich slugów strony MissingWord (noindex soft-404).
+// Wyzerowane dla klona AR — korpus arabski w całości pochodzi z katalogu
+// (searchCorpus / publishedSymbols). NIE napełniać ponownie polskimi danymi.
 interface Word {
   word: string;
   slug: string;
 }
-const WORDS = wordsData as Word[];
+const WORDS: Word[] = [];
 const BY_SLUG = new Map(WORDS.map((w) => [w.slug, w]));
-const ALT = altData as Record<string, string[]>;
+const ALT: Record<string, string[]> = {};
 
 export function isKnownWord(slug: string): boolean {
   return BY_SLUG.has(slug);
