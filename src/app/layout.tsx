@@ -128,13 +128,13 @@ export default function RootLayout({
               <Link href="/blog/" className="text-center text-text-muted no-underline hover:text-text">
                 المدونة
               </Link>
-              <Link href="/kolory/" className="text-center text-text-muted no-underline hover:text-text">
+              <Link href="/alwan/" className="text-center text-text-muted no-underline hover:text-text">
                 الألوان
               </Link>
-              <Link href="/liczby/" className="text-center text-text-muted no-underline hover:text-text">
+              <Link href="/arqam/" className="text-center text-text-muted no-underline hover:text-text">
                 الأرقام
               </Link>
-              <Link href="/faza-ksiezyca/" className="text-center text-text-muted no-underline hover:text-text">
+              <Link href="/atwar-al-qamar/" className="text-center text-text-muted no-underline hover:text-text">
                 {T.nav.moon}
               </Link>
             </nav>
@@ -173,19 +173,19 @@ export default function RootLayout({
                   <li><Link href="/al-kawabis/" className="link-soft text-text-muted">الكوابيس</Link></li>
                   <li><Link href="/salat-al-istikhara/" className="link-soft text-text-muted">صلاة الاستخارة والرؤيا</Link></li>
                   <li><Link href="/blog/" className="link-soft text-text-muted">المدونة</Link></li>
-                  <li><Link href="/kolory/" className="link-soft text-text-muted">معاني الألوان</Link></li>
-                  <li><Link href="/liczby/" className="link-soft text-text-muted">معاني الأرقام</Link></li>
-                  <li><Link href="/faza-ksiezyca/" className="link-soft text-text-muted">{T.nav.moon}</Link></li>
+                  <li><Link href="/alwan/" className="link-soft text-text-muted">معاني الألوان</Link></li>
+                  <li><Link href="/arqam/" className="link-soft text-text-muted">معاني الأرقام</Link></li>
+                  <li><Link href="/atwar-al-qamar/" className="link-soft text-text-muted">{T.nav.moon}</Link></li>
                 </ul>
               </div>
 
               <div>
                 <h3 className="mb-3 text-xs font-semibold uppercase tracking-wider text-text-muted">الخدمة</h3>
                 <ul className="m-0 flex list-none flex-col gap-2 p-0 text-sm">
-                  <li><Link href="/o-nas/" className="link-soft text-text-muted">من نحن</Link></li>
-                  <li><Link href="/regulamin/" className="link-soft text-text-muted">شروط الاستخدام</Link></li>
-                  <li><Link href="/polityka-prywatnosci/" className="link-soft text-text-muted">سياسة الخصوصية</Link></li>
-                  <li><Link href="/kontakt/" className="link-soft text-text-muted">اتصل بنا</Link></li>
+                  <li><Link href="/man-nahnu/" className="link-soft text-text-muted">من نحن</Link></li>
+                  <li><Link href="/shurut-al-istikhdam/" className="link-soft text-text-muted">شروط الاستخدام</Link></li>
+                  <li><Link href="/siyasat-al-khususiya/" className="link-soft text-text-muted">سياسة الخصوصية</Link></li>
+                  <li><Link href="/ittisal/" className="link-soft text-text-muted">اتصل بنا</Link></li>
                 </ul>
               </div>
             </div>
@@ -193,7 +193,7 @@ export default function RootLayout({
             {/* أحلام حسب الفئة — محاور موضوعية متاحة من كل صفحة (عمق الزحف + موضوعية). */}
             <div className="mt-10 border-t border-border pt-6">
               <h3 className="mb-3 text-xs font-semibold uppercase tracking-wider text-text-muted">
-                <Link href="/sny/" className="link-soft text-text-muted">أحلام حسب الفئة</Link>
+                <Link href="/ahlam/" className="link-soft text-text-muted">أحلام حسب الفئة</Link>
               </h3>
               <ul className="m-0 flex list-none flex-wrap gap-x-5 gap-y-2 p-0 text-sm">
                 {CATEGORIES.map((c) => (

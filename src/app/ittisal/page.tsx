@@ -5,7 +5,7 @@ import LegalPage from "@/components/LegalPage";
 export const metadata: Metadata = {
   title: { absolute: `اتصل بنا — ${SITE.name}` },
   description: `تواصل مع موقع ${SITE.domain}. البريد الإلكتروني وبيانات المشغّل ومعلومات التعاون.`,
-  alternates: { canonical: `${SITE.url}/kontakt/` },
+  alternates: { canonical: `${SITE.url}/ittisal/` },
 };
 
 export default function KontaktPage() {

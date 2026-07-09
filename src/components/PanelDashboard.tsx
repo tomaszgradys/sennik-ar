@@ -445,7 +445,7 @@ export default function PanelDashboard({
                       <span>{fmt(s.last_at)}</span>
                       {(s.found ?? []).length > 0 ? (
                         (s.found ?? []).map((slug) => (
-                          <a key={slug} href={`/sen/${slug}/`} target="_blank" rel="noreferrer" className="rounded-full border border-accent/40 bg-accent-soft px-2 py-0.5 text-accent">{slug}</a>
+                          <a key={slug} href={`/hulm/${slug}/`} target="_blank" rel="noreferrer" className="rounded-full border border-accent/40 bg-accent-soft px-2 py-0.5 text-accent">{slug}</a>
                         ))
                       ) : (
                         <span>nic nie wyłowiono</span>

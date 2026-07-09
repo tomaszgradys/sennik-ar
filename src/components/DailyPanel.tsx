@@ -41,7 +41,7 @@ export default function DailyPanel() {
         </Link>
 
         {/* Kolor dnia */}
-        <Link href={hasColor ? colorPath(d.color.slug) : "/kolory"} className="group flex flex-col overflow-hidden rounded-2xl border border-border bg-bg-elev no-underline shadow-sm card">
+        <Link href={hasColor ? colorPath(d.color.slug) : "/alwan"} className="group flex flex-col overflow-hidden rounded-2xl border border-border bg-bg-elev no-underline shadow-sm card">
           <span aria-hidden className="h-20 w-full" style={{ background: `radial-gradient(circle at 40% 30%, ${d.color.hex}, color-mix(in srgb, ${d.color.hex} 68%, #1a1420) 130%)` }} />
           <div className="p-3">
             <div className="text-xs text-text-muted">Kolor dnia</div>
@@ -50,7 +50,7 @@ export default function DailyPanel() {
         </Link>
 
         {/* Liczba dnia */}
-        <Link href={hasNumber ? numberPath(d.number) : "/liczby"} className="group flex flex-col overflow-hidden rounded-2xl border border-border bg-bg-elev no-underline shadow-sm card">
+        <Link href={hasNumber ? numberPath(d.number) : "/arqam"} className="group flex flex-col overflow-hidden rounded-2xl border border-border bg-bg-elev no-underline shadow-sm card">
           <span className="flex h-20 w-full items-center justify-center bg-bg-soft">
             <span className="font-display text-4xl font-semibold text-accent">{d.number}</span>
           </span>
@@ -61,7 +61,7 @@ export default function DailyPanel() {
         </Link>
 
         {/* Faza Księżyca */}
-        <Link href="/faza-ksiezyca/" className="group flex flex-col overflow-hidden rounded-2xl border border-border bg-bg-elev no-underline shadow-sm card">
+        <Link href="/atwar-al-qamar/" className="group flex flex-col overflow-hidden rounded-2xl border border-border bg-bg-elev no-underline shadow-sm card">
           <span className="flex h-20 w-full items-center justify-center bg-bg-soft text-4xl">{d.moon.emoji}</span>
           <div className="p-3">
             <div className="text-xs text-text-muted">Faza Księżyca</div>

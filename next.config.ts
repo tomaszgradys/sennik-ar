@@ -43,7 +43,7 @@ const nextConfig: NextConfig = {
   trailingSlash: true,
   // Treść (pliki per rodzic) dołączana do funkcji trasy hasła — czytana fs-em.
   outputFileTracingIncludes: {
-    "/sen/[slug]": ["./src/data/content/**/*.json"],
+    "/hulm/[slug]": ["./src/data/content/**/*.json"],
     "/blog/[slug]": ["./src/data/blog/**/*.json"],
   },
   async headers() {
@@ -60,9 +60,23 @@ const nextConfig: NextConfig = {
         destination: "https://hulm.pro/:path*",
         permanent: true,
       },
-      // Stare schematy URL -> nowa struktura /sen/<slug>/ (301, SEO-safe).
-      { source: "/sennik/:slug", destination: "/sen/:slug/", permanent: true },
-      { source: "/sen-:slug", destination: "/sen/:slug/", permanent: true },
+      // Stare schematy URL -> nowa struktura /hulm/<slug>/ (301, SEO-safe).
+      { source: "/sennik/:slug", destination: "/hulm/:slug/", permanent: true },
+      { source: "/sen-:slug", destination: "/hulm/:slug/", permanent: true },
+      // Migracja slugów tras PL -> AR (transliteracja). Wcześniej strona miała
+      // polskie segmenty URL (/sen/, /kolory/, ...) mimo arabskiej treści — teraz
+      // zlokalizowane. 301 z każdej starej ścieżki, żeby nie zgubić żadnego linku
+      // ani ewentualnego wczesnego odkrycia przez Google (sitemap zgłoszony w GSC).
+      { source: "/sen/:slug*", destination: "/hulm/:slug*", permanent: true },
+      { source: "/sny/:slug*", destination: "/ahlam/:slug*", permanent: true },
+      { source: "/kolory/:slug*", destination: "/alwan/:slug*", permanent: true },
+      { source: "/liczby/:slug*", destination: "/arqam/:slug*", permanent: true },
+      { source: "/faza-ksiezyca/:slug*", destination: "/atwar-al-qamar/:slug*", permanent: true },
+      { source: "/o-nas", destination: "/man-nahnu/", permanent: true },
+      { source: "/kontakt", destination: "/ittisal/", permanent: true },
+      { source: "/regulamin", destination: "/shurut-al-istikhdam/", permanent: true },
+      { source: "/polityka-prywatnosci", destination: "/siyasat-al-khususiya/", permanent: true },
+      { source: "/szukaj", destination: "/bahth/", permanent: true },
       // Horoskop usunięty (التنجيم nie pasuje kulturowo do wersji AR).
       // Stare, zaindeksowane URL-e -> strona główna (301), by nie generować 404.
       { source: "/horoskop", destination: "/", permanent: true },

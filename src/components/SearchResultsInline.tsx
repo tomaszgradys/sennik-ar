@@ -10,7 +10,7 @@ interface Result {
   kind: "symbol" | "combo";
 }
 
-// Wyniki wyszukiwania na dedykowanej stronie /szukaj (dla SearchAction/Sitelinks
+// Wyniki wyszukiwania na dedykowanej stronie /bahth (dla SearchAction/Sitelinks
 // Searchbox). Korzysta z istniejącego /api/search (ta sama logika co podpowiedzi).
 export default function SearchResultsInline({ query }: { query: string }) {
   const [results, setResults] = useState<Result[]>([]);
@@ -64,7 +64,7 @@ export default function SearchResultsInline({ query }: { query: string }) {
         {results.map((r) => (
           <li key={r.slug}>
             <Link
-              href={`/sen/${r.slug}/`}
+              href={`/hulm/${r.slug}/`}
               className="flex items-center justify-between gap-3 rounded-xl border border-border bg-bg-elev px-4 py-3 text-text no-underline card"
             >
               <span className="font-medium">{r.phrase}</span>

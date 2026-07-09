@@ -276,7 +276,7 @@ h4:not(.uppercase) {
   gap: var(--page-gap);
 }
 
-/* Strony prawne (regulamin/polityka/kontakt) — czytelnie, spokojnie. */
+/* Strony prawne (regulamin/polityka/ittisal) — czytelnie, spokojnie. */
 .legal h2 {
   font-family: var(--font-display);
   font-size: 1.5rem;

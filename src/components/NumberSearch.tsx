@@ -27,7 +27,7 @@ export default function NumberSearch({ numbers }: { numbers: number[] }) {
           {filtered.map((n) => (
             <Link
               key={n}
-              href={`/liczby/${n}/`}
+              href={`/arqam/${n}/`}
               className="number-tile group flex aspect-square items-center justify-center rounded-2xl no-underline shadow-sm"
             >
               <span className="num font-display text-2xl font-semibold transition-transform duration-500 group-hover:scale-110 sm:text-3xl">

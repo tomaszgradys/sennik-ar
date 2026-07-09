@@ -158,7 +158,7 @@ export default function KawabisPage() {
         <Link href="/anwaa-al-ahlam/" className="rounded-full border border-border bg-bg-soft px-4 py-1.5 text-text no-underline chip">
           أنواع الأحلام والرؤى
         </Link>
-        <Link href="/faza-ksiezyca/" className="rounded-full border border-border bg-bg-soft px-4 py-1.5 text-text no-underline chip">
+        <Link href="/atwar-al-qamar/" className="rounded-full border border-border bg-bg-soft px-4 py-1.5 text-text no-underline chip">
           {"طور القمر"}
         </Link>
       </nav>

@@ -37,27 +37,27 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const sections: MetadataRoute.Sitemap = [
     { url: `${SITE.url}/`, lastModified: now, changeFrequency: "weekly", priority: 1 },
     {
-      url: `${SITE.url}/faza-ksiezyca/`,
+      url: `${SITE.url}/atwar-al-qamar/`,
       lastModified: now,
       changeFrequency: "daily",
       priority: 0.9,
     },
-    { url: `${SITE.url}/kolory/`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${SITE.url}/alwan/`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
     ...colorSlugs().map((s) => ({
       url: `${SITE.url}${colorPath(s)}`,
       lastModified: now,
       changeFrequency: "monthly" as const,
       priority: 0.7,
     })),
-    { url: `${SITE.url}/liczby/`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${SITE.url}/arqam/`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
     ...numberSlugs().map((n) => ({
       url: `${SITE.url}${numberPath(n)}`,
       lastModified: now,
       changeFrequency: "monthly" as const,
       priority: 0.7,
     })),
-    // Hub „wszystkie kategorie" /sny/ — centralny indeks, skraca głębokość crawla.
-    { url: `${SITE.url}/sny/`, lastModified: now, changeFrequency: "weekly", priority: 0.9 },
+    // Hub „wszystkie kategorie" /ahlam/ — centralny indeks, skraca głębokość crawla.
+    { url: `${SITE.url}/ahlam/`, lastModified: now, changeFrequency: "weekly", priority: 0.9 },
     // Huby kategorii (topical) — wysoki priorytet, zbierają symbole danej kategorii.
     ...categorySlugs().map((s) => ({
       url: `${SITE.url}${categoryPath(s)}`,
@@ -81,7 +81,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${SITE.url}/adab-al-ruya/`, lastModified: now, changeFrequency: "monthly", priority: 0.75 },
     { url: `${SITE.url}/salat-al-istikhara/`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
     { url: `${SITE.url}/al-kawabis/`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
-    { url: `${SITE.url}/o-nas/`, lastModified: now, changeFrequency: "yearly", priority: 0.4 },
+    { url: `${SITE.url}/man-nahnu/`, lastModified: now, changeFrequency: "yearly", priority: 0.4 },
     ...["regulamin", "polityka-prywatnosci", "kontakt"].map((p) => ({
       url: `${SITE.url}/${p}/`,
       lastModified: now,

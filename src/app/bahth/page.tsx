@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   title: { absolute: `البحث في تفسير الأحلام — ${SITE.name}` },
   description: "ابحث عن تفسير حلمك في hulm.pro: اكتب رمزًا أو صف حلمك بجملة كاملة.",
   robots: { index: false, follow: true },
-  alternates: { canonical: `${SITE.url}/szukaj/` },
+  alternates: { canonical: `${SITE.url}/bahth/` },
 };
 
 export default async function SearchPage({

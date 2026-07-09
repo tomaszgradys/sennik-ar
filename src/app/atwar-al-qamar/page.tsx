@@ -14,8 +14,8 @@ const description =
 export const metadata: Metadata = {
   title: { absolute: title },
   description,
-  alternates: { canonical: `${SITE.url}/faza-ksiezyca/` },
-  openGraph: { title, description, url: `${SITE.url}/faza-ksiezyca/` },
+  alternates: { canonical: `${SITE.url}/atwar-al-qamar/` },
+  openGraph: { title, description, url: `${SITE.url}/atwar-al-qamar/` },
 };
 
 const faq = [
@@ -62,14 +62,14 @@ export default function MoonPage() {
         "@type": "WebPage",
         name: title,
         description,
-        url: `${SITE.url}/faza-ksiezyca/`,
+        url: `${SITE.url}/atwar-al-qamar/`,
         inLanguage: "ar",
       },
       {
         "@type": "BreadcrumbList",
         itemListElement: [
           { "@type": "ListItem", position: 1, name: SITE.name, item: SITE.url },
-          { "@type": "ListItem", position: 2, name: "طور القمر اليوم", item: `${SITE.url}/faza-ksiezyca/` },
+          { "@type": "ListItem", position: 2, name: "طور القمر اليوم", item: `${SITE.url}/atwar-al-qamar/` },
         ],
       },
       {
@@ -181,10 +181,10 @@ export default function MoonPage() {
           <Link href="/tafsir-ibn-sirin/" className="rounded-full border border-border bg-bg-soft px-4 py-1.5 text-sm text-text no-underline chip">
             تفسير ابن سيرين
           </Link>
-          <Link href="/kolory/" className="rounded-full border border-border bg-bg-soft px-4 py-1.5 text-sm text-text no-underline chip">
+          <Link href="/alwan/" className="rounded-full border border-border bg-bg-soft px-4 py-1.5 text-sm text-text no-underline chip">
             معاني الألوان
           </Link>
-          <Link href="/liczby/" className="rounded-full border border-border bg-bg-soft px-4 py-1.5 text-sm text-text no-underline chip">
+          <Link href="/arqam/" className="rounded-full border border-border bg-bg-soft px-4 py-1.5 text-sm text-text no-underline chip">
             معاني الأرقام
           </Link>
           <Link href="/blog/" className="rounded-full border border-border bg-bg-soft px-4 py-1.5 text-sm text-text no-underline chip">

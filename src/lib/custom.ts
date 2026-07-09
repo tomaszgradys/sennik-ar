@@ -2,7 +2,7 @@ import { db, ensureSchema } from "./db";
 import type { DreamEntry, Content } from "./types";
 
 // Sny dodane z panelu admina żyją w bazie (custom_dreams), bo Vercel nie pozwala
-// zapisywać plików katalogu w runtime. Strona /sen/[slug] sięga tu, gdy sluga nie
+// zapisywać plików katalogu w runtime. Strona /hulm/[slug] sięga tu, gdy sluga nie
 // ma w plikach. Renderują się tym samym szablonem (bez obrazka -> gradient fallback).
 
 interface Row {

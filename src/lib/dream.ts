@@ -15,9 +15,9 @@ export {
   catalogEntry,
 } from "./catalog";
 
-// URL hasła: /sen/<slug>/ (struktura folderowa Z ukośnikiem, zgodnie z CSV).
+// URL hasła: /hulm/<slug>/ (struktura folderowa Z ukośnikiem, zgodnie z CSV).
 export function dreamPath(slug: string): string {
-  return `/sen/${slug}/`;
+  return `/hulm/${slug}/`;
 }
 
 // Rozwiązanie sluga: katalog + treść. null => strona jeszcze nieopublikowana

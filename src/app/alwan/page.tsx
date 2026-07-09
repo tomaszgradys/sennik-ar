@@ -14,8 +14,8 @@ const description =
 export const metadata: Metadata = {
   title: { absolute: title },
   description,
-  alternates: { canonical: `${SITE.url}/kolory/` },
-  openGraph: { title, description, url: `${SITE.url}/kolory/` },
+  alternates: { canonical: `${SITE.url}/alwan/` },
+  openGraph: { title, description, url: `${SITE.url}/alwan/` },
 };
 
 const faq = [
@@ -46,14 +46,14 @@ export default function ColorsHub() {
         "@type": "CollectionPage",
         name: title,
         description,
-        url: `${SITE.url}/kolory/`,
+        url: `${SITE.url}/alwan/`,
         inLanguage: "ar",
       },
       {
         "@type": "BreadcrumbList",
         itemListElement: [
           { "@type": "ListItem", position: 1, name: SITE.name, item: SITE.url },
-          { "@type": "ListItem", position: 2, name: "معاني الألوان", item: `${SITE.url}/kolory/` },
+          { "@type": "ListItem", position: 2, name: "معاني الألوان", item: `${SITE.url}/alwan/` },
         ],
       },
       {

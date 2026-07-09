@@ -32,7 +32,7 @@ export default async function EditDreamPage({ params }: { params: Promise<{ slug
     <div className="mx-auto max-w-2xl py-6">
       <div className="mb-4 flex items-center justify-between">
         <Link href="/panel" className="link-soft text-sm">← Panel</Link>
-        <a href={`/sen/${slug}/`} target="_blank" rel="noreferrer" className="link-soft text-sm">Zobacz stronę ↗</a>
+        <a href={`/hulm/${slug}/`} target="_blank" rel="noreferrer" className="link-soft text-sm">Zobacz stronę ↗</a>
       </div>
       <h1 className="mb-1 text-2xl font-bold text-text">Edycja snu</h1>
       <p className="mb-6 text-sm text-text-muted">slug: <code>{slug}</code></p>

@@ -1,7 +1,7 @@
 import { publishedSymbols, isDuplicateSecondary } from "./catalog";
 import type { CatalogEntry } from "./types";
 
-// فئات موضوعية = 12 محورًا تحت /sny/{slug}/. كل محور يجمع رموز فئته، يبني سلطة
+// فئات موضوعية = 12 محورًا تحت /ahlam/{slug}/. كل محور يجمع رموز فئته، يبني سلطة
 // موضوعية ويقصّر عمق الزحف (الرئيسية → المحور → الرمز → التركيبة).
 export interface CategoryInfo {
   name: string; // الاسم الدقيق من الكتالوج (يجب أن يطابق حقل category)
@@ -308,7 +308,7 @@ export const CATEGORY_BY_SLUG = new Map(CATEGORIES.map((c) => [c.slug, c]));
 export const CATEGORY_BY_NAME = new Map(CATEGORIES.map((c) => [c.name, c]));
 
 export function categoryPath(slug: string): string {
-  return `/sny/${slug}/`;
+  return `/ahlam/${slug}/`;
 }
 export function categorySlugs(): string[] {
   return CATEGORIES.map((c) => c.slug);

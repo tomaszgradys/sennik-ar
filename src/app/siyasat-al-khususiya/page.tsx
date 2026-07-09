@@ -6,7 +6,7 @@ import LegalPage from "@/components/LegalPage";
 export const metadata: Metadata = {
   title: { absolute: `سياسة الخصوصية — ${SITE.name}` },
   description: `سياسة خصوصية موقع ${SITE.domain}: ما البيانات التي نجمعها ولماذا، وملفات تعريف الارتباط، وحقوقك.`,
-  alternates: { canonical: `${SITE.url}/polityka-prywatnosci/` },
+  alternates: { canonical: `${SITE.url}/siyasat-al-khususiya/` },
 };
 
 export default function PrivacyPage() {
@@ -83,7 +83,7 @@ export default function PrivacyPage() {
       <p>
         قد نُحدّث هذه السياسة؛ يسري التحديث من تاريخ نشره على هذه الصفحة. للأسئلة تواصل عبر{" "}
         <a href={`mailto:${LEGAL.email}`}>{LEGAL.email}</a> أو{" "}
-        <Link href="/kontakt/">اتصل بنا</Link>.
+        <Link href="/ittisal/">اتصل بنا</Link>.
       </p>
     </LegalPage>
   );

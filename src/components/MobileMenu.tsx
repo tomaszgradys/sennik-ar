@@ -15,9 +15,9 @@ const LINKS = [
   { href: "/anwaa-al-ahlam/", label: "أنواع الأحلام" },
   { href: "/ruya-al-nabi/", label: "رؤية النبي في المنام" },
   { href: "/blog/", label: "المدونة" },
-  { href: "/kolory/", label: "الألوان" },
-  { href: "/liczby/", label: "الأرقام" },
-  { href: "/faza-ksiezyca/", label: "طور القمر" },
+  { href: "/alwan/", label: "الألوان" },
+  { href: "/arqam/", label: "الأرقام" },
+  { href: "/atwar-al-qamar/", label: "طور القمر" },
 ];
 
 export default function MobileMenu() {

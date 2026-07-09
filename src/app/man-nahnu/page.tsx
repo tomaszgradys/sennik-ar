@@ -12,28 +12,28 @@ const description =
 export const metadata: Metadata = {
   title: { absolute: `${title} — ${SITE.name}` },
   description,
-  alternates: { canonical: `${SITE.url}/o-nas/` },
-  openGraph: { title, description, url: `${SITE.url}/o-nas/`, type: "website" },
+  alternates: { canonical: `${SITE.url}/man-nahnu/` },
+  openGraph: { title, description, url: `${SITE.url}/man-nahnu/`, type: "website" },
 };
 
 export default function AboutPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
-      { "@type": "AboutPage", name: title, description, url: `${SITE.url}/o-nas/`, inLanguage: "ar" },
+      { "@type": "AboutPage", name: title, description, url: `${SITE.url}/man-nahnu/`, inLanguage: "ar" },
       {
         "@type": "Organization",
         name: SITE.name,
         alternateName: SITE.domain,
         url: SITE.url,
         description,
-        contactPoint: { "@type": "ContactPoint", contactType: "customer support", url: `${SITE.url}/kontakt` },
+        contactPoint: { "@type": "ContactPoint", contactType: "customer support", url: `${SITE.url}/ittisal` },
       },
       {
         "@type": "BreadcrumbList",
         itemListElement: [
           { "@type": "ListItem", position: 1, name: SITE.name, item: SITE.url },
-          { "@type": "ListItem", position: 2, name: "من نحن", item: `${SITE.url}/o-nas` },
+          { "@type": "ListItem", position: 2, name: "من نحن", item: `${SITE.url}/man-nahnu` },
         ],
       },
     ],
@@ -76,16 +76,16 @@ export default function AboutPage() {
         <h2>تواصل معنا</h2>
         <p>
           لديك سؤال أو اقتراح أو ينقصك حلم ما؟ اكتب إلينا عبر صفحة{" "}
-          <Link href="/kontakt/">اتصل بنا</Link>. شروط الاستخدام في{" "}
-          <Link href="/regulamin/">شروط الاستخدام</Link>، وطريقة معالجة البيانات في{" "}
-          <Link href="/polityka-prywatnosci/">سياسة الخصوصية</Link>.
+          <Link href="/ittisal/">اتصل بنا</Link>. شروط الاستخدام في{" "}
+          <Link href="/shurut-al-istikhdam/">شروط الاستخدام</Link>، وطريقة معالجة البيانات في{" "}
+          <Link href="/siyasat-al-khususiya/">سياسة الخصوصية</Link>.
         </p>
       </section>
 
       <div className="flex flex-wrap gap-2">
         <Link href="/" className="rounded-full border border-border bg-bg-soft px-4 py-2 text-sm text-text no-underline chip">تفسير الأحلام</Link>
-        <Link href="/kolory/" className="rounded-full border border-border bg-bg-soft px-4 py-2 text-sm text-text no-underline chip">معاني الألوان</Link>
-        <Link href="/liczby/" className="rounded-full border border-border bg-bg-soft px-4 py-2 text-sm text-text no-underline chip">معاني الأرقام</Link>
+        <Link href="/alwan/" className="rounded-full border border-border bg-bg-soft px-4 py-2 text-sm text-text no-underline chip">معاني الألوان</Link>
+        <Link href="/arqam/" className="rounded-full border border-border bg-bg-soft px-4 py-2 text-sm text-text no-underline chip">معاني الأرقام</Link>
         <Link href="/blog/" className="rounded-full border border-border bg-bg-soft px-4 py-2 text-sm text-text no-underline chip">المدونة</Link>
       </div>
     </article>

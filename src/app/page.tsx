@@ -118,7 +118,7 @@ export default async function Home() {
           "@type": "SearchAction",
           target: {
             "@type": "EntryPoint",
-            urlTemplate: `${SITE.url}/szukaj/?q={search_term_string}`,
+            urlTemplate: `${SITE.url}/bahth/?q={search_term_string}`,
           },
           "query-input": "required name=search_term_string",
         },
@@ -236,7 +236,7 @@ export default async function Home() {
           <span className="h-px flex-1 bg-border" />
         </div>
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-          <Link href="/kolory/" className="group flex items-center gap-4 rounded-2xl border border-border bg-bg-elev p-4 no-underline shadow-sm card">
+          <Link href="/alwan/" className="group flex items-center gap-4 rounded-2xl border border-border bg-bg-elev p-4 no-underline shadow-sm card">
             <span aria-hidden className="flex shrink-0 items-center gap-1.5">
               {["#C0392B", "#2E5A88", "#3E7C5A", "#C9A44A"].map((h) => (
                 <span
@@ -254,7 +254,7 @@ export default async function Home() {
               <div className="mt-1 text-sm text-text-muted">رمزية الألوان في المشاعر والأحلام</div>
             </div>
           </Link>
-          <Link href="/liczby/" className="group flex items-center gap-4 rounded-2xl border border-border bg-bg-elev p-4 no-underline shadow-sm card">
+          <Link href="/arqam/" className="group flex items-center gap-4 rounded-2xl border border-border bg-bg-elev p-4 no-underline shadow-sm card">
             <span aria-hidden className="number-tile flex h-12 w-12 shrink-0 items-center justify-center rounded-xl">
               <span className="num font-display text-2xl font-semibold">7</span>
             </span>
@@ -356,8 +356,8 @@ export default async function Home() {
         </p>
         <p>
           إلى جانب آلاف المصطلحات وتركيباتها، تجد لدينا معاني{" "}
-          <Link href="/kolory/">الألوان</Link> و<Link href="/liczby/">الأرقام</Link>،
-          و<Link href="/faza-ksiezyca/">طور القمر</Link> الحالي،{" "}
+          <Link href="/alwan/">الألوان</Link> و<Link href="/arqam/">الأرقام</Link>،
+          و<Link href="/atwar-al-qamar/">طور القمر</Link> الحالي،{" "}
           و<Link href="/tafsir-ibn-sirin/">تفسير ابن سيرين</Link> و
           <Link href="/blog/">المدونة</Link> بطرائف
           عن الأحلام. كل ذلك لتفهم بهدوء ما يقوله لك خيال الليل.

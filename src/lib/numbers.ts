@@ -14,7 +14,7 @@ export interface NumberContent {
 }
 
 // Sensowny, obszerny zbiór: 0-100 (najczęściej wyszukiwane) + liczby powtarzające
-// się / „anielskie". Kolejność = kolejność na hubie /liczby.
+// się / „anielskie". Kolejność = kolejność na hubie /arqam.
 export const NUMBERS: number[] = [
   ...Array.from({ length: 101 }, (_, i) => i), // 0-100
   // أرقام «ملائكية» متكررة رائجة على شبكات التواصل العربية
@@ -35,7 +35,7 @@ export function numberSlugs(): string[] {
   return NUMBERS.filter((n) => CONTENT[String(n)]).map((n) => String(n));
 }
 export function numberPath(n: number | string): string {
-  return `/liczby/${n}/`;
+  return `/arqam/${n}/`;
 }
 // Podobne liczby: sąsiednie z listy — do sekcji „podobne".
 export function relatedNumbers(n: number, limit = 4): number[] {

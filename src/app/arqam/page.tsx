@@ -13,8 +13,8 @@ const description =
 export const metadata: Metadata = {
   title: { absolute: title },
   description,
-  alternates: { canonical: `${SITE.url}/liczby/` },
-  openGraph: { title, description, url: `${SITE.url}/liczby/` },
+  alternates: { canonical: `${SITE.url}/arqam/` },
+  openGraph: { title, description, url: `${SITE.url}/arqam/` },
 };
 
 const faq = [
@@ -41,12 +41,12 @@ export default function NumbersHub() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
-      { "@type": "CollectionPage", name: title, description, url: `${SITE.url}/liczby/`, inLanguage: "ar" },
+      { "@type": "CollectionPage", name: title, description, url: `${SITE.url}/arqam/`, inLanguage: "ar" },
       {
         "@type": "BreadcrumbList",
         itemListElement: [
           { "@type": "ListItem", position: 1, name: SITE.name, item: SITE.url },
-          { "@type": "ListItem", position: 2, name: "معاني الأرقام", item: `${SITE.url}/liczby` },
+          { "@type": "ListItem", position: 2, name: "معاني الأرقام", item: `${SITE.url}/arqam` },
         ],
       },
       {

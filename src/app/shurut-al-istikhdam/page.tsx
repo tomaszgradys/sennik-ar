@@ -6,7 +6,7 @@ import LegalPage from "@/components/LegalPage";
 export const metadata: Metadata = {
   title: { absolute: `شروط الاستخدام — ${SITE.name}` },
   description: `شروط استخدام موقع ${SITE.domain}: طبيعة الخدمة، إخلاء المسؤولية، الملكية الفكرية والإعلانات.`,
-  alternates: { canonical: `${SITE.url}/regulamin/` },
+  alternates: { canonical: `${SITE.url}/shurut-al-istikhdam/` },
 };
 
 export default function TermsPage() {
@@ -73,14 +73,14 @@ export default function TermsPage() {
         الموقع مصمّم بحيث لا يجمع بيانات شخصية أو حسّاسة من الزوّار: لا يوجد تسجيل دخول ولا
         حسابات ولا دفتر أحلام ولا نماذج تجمع بريدك أو أحلامك. نستخدم فقط ملفات تعريف
         الارتباط اللازمة، وبموافقتك أدوات إحصاء وإعلان. التفاصيل في{" "}
-        <Link href="/polityka-prywatnosci/">سياسة الخصوصية</Link>.
+        <Link href="/siyasat-al-khususiya/">سياسة الخصوصية</Link>.
       </p>
 
       <h2>8. الشكاوى والتواصل</h2>
       <p>
         لأي سؤال أو شكوى أو بلاغ عن محتوى، تواصل معنا عبر{" "}
         <a href={`mailto:${LEGAL.email}`}>{LEGAL.email}</a> أو صفحة{" "}
-        <Link href="/kontakt/">اتصل بنا</Link>. سننظر في البلاغ ونصحّح أو نحذف المادة في
+        <Link href="/ittisal/">اتصل بنا</Link>. سننظر في البلاغ ونصحّح أو نحذف المادة في
         الحالات المبرَّرة.
       </p>
 

@@ -121,7 +121,7 @@ export default async function DreamPage({
   const url = `${SITE.url}${dreamPath(entry.slug)}`;
   const h1 = entryH1(entry);
 
-  // Cross-linki do modułów znaczeń: kolor / liczba obecne w haśle (np. „czarny-kot" -> /kolory/czarny).
+  // Cross-linki do modułów znaczeń: kolor / liczba obecne w haśle (np. „czarny-kot" -> /alwan/czarny).
   const parts = entry.slug.split("-");
   const crossColors = COLORS.filter((cl) => parts.includes(cl.slug) && colorContent(cl.slug));
   const crossNumbers = [...new Set(parts.filter((p) => /^\d{1,4}$/.test(p)))].filter((p) => numberContent(p));
@@ -416,7 +416,7 @@ export default async function DreamPage({
 
       <footer className="mt-2 flex flex-col gap-2 border-t border-border pt-4 text-xs text-text-muted">
         <p className="m-0">
-          {T.dream.editorialPrefix} <Link href="/o-nas/" className="link-soft">{T.dream.editorialTeam} {SITE.name}</Link>. {T.dream.editorialNote}
+          {T.dream.editorialPrefix} <Link href="/man-nahnu/" className="link-soft">{T.dream.editorialTeam} {SITE.name}</Link>. {T.dream.editorialNote}
         </p>
         <p className="m-0">
           {T.dream.disclaimerBottom}

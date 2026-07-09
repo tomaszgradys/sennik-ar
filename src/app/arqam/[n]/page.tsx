@@ -50,7 +50,7 @@ export default async function NumberPage({ params }: { params: Promise<{ n: stri
         "@type": "BreadcrumbList",
         itemListElement: [
           { "@type": "ListItem", position: 1, name: SITE.name, item: SITE.url },
-          { "@type": "ListItem", position: 2, name: "معاني الأرقام", item: `${SITE.url}/liczby/` },
+          { "@type": "ListItem", position: 2, name: "معاني الأرقام", item: `${SITE.url}/arqam/` },
           { "@type": "ListItem", position: 3, name: `الرقم ${n}`, item: url },
         ],
       },
@@ -68,7 +68,7 @@ export default async function NumberPage({ params }: { params: Promise<{ n: stri
       <JsonLd data={jsonLd} />
       <nav aria-label="المسار" className="text-sm text-text-muted">
         <Link href="/" className="link-soft">الرئيسية</Link>{" / "}
-        <Link href="/liczby/" className="link-soft">الأرقام</Link>{" / "}
+        <Link href="/arqam/" className="link-soft">الأرقام</Link>{" / "}
         <span className="text-text">{n}</span>
       </nav>
 

@@ -34,6 +34,6 @@ export async function POST(request: Request) {
     return NextResponse.json({ ok: false, error: "save_failed" }, { status: 500 });
   }
 
-  try { revalidatePath(`/sen/${slug}/`); } catch {}
-  return NextResponse.json({ ok: true, path: `/sen/${slug}/` });
+  try { revalidatePath(`/hulm/${slug}/`); } catch {}
+  return NextResponse.json({ ok: true, path: `/hulm/${slug}/` });
 }

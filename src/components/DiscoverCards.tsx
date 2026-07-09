@@ -11,7 +11,7 @@ export default function DiscoverCards() {
   return (
     <section className="grid gap-4 sm:grid-cols-2">
       <Link
-        href="/faza-ksiezyca/"
+        href="/atwar-al-qamar/"
         className="group flex items-center gap-4 rounded-2xl border border-border bg-bg-elev p-4 no-underline shadow-sm card"
       >
         <span className="relative h-14 w-14 shrink-0 overflow-hidden rounded-xl border border-border/70 shadow-inner">

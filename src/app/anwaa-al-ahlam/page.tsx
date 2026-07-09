@@ -172,7 +172,7 @@ export default function DreamTypesPage() {
         <Link href="/tafsir-ibn-sirin/" className="rounded-full border border-border bg-bg-soft px-4 py-1.5 text-text no-underline chip">
           تفسير الأحلام لابن سيرين
         </Link>
-        <Link href="/sny/" className="rounded-full border border-border bg-bg-soft px-4 py-1.5 text-text no-underline chip">
+        <Link href="/ahlam/" className="rounded-full border border-border bg-bg-soft px-4 py-1.5 text-text no-underline chip">
           كل رموز الأحلام
         </Link>
         <Link href="/" className="rounded-full border border-border bg-bg-soft px-4 py-1.5 text-text no-underline chip">

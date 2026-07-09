@@ -59,7 +59,7 @@ export default async function ColorPage({ params }: { params: Promise<{ kolor: s
         "@type": "BreadcrumbList",
         itemListElement: [
           { "@type": "ListItem", position: 1, name: SITE.name, item: SITE.url },
-          { "@type": "ListItem", position: 2, name: "معاني الألوان", item: `${SITE.url}/kolory/` },
+          { "@type": "ListItem", position: 2, name: "معاني الألوان", item: `${SITE.url}/alwan/` },
           { "@type": "ListItem", position: 3, name: `لون ${c.name}`, item: url },
         ],
       },
@@ -78,7 +78,7 @@ export default async function ColorPage({ params }: { params: Promise<{ kolor: s
       <JsonLd data={jsonLd} />
       <nav aria-label="المسار" className="text-sm text-text-muted">
         <Link href="/" className="link-soft">الرئيسية</Link>{" / "}
-        <Link href="/kolory/" className="link-soft">الألوان</Link>{" / "}
+        <Link href="/alwan/" className="link-soft">الألوان</Link>{" / "}
         <span className="text-text">{name}</span>
       </nav>
 

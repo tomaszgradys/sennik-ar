@@ -123,7 +123,7 @@ export default function IbnSirinPage() {
         </div>
         <p className="mt-4 text-center text-sm text-text-muted">
           لم تجد رمزك؟{" "}
-          <Link href="/sny/" className="underline">تصفّح كل الرموز</Link> أو ابحث في
+          <Link href="/ahlam/" className="underline">تصفّح كل الرموز</Link> أو ابحث في
           الصفحة الرئيسية.
         </p>
       </section>
@@ -154,10 +154,10 @@ export default function IbnSirinPage() {
         <Link href="/anwaa-al-ahlam/" className="rounded-full border border-border bg-bg-soft px-4 py-1.5 text-text no-underline chip">
           أنواع الأحلام والرؤى
         </Link>
-        <Link href="/kolory/" className="rounded-full border border-border bg-bg-soft px-4 py-1.5 text-text no-underline chip">
+        <Link href="/alwan/" className="rounded-full border border-border bg-bg-soft px-4 py-1.5 text-text no-underline chip">
           معاني الألوان
         </Link>
-        <Link href="/liczby/" className="rounded-full border border-border bg-bg-soft px-4 py-1.5 text-text no-underline chip">
+        <Link href="/arqam/" className="rounded-full border border-border bg-bg-soft px-4 py-1.5 text-text no-underline chip">
           معاني الأرقام
         </Link>
       </nav>

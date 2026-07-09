@@ -20,7 +20,7 @@ export interface ColorContent {
   faq: { q: string; a: string }[];
 }
 
-// الترتيب = الترتيب في محور /kolory. slug عربي (مطبّع بلا همزة ليطابق slugify).
+// الترتيب = الترتيب في محور /alwan. slug عربي (مطبّع بلا همزة ليطابق slugify).
 export const COLORS: ColorMeta[] = [
   { slug: "احمر", name: "أحمر", hex: "#C0392B" },
   { slug: "ازرق", name: "أزرق", hex: "#2E5A88" },
@@ -50,7 +50,7 @@ export function colorSlugs(): string[] {
   return COLORS.filter((c) => CONTENT[c.slug]).map((c) => c.slug);
 }
 export function colorPath(slug: string): string {
-  return `/kolory/${slug}/`;
+  return `/alwan/${slug}/`;
 }
 
 // Sny powiązane z kolorem — hasła z sennika, których slug zawiera nazwę koloru

@@ -133,7 +133,7 @@ export default function SearchBox({ autoFocus = false }: { autoFocus?: boolean }
 
   function go(slug: string) {
     setOpen(false);
-    router.push(`/sen/${slug}/`);
+    router.push(`/hulm/${slug}/`);
   }
 
   function onKey(e: React.KeyboardEvent) {

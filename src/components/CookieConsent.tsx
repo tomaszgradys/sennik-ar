@@ -54,7 +54,7 @@ export default function CookieConsent() {
         <p className="m-0">
           نستخدم ملفات تعريف الارتباط (cookies) ليعمل الموقع بشكل صحيح، وبموافقتك أيضًا
           للإحصاءات والإعلانات. التفاصيل في{" "}
-          <Link href="/polityka-prywatnosci/" className="link-soft">
+          <Link href="/siyasat-al-khususiya/" className="link-soft">
             سياسة الخصوصية
           </Link>
           .
