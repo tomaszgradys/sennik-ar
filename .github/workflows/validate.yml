@@ -1,0 +1,26 @@
+name: Walidacja jakości treści
+
+# Strażnik jakości (A06 audytu): odrzuca commit/PR, jeśli opublikowany wpis snu
+# ma placeholder, puste pole wymagane, thin content, zdublowaną meta/quickAnswer
+# lub uszkodzone FAQ. Chroni przed regresją przy ręcznej edycji i generacji AI.
+on:
+  push:
+    paths:
+      - "src/data/content/**"
+      - "scripts/validate-content.mjs"
+  pull_request:
+    paths:
+      - "src/data/content/**"
+      - "scripts/validate-content.mjs"
+  workflow_dispatch: {}
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Walidacja treści
+        run: node scripts/validate-content.mjs

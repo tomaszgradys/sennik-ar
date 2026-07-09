@@ -1,6 +1,18 @@
 import type { Metadata, Viewport } from "next";
 import Link from "next/link";
+import { Noto_Sans_Arabic } from "next/font/google";
 import "./globals.css";
+
+// Self-host głównego fontu arabskiego przez next/font (pobierany przy buildzie,
+// serwowany z własnej domeny) — usuwa render-blocking request do fonts.googleapis
+// i preconnecty (A01 audytu, LCP). IBM Plex/Tajawal były tylko fallbackami w stacku,
+// nigdzie osobno używane — zostają jako opcjonalne nazwy fallback w globals.css.
+const notoArabic = Noto_Sans_Arabic({
+  subsets: ["arabic"],
+  weight: ["400", "500", "700", "800"],
+  variable: "--font-noto-arabic",
+  display: "swap",
+});
 import { THEME_INIT_SCRIPT } from "@/lib/theme";
 import { SITE } from "@/lib/site";
 import { T } from "@/locales/pl";
@@ -65,15 +77,9 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang={SITE.lang} dir={SITE.dir} data-theme="dark" suppressHydrationWarning>
+    <html lang={SITE.lang} dir={SITE.dir} data-theme="dark" className={notoArabic.variable} suppressHydrationWarning>
       <head>
-        {/* خطوط hulm.pro: Noto Sans Arabic (أساسي) + IBM Plex Sans Arabic + Tajawal. */}
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;500;700;800&family=IBM+Plex+Sans+Arabic:wght@400;500;700&family=Tajawal:wght@400;500;700&display=swap"
-          rel="stylesheet"
-        />
+        {/* خط hulm.pro: Noto Sans Arabic — self-host عبر next/font (بلا طلب خارجي). */}
         {/* Ustawia motyw i filtr światła przed pierwszym malowaniem (bez migotania). */}
         <script dangerouslySetInnerHTML={{ __html: THEME_INIT_SCRIPT }} />
         {/* Zgoda cookies (Consent Mode v2) — PRZED skryptami Google, domyślnie denied. */}
@@ -204,7 +210,6 @@ export default function RootLayout({
               <div className="flex items-center gap-4">
                 <ThreeDToggle />
                 <CookieSettingsButton />
-                <Link href="/panel" rel="nofollow" className="link-soft opacity-60">{T.footer.panel}</Link>
               </div>
             </div>
           </div>

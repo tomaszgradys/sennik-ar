@@ -114,6 +114,15 @@ export default async function Home() {
         alternateName: SITE.domain,
         url: SITE.url,
         inLanguage: "ar",
+        // Sitelinks Searchbox (A01 audytu): pozwala Google pokazać pole wyszukiwania.
+        potentialAction: {
+          "@type": "SearchAction",
+          target: {
+            "@type": "EntryPoint",
+            urlTemplate: `${SITE.url}/szukaj/?q={search_term_string}`,
+          },
+          "query-input": "required name=search_term_string",
+        },
       },
     ],
   };
