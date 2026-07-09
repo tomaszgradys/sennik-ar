@@ -34,11 +34,13 @@ export async function generateMetadata({
   const cat = CATEGORY_BY_SLUG.get(kategoria);
   if (!cat) return { title: "لم يتم العثور على هذه الفئة" };
   const url = `${SITE.url}${categoryPath(cat.slug)}`;
+  const ogImage = `${SITE.url}/og/cat-${cat.slug}.jpg`;
   return {
     title: { absolute: `${cat.title} — ${SITE.name}` },
     description: cat.description,
     alternates: { canonical: url },
-    openGraph: { title: cat.title, description: cat.description, url },
+    openGraph: { title: cat.title, description: cat.description, url, images: [{ url: ogImage, width: 1200, height: 630 }] },
+    twitter: { card: "summary_large_image", title: cat.title, description: cat.description, images: [ogImage] },
   };
 }
 

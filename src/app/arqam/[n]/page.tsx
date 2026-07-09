@@ -19,11 +19,13 @@ export async function generateMetadata({ params }: { params: Promise<{ n: string
   if (!content) return { title: "لم يُعثر على الرقم" };
   const title = `الرقم ${n} — المعنى والرمزية في الأحلام`;
   const url = `${SITE.url}${numberPath(n)}`;
+  const ogImage = `${SITE.url}/og/number-${n}.jpg`;
   return {
     title: { absolute: `${title} — ${SITE.name}` },
     description: content.metaDescription,
     alternates: { canonical: url },
-    openGraph: { title, description: content.metaDescription, url, type: "article" },
+    openGraph: { title, description: content.metaDescription, url, type: "article", images: [{ url: ogImage, width: 1200, height: 630 }] },
+    twitter: { card: "summary_large_image", title, description: content.metaDescription, images: [ogImage] },
   };
 }
 
