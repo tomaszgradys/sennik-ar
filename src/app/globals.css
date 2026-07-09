@@ -310,16 +310,11 @@ h4:not(.uppercase) {
   font-weight: 600;
 }
 
-/* Inicjał (drop cap) na początku interpretacji — klasyka baśniowej typografii. */
-.prose > p:first-child::first-letter {
-  font-family: var(--font-display);
-  font-weight: 600;
-  float: left;
-  font-size: 3.1em;
-  line-height: 0.82;
-  padding: 0.04em 0.14em 0 0;
-  color: var(--accent);
-}
+/* Inicjał (drop cap) CELOWO wyłączony w wersji arabskiej.
+   Pismo arabskie jest kursywne (litery łączą się w wyrazie), więc ::first-letter
+   izolowałby pierwszą literę w formie samodzielnej i rozrywał wyraz — a przy dir:rtl
+   float:left rzucał go dodatkowo na złą (lewą) stronę kolumny. Oba efekty wyglądają
+   jak błąd składu, dlatego rezygnujemy z ozdobnika (audyt 10 — czytelność, RTL). */
 
 /* Ozdobny separator między częściami opowieści. */
 .ornament {

@@ -49,7 +49,7 @@ export default function MobileMenu() {
         aria-expanded={open}
         aria-controls="mobile-nav"
         onClick={() => setOpen((v) => !v)}
-        className="flex h-9 w-9 flex-col items-center justify-center gap-[5px] rounded-lg border border-border bg-bg-soft"
+        className="flex h-11 w-11 flex-col items-center justify-center gap-[5px] rounded-lg border border-border bg-bg-soft"
       >
         <span
           aria-hidden

@@ -374,12 +374,12 @@ export default async function DreamPage({
             {c.faq.map((f, i) => (
               <details key={i} className="group rounded-xl border border-border bg-bg-elev p-4">
                 <summary className="cursor-pointer list-none font-semibold text-text marker:content-none">
-                  <span className="mr-2 inline-block text-accent transition-transform group-open:rotate-90">
+                  <span className="ml-2 inline-block text-accent transition-transform group-open:rotate-90">
                     ›
                   </span>
                   {f.q}
                 </summary>
-                <p className="mt-2 mb-0 pl-5 font-serif text-text">{f.a}</p>
+                <p className="mt-2 mb-0 pr-5 font-serif text-text">{f.a}</p>
               </details>
             ))}
           </div>

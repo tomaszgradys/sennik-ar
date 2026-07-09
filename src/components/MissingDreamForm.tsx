@@ -70,7 +70,7 @@ export default function MissingDreamForm() {
         value={email}
         onChange={(e) => setEmail(e.target.value)}
         placeholder="البريد الإلكتروني (اختياري، سنعلمك)"
-        className="rounded-xl border border-border bg-bg-soft px-3 py-2 text-sm text-text outline-none focus:border-accent"
+        className="rounded-xl border border-border bg-bg-soft px-3 py-2 text-base text-text outline-none focus:border-accent"
       />
       {err && <p className="m-0 text-sm text-negative">{err}</p>}
       <div className="flex gap-2">

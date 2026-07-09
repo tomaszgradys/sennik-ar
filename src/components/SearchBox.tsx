@@ -169,7 +169,7 @@ export default function SearchBox({ autoFocus = false }: { autoFocus?: boolean }
         onKeyDown={onKey}
         placeholder={ph}
         aria-label="ابحث عن حلم"
-        className={`search-invite w-full rounded-xl border border-border bg-bg-elev px-4 py-2.5 text-[0.95rem] text-text outline-none placeholder:text-text-muted sm:py-3 sm:text-base ${
+        className={`search-invite w-full rounded-xl border border-border bg-bg-elev px-4 py-2.5 text-base text-text outline-none placeholder:text-text-muted sm:py-3 ${
           q ? "is-filled" : ""
         }`}
       />
@@ -191,7 +191,7 @@ export default function SearchBox({ autoFocus = false }: { autoFocus?: boolean }
               <button
                 onMouseEnter={() => setActive(i)}
                 onClick={() => go(r.slug)}
-                className={`flex w-full items-center justify-between gap-3 px-4 py-2.5 text-left ${
+                className={`flex w-full items-center justify-between gap-3 px-4 py-2.5 text-start ${
                   i === active ? "bg-accent-soft" : ""
                 }`}
               >
