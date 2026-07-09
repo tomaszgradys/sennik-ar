@@ -1,0 +1,738 @@
+[
+ {
+  "slug": "لدغه-ثعبان",
+  "phrase": "لدغة ثعبان",
+  "parent": "الثعبان",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "الحيوانات"
+ },
+ {
+  "slug": "قتل-ثعبان",
+  "phrase": "قتل ثعبان",
+  "parent": "الثعبان",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "الحيوانات"
+ },
+ {
+  "slug": "ثعبان-اصفر",
+  "phrase": "ثعبان أصفر",
+  "parent": "الثعبان",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "الحيوانات"
+ },
+ {
+  "slug": "ثعبان-يطاردني",
+  "phrase": "ثعبان يطاردني",
+  "parent": "الثعبان",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "الحيوانات"
+ },
+ {
+  "slug": "ثعابين-كثيره",
+  "phrase": "ثعابين كثيرة",
+  "parent": "الثعبان",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "الحيوانات"
+ },
+ {
+  "slug": "الخوف-من-ثعبان",
+  "phrase": "الخوف من ثعبان",
+  "parent": "الثعبان",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "الحيوانات"
+ },
+ {
+  "slug": "ثعبان-يدخل-البيت",
+  "phrase": "ثعبان يدخل البيت",
+  "parent": "الثعبان",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "الحيوانات"
+ },
+ {
+  "slug": "اصابه-بالعين",
+  "phrase": "إصابة بالعين",
+  "parent": "العين",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "المخاطر والمشاعر والأحداث"
+ },
+ {
+  "slug": "العين-والحسد",
+  "phrase": "العين والحسد",
+  "parent": "العين",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "المخاطر والمشاعر والأحداث"
+ },
+ {
+  "slug": "الشفاء-من-العين",
+  "phrase": "الشفاء من العين",
+  "parent": "العين",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "المخاطر والمشاعر والأحداث"
+ },
+ {
+  "slug": "الحمايه-من-العين",
+  "phrase": "الحماية من العين",
+  "parent": "العين",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "المخاطر والمشاعر والأحداث"
+ },
+ {
+  "slug": "عين-الحسود",
+  "phrase": "عين الحسود",
+  "parent": "العين",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "المخاطر والمشاعر والأحداث"
+ },
+ {
+  "slug": "ابطال-السحر",
+  "phrase": "إبطال السحر",
+  "parent": "السحر",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "المخاطر والمشاعر والأحداث"
+ },
+ {
+  "slug": "سحر-مدفون",
+  "phrase": "سحر مدفون",
+  "parent": "السحر",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "المخاطر والمشاعر والأحداث"
+ },
+ {
+  "slug": "اكل-السحر",
+  "phrase": "أكل السحر",
+  "parent": "السحر",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "المخاطر والمشاعر والأحداث"
+ },
+ {
+  "slug": "فك-السحر",
+  "phrase": "فك السحر",
+  "parent": "السحر",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "المخاطر والمشاعر والأحداث"
+ },
+ {
+  "slug": "السحر-في-الطعام",
+  "phrase": "السحر في الطعام",
+  "parent": "السحر",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "المخاطر والمشاعر والأحداث"
+ },
+ {
+  "slug": "رؤيه-ساحر",
+  "phrase": "رؤية ساحر",
+  "parent": "السحر",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "المخاطر والمشاعر والأحداث"
+ },
+ {
+  "slug": "حفر-قبر",
+  "phrase": "حفر قبر",
+  "parent": "القبر",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "المخاطر والمشاعر والأحداث"
+ },
+ {
+  "slug": "دخول-القبر",
+  "phrase": "دخول القبر",
+  "parent": "القبر",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "المخاطر والمشاعر والأحداث"
+ },
+ {
+  "slug": "الخروج-من-القبر",
+  "phrase": "الخروج من القبر",
+  "parent": "القبر",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "المخاطر والمشاعر والأحداث"
+ },
+ {
+  "slug": "قبر-مفتوح",
+  "phrase": "قبر مفتوح",
+  "parent": "القبر",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "المخاطر والمشاعر والأحداث"
+ },
+ {
+  "slug": "زياره-القبر",
+  "phrase": "زيارة القبر",
+  "parent": "القبر",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "المخاطر والمشاعر والأحداث"
+ },
+ {
+  "slug": "حفظ-القران",
+  "phrase": "حفظ القرآن",
+  "parent": "القران",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "الأشياء والرموز"
+ },
+ {
+  "slug": "سماع-القران",
+  "phrase": "سماع القرآن",
+  "parent": "القران",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "الأشياء والرموز"
+ },
+ {
+  "slug": "ختم-القران",
+  "phrase": "ختم القرآن",
+  "parent": "القران",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "الأشياء والرموز"
+ },
+ {
+  "slug": "كتابه-القران",
+  "phrase": "كتابة القرآن",
+  "parent": "القران",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "الأشياء والرموز"
+ },
+ {
+  "slug": "البكاء-عند-قراءه-القران",
+  "phrase": "البكاء عند قراءة القرآن",
+  "parent": "القران",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "الأشياء والرموز"
+ },
+ {
+  "slug": "حلق-الشعر",
+  "phrase": "حلق الشعر",
+  "parent": "الشعر",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "الجسد والصحة"
+ },
+ {
+  "slug": "شعر-طويل",
+  "phrase": "شعر طويل",
+  "parent": "الشعر",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "الجسد والصحة"
+ },
+ {
+  "slug": "صبغ-الشعر",
+  "phrase": "صبغ الشعر",
+  "parent": "الشعر",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "الجسد والصحة"
+ },
+ {
+  "slug": "نتف-الشعر",
+  "phrase": "نتف الشعر",
+  "parent": "الشعر",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "الجسد والصحة"
+ },
+ {
+  "slug": "حرق-الشعر",
+  "phrase": "حرق الشعر",
+  "parent": "الشعر",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "الجسد والصحة"
+ },
+ {
+  "slug": "شراء-التمر",
+  "phrase": "شراء التمر",
+  "parent": "تمر",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "الطعام والشراب"
+ },
+ {
+  "slug": "جمع-التمر",
+  "phrase": "جمع التمر",
+  "parent": "تمر",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "الطعام والشراب"
+ },
+ {
+  "slug": "اطعام-التمر",
+  "phrase": "إطعام التمر",
+  "parent": "تمر",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "الطعام والشراب"
+ },
+ {
+  "slug": "تمر-اصفر",
+  "phrase": "تمر أصفر",
+  "parent": "تمر",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "الطعام والشراب"
+ },
+ {
+  "slug": "خاتم-ذهب",
+  "phrase": "خاتم ذهب",
+  "parent": "ذهب",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "الأشياء والرموز"
+ },
+ {
+  "slug": "سوار-ذهب",
+  "phrase": "سوار ذهب",
+  "parent": "ذهب",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "الأشياء والرموز"
+ },
+ {
+  "slug": "ذهب-مكسور",
+  "phrase": "ذهب مكسور",
+  "parent": "ذهب",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "الأشياء والرموز"
+ },
+ {
+  "slug": "بيع-الذهب",
+  "phrase": "بيع الذهب",
+  "parent": "ذهب",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "الأشياء والرموز"
+ },
+ {
+  "slug": "هديه-ذهب",
+  "phrase": "هدية ذهب",
+  "parent": "ذهب",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "الأشياء والرموز"
+ },
+ {
+  "slug": "ضياع-الذهب",
+  "phrase": "ضياع الذهب",
+  "parent": "ذهب",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "الأشياء والرموز"
+ },
+ {
+  "slug": "ذهب-للحامل",
+  "phrase": "ذهب للحامل",
+  "parent": "ذهب",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "الأشياء والرموز"
+ },
+ {
+  "slug": "ذهب-كثير",
+  "phrase": "ذهب كثير",
+  "parent": "ذهب",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "الأشياء والرموز"
+ },
+ {
+  "slug": "سلسله-ذهب",
+  "phrase": "سلسلة ذهب",
+  "parent": "ذهب",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "الأشياء والرموز"
+ },
+ {
+  "slug": "الاحرام",
+  "phrase": "الإحرام",
+  "parent": "الحج",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "الأفعال والحركة"
+ },
+ {
+  "slug": "الدعاء-في-الحج",
+  "phrase": "الدعاء في الحج",
+  "parent": "الحج",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "الأفعال والحركة"
+ },
+ {
+  "slug": "الحج-ماشيا",
+  "phrase": "الحج ماشيًا",
+  "parent": "الحج",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "الأفعال والحركة"
+ },
+ {
+  "slug": "رمي-الجمرات",
+  "phrase": "رمي الجمرات",
+  "parent": "الحج",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "الأفعال والحركة"
+ },
+ {
+  "slug": "السعي-بين-الصفا-والمروه",
+  "phrase": "السعي بين الصفا والمروة",
+  "parent": "الحج",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "الأفعال والحركة"
+ },
+ {
+  "slug": "الحج-للعزباء",
+  "phrase": "الحج للعزباء",
+  "parent": "الحج",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "الأفعال والحركة"
+ },
+ {
+  "slug": "الذهاب-الي-مكه",
+  "phrase": "الذهاب إلى مكة",
+  "parent": "مكه",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "البيت والأماكن"
+ },
+ {
+  "slug": "الصلاه-في-مكه",
+  "phrase": "الصلاة في مكة",
+  "parent": "مكه",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "البيت والأماكن"
+ },
+ {
+  "slug": "رؤيه-مكه",
+  "phrase": "رؤية مكة",
+  "parent": "مكه",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "البيت والأماكن"
+ },
+ {
+  "slug": "خاتم-فضه",
+  "phrase": "خاتم فضة",
+  "parent": "فضه",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "الأشياء والرموز"
+ },
+ {
+  "slug": "لبس-الفضه",
+  "phrase": "لبس الفضة",
+  "parent": "فضه",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "الأشياء والرموز"
+ },
+ {
+  "slug": "بيع-الفضه",
+  "phrase": "بيع الفضة",
+  "parent": "فضه",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "الأشياء والرموز"
+ },
+ {
+  "slug": "الزواج-من-الجن",
+  "phrase": "الزواج من الجن",
+  "parent": "الجن",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "المخاطر والمشاعر والأحداث"
+ },
+ {
+  "slug": "رؤيه-الجن",
+  "phrase": "رؤية الجن",
+  "parent": "الجن",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "المخاطر والمشاعر والأحداث"
+ },
+ {
+  "slug": "الخوف-من-الجن",
+  "phrase": "الخوف من الجن",
+  "parent": "الجن",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "المخاطر والمشاعر والأحداث"
+ },
+ {
+  "slug": "صوت-الجن",
+  "phrase": "صوت الجن",
+  "parent": "الجن",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "المخاطر والمشاعر والأحداث"
+ },
+ {
+  "slug": "الجن-يخنقني",
+  "phrase": "الجن يخنقني",
+  "parent": "الجن",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "المخاطر والمشاعر والأحداث"
+ },
+ {
+  "slug": "ابواب-الجنه",
+  "phrase": "أبواب الجنة",
+  "parent": "الجنه",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "المخاطر والمشاعر والأحداث"
+ },
+ {
+  "slug": "انهار-الجنه",
+  "phrase": "أنهار الجنة",
+  "parent": "الجنه",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "المخاطر والمشاعر والأحداث"
+ },
+ {
+  "slug": "قصور-الجنه",
+  "phrase": "قصور الجنة",
+  "parent": "الجنه",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "المخاطر والمشاعر والأحداث"
+ },
+ {
+  "slug": "كفن-ابيض",
+  "phrase": "كفن أبيض",
+  "parent": "الكفن",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "الأشياء والرموز"
+ },
+ {
+  "slug": "نزع-الكفن",
+  "phrase": "نزع الكفن",
+  "parent": "الكفن",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "الأشياء والرموز"
+ },
+ {
+  "slug": "الرقيه-للحسد",
+  "phrase": "الرقية للحسد",
+  "parent": "الرقيه",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "المخاطر والمشاعر والأحداث"
+ },
+ {
+  "slug": "الرقيه-للاطفال",
+  "phrase": "الرقية للأطفال",
+  "parent": "الرقيه",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "المخاطر والمشاعر والأحداث"
+ },
+ {
+  "slug": "ذبح-بقره",
+  "phrase": "ذبح بقرة",
+  "parent": "الذبح",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "الأفعال والحركة"
+ },
+ {
+  "slug": "ذبح-دجاجه",
+  "phrase": "ذبح دجاجة",
+  "parent": "الذبح",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "الأفعال والحركة"
+ },
+ {
+  "slug": "الذبح-بدون-دم",
+  "phrase": "الذبح بدون دم",
+  "parent": "الذبح",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "الأفعال والحركة"
+ },
+ {
+  "slug": "الغوص-علي-اللؤلؤ",
+  "phrase": "الغوص على اللؤلؤ",
+  "parent": "لؤلؤ",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "الأشياء والرموز"
+ },
+ {
+  "slug": "لؤلؤ-في-الصدف",
+  "phrase": "لؤلؤ في الصدف",
+  "parent": "لؤلؤ",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "الأشياء والرموز"
+ },
+ {
+  "slug": "خطبه-رسميه",
+  "phrase": "خطبة رسمية",
+  "parent": "الخطبه",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "الناس والعلاقات"
+ },
+ {
+  "slug": "رفض-الخطبه",
+  "phrase": "رفض الخطبة",
+  "parent": "الخطبه",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "الناس والعلاقات"
+ },
+ {
+  "slug": "الدعاء-في-عرفات",
+  "phrase": "الدعاء في عرفات",
+  "parent": "عرفات",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "الأفعال والحركة"
+ },
+ {
+  "slug": "صلاه-الجماعه",
+  "phrase": "صلاة الجماعة",
+  "parent": "الصلاه",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "الأفعال والحركة"
+ },
+ {
+  "slug": "صلاه-الفجر",
+  "phrase": "صلاة الفجر",
+  "parent": "الصلاه",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "الأفعال والحركة"
+ },
+ {
+  "slug": "الصلاه-علي-غير-طهاره",
+  "phrase": "الصلاة على غير طهارة",
+  "parent": "الصلاه",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "الأفعال والحركة"
+ },
+ {
+  "slug": "نسيان-عدد-الركعات",
+  "phrase": "نسيان عدد الركعات",
+  "parent": "الصلاه",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "الأفعال والحركة"
+ },
+ {
+  "slug": "الميت-يعطي-طعاما",
+  "phrase": "الميت يعطي طعامًا",
+  "parent": "الميت",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "الناس والعلاقات"
+ },
+ {
+  "slug": "الميت-يطلب-شيئا",
+  "phrase": "الميت يطلب شيئًا",
+  "parent": "الميت",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "الناس والعلاقات"
+ },
+ {
+  "slug": "الميت-مريض",
+  "phrase": "الميت مريض",
+  "parent": "الميت",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "الناس والعلاقات"
+ },
+ {
+  "slug": "الميت-يضحك",
+  "phrase": "الميت يضحك",
+  "parent": "الميت",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "الناس والعلاقات"
+ },
+ {
+  "slug": "تقبيل-الميت",
+  "phrase": "تقبيل الميت",
+  "parent": "الميت",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "الناس والعلاقات"
+ },
+ {
+  "slug": "الميت-يعانقني",
+  "phrase": "الميت يعانقني",
+  "parent": "الميت",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "الناس والعلاقات"
+ },
+ {
+  "slug": "الميت-عاريا",
+  "phrase": "الميت عاريًا",
+  "parent": "الميت",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "الناس والعلاقات"
+ },
+ {
+  "slug": "اكل-اللحم",
+  "phrase": "أكل اللحم",
+  "parent": "اللحم",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "الطعام والشراب"
+ },
+ {
+  "slug": "لحم-نيء",
+  "phrase": "لحم نيء",
+  "parent": "اللحم",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "الطعام والشراب"
+ },
+ {
+  "slug": "لحم-مطبوخ",
+  "phrase": "لحم مطبوخ",
+  "parent": "اللحم",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "الطعام والشراب"
+ }
+]

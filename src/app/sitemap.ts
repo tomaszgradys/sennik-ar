@@ -82,7 +82,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${SITE.url}/salat-al-istikhara/`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
     { url: `${SITE.url}/al-kawabis/`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
     { url: `${SITE.url}/man-nahnu/`, lastModified: now, changeFrequency: "yearly", priority: 0.4 },
-    ...["regulamin", "polityka-prywatnosci", "kontakt"].map((p) => ({
+    ...["shurut-al-istikhdam", "siyasat-al-khususiya", "ittisal"].map((p) => ({
       url: `${SITE.url}/${p}/`,
       lastModified: now,
       changeFrequency: "yearly" as const,
