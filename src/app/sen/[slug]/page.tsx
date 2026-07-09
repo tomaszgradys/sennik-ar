@@ -156,7 +156,16 @@ export default async function DreamPage({
         description: c.quickAnswer,
         inLanguage: "ar",
         mainEntityOfPage: url,
-        publisher: { "@type": "Organization", name: SITE.name },
+        image: [`${SITE.url}${ogImagePath(imageKey(entry.slug, entry.parent))}`],
+        datePublished: SITE.contentPublished,
+        dateModified: SITE.contentUpdated,
+        // إسناد تحريري صادق (يطابق تذييل الصفحة «تحرير: فريق hulm.pro») — إشارة E-E-A-T.
+        author: { "@type": "Organization", name: `${T.dream.editorialTeam} ${SITE.name}`, url: SITE.url },
+        publisher: {
+          "@type": "Organization",
+          name: SITE.name,
+          logo: { "@type": "ImageObject", url: `${SITE.url}/brand/hulm-icon-512.png` },
+        },
       },
       {
         "@type": "BreadcrumbList",

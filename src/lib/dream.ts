@@ -40,9 +40,23 @@ export function entryH1(entry: DreamEntry): string {
   return `ما تفسير حلم ${entry.content.locative} في المنام؟`;
 }
 
+// إسناد المصدر في العنوان — يُشتق من نص المحتوى فقط (دقّة، بلا حشو).
+// يطابق النمط المهيمن لاستعلامات الأحلام العربية «تفسير حلم X لابن سيرين/النابلسي»،
+// وهو ما يتصدّر به المنافسون (سيدتي/لها/ليالينا) نتائج البحث.
+function sourceSuffix(entry: DreamEntry): string {
+  const c = entry.content;
+  const text = [c.quickAnswer, c.intro, c.positive, c.negative, ...c.paragraphs, ...c.faq.map((f) => f.a)].join(" ");
+  const ibn = text.includes("ابن سيرين");
+  const nab = text.includes("النابلسي") || text.includes("نابلسي");
+  if (ibn && nab) return " لابن سيرين والنابلسي";
+  if (ibn) return " لابن سيرين";
+  if (nab) return " للنابلسي";
+  return "";
+}
+
 // <title> مختلف عمدًا عن H1 (نقر أفضل في نتائج البحث، كلمات «تفسير حلم» + «في المنام»).
 export function metaTitle(entry: DreamEntry): string {
-  return `تفسير حلم ${capitalize(entry.phrase)} في المنام`;
+  return `تفسير حلم ${capitalize(entry.phrase)} في المنام${sourceSuffix(entry)}`;
 }
 
 // عنوان اجتماعي (OG): "رأيت X في المنام؟ اعرف التفسير".
