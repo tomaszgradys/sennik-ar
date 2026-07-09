@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { moonPhase, moonIllumination, dailyMoonTip } from "@/lib/moon";
 import { SITE } from "@/lib/site";
 import AdSlot from "@/components/AdSlot";
@@ -94,6 +95,29 @@ export default function MoonPage() {
           ))}
         </ul>
       </section>
+
+      {/* اكتشف أيضًا — روابط خارجة تمنع أن تكون هذه الصفحة (عالية الأولوية ومقصودة
+          من كل مكان) طريقًا مسدودًا: تمرّر تدفّق الزحف وتقترح خطوة تالية للقارئ. */}
+      <nav aria-label="اكتشف أيضًا" className="border-t border-border pt-6">
+        <h2 className="mb-3 text-lg font-semibold text-text">اكتشف أيضًا</h2>
+        <div className="flex flex-wrap gap-2">
+          <Link href="/" className="rounded-full border border-border bg-bg-soft px-4 py-1.5 text-sm text-text no-underline chip">
+            تفسير الأحلام
+          </Link>
+          <Link href="/tafsir-ibn-sirin/" className="rounded-full border border-border bg-bg-soft px-4 py-1.5 text-sm text-text no-underline chip">
+            تفسير ابن سيرين
+          </Link>
+          <Link href="/kolory/" className="rounded-full border border-border bg-bg-soft px-4 py-1.5 text-sm text-text no-underline chip">
+            معاني الألوان
+          </Link>
+          <Link href="/liczby/" className="rounded-full border border-border bg-bg-soft px-4 py-1.5 text-sm text-text no-underline chip">
+            معاني الأرقام
+          </Link>
+          <Link href="/blog/" className="rounded-full border border-border bg-bg-soft px-4 py-1.5 text-sm text-text no-underline chip">
+            المدونة
+          </Link>
+        </div>
+      </nav>
     </div>
   );
 }
