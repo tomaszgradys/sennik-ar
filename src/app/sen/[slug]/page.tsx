@@ -131,6 +131,22 @@ export default async function DreamPage({
     { name: capitalize(entry.phrase), item: url },
   ];
 
+  // Warstwa modyfikatorów statusu (A05): interpretacje wg حال الرائي. Nagłówki i
+  // pytania FAQ w dokładnym wzorcu zapytań „تفسير حلم X للعزباء/للمتزوجة/…".
+  const statusVariants = c.byStatus
+    ? ([
+        { key: "single", label: "للعزباء", text: c.byStatus.single },
+        { key: "married", label: "للمتزوجة", text: c.byStatus.married },
+        { key: "pregnant", label: "للحامل", text: c.byStatus.pregnant },
+        { key: "man", label: "للرجل", text: c.byStatus.man },
+      ] as const)
+    : [];
+  const statusFaq = statusVariants.map((s) => ({
+    q: `ما تفسير حلم ${entry.phrase} ${s.label}؟`,
+    a: s.text,
+  }));
+  const allFaq = [...(c.faq ?? []), ...statusFaq];
+
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
@@ -152,11 +168,11 @@ export default async function DreamPage({
           item: cr.item,
         })),
       },
-      ...(c.faq && c.faq.length > 0
+      ...(allFaq.length > 0
         ? [
             {
               "@type": "FAQPage",
-              mainEntity: c.faq.map((f) => ({
+              mainEntity: allFaq.map((f) => ({
                 "@type": "Question",
                 name: f.q,
                 acceptedAnswer: { "@type": "Answer", text: f.a },
@@ -300,6 +316,24 @@ export default async function DreamPage({
         <div className="mb-1 text-sm font-semibold text-text-muted">{T.dream.tip}</div>
         <p className="m-0">{c.advice}</p>
       </aside>
+
+      {statusVariants.length > 0 && (
+        <section>
+          <h2 className="mb-3 text-lg font-semibold text-text">
+            تفسير حلم {entry.phrase} حسب حال الرائي
+          </h2>
+          <div className="flex flex-col gap-3">
+            {statusVariants.map((s) => (
+              <div key={s.key} className="rounded-xl border border-border bg-bg-elev p-4">
+                <h3 className="mb-1.5 text-base font-semibold text-text">
+                  تفسير حلم {entry.phrase} {s.label}
+                </h3>
+                <p className="m-0 font-serif text-text">{s.text}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
 
       {(crossColors.length > 0 || crossNumbers.length > 0) && (
         <section className="flex flex-wrap items-center gap-2">

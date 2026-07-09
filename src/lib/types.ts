@@ -17,6 +17,14 @@ export interface FaqItem {
   q: string;
   a: string;
 }
+// Interpretacje wg „حال الرائي" (stanu śniącego) — dominujący wzorzec long-tail
+// arabskiego SEO: „تفسير حلم X للعزباء/للمتزوجة/للحامل/للرجل". Opcjonalne (gł. prio 1).
+export interface StatusVariants {
+  single: string; // للعزباء (niezamężna)
+  married: string; // للمتزوجة (mężatka)
+  pregnant: string; // للحامل (ciężarna)
+  man: string; // للرجل (mężczyzna)
+}
 export interface Content {
   gender: Gender; // rodzaj frazy (do „Śnił/Śniła ci się")
   locative: string; // fraza po „o": kocie / czarnym kocie / taksówce pod wodą
@@ -28,6 +36,7 @@ export interface Content {
   negative: string;
   advice: string;
   faq: FaqItem[];
+  byStatus?: StatusVariants; // warstwa modyfikatorów statusu (A05)
 }
 
 // Rozwiązane hasło = katalog + treść.
