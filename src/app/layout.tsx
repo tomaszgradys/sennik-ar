@@ -7,9 +7,15 @@ import "./globals.css";
 // serwowany z własnej domeny) — usuwa render-blocking request do fonts.googleapis
 // i preconnecty (A01 audytu, LCP). IBM Plex/Tajawal były tylko fallbackami w stacku,
 // nigdzie osobno używane — zostają jako opcjonalne nazwy fallback w globals.css.
+// Wagi dobrane do REALNEGO użycia w UI: 600 (semibold) to zdecydowanie najczęstsza
+// waga na stronie (~134 klas + reguły CSS) — wcześniej NIE była ładowana, więc cały
+// tekst semibold renderował się z podstawionej, niepasującej wagi. 800 (extrabold)
+// pojawiało się dokładnie raz, a mimo to plik był preloadowany przy starcie — usunięte
+// (ten jeden element spadnie na 700, różnica niezauważalna). Netto: tyle samo plików
+// fontu, ale pokrywają faktycznie renderowane wagi i nie marnują transferu na starcie.
 const notoArabic = Noto_Sans_Arabic({
   subsets: ["arabic"],
-  weight: ["400", "500", "700", "800"],
+  weight: ["400", "500", "600", "700"],
   variable: "--font-noto-arabic",
   display: "swap",
 });
