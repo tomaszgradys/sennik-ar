@@ -1,0 +1,642 @@
+[
+ {
+  "slug": "الضره",
+  "phrase": "الضرة",
+  "parent": "الضره",
+  "type": "symbol",
+  "priority": 2,
+  "arCategory": "الناس والعلاقات"
+ },
+ {
+  "slug": "المشاهير",
+  "phrase": "المشاهير",
+  "parent": "المشاهير",
+  "type": "symbol",
+  "priority": 2,
+  "arCategory": "الناس والعلاقات"
+ },
+ {
+  "slug": "المسدس",
+  "phrase": "المسدس",
+  "parent": "المسدس",
+  "type": "symbol",
+  "priority": 2,
+  "arCategory": "الأشياء والرموز"
+ },
+ {
+  "slug": "الطوفان",
+  "phrase": "الطوفان",
+  "parent": "الطوفان",
+  "type": "symbol",
+  "priority": 2,
+  "arCategory": "الطبيعة والطقس"
+ },
+ {
+  "slug": "السقوط-من-مكان-عال",
+  "phrase": "السقوط من مكان عالٍ",
+  "parent": "السقوط",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "الأفعال والحركة"
+ },
+ {
+  "slug": "السقوط-من-السلم",
+  "phrase": "السقوط من السلم",
+  "parent": "السقوط",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "الأفعال والحركة"
+ },
+ {
+  "slug": "السقوط-من-الجبل",
+  "phrase": "السقوط من الجبل",
+  "parent": "السقوط",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "الأفعال والحركة"
+ },
+ {
+  "slug": "السقوط-من-النافذه",
+  "phrase": "السقوط من النافذة",
+  "parent": "السقوط",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "الأفعال والحركة"
+ },
+ {
+  "slug": "دخول-السجن",
+  "phrase": "دخول السجن",
+  "parent": "السجن",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "البيت والأماكن"
+ },
+ {
+  "slug": "الخروج-من-السجن",
+  "phrase": "الخروج من السجن",
+  "parent": "السجن",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "البيت والأماكن"
+ },
+ {
+  "slug": "الهروب-من-السجن",
+  "phrase": "الهروب من السجن",
+  "parent": "السجن",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "البيت والأماكن"
+ },
+ {
+  "slug": "زياره-السجن",
+  "phrase": "زيارة السجن",
+  "parent": "السجن",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "البيت والأماكن"
+ },
+ {
+  "slug": "قتل-شخص",
+  "phrase": "قتل شخص",
+  "parent": "القتل",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "المخاطر والمشاعر والأحداث"
+ },
+ {
+  "slug": "القتل-بسكين",
+  "phrase": "القتل بسكين",
+  "parent": "القتل",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "المخاطر والمشاعر والأحداث"
+ },
+ {
+  "slug": "مشاهده-قتل",
+  "phrase": "مشاهدة قتل",
+  "parent": "القتل",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "المخاطر والمشاعر والأحداث"
+ },
+ {
+  "slug": "محاوله-قتل",
+  "phrase": "محاولة قتل",
+  "parent": "القتل",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "المخاطر والمشاعر والأحداث"
+ },
+ {
+  "slug": "الخوف-من-الموت",
+  "phrase": "الخوف من الموت",
+  "parent": "الخوف",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "المخاطر والمشاعر والأحداث"
+ },
+ {
+  "slug": "الخوف-من-شخص",
+  "phrase": "الخوف من شخص",
+  "parent": "الخوف",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "المخاطر والمشاعر والأحداث"
+ },
+ {
+  "slug": "الخوف-والهروب",
+  "phrase": "الخوف والهروب",
+  "parent": "الخوف",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "المخاطر والمشاعر والأحداث"
+ },
+ {
+  "slug": "الاستحمام-بماء-بارد",
+  "phrase": "الاستحمام بماء بارد",
+  "parent": "الاستحمام",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "الأفعال والحركة"
+ },
+ {
+  "slug": "الاستحمام-بماء-ساخن",
+  "phrase": "الاستحمام بماء ساخن",
+  "parent": "الاستحمام",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "الأفعال والحركة"
+ },
+ {
+  "slug": "الاستحمام-في-مكان-عام",
+  "phrase": "الاستحمام في مكان عام",
+  "parent": "الاستحمام",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "الأفعال والحركة"
+ },
+ {
+  "slug": "المشي-حافيا",
+  "phrase": "المشي حافيًا",
+  "parent": "المشي",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "الأفعال والحركة"
+ },
+ {
+  "slug": "المشي-في-الظلام",
+  "phrase": "المشي في الظلام",
+  "parent": "المشي",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "الأفعال والحركة"
+ },
+ {
+  "slug": "المشي-علي-الماء",
+  "phrase": "المشي على الماء",
+  "parent": "المشي",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "الأفعال والحركة"
+ },
+ {
+  "slug": "جرح-في-اليد",
+  "phrase": "جرح في اليد",
+  "parent": "الجرح",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "الأفعال والحركة"
+ },
+ {
+  "slug": "جرح-عميق",
+  "phrase": "جرح عميق",
+  "parent": "الجرح",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "الأفعال والحركة"
+ },
+ {
+  "slug": "السباحه-في-نهر",
+  "phrase": "السباحة في نهر",
+  "parent": "السباحه",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "الأفعال والحركة"
+ },
+ {
+  "slug": "السباحه-في-ماء-صاف",
+  "phrase": "السباحة في ماء صافٍ",
+  "parent": "السباحه",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "الأفعال والحركة"
+ },
+ {
+  "slug": "خيانه-الزوج",
+  "phrase": "خيانة الزوج",
+  "parent": "خيانه",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "المخاطر والمشاعر والأحداث"
+ },
+ {
+  "slug": "خيانه-الصديق",
+  "phrase": "خيانة الصديق",
+  "parent": "خيانه",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "المخاطر والمشاعر والأحداث"
+ },
+ {
+  "slug": "خيانه-الحبيب",
+  "phrase": "خيانة الحبيب",
+  "parent": "خيانه",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "المخاطر والمشاعر والأحداث"
+ },
+ {
+  "slug": "قبله-علي-الخد",
+  "phrase": "قبلة على الخد",
+  "parent": "قبله",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "الناس والعلاقات"
+ },
+ {
+  "slug": "قبله-من-ميت",
+  "phrase": "قبلة من ميت",
+  "parent": "قبله",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "الناس والعلاقات"
+ },
+ {
+  "slug": "قبله-الحبيب",
+  "phrase": "قبلة الحبيب",
+  "parent": "قبله",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "الناس والعلاقات"
+ },
+ {
+  "slug": "الغضب-من-شخص",
+  "phrase": "الغضب من شخص",
+  "parent": "الغضب",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "المخاطر والمشاعر والأحداث"
+ },
+ {
+  "slug": "الحزن-علي-ميت",
+  "phrase": "الحزن على ميت",
+  "parent": "الحزن",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "المخاطر والمشاعر والأحداث"
+ },
+ {
+  "slug": "البكاء-من-الحزن",
+  "phrase": "البكاء من الحزن",
+  "parent": "الحزن",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "المخاطر والمشاعر والأحداث"
+ },
+ {
+  "slug": "الشفاء-من-مرض",
+  "phrase": "الشفاء من مرض",
+  "parent": "الشفاء",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "الجسد والصحة"
+ },
+ {
+  "slug": "الشفاء-بالقران",
+  "phrase": "الشفاء بالقرآن",
+  "parent": "الشفاء",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "الجسد والصحة"
+ },
+ {
+  "slug": "مقابله-الرئيس",
+  "phrase": "مقابلة الرئيس",
+  "parent": "الرئيس",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "الناس والعلاقات"
+ },
+ {
+  "slug": "الرئيس-يغضب",
+  "phrase": "الرئيس يغضب",
+  "parent": "الرئيس",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "الناس والعلاقات"
+ },
+ {
+  "slug": "الجري-من-خطر",
+  "phrase": "الجري من خطر",
+  "parent": "الجري",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "الأفعال والحركة"
+ },
+ {
+  "slug": "الجري-بسرعه",
+  "phrase": "الجري بسرعة",
+  "parent": "الجري",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "الأفعال والحركة"
+ },
+ {
+  "slug": "الضياع-في-مكان-مجهول",
+  "phrase": "الضياع في مكان مجهول",
+  "parent": "الضياع",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "المخاطر والمشاعر والأحداث"
+ },
+ {
+  "slug": "فراق-حبيب",
+  "phrase": "فراق حبيب",
+  "parent": "الفراق",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "المخاطر والمشاعر والأحداث"
+ },
+ {
+  "slug": "فراق-الاهل",
+  "phrase": "فراق الأهل",
+  "parent": "الفراق",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "المخاطر والمشاعر والأحداث"
+ },
+ {
+  "slug": "السير-في-الوادي",
+  "phrase": "السير في الوادي",
+  "parent": "الوادي",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "الطبيعة والطقس"
+ },
+ {
+  "slug": "واد-مليء-بالماء",
+  "phrase": "وادٍ مليء بالماء",
+  "parent": "الوادي",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "الطبيعة والطقس"
+ },
+ {
+  "slug": "صوت-الرعد",
+  "phrase": "صوت الرعد",
+  "parent": "الرعد",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "الطبيعة والطقس"
+ },
+ {
+  "slug": "الرعد-والبرق",
+  "phrase": "الرعد والبرق",
+  "parent": "الرعد",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "الطبيعة والطقس"
+ },
+ {
+  "slug": "القفز-من-مكان-عال",
+  "phrase": "القفز من مكان عالٍ",
+  "parent": "القفز",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "الأفعال والحركة"
+ },
+ {
+  "slug": "القفز-في-الماء",
+  "phrase": "القفز في الماء",
+  "parent": "القفز",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "الأفعال والحركة"
+ },
+ {
+  "slug": "الخوف-من-الفقر",
+  "phrase": "الخوف من الفقر",
+  "parent": "الفقر",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "العمل والمال والدراسة"
+ },
+ {
+  "slug": "اصبح-فقيرا",
+  "phrase": "أصبح فقيرًا",
+  "parent": "الفقر",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "العمل والمال والدراسة"
+ },
+ {
+  "slug": "ظهور-الشيب",
+  "phrase": "ظهور الشيب",
+  "parent": "الشيب",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "الجسد والصحة"
+ },
+ {
+  "slug": "نتف-الشيب",
+  "phrase": "نتف الشيب",
+  "parent": "الشيب",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "الجسد والصحة"
+ },
+ {
+  "slug": "النجاح-في-الامتحان",
+  "phrase": "النجاح في الامتحان",
+  "parent": "امتحان",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "العمل والمال والدراسة"
+ },
+ {
+  "slug": "نسيان-الامتحان",
+  "phrase": "نسيان الامتحان",
+  "parent": "امتحان",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "العمل والمال والدراسة"
+ },
+ {
+  "slug": "لص-في-البيت",
+  "phrase": "لص في البيت",
+  "parent": "لص",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "المخاطر والمشاعر والأحداث"
+ },
+ {
+  "slug": "مطارده-لص",
+  "phrase": "مطاردة لص",
+  "parent": "لص",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "المخاطر والمشاعر والأحداث"
+ },
+ {
+  "slug": "تقليم-الاظافر",
+  "phrase": "تقليم الأظافر",
+  "parent": "اظافر",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "الجسد والصحة"
+ },
+ {
+  "slug": "اظافر-طويله",
+  "phrase": "أظافر طويلة",
+  "parent": "اظافر",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "الجسد والصحة"
+ },
+ {
+  "slug": "باقه-ورد",
+  "phrase": "باقة ورد",
+  "parent": "ورده",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "الأشياء والرموز"
+ },
+ {
+  "slug": "ورده-حمراء",
+  "phrase": "وردة حمراء",
+  "parent": "ورده",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "الأشياء والرموز"
+ },
+ {
+  "slug": "الحصول-علي-وظيفه",
+  "phrase": "الحصول على وظيفة",
+  "parent": "وظيفه",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "العمل والمال والدراسة"
+ },
+ {
+  "slug": "اطلاق-مسدس",
+  "phrase": "إطلاق مسدس",
+  "parent": "المسدس",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "الأشياء والرموز"
+ },
+ {
+  "slug": "حمل-مسدس",
+  "phrase": "حمل مسدس",
+  "parent": "المسدس",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "الأشياء والرموز"
+ },
+ {
+  "slug": "الوقوف-امام-المحكمه",
+  "phrase": "الوقوف أمام المحكمة",
+  "parent": "المحكمه",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "البيت والأماكن"
+ },
+ {
+  "slug": "حكم-القاضي",
+  "phrase": "حكم القاضي",
+  "parent": "المحكمه",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "البيت والأماكن"
+ },
+ {
+  "slug": "النجاه-من-الطوفان",
+  "phrase": "النجاة من الطوفان",
+  "parent": "الطوفان",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "الطبيعة والطقس"
+ },
+ {
+  "slug": "الطوفان-يغرق-البيت",
+  "phrase": "الطوفان يغرق البيت",
+  "parent": "الطوفان",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "الطبيعة والطقس"
+ },
+ {
+  "slug": "قطع-اصبع",
+  "phrase": "قطع إصبع",
+  "parent": "الاصابع",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "الجسد والصحة"
+ },
+ {
+  "slug": "عد-الاصابع",
+  "phrase": "عد الأصابع",
+  "parent": "الاصابع",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "الجسد والصحة"
+ },
+ {
+  "slug": "كسر-الانف",
+  "phrase": "كسر الأنف",
+  "parent": "الانف",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "الجسد والصحة"
+ },
+ {
+  "slug": "خصام-الحماه",
+  "phrase": "خصام الحماة",
+  "parent": "الحماه",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "الناس والعلاقات"
+ },
+ {
+  "slug": "الحماه-المتوفاه",
+  "phrase": "الحماة المتوفاة",
+  "parent": "الحماه",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "الناس والعلاقات"
+ },
+ {
+  "slug": "مشاجره-الضره",
+  "phrase": "مشاجرة الضرة",
+  "parent": "الضره",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "الناس والعلاقات"
+ },
+ {
+  "slug": "لقاء-مشهور",
+  "phrase": "لقاء مشهور",
+  "parent": "المشاهير",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "الناس والعلاقات"
+ },
+ {
+  "slug": "التصوير-مع-مشهور",
+  "phrase": "التصوير مع مشهور",
+  "parent": "المشاهير",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "الناس والعلاقات"
+ }
+]
