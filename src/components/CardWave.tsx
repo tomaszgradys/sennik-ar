@@ -15,9 +15,9 @@ export default function CardWave() {
     const groups = Array.from(document.querySelectorAll<HTMLElement>("[data-wave]"));
     if (!groups.length) return;
 
-    const STAGGER = 150; // odstęp startu między kolejnymi kafelkami (fala)
-    const HOLD = 560; // jak długo kafelek pozostaje uniesiony
-    const GAP = 5200; // przerwa między falami (spokojny rytm)
+    const STAGGER = 260; // odstęp startu między kolejnymi kafelkami (wolniejsza fala)
+    const HOLD = 620; // jak długo kafelek pozostaje uniesiony
+    const GAP = 3200; // przerwa między falami (częstszy rytm)
 
     let gi = 0;
     let timers: number[] = [];
