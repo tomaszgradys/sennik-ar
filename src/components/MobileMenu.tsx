@@ -18,6 +18,7 @@ const LINKS = [
   { href: "/blog/", label: "المدونة" },
   { href: "/alwan/", label: "الألوان" },
   { href: "/arqam/", label: "الأرقام" },
+  { href: "/asma/", label: "الأسماء في المنام" },
   { href: "/atwar-al-qamar/", label: "طور القمر" },
 ];
 

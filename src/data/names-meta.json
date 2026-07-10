@@ -1,0 +1,522 @@
+[
+ {
+  "slug": "محمد",
+  "name": "محمد",
+  "translit": "Mohammed",
+  "gender": "m",
+  "origin": "عربي",
+  "meaning": "الكثير الخصال الحميدة، المحمود مرة بعد مرة"
+ },
+ {
+  "slug": "احمد",
+  "name": "أحمد",
+  "translit": "Ahmed",
+  "gender": "m",
+  "origin": "عربي",
+  "meaning": "الأكثر حمدًا لله، أفعل التفضيل من الحمد"
+ },
+ {
+  "slug": "علي",
+  "name": "علي",
+  "translit": "Ali",
+  "gender": "m",
+  "origin": "عربي",
+  "meaning": "الرفيع الشأن، السامي، العالي المكانة"
+ },
+ {
+  "slug": "عمر",
+  "name": "عمر",
+  "translit": "Omar",
+  "gender": "m",
+  "origin": "عربي",
+  "meaning": "العُمر والحياة الطويلة، من العمارة والبقاء"
+ },
+ {
+  "slug": "يوسف",
+  "name": "يوسف",
+  "translit": "Yusuf",
+  "gender": "m",
+  "origin": "عبري/عربي",
+  "meaning": "اسم نبي كريم، يقترن بالجمال والصبر وتأويل الرؤى"
+ },
+ {
+  "slug": "ابراهيم",
+  "name": "إبراهيم",
+  "translit": "Ibrahim",
+  "gender": "m",
+  "origin": "عبري/عربي",
+  "meaning": "اسم نبي كريم خليل الرحمن، يقترن بالأبوة والوفاء"
+ },
+ {
+  "slug": "خالد",
+  "name": "خالد",
+  "translit": "Khalid",
+  "gender": "m",
+  "origin": "عربي",
+  "meaning": "الدائم الباقي، من الخلود"
+ },
+ {
+  "slug": "حسن",
+  "name": "حسن",
+  "translit": "Hassan",
+  "gender": "m",
+  "origin": "عربي",
+  "meaning": "الجميل الطيب الحسن الصورة والخُلق"
+ },
+ {
+  "slug": "حسين",
+  "name": "حسين",
+  "translit": "Hussein",
+  "gender": "m",
+  "origin": "عربي",
+  "meaning": "تصغير الحسن، الجميل الصغير"
+ },
+ {
+  "slug": "عبدالله",
+  "name": "عبد الله",
+  "translit": "Abdullah",
+  "gender": "m",
+  "origin": "عربي",
+  "meaning": "عبد الله، من أحب الأسماء، دلالة العبودية لله"
+ },
+ {
+  "slug": "عبدالرحمن",
+  "name": "عبد الرحمن",
+  "translit": "Abdulrahman",
+  "gender": "m",
+  "origin": "عربي",
+  "meaning": "عبد الرحمن، من أحب الأسماء إلى الله"
+ },
+ {
+  "slug": "سالم",
+  "name": "سالم",
+  "translit": "Salim",
+  "gender": "m",
+  "origin": "عربي",
+  "meaning": "الناجي المعافى السالم من الآفات"
+ },
+ {
+  "slug": "راشد",
+  "name": "راشد",
+  "translit": "Rashid",
+  "gender": "m",
+  "origin": "عربي",
+  "meaning": "المهتدي إلى الصواب، الرشيد العاقل"
+ },
+ {
+  "slug": "كريم",
+  "name": "كريم",
+  "translit": "Karim",
+  "gender": "m",
+  "origin": "عربي",
+  "meaning": "الجواد المعطاء الكريم النفس"
+ },
+ {
+  "slug": "طارق",
+  "name": "طارق",
+  "translit": "Tariq",
+  "gender": "m",
+  "origin": "عربي",
+  "meaning": "النجم الطارق، القادم ليلًا، الطارق للباب"
+ },
+ {
+  "slug": "زيد",
+  "name": "زيد",
+  "translit": "Zayd",
+  "gender": "m",
+  "origin": "عربي",
+  "meaning": "النماء والزيادة والكثرة"
+ },
+ {
+  "slug": "سعيد",
+  "name": "سعيد",
+  "translit": "Saeed",
+  "gender": "m",
+  "origin": "عربي",
+  "meaning": "صاحب السعادة والحظ الطيب"
+ },
+ {
+  "slug": "ياسين",
+  "name": "ياسين",
+  "translit": "Yasin",
+  "gender": "m",
+  "origin": "عربي",
+  "meaning": "من أسماء السورة الكريمة، حروف مقطعة"
+ },
+ {
+  "slug": "مصطفى",
+  "name": "مصطفى",
+  "translit": "Mustafa",
+  "gender": "m",
+  "origin": "عربي",
+  "meaning": "المختار المصطفى، المنتقى"
+ },
+ {
+  "slug": "ادم",
+  "name": "آدم",
+  "translit": "Adam",
+  "gender": "m",
+  "origin": "عربي",
+  "meaning": "اسم أبي البشر عليه السلام، من الأدمة"
+ },
+ {
+  "slug": "نور",
+  "name": "نور",
+  "translit": "Nour",
+  "gender": "f",
+  "origin": "عربي",
+  "meaning": "الضياء والنور المضيء"
+ },
+ {
+  "slug": "فاطمه",
+  "name": "فاطمة",
+  "translit": "Fatima",
+  "gender": "f",
+  "origin": "عربي",
+  "meaning": "الفاطمة، اسم كريم يقترن بالطهر والفضل"
+ },
+ {
+  "slug": "عائشه",
+  "name": "عائشة",
+  "translit": "Aisha",
+  "gender": "f",
+  "origin": "عربي",
+  "meaning": "ذات الحياة والعيش الطيب، الحيّة العائشة"
+ },
+ {
+  "slug": "خديجه",
+  "name": "خديجة",
+  "translit": "Khadija",
+  "gender": "f",
+  "origin": "عربي",
+  "meaning": "اسم كريم يقترن بالوقار والسند والوفاء"
+ },
+ {
+  "slug": "مريم",
+  "name": "مريم",
+  "translit": "Maryam",
+  "gender": "f",
+  "origin": "عربي",
+  "meaning": "اسم كريم يقترن بالطهر والعبادة والصفاء"
+ },
+ {
+  "slug": "سارة",
+  "name": "سارة",
+  "translit": "Sara",
+  "gender": "f",
+  "origin": "عبري/عربي",
+  "meaning": "السيدة ذات المكانة، السرور والفرح"
+ },
+ {
+  "slug": "ليلى",
+  "name": "ليلى",
+  "translit": "Layla",
+  "gender": "f",
+  "origin": "عربي",
+  "meaning": "الليلة الطويلة الداكنة، رمز الجمال في الشعر"
+ },
+ {
+  "slug": "سلمى",
+  "name": "سلمى",
+  "translit": "Salma",
+  "gender": "f",
+  "origin": "عربي",
+  "meaning": "السالمة المعافاة، من السلامة"
+ },
+ {
+  "slug": "هدى",
+  "name": "هدى",
+  "translit": "Huda",
+  "gender": "f",
+  "origin": "عربي",
+  "meaning": "الهداية والرشاد والدلالة إلى الخير"
+ },
+ {
+  "slug": "امنه",
+  "name": "آمنة",
+  "translit": "Amina",
+  "gender": "f",
+  "origin": "عربي",
+  "meaning": "المطمئنة الآمنة، ذات الأمان"
+ },
+ {
+  "slug": "جميله",
+  "name": "جميلة",
+  "translit": "Jamila",
+  "gender": "f",
+  "origin": "عربي",
+  "meaning": "الحسناء ذات الجمال"
+ },
+ {
+  "slug": "رحمه",
+  "name": "رحمة",
+  "translit": "Rahma",
+  "gender": "f",
+  "origin": "عربي",
+  "meaning": "الرأفة والرقة واللين"
+ },
+ {
+  "slug": "ايه",
+  "name": "آية",
+  "translit": "Aya",
+  "gender": "f",
+  "origin": "عربي",
+  "meaning": "العلامة والمعجزة، آية من آيات القرآن"
+ },
+ {
+  "slug": "زينب",
+  "name": "زينب",
+  "translit": "Zaynab",
+  "gender": "f",
+  "origin": "عربي",
+  "meaning": "شجرة حسنة المنظر طيبة الرائحة"
+ },
+ {
+  "slug": "رقيه",
+  "name": "رقية",
+  "translit": "Ruqayya",
+  "gender": "f",
+  "origin": "عربي",
+  "meaning": "الرُّقيّ والعلو، ومن الرقية والحفظ"
+ },
+ {
+  "slug": "ياسمين",
+  "name": "ياسمين",
+  "translit": "Yasmin",
+  "gender": "f",
+  "origin": "فارسي/عربي",
+  "meaning": "زهرة الياسمين البيضاء العطرة"
+ },
+ {
+  "slug": "لينا",
+  "name": "لينا",
+  "translit": "Lina",
+  "gender": "f",
+  "origin": "عربي",
+  "meaning": "النخلة الصغيرة، اللين والرقة"
+ },
+ {
+  "slug": "ريم",
+  "name": "ريم",
+  "translit": "Reem",
+  "gender": "f",
+  "origin": "عربي",
+  "meaning": "الغزال الأبيض الخالص، رمز الرشاقة"
+ },
+ {
+  "slug": "جنى",
+  "name": "جنى",
+  "translit": "Jana",
+  "gender": "f",
+  "origin": "عربي",
+  "meaning": "ثمر الجنة، ما يُجنى من الثمر الطيب"
+ },
+ {
+  "slug": "ملك",
+  "name": "ملك",
+  "translit": "Malak",
+  "gender": "f",
+  "origin": "عربي",
+  "meaning": "الملاك، رمز الطهر والنقاء"
+ },
+ {
+  "slug": "عبير",
+  "name": "عبير",
+  "translit": "Abeer",
+  "gender": "f",
+  "origin": "عربي",
+  "meaning": "الطيب المنتشر، عبق العطر"
+ },
+ {
+  "slug": "رنا",
+  "name": "رنا",
+  "translit": "Rana",
+  "gender": "f",
+  "origin": "عربي",
+  "meaning": "إدامة النظر إلى ما يُعجب، الشيء الحسن"
+ },
+ {
+  "slug": "دانا",
+  "name": "دانة",
+  "translit": "Dana",
+  "gender": "f",
+  "origin": "عربي",
+  "meaning": "اللؤلؤة الكبيرة الثمينة"
+ },
+ {
+  "slug": "شهد",
+  "name": "شهد",
+  "translit": "Shahd",
+  "gender": "f",
+  "origin": "عربي",
+  "meaning": "العسل، رمز الحلاوة والطيب"
+ },
+ {
+  "slug": "جود",
+  "name": "جود",
+  "translit": "Jood",
+  "gender": "f",
+  "origin": "عربي",
+  "meaning": "الكرم والعطاء، المطر الغزير"
+ },
+ {
+  "slug": "لمى",
+  "name": "لمى",
+  "translit": "Lama",
+  "gender": "f",
+  "origin": "عربي",
+  "meaning": "سُمرة محبّبة في الشفاه، رمز الحسن"
+ },
+ {
+  "slug": "براء",
+  "name": "براء",
+  "translit": "Baraa",
+  "gender": "m",
+  "origin": "عربي",
+  "meaning": "البراءة والنقاء والخلوّ من العيب"
+ },
+ {
+  "slug": "فيصل",
+  "name": "فيصل",
+  "translit": "Faisal",
+  "gender": "m",
+  "origin": "عربي",
+  "meaning": "الحاكم العادل الذي يفصل بين الحق والباطل"
+ },
+ {
+  "slug": "ناصر",
+  "name": "ناصر",
+  "translit": "Nasser",
+  "gender": "m",
+  "origin": "عربي",
+  "meaning": "المعين المؤيّد، الناصر المنتصر"
+ },
+ {
+  "slug": "سلطان",
+  "name": "سلطان",
+  "translit": "Sultan",
+  "gender": "m",
+  "origin": "عربي",
+  "meaning": "الحُكم والقوة والهيبة"
+ },
+ {
+  "slug": "ماجد",
+  "name": "ماجد",
+  "translit": "Majid",
+  "gender": "m",
+  "origin": "عربي",
+  "meaning": "صاحب المجد والشرف والرفعة"
+ },
+ {
+  "slug": "وليد",
+  "name": "وليد",
+  "translit": "Walid",
+  "gender": "m",
+  "origin": "عربي",
+  "meaning": "المولود الصغير حديث الولادة"
+ },
+ {
+  "slug": "سامي",
+  "name": "سامي",
+  "translit": "Sami",
+  "gender": "m",
+  "origin": "عربي",
+  "meaning": "الرفيع العالي، السامي المكانة"
+ },
+ {
+  "slug": "جواد",
+  "name": "جواد",
+  "translit": "Jawad",
+  "gender": "m",
+  "origin": "عربي",
+  "meaning": "الكريم المعطاء، الفرس الأصيل"
+ },
+ {
+  "slug": "انس",
+  "name": "أنس",
+  "translit": "Anas",
+  "gender": "m",
+  "origin": "عربي",
+  "meaning": "الأُنس والمودّة والألفة"
+ },
+ {
+  "slug": "بلال",
+  "name": "بلال",
+  "translit": "Bilal",
+  "gender": "m",
+  "origin": "عربي",
+  "meaning": "الماء والنداوة، يقترن بمؤذّن الإسلام الأول"
+ },
+ {
+  "slug": "حمزه",
+  "name": "حمزة",
+  "translit": "Hamza",
+  "gender": "m",
+  "origin": "عربي",
+  "meaning": "الأسد، القوي الشديد"
+ },
+ {
+  "slug": "زياد",
+  "name": "زياد",
+  "translit": "Ziyad",
+  "gender": "m",
+  "origin": "عربي",
+  "meaning": "النماء والزيادة والبركة"
+ },
+ {
+  "slug": "صالح",
+  "name": "صالح",
+  "translit": "Saleh",
+  "gender": "m",
+  "origin": "عربي",
+  "meaning": "المستقيم الطيب الصالح، اسم نبي كريم"
+ },
+ {
+  "slug": "نوح",
+  "name": "نوح",
+  "translit": "Nuh",
+  "gender": "m",
+  "origin": "عربي",
+  "meaning": "اسم نبي كريم، يقترن بالصبر والنجاة"
+ },
+ {
+  "slug": "داود",
+  "name": "داود",
+  "translit": "Dawud",
+  "gender": "m",
+  "origin": "عربي",
+  "meaning": "اسم نبي كريم، يقترن بالصوت الحسن والحكمة"
+ },
+ {
+  "slug": "سليمان",
+  "name": "سليمان",
+  "translit": "Sulaiman",
+  "gender": "m",
+  "origin": "عربي",
+  "meaning": "اسم نبي ملك كريم، يقترن بالحكمة والملك"
+ },
+ {
+  "slug": "رزان",
+  "name": "رزان",
+  "translit": "Razan",
+  "gender": "f",
+  "origin": "عربي",
+  "meaning": "الوقار والرزانة وثبات العقل"
+ },
+ {
+  "slug": "وعد",
+  "name": "وعد",
+  "translit": "Waad",
+  "gender": "f",
+  "origin": "عربي",
+  "meaning": "العهد والوعد الصادق"
+ },
+ {
+  "slug": "غلا",
+  "name": "غلا",
+  "translit": "Ghala",
+  "gender": "f",
+  "origin": "عربي",
+  "meaning": "النفاسة والغلاء والقيمة العالية"
+ }
+]

@@ -1,0 +1,587 @@
+[
+ {
+  "slug": "محمد",
+  "name": "محمد",
+  "translit": "Mohammed",
+  "gender": "m",
+  "origin": "عربي",
+  "meaning": "الكثير الخصال الحميدة، المحمود مرة بعد مرة",
+  "imagePrompt": "elegant golden arabic calligraphy on cream parchment surrounded by soft light and a crescent moon, no faces, no figures"
+ },
+ {
+  "slug": "احمد",
+  "name": "أحمد",
+  "translit": "Ahmed",
+  "gender": "m",
+  "origin": "عربي",
+  "meaning": "الأكثر حمدًا لله، أفعل التفضيل من الحمد",
+  "imagePrompt": "ornamental golden arabic calligraphy centerpiece on cream parchment with scattered small stars only"
+ },
+ {
+  "slug": "علي",
+  "name": "علي",
+  "translit": "Ali",
+  "gender": "m",
+  "origin": "عربي",
+  "meaning": "الرفيع الشأن، السامي، العالي المكانة",
+  "imagePrompt": "arabic calligraphy on parchment beside a rising mountain peak at dawn, no figures"
+ },
+ {
+  "slug": "عمر",
+  "name": "عمر",
+  "translit": "Omar",
+  "gender": "m",
+  "origin": "عربي",
+  "meaning": "العُمر والحياة الطويلة، من العمارة والبقاء",
+  "imagePrompt": "arabic calligraphy on parchment with an old flourishing olive tree, no people"
+ },
+ {
+  "slug": "يوسف",
+  "name": "يوسف",
+  "translit": "Yusuf",
+  "gender": "m",
+  "origin": "عبري/عربي",
+  "meaning": "اسم نبي كريم، يقترن بالجمال والصبر وتأويل الرؤى",
+  "imagePrompt": "arabic calligraphy on parchment with eleven small stars a sun and a moon motif, no figures"
+ },
+ {
+  "slug": "ابراهيم",
+  "name": "إبراهيم",
+  "translit": "Ibrahim",
+  "gender": "m",
+  "origin": "عبري/عربي",
+  "meaning": "اسم نبي كريم خليل الرحمن، يقترن بالأبوة والوفاء",
+  "imagePrompt": "arabic calligraphy on parchment beside a lit lantern in a calm desert night, no people"
+ },
+ {
+  "slug": "خالد",
+  "name": "خالد",
+  "translit": "Khalid",
+  "gender": "m",
+  "origin": "عربي",
+  "meaning": "الدائم الباقي، من الخلود",
+  "imagePrompt": "arabic calligraphy on parchment with an evergreen cedar tree, no figures"
+ },
+ {
+  "slug": "حسن",
+  "name": "حسن",
+  "translit": "Hassan",
+  "gender": "m",
+  "origin": "عربي",
+  "meaning": "الجميل الطيب الحسن الصورة والخُلق",
+  "imagePrompt": "arabic calligraphy on parchment surrounded by blooming jasmine, no people"
+ },
+ {
+  "slug": "حسين",
+  "name": "حسين",
+  "translit": "Hussein",
+  "gender": "m",
+  "origin": "عربي",
+  "meaning": "تصغير الحسن، الجميل الصغير",
+  "imagePrompt": "arabic calligraphy on parchment with a small rose and soft light, no figures"
+ },
+ {
+  "slug": "عبدالله",
+  "name": "عبد الله",
+  "translit": "Abdullah",
+  "gender": "m",
+  "origin": "عربي",
+  "meaning": "عبد الله، من أحب الأسماء، دلالة العبودية لله",
+  "imagePrompt": "arabic calligraphy on parchment under a starry sky with a crescent, no people"
+ },
+ {
+  "slug": "عبدالرحمن",
+  "name": "عبد الرحمن",
+  "translit": "Abdulrahman",
+  "gender": "m",
+  "origin": "عربي",
+  "meaning": "عبد الرحمن، من أحب الأسماء إلى الله",
+  "imagePrompt": "ornamental golden arabic calligraphy centerpiece on parchment with soft golden rays and stars"
+ },
+ {
+  "slug": "سالم",
+  "name": "سالم",
+  "translit": "Salim",
+  "gender": "m",
+  "origin": "عربي",
+  "meaning": "الناجي المعافى السالم من الآفات",
+  "imagePrompt": "ornamental golden arabic calligraphy on parchment with a calm still lake reflection at dawn"
+ },
+ {
+  "slug": "راشد",
+  "name": "راشد",
+  "translit": "Rashid",
+  "gender": "m",
+  "origin": "عربي",
+  "meaning": "المهتدي إلى الصواب، الرشيد العاقل",
+  "imagePrompt": "arabic calligraphy on parchment with a guiding north star, no figures"
+ },
+ {
+  "slug": "كريم",
+  "name": "كريم",
+  "translit": "Karim",
+  "gender": "m",
+  "origin": "عربي",
+  "meaning": "الجواد المعطاء الكريم النفس",
+  "imagePrompt": "arabic calligraphy on parchment with dates and coffee dallah, no people"
+ },
+ {
+  "slug": "طارق",
+  "name": "طارق",
+  "translit": "Tariq",
+  "gender": "m",
+  "origin": "عربي",
+  "meaning": "النجم الطارق، القادم ليلًا، الطارق للباب",
+  "imagePrompt": "arabic calligraphy on parchment with a bright morning star in night sky, no figures"
+ },
+ {
+  "slug": "زيد",
+  "name": "زيد",
+  "translit": "Zayd",
+  "gender": "m",
+  "origin": "عربي",
+  "meaning": "النماء والزيادة والكثرة",
+  "imagePrompt": "arabic calligraphy on parchment with a full ear of wheat, no people"
+ },
+ {
+  "slug": "سعيد",
+  "name": "سعيد",
+  "translit": "Saeed",
+  "gender": "m",
+  "origin": "عربي",
+  "meaning": "صاحب السعادة والحظ الطيب",
+  "imagePrompt": "arabic calligraphy on parchment with a warm sunrise over hills, no figures"
+ },
+ {
+  "slug": "ياسين",
+  "name": "ياسين",
+  "translit": "Yasin",
+  "gender": "m",
+  "origin": "عربي",
+  "meaning": "من أسماء السورة الكريمة، حروف مقطعة",
+  "imagePrompt": "arabic calligraphy on parchment beside an open ornate book and lantern, no people"
+ },
+ {
+  "slug": "مصطفى",
+  "name": "مصطفى",
+  "translit": "Mustafa",
+  "gender": "m",
+  "origin": "عربي",
+  "meaning": "المختار المصطفى، المنتقى",
+  "imagePrompt": "arabic calligraphy on parchment with a single chosen white flower, no figures"
+ },
+ {
+  "slug": "ادم",
+  "name": "آدم",
+  "translit": "Adam",
+  "gender": "m",
+  "origin": "عربي",
+  "meaning": "اسم أبي البشر عليه السلام، من الأدمة",
+  "imagePrompt": "arabic calligraphy on parchment with fertile earth and a green sprout, no people"
+ },
+ {
+  "slug": "نور",
+  "name": "نور",
+  "translit": "Nour",
+  "gender": "f",
+  "origin": "عربي",
+  "meaning": "الضياء والنور المضيء",
+  "imagePrompt": "arabic calligraphy on parchment glowing with soft warm light, no figures"
+ },
+ {
+  "slug": "فاطمه",
+  "name": "فاطمة",
+  "translit": "Fatima",
+  "gender": "f",
+  "origin": "عربي",
+  "meaning": "الفاطمة، اسم كريم يقترن بالطهر والفضل",
+  "imagePrompt": "arabic calligraphy on parchment with a white lily and gentle light, no people"
+ },
+ {
+  "slug": "عائشه",
+  "name": "عائشة",
+  "translit": "Aisha",
+  "gender": "f",
+  "origin": "عربي",
+  "meaning": "ذات الحياة والعيش الطيب، الحيّة العائشة",
+  "imagePrompt": "arabic calligraphy on parchment with a blossoming almond branch, no figures"
+ },
+ {
+  "slug": "خديجه",
+  "name": "خديجة",
+  "translit": "Khadija",
+  "gender": "f",
+  "origin": "عربي",
+  "meaning": "اسم كريم يقترن بالوقار والسند والوفاء",
+  "imagePrompt": "arabic calligraphy on parchment with a strong date palm at dusk, no people"
+ },
+ {
+  "slug": "مريم",
+  "name": "مريم",
+  "translit": "Maryam",
+  "gender": "f",
+  "origin": "عربي",
+  "meaning": "اسم كريم يقترن بالطهر والعبادة والصفاء",
+  "imagePrompt": "arabic calligraphy on parchment with a pure white rose and soft glow, no figures"
+ },
+ {
+  "slug": "سارة",
+  "name": "سارة",
+  "translit": "Sara",
+  "gender": "f",
+  "origin": "عبري/عربي",
+  "meaning": "السيدة ذات المكانة، السرور والفرح",
+  "imagePrompt": "arabic calligraphy on parchment with cheerful spring flowers, no people"
+ },
+ {
+  "slug": "ليلى",
+  "name": "ليلى",
+  "translit": "Layla",
+  "gender": "f",
+  "origin": "عربي",
+  "meaning": "الليلة الطويلة الداكنة، رمز الجمال في الشعر",
+  "imagePrompt": "arabic calligraphy on parchment under a deep blue starry night, no figures"
+ },
+ {
+  "slug": "سلمى",
+  "name": "سلمى",
+  "translit": "Salma",
+  "gender": "f",
+  "origin": "عربي",
+  "meaning": "السالمة المعافاة، من السلامة",
+  "imagePrompt": "arabic calligraphy on parchment with a calm still lake at dawn, no people"
+ },
+ {
+  "slug": "هدى",
+  "name": "هدى",
+  "translit": "Huda",
+  "gender": "f",
+  "origin": "عربي",
+  "meaning": "الهداية والرشاد والدلالة إلى الخير",
+  "imagePrompt": "ornamental golden arabic calligraphy on parchment with a glowing lantern lighting a path"
+ },
+ {
+  "slug": "امنه",
+  "name": "آمنة",
+  "translit": "Amina",
+  "gender": "f",
+  "origin": "عربي",
+  "meaning": "المطمئنة الآمنة، ذات الأمان",
+  "imagePrompt": "ornamental golden arabic calligraphy on parchment with a cozy warm nest of soft light, no creatures"
+ },
+ {
+  "slug": "جميله",
+  "name": "جميلة",
+  "translit": "Jamila",
+  "gender": "f",
+  "origin": "عربي",
+  "meaning": "الحسناء ذات الجمال",
+  "imagePrompt": "arabic calligraphy on parchment framed by delicate roses, no figures"
+ },
+ {
+  "slug": "رحمه",
+  "name": "رحمة",
+  "translit": "Rahma",
+  "gender": "f",
+  "origin": "عربي",
+  "meaning": "الرأفة والرقة واللين",
+  "imagePrompt": "arabic calligraphy on parchment with soft rain over green earth, no people"
+ },
+ {
+  "slug": "ايه",
+  "name": "آية",
+  "translit": "Aya",
+  "gender": "f",
+  "origin": "عربي",
+  "meaning": "العلامة والمعجزة، آية من آيات القرآن",
+  "imagePrompt": "arabic calligraphy on parchment beside an open ornate book, no figures"
+ },
+ {
+  "slug": "زينب",
+  "name": "زينب",
+  "translit": "Zaynab",
+  "gender": "f",
+  "origin": "عربي",
+  "meaning": "شجرة حسنة المنظر طيبة الرائحة",
+  "imagePrompt": "arabic calligraphy on parchment with a fragrant flowering shrub, no people"
+ },
+ {
+  "slug": "رقيه",
+  "name": "رقية",
+  "translit": "Ruqayya",
+  "gender": "f",
+  "origin": "عربي",
+  "meaning": "الرُّقيّ والعلو، ومن الرقية والحفظ",
+  "imagePrompt": "arabic calligraphy on parchment ascending with gentle light, no figures"
+ },
+ {
+  "slug": "ياسمين",
+  "name": "ياسمين",
+  "translit": "Yasmin",
+  "gender": "f",
+  "origin": "فارسي/عربي",
+  "meaning": "زهرة الياسمين البيضاء العطرة",
+  "imagePrompt": "arabic calligraphy on parchment surrounded by white jasmine blossoms, no people"
+ },
+ {
+  "slug": "لينا",
+  "name": "لينا",
+  "translit": "Lina",
+  "gender": "f",
+  "origin": "عربي",
+  "meaning": "النخلة الصغيرة، اللين والرقة",
+  "imagePrompt": "arabic calligraphy on parchment with a slender young palm, no figures"
+ },
+ {
+  "slug": "ريم",
+  "name": "ريم",
+  "translit": "Reem",
+  "gender": "f",
+  "origin": "عربي",
+  "meaning": "الغزال الأبيض الخالص، رمز الرشاقة",
+  "imagePrompt": "arabic calligraphy on parchment with soft desert dunes at dawn, no people"
+ },
+ {
+  "slug": "جنى",
+  "name": "جنى",
+  "translit": "Jana",
+  "gender": "f",
+  "origin": "عربي",
+  "meaning": "ثمر الجنة، ما يُجنى من الثمر الطيب",
+  "imagePrompt": "arabic calligraphy on parchment with ripe fruit on a branch, no figures"
+ },
+ {
+  "slug": "ملك",
+  "name": "ملك",
+  "translit": "Malak",
+  "gender": "f",
+  "origin": "عربي",
+  "meaning": "الملاك، رمز الطهر والنقاء",
+  "imagePrompt": "arabic calligraphy on parchment with a single white feather and light, no people"
+ },
+ {
+  "slug": "عبير",
+  "name": "عبير",
+  "translit": "Abeer",
+  "gender": "f",
+  "origin": "عربي",
+  "meaning": "الطيب المنتشر، عبق العطر",
+  "imagePrompt": "arabic calligraphy on parchment with wisps of fragrant incense smoke, no figures"
+ },
+ {
+  "slug": "رنا",
+  "name": "رنا",
+  "translit": "Rana",
+  "gender": "f",
+  "origin": "عربي",
+  "meaning": "إدامة النظر إلى ما يُعجب، الشيء الحسن",
+  "imagePrompt": "arabic calligraphy on parchment with a captivating full moon, no people"
+ },
+ {
+  "slug": "دانا",
+  "name": "دانة",
+  "translit": "Dana",
+  "gender": "f",
+  "origin": "عربي",
+  "meaning": "اللؤلؤة الكبيرة الثمينة",
+  "imagePrompt": "arabic calligraphy on parchment with a single lustrous pearl, no figures"
+ },
+ {
+  "slug": "شهد",
+  "name": "شهد",
+  "translit": "Shahd",
+  "gender": "f",
+  "origin": "عربي",
+  "meaning": "العسل، رمز الحلاوة والطيب",
+  "imagePrompt": "arabic calligraphy on parchment with golden honey and honeycomb, no people"
+ },
+ {
+  "slug": "جود",
+  "name": "جود",
+  "translit": "Jood",
+  "gender": "f",
+  "origin": "عربي",
+  "meaning": "الكرم والعطاء، المطر الغزير",
+  "imagePrompt": "ornamental golden arabic calligraphy on parchment with gentle rain streaks and small stars"
+ },
+ {
+  "slug": "لمى",
+  "name": "لمى",
+  "translit": "Lama",
+  "gender": "f",
+  "origin": "عربي",
+  "meaning": "سُمرة محبّبة في الشفاه، رمز الحسن",
+  "imagePrompt": "arabic calligraphy on parchment with soft dusk colors, no people"
+ },
+ {
+  "slug": "براء",
+  "name": "براء",
+  "translit": "Baraa",
+  "gender": "m",
+  "origin": "عربي",
+  "meaning": "البراءة والنقاء والخلوّ من العيب",
+  "imagePrompt": "arabic calligraphy on parchment with clear pure water, no figures"
+ },
+ {
+  "slug": "فيصل",
+  "name": "فيصل",
+  "translit": "Faisal",
+  "gender": "m",
+  "origin": "عربي",
+  "meaning": "الحاكم العادل الذي يفصل بين الحق والباطل",
+  "imagePrompt": "ornamental golden arabic calligraphy centerpiece on cream parchment, radiant soft light behind the script, small scattered stars only"
+ },
+ {
+  "slug": "ناصر",
+  "name": "ناصر",
+  "translit": "Nasser",
+  "gender": "m",
+  "origin": "عربي",
+  "meaning": "المعين المؤيّد، الناصر المنتصر",
+  "imagePrompt": "ornamental bold golden arabic calligraphy on parchment with abstract sweeping wind lines"
+ },
+ {
+  "slug": "سلطان",
+  "name": "سلطان",
+  "translit": "Sultan",
+  "gender": "m",
+  "origin": "عربي",
+  "meaning": "الحُكم والقوة والهيبة",
+  "imagePrompt": "arabic calligraphy on parchment with an ornate empty throne hall, no figures"
+ },
+ {
+  "slug": "ماجد",
+  "name": "ماجد",
+  "translit": "Majid",
+  "gender": "m",
+  "origin": "عربي",
+  "meaning": "صاحب المجد والشرف والرفعة",
+  "imagePrompt": "ornamental golden arabic calligraphy centerpiece on parchment with a radiant golden halo of light"
+ },
+ {
+  "slug": "وليد",
+  "name": "وليد",
+  "translit": "Walid",
+  "gender": "m",
+  "origin": "عربي",
+  "meaning": "المولود الصغير حديث الولادة",
+  "imagePrompt": "arabic calligraphy on parchment with a small cradle and soft light, no figures"
+ },
+ {
+  "slug": "سامي",
+  "name": "سامي",
+  "translit": "Sami",
+  "gender": "m",
+  "origin": "عربي",
+  "meaning": "الرفيع العالي، السامي المكانة",
+  "imagePrompt": "ornamental golden arabic calligraphy on parchment glowing softly against a starry sky"
+ },
+ {
+  "slug": "جواد",
+  "name": "جواد",
+  "translit": "Jawad",
+  "gender": "m",
+  "origin": "عربي",
+  "meaning": "الكريم المعطاء، الفرس الأصيل",
+  "imagePrompt": "ornamental golden arabic calligraphy on parchment with dates and a coffee dallah beside it"
+ },
+ {
+  "slug": "انس",
+  "name": "أنس",
+  "translit": "Anas",
+  "gender": "m",
+  "origin": "عربي",
+  "meaning": "الأُنس والمودّة والألفة",
+  "imagePrompt": "ornamental golden arabic calligraphy on parchment with a warm glowing lantern to the side"
+ },
+ {
+  "slug": "بلال",
+  "name": "بلال",
+  "translit": "Bilal",
+  "gender": "m",
+  "origin": "عربي",
+  "meaning": "الماء والنداوة، يقترن بمؤذّن الإسلام الأول",
+  "imagePrompt": "arabic calligraphy on parchment with dewdrops on green leaves, no figures"
+ },
+ {
+  "slug": "حمزه",
+  "name": "حمزة",
+  "translit": "Hamza",
+  "gender": "m",
+  "origin": "عربي",
+  "meaning": "الأسد، القوي الشديد",
+  "imagePrompt": "ornamental bold golden arabic calligraphy on dark parchment with radiant light behind the script"
+ },
+ {
+  "slug": "زياد",
+  "name": "زياد",
+  "translit": "Ziyad",
+  "gender": "m",
+  "origin": "عربي",
+  "meaning": "النماء والزيادة والبركة",
+  "imagePrompt": "arabic calligraphy on parchment with overflowing wheat sheaves, no figures"
+ },
+ {
+  "slug": "صالح",
+  "name": "صالح",
+  "translit": "Saleh",
+  "gender": "m",
+  "origin": "عربي",
+  "meaning": "المستقيم الطيب الصالح، اسم نبي كريم",
+  "imagePrompt": "arabic calligraphy on parchment with a strong healthy tree, no people"
+ },
+ {
+  "slug": "نوح",
+  "name": "نوح",
+  "translit": "Nuh",
+  "gender": "m",
+  "origin": "عربي",
+  "meaning": "اسم نبي كريم، يقترن بالصبر والنجاة",
+  "imagePrompt": "arabic calligraphy on parchment with a wooden ark on calm water, no figures"
+ },
+ {
+  "slug": "داود",
+  "name": "داود",
+  "translit": "Dawud",
+  "gender": "m",
+  "origin": "عربي",
+  "meaning": "اسم نبي كريم، يقترن بالصوت الحسن والحكمة",
+  "imagePrompt": "arabic calligraphy on parchment with a harp and soft light, no people"
+ },
+ {
+  "slug": "سليمان",
+  "name": "سليمان",
+  "translit": "Sulaiman",
+  "gender": "m",
+  "origin": "عربي",
+  "meaning": "اسم نبي ملك كريم، يقترن بالحكمة والملك",
+  "imagePrompt": "ornamental golden arabic calligraphy centerpiece on cream parchment, warm glowing light, small scattered stars only"
+ },
+ {
+  "slug": "رزان",
+  "name": "رزان",
+  "translit": "Razan",
+  "gender": "f",
+  "origin": "عربي",
+  "meaning": "الوقار والرزانة وثبات العقل",
+  "imagePrompt": "ornamental golden arabic calligraphy on parchment with a calm still mountain range at dusk"
+ },
+ {
+  "slug": "وعد",
+  "name": "وعد",
+  "translit": "Waad",
+  "gender": "f",
+  "origin": "عربي",
+  "meaning": "العهد والوعد الصادق",
+  "imagePrompt": "arabic calligraphy on parchment with two clasped ribbons of light, no figures"
+ },
+ {
+  "slug": "غلا",
+  "name": "غلا",
+  "translit": "Ghala",
+  "gender": "f",
+  "origin": "عربي",
+  "meaning": "النفاسة والغلاء والقيمة العالية",
+  "imagePrompt": "arabic calligraphy on parchment with a precious gemstone glowing, no people"
+ }
+]

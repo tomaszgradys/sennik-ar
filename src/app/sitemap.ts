@@ -3,6 +3,7 @@ import { allPublished, dreamPath } from "@/lib/dream";
 import { isDuplicateSecondary } from "@/lib/catalog";
 import { colorSlugs, colorPath } from "@/lib/colors";
 import { numberSlugs, numberPath } from "@/lib/numbers";
+import { nameSlugs, namePath } from "@/lib/names";
 import { listPosts, blogPath } from "@/lib/blog";
 import { customDreamSlugs } from "@/lib/custom";
 import { categorySlugs, categoryPath } from "@/lib/categories";
@@ -55,6 +56,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       lastModified: now,
       changeFrequency: "monthly" as const,
       priority: 0.7,
+    })),
+    { url: `${SITE.url}/asma/`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
+    ...nameSlugs().map((slug) => ({
+      url: `${SITE.url}${namePath(slug)}`,
+      lastModified: now,
+      changeFrequency: "monthly" as const,
+      priority: 0.6,
     })),
     // Hub „wszystkie kategorie" /ahlam/ — centralny indeks, skraca głębokość crawla.
     { url: `${SITE.url}/ahlam/`, lastModified: now, changeFrequency: "weekly", priority: 0.9 },

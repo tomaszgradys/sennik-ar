@@ -134,6 +134,9 @@ export default function RootLayout({
               <Link href="/arqam/" className="text-center text-text-muted no-underline hover:text-text">
                 الأرقام
               </Link>
+              <Link href="/asma/" className="text-center text-text-muted no-underline hover:text-text">
+                الأسماء
+              </Link>
               <Link href="/atwar-al-qamar/" className="text-center text-text-muted no-underline hover:text-text">
                 {T.nav.moon}
               </Link>
@@ -174,6 +177,7 @@ export default function RootLayout({
                   <li><Link href="/salat-al-istikhara/" className="link-soft text-text-muted">صلاة الاستخارة والرؤيا</Link></li>
                   <li><Link href="/ruya-fi-alquran/" className="link-soft text-text-muted">الرؤيا في القرآن</Link></li>
                   <li><Link href="/blog/" className="link-soft text-text-muted">المدونة</Link></li>
+                  <li><Link href="/asma/" className="link-soft text-text-muted">الأسماء في المنام</Link></li>
                   <li><Link href="/alwan/" className="link-soft text-text-muted">معاني الألوان</Link></li>
                   <li><Link href="/arqam/" className="link-soft text-text-muted">معاني الأرقام</Link></li>
                   <li><Link href="/atwar-al-qamar/" className="link-soft text-text-muted">{T.nav.moon}</Link></li>

@@ -172,6 +172,9 @@ export default function NabulsiPage() {
         <Link href="/arqam/" className="rounded-full border border-border bg-bg-soft px-4 py-1.5 text-text no-underline chip">
           معاني الأرقام
         </Link>
+        <Link href="/asma/" className="rounded-full border border-border bg-bg-soft px-4 py-1.5 text-text no-underline chip">
+          الأسماء في المنام
+        </Link>
       </nav>
     </article>
   );
