@@ -14,6 +14,7 @@ const LINKS = [
   { href: "/tafsir-al-nabulsi/", label: "تفسير النابلسي" },
   { href: "/anwaa-al-ahlam/", label: "أنواع الأحلام" },
   { href: "/ruya-al-nabi/", label: "رؤية النبي في المنام" },
+  { href: "/ruya-fi-alquran/", label: "الرؤيا في القرآن" },
   { href: "/blog/", label: "المدونة" },
   { href: "/alwan/", label: "الألوان" },
   { href: "/arqam/", label: "الأرقام" },

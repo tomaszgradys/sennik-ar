@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { notFound } from "next/navigation";
+import { notFound, permanentRedirect } from "next/navigation";
+import { REMOVED_REDIRECTS } from "@/lib/removedRedirects";
 import {
   staticSlugs,
   publishedChildren,
@@ -98,6 +99,8 @@ export default async function DreamPage({
 }) {
   const { slug: rawSlug } = await params;
   const slug = decodeSlug(rawSlug);
+  const removedTarget = REMOVED_REDIRECTS.get(slug);
+  if (removedTarget) permanentRedirect(removedTarget);
   const entry = await resolveDream(slug); // pliki + sny z panelu + nakładka edycji
   if (!entry) {
     if (isKnownWord(slug)) return <MissingWord slug={slug} />;
@@ -141,8 +144,9 @@ export default async function DreamPage({
         { key: "single", label: "للعزباء", text: c.byStatus.single },
         { key: "married", label: "للمتزوجة", text: c.byStatus.married },
         { key: "pregnant", label: "للحامل", text: c.byStatus.pregnant },
+        { key: "divorced", label: "للمطلقة", text: c.byStatus.divorced },
         { key: "man", label: "للرجل", text: c.byStatus.man },
-      ] as const)
+      ] as const).filter((s) => typeof s.text === "string" && s.text.length > 0)
     : [];
   const statusFaq = statusVariants.map((s) => ({
     q: `ما تفسير حلم ${entry.phrase} ${s.label}؟`,

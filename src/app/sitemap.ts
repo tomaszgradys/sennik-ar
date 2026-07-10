@@ -80,6 +80,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${SITE.url}/ruya-al-nabi/`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
     { url: `${SITE.url}/adab-al-ruya/`, lastModified: now, changeFrequency: "monthly", priority: 0.75 },
     { url: `${SITE.url}/salat-al-istikhara/`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
+    { url: `${SITE.url}/ruya-fi-alquran/`, lastModified: now, changeFrequency: "monthly", priority: 0.75 },
     { url: `${SITE.url}/al-kawabis/`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
     { url: `${SITE.url}/man-nahnu/`, lastModified: now, changeFrequency: "yearly", priority: 0.4 },
     ...["shurut-al-istikhdam", "siyasat-al-khususiya", "ittisal"].map((p) => ({

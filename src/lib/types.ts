@@ -23,6 +23,7 @@ export interface StatusVariants {
   single: string; // للعزباء (niezamężna)
   married: string; // للمتزوجة (mężatka)
   pregnant: string; // للحامل (ciężarna)
+  divorced?: string; // للمطلقة (rozwódka) — warstwa dogenerowana w audycie kulturowym 2026-07-10
   man: string; // للرجل (mężczyzna)
 }
 export interface Content {

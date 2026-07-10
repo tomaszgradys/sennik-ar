@@ -151,6 +151,10 @@ export default function DreamTypesPage() {
             <span className="block font-semibold text-text">الكوابيس: لماذا نراها</span>
             <span className="mt-1 block text-sm text-text-muted">بين علم النوم وآداب السنّة، وكيف نقلّلها.</span>
           </Link>
+          <Link href="/ruya-fi-alquran/" className="rounded-xl border border-border bg-bg-elev p-4 no-underline card">
+            <span className="block font-semibold text-text">الرؤيا في القرآن: قصة يوسف</span>
+            <span className="mt-1 block text-sm text-text-muted">رؤيا الكواكب وحلم الملك وأدب «لا تقصص رؤياك».</span>
+          </Link>
           <Link href="/salat-al-istikhara/" className="rounded-xl border border-border bg-bg-elev p-4 no-underline card">
             <span className="block font-semibold text-text">صلاة الاستخارة والرؤيا</span>
             <span className="mt-1 block text-sm text-text-muted">هل يلزم أن ترى منامًا بعدها؟ توضيح هادئ.</span>
