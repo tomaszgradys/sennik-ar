@@ -100,7 +100,8 @@ export default async function DreamPage({
   const { slug: rawSlug } = await params;
   const slug = decodeSlug(rawSlug);
   const removedTarget = REMOVED_REDIRECTS.get(slug);
-  if (removedTarget) permanentRedirect(removedTarget);
+  // encodeURI: nagłówek Location nie przyjmuje surowych znaków arabskich (latin-1) → 500.
+  if (removedTarget) permanentRedirect(encodeURI(removedTarget));
   const entry = await resolveDream(slug); // pliki + sny z panelu + nakładka edycji
   if (!entry) {
     if (isKnownWord(slug)) return <MissingWord slug={slug} />;
