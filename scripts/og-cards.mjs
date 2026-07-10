@@ -14,6 +14,9 @@ import { fileURLToPath } from "node:url";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 const IMG_DIR = join(ROOT, "public", "dreams");
+// خلفية تمثيلية «حلمية» (كتاب تحت سماء مرصّعة بالنجوم) للبطاقات بلا رسم خاص
+// (الرئيسية/الصفحات التي ترث default، والأرقام) بدل التدرّج الكحلي المسطّح.
+const NIGHT_BG = join(IMG_DIR, "الليل.jpg");
 const SAMPLE = process.argv.includes("--sample");
 const OG_DIR = SAMPLE ? join(ROOT, "public", "og-sample") : join(ROOT, "public", "og");
 rmSync(OG_DIR, { recursive: true, force: true });
@@ -119,7 +122,7 @@ const registeredSet = new Set(registered);
 if (SAMPLE) registered = registered.slice(0, 4);
 
 // domyślna
-await buildCard({ kicker: "معاني الأحلام", title: "تفسير حلمك", out: "default.jpg" });
+await buildCard({ bg: NIGHT_BG, kicker: "معاني الأحلام", title: "تفسير حلمك", out: "default.jpg" });
 console.log("  ✓ default.jpg");
 
 // 1) Symbole — tytuł = arabska nazwa symbolu.
@@ -181,7 +184,7 @@ console.log(`  ✓ ${nCol} kart kolorów`);
 const numbers = JSON.parse(readFileSync(join(ROOT, "src/data/numbers.json"), "utf8"));
 let nNum = 0;
 for (const n of SAMPLE ? Object.keys(numbers).slice(0, 3) : Object.keys(numbers)) {
-  await buildCard({ kicker: "معنى الرقم", title: String(n), out: `number-${n}.jpg` });
+  await buildCard({ bg: NIGHT_BG, kicker: "معنى الرقم", title: String(n), out: `number-${n}.jpg` });
   nNum++;
 }
 console.log(`  ✓ ${nNum} kart liczb`);
