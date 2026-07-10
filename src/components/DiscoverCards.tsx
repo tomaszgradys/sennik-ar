@@ -9,7 +9,7 @@ export default function DiscoverCards() {
   const phase = moonPhase(new Date());
 
   return (
-    <section className="grid gap-4 sm:grid-cols-2">
+    <section data-wave className="grid gap-4 sm:grid-cols-2">
       <Link
         href="/atwar-al-qamar/"
         className="group flex items-center gap-4 rounded-2xl border border-border bg-bg-elev p-4 no-underline shadow-sm card"

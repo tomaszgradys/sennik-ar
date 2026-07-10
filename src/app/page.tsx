@@ -5,6 +5,7 @@ import SymbolImage from "@/components/SymbolImage";
 import AdSlot from "@/components/AdSlot";
 import JsonLd from "@/components/JsonLd";
 import DiscoverCards from "@/components/DiscoverCards";
+import CardWave from "@/components/CardWave";
 import { publishedSymbols, allPublished, dreamPath } from "@/lib/dream";
 import { listPosts, blogPath, heroSrcBlog } from "@/lib/blog";
 import { popularSymbols } from "@/lib/daily";
@@ -129,6 +130,7 @@ export default async function Home() {
   return (
     <div className="flex flex-col gap-14">
       <JsonLd data={jsonLd} />
+      <CardWave />
       {/* HERO — zwarty: tytuł + wyszukiwarka u góry, treść (popularne sny) od razu poniżej. */}
       <section className="pt-4 text-center sm:pt-6">
         <h1 className="mx-auto max-w-2xl text-balance text-[1.75rem] font-bold leading-tight tracking-tight text-text sm:text-5xl sm:leading-tight">
@@ -151,7 +153,7 @@ export default async function Home() {
             </h2>
             <span className="h-px flex-1 bg-border" />
           </div>
-          <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
+          <div data-wave className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
             {popular.map((s) => (
               <Link
                 key={s.slug}
@@ -178,7 +180,7 @@ export default async function Home() {
             </h2>
             <span className="h-px flex-1 bg-border" />
           </div>
-          <div className="grid gap-4 sm:grid-cols-3">
+          <div data-wave className="grid gap-4 sm:grid-cols-3">
             {latestPosts.map((p) => {
               const img = heroSrcBlog(p.slug, p.hero);
               return (
@@ -235,7 +237,7 @@ export default async function Home() {
           <h2 className="text-sm font-semibold uppercase tracking-wider text-text-muted">اكتشف المعاني</h2>
           <span className="h-px flex-1 bg-border" />
         </div>
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+        <div data-wave className="grid grid-cols-1 gap-4 sm:grid-cols-2">
           <Link href="/alwan/" className="group flex items-center gap-4 rounded-2xl border border-border bg-bg-elev p-4 no-underline shadow-sm card">
             <span aria-hidden className="flex shrink-0 items-center gap-1.5">
               {["#C0392B", "#2E5A88", "#3E7C5A", "#C9A44A"].map((h) => (

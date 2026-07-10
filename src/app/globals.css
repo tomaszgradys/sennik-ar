@@ -451,6 +451,35 @@ label,
   .card::before { display: none; } /* dotyk nie ma kursora — bez efektu */
 }
 
+/* „Fala zachęty" na stronie głównej: JS (CardWave) dokłada .wave-lift kolejnym
+   kafelkom, tworząc falę. Kafelek unosi się miękko z magicznym blaskiem
+   (akcent → złoto). .card ma już płynne transition transform/box-shadow, więc
+   dołożenie i zdjęcie klasy daje gładkie podniesienie i opadnięcie. Działa
+   identycznie w dzień i w noc (kolory z --accent/--gold obu motywów). */
+.card.wave-lift {
+  transform: translateY(-6px);
+  border-color: color-mix(in srgb, var(--accent) 42%, var(--border));
+  box-shadow:
+    0 14px 32px -12px color-mix(in srgb, var(--accent) 60%, transparent),
+    0 0 26px -4px color-mix(in srgb, var(--gold) 42%, transparent);
+}
+/* Ten sam pierścień co spotlight, ale równy dookoła (bez kursora). */
+.card.wave-lift::before {
+  opacity: 0.8;
+  background: radial-gradient(
+    130% 130% at 50% 50%,
+    color-mix(in srgb, var(--accent) 72%, var(--gold)),
+    transparent 70%
+  );
+}
+@media (hover: none) {
+  /* Na dotyku ::before jest ukryte — sam blask cienia wystarczy za falę. */
+  .card.wave-lift::before { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .card.wave-lift { transform: none; }
+}
+
 /* Płynne przewijanie (klik we wskaźnik „przewiń" na hero). */
 html {
   scroll-behavior: smooth;
