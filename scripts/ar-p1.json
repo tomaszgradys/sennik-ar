@@ -1,0 +1,917 @@
+[
+ {
+  "slug": "الام-المتوفيه",
+  "phrase": "الأم المتوفية",
+  "parent": "الام",
+  "parentPhrase": "الأم",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "الناس والعلاقات"
+ },
+ {
+  "slug": "رجل-غريب",
+  "phrase": "رجل غريب",
+  "parent": "رجل",
+  "parentPhrase": "رجل",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "الناس والعلاقات"
+ },
+ {
+  "slug": "اليتيم",
+  "phrase": "اليتيم",
+  "parent": "اليتيم",
+  "type": "symbol",
+  "priority": 2,
+  "arCategory": "الناس والعلاقات"
+ },
+ {
+  "slug": "الضيوف",
+  "phrase": "الضيوف",
+  "parent": "ضيف",
+  "parentPhrase": "ضيف",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "الناس والعلاقات"
+ },
+ {
+  "slug": "الجيران",
+  "phrase": "الجيران",
+  "parent": "الجار",
+  "parentPhrase": "الجار",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "الناس والعلاقات"
+ },
+ {
+  "slug": "موت-الاخ",
+  "phrase": "موت الأخ",
+  "parent": "الموت",
+  "parentPhrase": "الموت",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "المخاطر والمشاعر والأحداث"
+ },
+ {
+  "slug": "موت-الزوج",
+  "phrase": "موت الزوج",
+  "parent": "الموت",
+  "parentPhrase": "الموت",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "المخاطر والمشاعر والأحداث"
+ },
+ {
+  "slug": "رؤيه-نفسك-ميتا",
+  "phrase": "رؤية نفسك ميتًا",
+  "parent": "الموت",
+  "parentPhrase": "الموت",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "المخاطر والمشاعر والأحداث"
+ },
+ {
+  "slug": "النعش",
+  "phrase": "النعش",
+  "parent": "النعش",
+  "type": "symbol",
+  "priority": 2,
+  "arCategory": "الأشياء والرموز"
+ },
+ {
+  "slug": "غسل-الميت",
+  "phrase": "غسل الميت",
+  "parent": "الميت",
+  "parentPhrase": "الميت",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "الأفعال والحركة"
+ },
+ {
+  "slug": "دفن-الميت",
+  "phrase": "دفن الميت",
+  "parent": "الميت",
+  "parentPhrase": "الميت",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "الأفعال والحركة"
+ },
+ {
+  "slug": "العزاء",
+  "phrase": "العزاء",
+  "parent": "العزاء",
+  "type": "symbol",
+  "priority": 2,
+  "arCategory": "المخاطر والمشاعر والأحداث"
+ },
+ {
+  "slug": "الميت-حي",
+  "phrase": "رؤية الميت حيًا",
+  "parent": "الميت",
+  "parentPhrase": "الميت",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "الناس والعلاقات"
+ },
+ {
+  "slug": "الميت-يطلب-طعاما",
+  "phrase": "الميت يطلب طعامًا",
+  "parent": "الميت",
+  "parentPhrase": "الميت",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "الناس والعلاقات"
+ },
+ {
+  "slug": "مكالمه-من-ميت",
+  "phrase": "مكالمة من ميت",
+  "parent": "الميت",
+  "parentPhrase": "الميت",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "التقنية والإنترنت"
+ },
+ {
+  "slug": "اخذ-المال-من-ميت",
+  "phrase": "أخذ المال من الميت",
+  "parent": "الميت",
+  "parentPhrase": "الميت",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "العمل والمال والدراسة"
+ },
+ {
+  "slug": "اكل-اللحم-مع-ميت",
+  "phrase": "أكل اللحم مع الميت",
+  "parent": "الميت",
+  "parentPhrase": "الميت",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "الطعام والشراب"
+ },
+ {
+  "slug": "ضرب-الميت-للحي",
+  "phrase": "ضرب الميت للحي",
+  "parent": "الميت",
+  "parentPhrase": "الميت",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "الأفعال والحركة"
+ },
+ {
+  "slug": "الحاجب",
+  "phrase": "الحاجب",
+  "parent": "الحاجب",
+  "type": "symbol",
+  "priority": 2,
+  "arCategory": "الجسد والصحة"
+ },
+ {
+  "slug": "البطن-الكبير",
+  "phrase": "البطن الكبير",
+  "parent": "بطن",
+  "parentPhrase": "بطن",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "الجسد والصحة"
+ },
+ {
+  "slug": "سقوط-الاسنان-الاماميه",
+  "phrase": "سقوط الأسنان الأمامية",
+  "parent": "سقوط-الاسنان",
+  "parentPhrase": "سقوط الأسنان",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "الجسد والصحة"
+ },
+ {
+  "slug": "خروج-الدم",
+  "phrase": "خروج الدم",
+  "parent": "الدم",
+  "parentPhrase": "الدم",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "الجسد والصحة"
+ },
+ {
+  "slug": "جاموس",
+  "phrase": "جاموس",
+  "parent": "جاموس",
+  "type": "symbol",
+  "priority": 2,
+  "arCategory": "الحيوانات"
+ },
+ {
+  "slug": "عقرب-اصفر",
+  "phrase": "عقرب أصفر",
+  "parent": "عقرب",
+  "parentPhrase": "عقرب",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "الحيوانات"
+ },
+ {
+  "slug": "وزغ",
+  "phrase": "الوزغ",
+  "parent": "وزغ",
+  "type": "symbol",
+  "priority": 2,
+  "arCategory": "الحيوانات"
+ },
+ {
+  "slug": "نمل-كثير",
+  "phrase": "نمل كثير",
+  "parent": "نمله",
+  "parentPhrase": "نملة",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "الحيوانات"
+ },
+ {
+  "slug": "صراصير-كثيره",
+  "phrase": "صراصير كثيرة",
+  "parent": "الصرصور",
+  "parentPhrase": "الصرصور",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "الحيوانات"
+ },
+ {
+  "slug": "براغيث",
+  "phrase": "البراغيث",
+  "parent": "برغوث",
+  "parentPhrase": "برغوث",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "الحيوانات"
+ },
+ {
+  "slug": "اكل-الخبز",
+  "phrase": "أكل الخبز",
+  "parent": "خبز",
+  "parentPhrase": "خبز",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "الطعام والشراب"
+ },
+ {
+  "slug": "الملوخيه",
+  "phrase": "الملوخية",
+  "parent": "الملوخيه",
+  "type": "symbol",
+  "priority": 2,
+  "arCategory": "الطعام والشراب"
+ },
+ {
+  "slug": "الكبسه",
+  "phrase": "الكبسة",
+  "parent": "الكبسه",
+  "type": "symbol",
+  "priority": 2,
+  "arCategory": "الطعام والشراب"
+ },
+ {
+  "slug": "المندي",
+  "phrase": "المندي",
+  "parent": "المندي",
+  "type": "symbol",
+  "priority": 2,
+  "arCategory": "الطعام والشراب"
+ },
+ {
+  "slug": "العنب-الاخضر",
+  "phrase": "العنب الأخضر",
+  "parent": "العنب",
+  "parentPhrase": "العنب",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "الطعام والشراب"
+ },
+ {
+  "slug": "التفاح-الاحمر",
+  "phrase": "التفاح الأحمر",
+  "parent": "تفاحه",
+  "parentPhrase": "تفاحة",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "الطعام والشراب"
+ },
+ {
+  "slug": "شرب-الحليب",
+  "phrase": "شرب الحليب",
+  "parent": "الحليب",
+  "parentPhrase": "الحليب",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "الطعام والشراب"
+ },
+ {
+  "slug": "الكنافه",
+  "phrase": "الكنافة",
+  "parent": "الكنافه",
+  "type": "symbol",
+  "priority": 2,
+  "arCategory": "الطعام والشراب"
+ },
+ {
+  "slug": "البقلاوه",
+  "phrase": "البقلاوة",
+  "parent": "البقلاوه",
+  "type": "symbol",
+  "priority": 2,
+  "arCategory": "الطعام والشراب"
+ },
+ {
+  "slug": "المعمول",
+  "phrase": "المعمول",
+  "parent": "المعمول",
+  "type": "symbol",
+  "priority": 2,
+  "arCategory": "الطعام والشراب"
+ },
+ {
+  "slug": "الرعد-الشديد",
+  "phrase": "الرعد الشديد",
+  "parent": "الرعد",
+  "parentPhrase": "الرعد",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "الطبيعة والطقس"
+ },
+ {
+  "slug": "النجوم-الكثيره",
+  "phrase": "النجوم الكثيرة",
+  "parent": "نجمه",
+  "parentPhrase": "نجمة",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "الطبيعة والطقس"
+ },
+ {
+  "slug": "سقوط-النجوم",
+  "phrase": "سقوط النجوم",
+  "parent": "نجمه",
+  "parentPhrase": "نجمة",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "الطبيعة والطقس"
+ },
+ {
+  "slug": "شروق-الشمس",
+  "phrase": "شروق الشمس",
+  "parent": "الشمس",
+  "parentPhrase": "الشمس",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "الطبيعة والطقس"
+ },
+ {
+  "slug": "كسوف-الشمس",
+  "phrase": "كسوف الشمس",
+  "parent": "الشمس",
+  "parentPhrase": "الشمس",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "الطبيعة والطقس"
+ },
+ {
+  "slug": "خسوف-القمر",
+  "phrase": "خسوف القمر",
+  "parent": "قمر",
+  "parentPhrase": "قمر",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "الطبيعة والطقس"
+ },
+ {
+  "slug": "الرمال",
+  "phrase": "الرمال",
+  "parent": "صحراء",
+  "parentPhrase": "صحراء",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "الطبيعة والطقس"
+ },
+ {
+  "slug": "العاصفه-الرمليه",
+  "phrase": "العاصفة الرملية",
+  "parent": "العاصفه-الرمليه",
+  "type": "symbol",
+  "priority": 2,
+  "arCategory": "الطبيعة والطقس"
+ },
+ {
+  "slug": "الجبل-العالي",
+  "phrase": "الجبل العالي",
+  "parent": "جبل",
+  "parentPhrase": "جبل",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "الطبيعة والطقس"
+ },
+ {
+  "slug": "تسلق-الجبل",
+  "phrase": "تسلق الجبل",
+  "parent": "جبل",
+  "parentPhrase": "جبل",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "الأفعال والحركة"
+ },
+ {
+  "slug": "النخيل-الكثير",
+  "phrase": "النخيل الكثير",
+  "parent": "نخله",
+  "parentPhrase": "نخلة",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "الطبيعة والطقس"
+ },
+ {
+  "slug": "حقل-القمح",
+  "phrase": "حقل القمح",
+  "parent": "قمح",
+  "parentPhrase": "قمح",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "الطبيعة والطقس"
+ },
+ {
+  "slug": "الورد-الاحمر",
+  "phrase": "الورد الأحمر",
+  "parent": "زهره",
+  "parentPhrase": "زهرة",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "الطبيعة والطقس"
+ },
+ {
+  "slug": "المال-الورقي",
+  "phrase": "المال الورقي",
+  "parent": "المال",
+  "parentPhrase": "المال",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "العمل والمال والدراسة"
+ },
+ {
+  "slug": "النقود-المعدنيه",
+  "phrase": "النقود المعدنية",
+  "parent": "المال",
+  "parentPhrase": "المال",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "العمل والمال والدراسة"
+ },
+ {
+  "slug": "اعطاء-المال",
+  "phrase": "إعطاء المال",
+  "parent": "المال",
+  "parentPhrase": "المال",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "العمل والمال والدراسة"
+ },
+ {
+  "slug": "الذهب-للرجل",
+  "phrase": "لبس الذهب للرجل",
+  "parent": "ذهب",
+  "parentPhrase": "ذهب",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "العمل والمال والدراسة"
+ },
+ {
+  "slug": "سداد-الدين",
+  "phrase": "سداد الدين",
+  "parent": "الدين",
+  "parentPhrase": "الدَّين",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "العمل والمال والدراسة"
+ },
+ {
+  "slug": "الوظيفه-الجديده",
+  "phrase": "الوظيفة الجديدة",
+  "parent": "وظيفه",
+  "parentPhrase": "وظيفة",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "العمل والمال والدراسة"
+ },
+ {
+  "slug": "النجاح-في-العمل",
+  "phrase": "النجاح في العمل",
+  "parent": "العمل",
+  "parentPhrase": "العمل",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "العمل والمال والدراسة"
+ },
+ {
+  "slug": "الرئيس-في-العمل",
+  "phrase": "مدير العمل",
+  "parent": "الرئيس",
+  "parentPhrase": "الرئيس",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "العمل والمال والدراسة"
+ },
+ {
+  "slug": "طلب-الطلاق",
+  "phrase": "طلب الطلاق",
+  "parent": "الطلاق",
+  "parentPhrase": "الطلاق",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "المخاطر والمشاعر والأحداث"
+ },
+ {
+  "slug": "الزواج-الثاني",
+  "phrase": "الزواج الثاني",
+  "parent": "الزواج",
+  "parentPhrase": "الزواج",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "المخاطر والمشاعر والأحداث"
+ },
+ {
+  "slug": "زواج-الزوج",
+  "phrase": "زواج الزوج",
+  "parent": "الزواج",
+  "parentPhrase": "الزواج",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "المخاطر والمشاعر والأحداث"
+ },
+ {
+  "slug": "فسخ-الخطوبه",
+  "phrase": "فسخ الخطوبة",
+  "parent": "الخطبه",
+  "parentPhrase": "الخطبة",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "المخاطر والمشاعر والأحداث"
+ },
+ {
+  "slug": "ولاده-ولد",
+  "phrase": "ولادة ولد",
+  "parent": "الولاده",
+  "parentPhrase": "الولادة",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "المخاطر والمشاعر والأحداث"
+ },
+ {
+  "slug": "ولاده-بنت",
+  "phrase": "ولادة بنت",
+  "parent": "الولاده",
+  "parentPhrase": "الولادة",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "المخاطر والمشاعر والأحداث"
+ },
+ {
+  "slug": "الحمل-بولد",
+  "phrase": "الحمل بولد",
+  "parent": "حمل",
+  "parentPhrase": "حَمَل",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "المخاطر والمشاعر والأحداث"
+ },
+ {
+  "slug": "الحمل-ببنت",
+  "phrase": "الحمل ببنت",
+  "parent": "حمل",
+  "parentPhrase": "حَمَل",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "المخاطر والمشاعر والأحداث"
+ },
+ {
+  "slug": "العوده-من-السفر",
+  "phrase": "العودة من السفر",
+  "parent": "السفر",
+  "parentPhrase": "السفر",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "السفر والمركبات"
+ },
+ {
+  "slug": "الغربه",
+  "phrase": "الغربة",
+  "parent": "الغربه",
+  "type": "symbol",
+  "priority": 2,
+  "arCategory": "المخاطر والمشاعر والأحداث"
+ },
+ {
+  "slug": "الصفع",
+  "phrase": "الصفع على الوجه",
+  "parent": "الضرب",
+  "parentPhrase": "الضرب",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "الأفعال والحركة"
+ },
+ {
+  "slug": "البصق",
+  "phrase": "البصق",
+  "parent": "البصق",
+  "type": "symbol",
+  "priority": 2,
+  "arCategory": "الأفعال والحركة"
+ },
+ {
+  "slug": "الاستفراغ",
+  "phrase": "الاستفراغ",
+  "parent": "الاستفراغ",
+  "type": "symbol",
+  "priority": 2,
+  "arCategory": "الجسد والصحة"
+ },
+ {
+  "slug": "الغرق-في-البحر",
+  "phrase": "الغرق في البحر",
+  "parent": "الغرق",
+  "parentPhrase": "الغرق",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "الأفعال والحركة"
+ },
+ {
+  "slug": "النجاه-من-الغرق",
+  "phrase": "النجاة من الغرق",
+  "parent": "الغرق",
+  "parentPhrase": "الغرق",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "الأفعال والحركة"
+ },
+ {
+  "slug": "الصعود-الي-السماء",
+  "phrase": "الصعود إلى السماء",
+  "parent": "السماء",
+  "parentPhrase": "السماء",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "الأفعال والحركة"
+ },
+ {
+  "slug": "الطيران-بدون-اجنحه",
+  "phrase": "الطيران بدون أجنحة",
+  "parent": "الطيران",
+  "parentPhrase": "الطيران",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "الأفعال والحركة"
+ },
+ {
+  "slug": "الضحك-الشديد",
+  "phrase": "الضحك الشديد",
+  "parent": "الضحك",
+  "parentPhrase": "الضحك",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "المخاطر والمشاعر والأحداث"
+ },
+ {
+  "slug": "الصراخ-بدون-صوت",
+  "phrase": "الصراخ بدون صوت",
+  "parent": "الصراخ",
+  "parentPhrase": "الصراخ",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "المخاطر والمشاعر والأحداث"
+ },
+ {
+  "slug": "هدم-البيت",
+  "phrase": "هدم البيت",
+  "parent": "البيت",
+  "parentPhrase": "البيت",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "البيت والأماكن"
+ },
+ {
+  "slug": "بناء-بيت",
+  "phrase": "بناء بيت جديد",
+  "parent": "البيت",
+  "parentPhrase": "البيت",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "البيت والأماكن"
+ },
+ {
+  "slug": "مفتاح-البيت",
+  "phrase": "مفتاح البيت",
+  "parent": "مفتاح",
+  "parentPhrase": "مفتاح",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "الأشياء والرموز"
+ },
+ {
+  "slug": "المرآه",
+  "phrase": "المرآة",
+  "parent": "المرآه",
+  "type": "symbol",
+  "priority": 2,
+  "arCategory": "الأشياء والرموز"
+ },
+ {
+  "slug": "المرآه-المكسوره",
+  "phrase": "المرآة المكسورة",
+  "parent": "المرآه",
+  "parentPhrase": "المرآة",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "الأشياء والرموز"
+ },
+ {
+  "slug": "فقدان-الحذاء",
+  "phrase": "فقدان الحذاء",
+  "parent": "احذيه",
+  "parentPhrase": "أحذية",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "الأشياء والرموز"
+ },
+ {
+  "slug": "الملابس",
+  "phrase": "الملابس",
+  "parent": "الملابس",
+  "type": "symbol",
+  "priority": 2,
+  "arCategory": "الأشياء والرموز"
+ },
+ {
+  "slug": "الملابس-البيضاء",
+  "phrase": "الملابس البيضاء",
+  "parent": "الملابس",
+  "parentPhrase": "الملابس",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "الأشياء والرموز"
+ },
+ {
+  "slug": "الملابس-السوداء",
+  "phrase": "الملابس السوداء",
+  "parent": "الملابس",
+  "parentPhrase": "الملابس",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "الأشياء والرموز"
+ },
+ {
+  "slug": "الملابس-الممزقه",
+  "phrase": "الملابس الممزقة",
+  "parent": "الملابس",
+  "parentPhrase": "الملابس",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "الأشياء والرموز"
+ },
+ {
+  "slug": "خلع-الملابس",
+  "phrase": "خلع الملابس",
+  "parent": "الملابس",
+  "parentPhrase": "الملابس",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "الأفعال والحركة"
+ },
+ {
+  "slug": "فستان-الزفاف",
+  "phrase": "فستان الزفاف",
+  "parent": "فستان",
+  "parentPhrase": "فستان",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "الأشياء والرموز"
+ },
+ {
+  "slug": "العباءه-السوداء",
+  "phrase": "العباءة السوداء",
+  "parent": "عباءه",
+  "parentPhrase": "عباءة",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "الأشياء والرموز"
+ },
+ {
+  "slug": "فقدان-الحقيبه",
+  "phrase": "فقدان الحقيبة",
+  "parent": "حقيبه",
+  "parentPhrase": "حقيبة",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "الأشياء والرموز"
+ },
+ {
+  "slug": "الابره-والخيط",
+  "phrase": "الإبرة والخيط",
+  "parent": "ابره",
+  "parentPhrase": "إبرة",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "الأشياء والرموز"
+ },
+ {
+  "slug": "قراءه-ايه-الكرسي",
+  "phrase": "قراءة آية الكرسي",
+  "parent": "ايه-الكرسي",
+  "parentPhrase": "آية الكرسي",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "الأفعال والحركة"
+ },
+ {
+  "slug": "سوره-الاخلاص",
+  "phrase": "سورة الإخلاص",
+  "parent": "سوره-الاخلاص",
+  "type": "symbol",
+  "priority": 2,
+  "arCategory": "الأشياء والرموز"
+ },
+ {
+  "slug": "المعوذتين",
+  "phrase": "قراءة المعوذتين",
+  "parent": "المعوذتين",
+  "type": "symbol",
+  "priority": 2,
+  "arCategory": "الأفعال والحركة"
+ },
+ {
+  "slug": "قراءه-القران-بصوت-جميل",
+  "phrase": "قراءة القرآن بصوت جميل",
+  "parent": "قراءه-القران",
+  "parentPhrase": "قراءة القرآن",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "الأفعال والحركة"
+ },
+ {
+  "slug": "نسيان-القران",
+  "phrase": "نسيان القرآن",
+  "parent": "القران",
+  "parentPhrase": "القرآن",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "الأفعال والحركة"
+ },
+ {
+  "slug": "الجوال-المكسور",
+  "phrase": "الجوال المكسور",
+  "parent": "هاتف",
+  "parentPhrase": "هاتف",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "التقنية والإنترنت"
+ },
+ {
+  "slug": "فقدان-الجوال",
+  "phrase": "فقدان الجوال",
+  "parent": "هاتف",
+  "parentPhrase": "هاتف",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "التقنية والإنترنت"
+ },
+ {
+  "slug": "الصور-القديمه",
+  "phrase": "الصور القديمة",
+  "parent": "صوره",
+  "parentPhrase": "صورة",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "الأشياء والرموز"
+ },
+ {
+  "slug": "انقلاب-السياره",
+  "phrase": "انقلاب السيارة",
+  "parent": "سياره",
+  "parentPhrase": "سيارة",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "السفر والمركبات"
+ },
+ {
+  "slug": "سرقه-السياره",
+  "phrase": "سرقة السيارة",
+  "parent": "سياره",
+  "parentPhrase": "سيارة",
+  "type": "combo",
+  "priority": 2,
+  "arCategory": "السفر والمركبات"
+ },
+ {
+  "slug": "الفيزا",
+  "phrase": "تأشيرة السفر",
+  "parent": "الفيزا",
+  "type": "symbol",
+  "priority": 2,
+  "arCategory": "السفر والمركبات"
+ }
+]
