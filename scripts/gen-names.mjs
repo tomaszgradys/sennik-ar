@@ -50,7 +50,9 @@ const TOOL = {
       metaDescription: { type: "string", description: "120-165 حرفًا، يبدأ بـ«تفسير رؤية اسم …»" },
       quickAnswer: { type: "string", description: "45-70 كلمة، جواب مباشر عن معنى رؤية الاسم" },
       meaningLong: { type: "string", description: "فقرة 40-70 كلمة عن معنى الاسم لغةً وأصله ودلالته" },
-      inDream: { type: "array", items: { type: "string" }, minItems: 3, maxItems: 3, description: "3 فقرات: (1) تأويل الاسم بمعناه في التراث، (2) كيف يتغيّر بحسب سياق الرؤيا والشعور، (3) دلالة سماع الاسم أو مناداة به أو كتابته" },
+      inDream1: { type: "string", description: "فقرة 40-70 كلمة: تأويل الاسم بمعناه في التراث" },
+      inDream2: { type: "string", description: "فقرة 40-70 كلمة: كيف يتغيّر المعنى بحسب سياق الرؤيا والشعور" },
+      inDream3: { type: "string", description: "فقرة 40-70 كلمة: دلالة سماع الاسم أو مناداة به أو كتابته" },
       forHer: { type: "string", description: "40-70 كلمة: دلالة رؤية هذا الاسم أو التسمّي به للمرأة/العزباء/الحامل حسب ما يناسب" },
       positive: { type: "string", description: "40-70 كلمة: الإشارات الطيبة" },
       advice: { type: "string", description: "35-60 كلمة: نصيحة لطيفة عملية" },
@@ -60,7 +62,7 @@ const TOOL = {
         description: "أسئلة بنمط «ما تفسير رؤية اسم X في المنام؟/هل …؟» وإجابات 40-70 كلمة",
       },
     },
-    required: ["metaDescription", "quickAnswer", "meaningLong", "inDream", "forHer", "positive", "advice", "faq"],
+    required: ["metaDescription", "quickAnswer", "meaningLong", "inDream1", "inDream2", "inDream3", "forHer", "positive", "advice", "faq"],
   },
 };
 
@@ -79,10 +81,11 @@ async function gen(item, attempt = 0) {
   const tu = (d.content || []).find((b) => b.type === "tool_use");
   if (!tu) throw new Error(item.slug + " brak tool_use");
   const v = tu.input;
-  // forced tool-use bywa zwraca tablice jako string z JSON (albo prozę) — odpakuj i zwaliduj
-  const asArr = (x) => { if (Array.isArray(x)) return x; if (typeof x === "string") { try { const p = JSON.parse(x); if (Array.isArray(p)) return p; } catch {} } return null; };
-  v.inDream = asArr(v.inDream);
-  v.faq = asArr(v.faq);
+  // inDream jako 3 osobne pola-stringi (forced tool-use gubił array-of-strings) → składamy tablicę.
+  v.inDream = [v.inDream1, v.inDream2, v.inDream3].filter((p) => typeof p === "string" && p.trim());
+  delete v.inDream1; delete v.inDream2; delete v.inDream3;
+  // faq bywa zwraca jako string z JSON — odpakuj
+  if (typeof v.faq === "string") { try { const p = JSON.parse(v.faq); if (Array.isArray(p)) v.faq = p; } catch {} }
   // fallback: inDream jako proza → podziel na 3 zbalansowane akapity po zdaniach
   if (!Array.isArray(v.inDream) && typeof tu.input.inDream === "string") {
     const sents = tu.input.inDream.split(/(?<=[.؟!])\s+/).filter((s) => s.trim().length > 0);
