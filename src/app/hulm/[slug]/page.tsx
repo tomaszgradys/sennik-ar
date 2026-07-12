@@ -153,7 +153,12 @@ export default async function DreamPage({
     q: `ما تفسير حلم ${entry.phrase} ${s.label}؟`,
     a: s.text,
   }));
-  const allFaq = [...(c.faq ?? []), ...statusFaq];
+  // Warstwa Ibn Sirin: dokładny wzorzec zapytań „تفسير حلم X لابن سيرين" —
+  // widoczna sekcja + wpis w FAQPage (analogicznie do byStatus).
+  const ibnFaq = c.ibnSirin
+    ? [{ q: `ما تفسير حلم ${entry.phrase} لابن سيرين؟`, a: c.ibnSirin }]
+    : [];
+  const allFaq = [...(c.faq ?? []), ...ibnFaq, ...statusFaq];
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -278,6 +283,15 @@ export default async function DreamPage({
           <p key={i}>{p}</p>
         ))}
       </section>
+
+      {c.ibnSirin && (
+        <section className="rounded-2xl border border-border bg-bg-elev p-5">
+          <h2 className="mb-2 text-lg font-semibold text-text">
+            تفسير حلم {entry.phrase} لابن سيرين
+          </h2>
+          <p className="m-0 font-serif leading-relaxed text-text">{c.ibnSirin}</p>
+        </section>
+      )}
 
       <div aria-hidden className="ornament">☾ ✦ ☽</div>
 

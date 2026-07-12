@@ -38,6 +38,7 @@ export interface Content {
   advice: string;
   faq: FaqItem[];
   byStatus?: StatusVariants; // warstwa modyfikatorów statusu (A05)
+  ibnSirin?: string; // pasaż na منهج ابن سيرين — pod dominujący modyfikator „لابن سيرين"
 }
 
 // Rozwiązane hasło = katalog + treść.

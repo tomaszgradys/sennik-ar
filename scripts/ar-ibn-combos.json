@@ -1,0 +1,7 @@
+[
+  { "slug": "ديك-رومي-محمر", "phrase": "ديك رومي محمر", "parent": "ديك-رومي", "arCategory": "الحيوانات", "priority": 2, "type": "combo" },
+  { "slug": "سرقه-دراجه", "phrase": "سرقة الدراجة", "parent": "دراجه-هوائيه", "arCategory": "السفر والمركبات", "priority": 2, "type": "combo" },
+  { "slug": "خروج-الدم-من-الاسنان", "phrase": "خروج الدم من الأسنان", "parent": "الاسنان", "arCategory": "الجسد والصحة", "priority": 2, "type": "combo" },
+  { "slug": "دوخه-وسقوط", "phrase": "الدوخة والسقوط", "parent": "الدوخه", "arCategory": "الجسد والصحة", "priority": 2, "type": "combo" },
+  { "slug": "حصان-يجري-بسرعه", "phrase": "حصان يجري بسرعة", "parent": "حصان", "arCategory": "الحيوانات", "priority": 2, "type": "combo" }
+]
