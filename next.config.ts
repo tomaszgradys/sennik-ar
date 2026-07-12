@@ -50,36 +50,16 @@ const nextConfig: NextConfig = {
     return [{ source: "/:path*", headers: securityHeaders }];
   },
   async redirects() {
+    // UWAGA: kanonizacja hosta (www→apex), migracja prefiksów tras PL→AR
+    // (/sen/, /sny/, /kolory/, /liczby/, /faza-ksiezyca/, /sennik/) oraz stare
+    // pojedyncze strony (/o-nas, /horoskop, ...) są obsłużone w src/middleware.ts —
+    // w JEDNYM skoku 308. redirects() z next.config wykonują się PRZED middleware,
+    // więc trzymanie ich tutaj przechwytywało żądanie i wymuszało łańcuch 3–4 × 308.
+    // Zostają tylko warianty z myślnikiem / :znak, których middleware nie pokrywa
+    // (niski wolumen, i tak jeden skok dzięki końcowemu ukośnikowi w destination).
     return [
-      // Kanonizacja hosta: www -> apex (308 permanent, SEO-równoważny 301).
-      // Wcześniej www.hulm.pro serwował 200 (duplikat rozwiązywany tylko canonicalem);
-      // teraz twardy redirect na jedną wersję domeny.
-      {
-        source: "/:path*",
-        has: [{ type: "host", value: "www.hulm.pro" }],
-        destination: "https://hulm.pro/:path*",
-        permanent: true,
-      },
-      // Stare schematy URL -> nowa struktura /hulm/<slug>/ (301, SEO-safe).
-      { source: "/sennik/:slug", destination: "/hulm/:slug/", permanent: true },
       { source: "/sen-:slug", destination: "/hulm/:slug/", permanent: true },
-      // Migracja slugów tras PL -> AR (transliteracja). Wcześniej strona miała
-      // polskie segmenty URL (/sen/, /kolory/, ...) mimo arabskiej treści — teraz
-      // zlokalizowane. 301 z każdej starej ścieżki, żeby nie zgubić żadnego linku
-      // ani ewentualnego wczesnego odkrycia przez Google (sitemap zgłoszony w GSC).
-      { source: "/sen/:slug*", destination: "/hulm/:slug*", permanent: true },
-      { source: "/sny/:slug*", destination: "/ahlam/:slug*", permanent: true },
-      { source: "/kolory/:slug*", destination: "/alwan/:slug*", permanent: true },
-      { source: "/liczby/:slug*", destination: "/arqam/:slug*", permanent: true },
-      { source: "/faza-ksiezyca/:slug*", destination: "/atwar-al-qamar/:slug*", permanent: true },
-      { source: "/o-nas", destination: "/man-nahnu/", permanent: true },
-      { source: "/kontakt", destination: "/ittisal/", permanent: true },
-      { source: "/regulamin", destination: "/shurut-al-istikhdam/", permanent: true },
-      { source: "/polityka-prywatnosci", destination: "/siyasat-al-khususiya/", permanent: true },
-      { source: "/szukaj", destination: "/bahth/", permanent: true },
       // Horoskop usunięty (التنجيم nie pasuje kulturowo do wersji AR).
-      // Stare, zaindeksowane URL-e -> strona główna (301), by nie generować 404.
-      { source: "/horoskop", destination: "/", permanent: true },
       { source: "/horoskop/:znak", destination: "/", permanent: true },
       { source: "/horoskop-:znak", destination: "/", permanent: true },
     ];
