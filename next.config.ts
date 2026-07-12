@@ -47,7 +47,37 @@ const nextConfig: NextConfig = {
     "/blog/[slug]": ["./src/data/blog/**/*.json"],
   },
   async headers() {
-    return [{ source: "/:path*", headers: securityHeaders }];
+    // Statyczne obrazki/fonty są NIEZMIENNE (nazwy = slug symbolu, nie zmieniają
+    // się między deployami). Domyślnie Next serwuje public/ z
+    // „max-age=0, must-revalidate", przez co Googlebot rewaliduje ~12k plików przy
+    // KAŻDEJ wizycie i przepala crawl budget na obrazki zamiast na treść (w GSC:
+    // 97% „inny typ pliku", 98,5% „odświeżenie"). Długi immutable cache to zdejmuje.
+    // Regeneracja obrazka idzie z nowym deployem → Vercel czyści swój CDN, więc
+    // stały cache jest bezpieczny na krawędzi (ew. stary obraz tylko u wracających
+    // przeglądarek do wygaśnięcia).
+    const assetDirs = [
+      "dreams",
+      "hero",
+      "thumbs",
+      "og",
+      "moon",
+      "stars",
+      "brand",
+      "blog-img",
+      "ui",
+      "fonts",
+    ];
+    const immutable = {
+      key: "Cache-Control",
+      value: "public, max-age=31536000, immutable",
+    };
+    return [
+      ...assetDirs.map((dir) => ({
+        source: `/${dir}/:path*`,
+        headers: [immutable],
+      })),
+      { source: "/:path*", headers: securityHeaders },
+    ];
   },
   async redirects() {
     // UWAGA: kanonizacja hosta (www→apex), migracja prefiksów tras PL→AR
