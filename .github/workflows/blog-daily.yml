@@ -79,3 +79,7 @@ jobs:
         run: npx --yes vercel@latest deploy --prod --yes --token "$VERCEL_TOKEN"
         env:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+          # Bez ID projektu `vercel deploy` w CI tworzył pusty deployment (UNKNOWN/0ms)
+          # i wpis nie wchodził na żywo. To jawne ID (nie sekrety) linkują projekt w CI.
+          VERCEL_ORG_ID: team_EAP63Y4DIZ5Z8NbsPm7QUC8w
+          VERCEL_PROJECT_ID: prj_rlKUZ9RL8Dh8hlwkqi4MAIJJvyhS
