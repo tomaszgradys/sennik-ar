@@ -3,6 +3,9 @@ import { timingSafeEqual } from "node:crypto";
 import { db, ensureSchema } from "@/lib/db";
 import { blogOverview } from "@/lib/blogSchedule";
 import { getBlogEveryDays, setBlogEveryDays } from "@/lib/settings";
+import { searchCorpus } from "@/lib/dream";
+import { wordsCorpus } from "@/lib/words";
+import { slugify } from "@/lib/polish";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -28,6 +31,27 @@ async function safe<T>(fn: () => Promise<T>): Promise<T | null> {
   } catch {
     return null;
   }
+}
+
+// Czy zapytanie TERAZ trafiÅ‚oby w katalog (etap Å›cisÅ‚y wyszukiwarki: wszystkie
+// tokeny w jednym haÅ›le/sÅ‚owie). Nietrafione hasÅ‚a zapisane kiedyÅ› mogÅ‚y zostaÄ‡
+// od tego czasu dodane (np. â€žmama") â€” takie wpisy kasujemy przy odczycie huba,
+// Å¼eby lista brakÃ³w pokazywaÅ‚a wyÅ‚Ä…cznie realne braki. Celowo konserwatywnie
+// (bez STOP-listy i tolerancji odmiany): usuwamy tylko pewne trafienia.
+function wouldHitNow(q: string): boolean {
+  const needle = slugify(q);
+  if (!needle) return false;
+  const tokens = needle.split("-").filter((t) => t.length >= 2);
+  const query = tokens.length ? tokens : [needle];
+  const matches = (hay: string) => {
+    for (const tok of query) {
+      if (hay.indexOf(tok) === -1) return false;
+    }
+    return true;
+  };
+  for (const r of searchCorpus()) if (matches(r.hay)) return true;
+  for (const r of wordsCorpus()) if (matches(r.hay)) return true;
+  return false;
 }
 
 async function searchSection() {
@@ -67,13 +91,19 @@ async function searchSection() {
     }),
     { total: 0, found: 0, miss: 0, blogView: 0 },
   );
-  const topMisses = (await db()`
+  const rawMisses = (await db()`
     SELECT query, hits, to_char(last_at, 'YYYY-MM-DD') AS last_at
-    FROM search_misses ORDER BY hits DESC, last_at DESC LIMIT 50`) as {
+    FROM search_misses ORDER BY hits DESC, last_at DESC LIMIT 200`) as {
     query: string;
     hits: number;
     last_at: string;
   }[];
+  // Samoczyszczenie: wpisy, ktÃ³re dziÅ› juÅ¼ trafiajÄ… w katalog, znikajÄ… z bazy.
+  const resolved = rawMisses.filter((m) => wouldHitNow(m.query)).map((m) => m.query);
+  if (resolved.length) {
+    await db()`DELETE FROM search_misses WHERE query = ANY(${resolved})`;
+  }
+  const topMisses = rawMisses.filter((m) => !resolved.includes(m.query)).slice(0, 50);
   const missCount = (await db()`SELECT count(*)::int AS c FROM search_misses`) as { c: number }[];
   return {
     days: list,
