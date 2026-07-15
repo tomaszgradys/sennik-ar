@@ -1,13 +1,13 @@
 name: Codzienny wpis blogowy
 
 # Publikuje JEDEN wpis dziennie o LOSOWEJ porze między 09:00 a 18:00 (Europe/Warsaw),
-# żeby nie wyglądało to na sztywny automat. Workflow budzi się co godzinę w oknie,
-# a scripts/blog-gate.mjs losowo wybiera właściwą godzinę (gwarantuje 1 wpis/dzień).
+# żeby nie wyglądało to na sztywny automat. Workflow budzi się RAZ dziennie pod koniec
+# okna (~18:00 lokalnie), a scripts/blog-gate.mjs przepuszcza wpis gdy należny (1 wpis/dzień).
 # Ręczne odpalenie (Run workflow) publikuje od razu.
 # WYMAGA sekretów repo: ANTHROPIC_API_KEY, FAL_KEY, VERCEL_TOKEN.
 on:
   schedule:
-    - cron: "0 7-16 * * *" # co godzinę 07-16 UTC = ~09-18 w PL
+    - cron: "0 16 * * *" # 1×/dziennie 16 UTC ≈ 18:00 lokalnie (koniec okna → brama zawsze przepuszcza); 1/dzień zamiast co godzinę oszczędza minuty GitHub Actions
   workflow_dispatch: {}
 
 permissions:
