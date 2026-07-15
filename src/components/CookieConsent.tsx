@@ -23,8 +23,8 @@ function applyConsent(c: Consent) {
 export default function CookieConsent() {
   const [open, setOpen] = useState(false);
   const [customize, setCustomize] = useState(false);
-  const [analytics, setAnalytics] = useState(true);
-  const [marketing, setMarketing] = useState(true);
+  const [analytics, setAnalytics] = useState(false);
+  const [marketing, setMarketing] = useState(false);
 
   useEffect(() => {
     // Pokaż baner tylko, gdy brak zapisanego wyboru.
