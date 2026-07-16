@@ -13,7 +13,7 @@ const description =
   "تفسير الأحلام على طريقة الإمام عبد الغني النابلسي صاحب «تعطير الأنام»، بقراءة هادئة تجمع بين رمز الرؤيا وروح التراث وعلم النفس. معاني الماء والذهب والقرآن والزواج والميت وأشهر الرموز.";
 
 export const metadata: Metadata = {
-  title: { absolute: `${title} — ${SITE.name}` },
+  title: { absolute: title },
   description,
   alternates: { canonical: `${SITE.url}/tafsir-al-nabulsi/` },
   openGraph: { title, description, url: `${SITE.url}/tafsir-al-nabulsi/`, type: "article" },

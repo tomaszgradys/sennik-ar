@@ -7,16 +7,32 @@ import JsonLd from "@/components/JsonLd";
 
 export const revalidate = 3600;
 
-const title = `طور القمر اليوم — كيف يؤثّر في يومك — ${SITE.name}`;
-const description =
-  "اعرف طور القمر اليوم وماذا يعني ليومك: هل هو وقت مناسب للأمور الجديدة أم للراحة أم للترتيب. بيانات فلكية حقيقية.";
-
-export const metadata: Metadata = {
-  title: { absolute: title },
-  description,
-  alternates: { canonical: `${SITE.url}/atwar-al-qamar/` },
-  openGraph: { title, description, url: `${SITE.url}/atwar-al-qamar/` },
-};
+// العنوان والوصف يُبنيان داخل generateMetadata()، ولا يُكتبان هنا كثابت وحدة:
+// ثابت الوحدة يُحسب مرة واحدة عند التحميل، فيتجمّد التاريخ والطور على حالة
+// البناء. داخل generateMetadata() يُعاد حسابهما مع كل تجديد ISR
+// (revalidate = 3600).
+// الطور والتاريخ الحقيقيان في العنوان = أقوى إشارة طزاجة في نتائج البحث، وهو
+// صادق: المصدر (moonPhase / Asia/Riyadh) هو نفسه الذي يغذّي رأس الصفحة الظاهر.
+export async function generateMetadata(): Promise<Metadata> {
+  const now = new Date();
+  const phase = moonPhase(now);
+  const illum = moonIllumination(now);
+  // ar-EG عمدًا: هو نفس المحلّية المستخدمة في رأس الصفحة الظاهر أدناه.
+  // العنوان والرأس يجب ألّا يفترقا أبدًا.
+  const dateShort = now.toLocaleDateString("ar-EG", {
+    timeZone: "Asia/Riyadh",
+    day: "numeric",
+    month: "long",
+  });
+  const title = `طور القمر اليوم، ${dateShort}: ${phase.name} (${illum}%)`;
+  const description = `اليوم: ${phase.name}، والقمر مضيء بنسبة ${illum}%. ماذا يعني ذلك ليومك: هل هو وقت مناسب للأمور الجديدة أم للراحة أم للترتيب؟ بيانات فلكية حقيقية، مع أطوار الأيام الأربعة عشر القادمة.`;
+  return {
+    title: { absolute: title },
+    description,
+    alternates: { canonical: `${SITE.url}/atwar-al-qamar/` },
+    openGraph: { title, description, url: `${SITE.url}/atwar-al-qamar/` },
+  };
+}
 
 const faq = [
   {
@@ -60,8 +76,10 @@ export default function MoonPage() {
     "@graph": [
       {
         "@type": "WebPage",
-        name: title,
-        description,
+        // الاسم والوصف يعكسان <title>، لكنهما يُبنيان هنا على حدة:
+        // البيانات الوصفية صارت داخل generateMetadata().
+        name: `طور القمر اليوم، ${dateLabel}: ${phase.name} (${illum}%)`,
+        description: `اليوم: ${phase.name}، والقمر مضيء بنسبة ${illum}%. ماذا يعني ذلك ليومك، مع أطوار الأيام الأربعة عشر القادمة.`,
         url: `${SITE.url}/atwar-al-qamar/`,
         inLanguage: "ar",
       },

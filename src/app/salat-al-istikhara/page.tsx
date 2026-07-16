@@ -11,7 +11,7 @@ const description =
   "دليل هادئ عن صلاة الاستخارة وعلاقتها بالرؤيا: كيف تُصلّى، وهل يلزم أن ترى منامًا، وكيف تعرف الخيرة. توضيح مطمئن بلا ترهيب ولا ادّعاء يقينٍ عن الغيب.";
 
 export const metadata: Metadata = {
-  title: { absolute: `${title} — ${SITE.name}` },
+  title: { absolute: title },
   description,
   alternates: { canonical: `${SITE.url}/salat-al-istikhara/` },
   openGraph: { title, description, url: `${SITE.url}/salat-al-istikhara/`, type: "article" },

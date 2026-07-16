@@ -21,11 +21,11 @@ export async function generateMetadata({ params }: { params: Promise<{ kolor: st
   const c = colorMeta(kolor);
   const content = colorContent(kolor);
   if (!c || !content) return { title: "لم يُعثر على اللون" };
-  const title = `لون ${c.name} — المعنى والرمزية في الأحلام`;
+  const title = `لون ${c.name}: ماذا يقول عنك؟ — المعنى والرمزية`;
   const url = `${SITE.url}${colorPath(kolor)}`;
   const ogImage = `${SITE.url}/og/color-${kolor}.jpg`;
   return {
-    title: { absolute: `${title} — ${SITE.name}` },
+    title: { absolute: title },
     description: content.metaDescription,
     alternates: { canonical: url },
     openGraph: { title, description: content.metaDescription, url, type: "article", images: [{ url: ogImage, width: 1200, height: 630 }] },

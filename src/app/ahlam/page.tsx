@@ -15,7 +15,7 @@ const description =
   "تصفّح كل فئات تفسير الأحلام على hulm.pro: الحيوانات، الناس والعلاقات، البيت، الطبيعة، الجسد، السفر، العمل والمال، المشاعر القوية وغيرها. اعثر على رمز حلمك بسرعة.";
 
 export const metadata: Metadata = {
-  title: { absolute: `${title} — ${SITE.name}` },
+  title: { absolute: title },
   description,
   alternates: { canonical: url },
   openGraph: { title, description, url },

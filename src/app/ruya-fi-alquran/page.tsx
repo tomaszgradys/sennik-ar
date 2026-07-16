@@ -11,7 +11,7 @@ const description =
   "كيف تحدث القرآن الكريم عن الرؤيا؟ قراءة هادئة في سورة يوسف: رؤيا الكواكب، وحلم الملك، وأدب «لا تقصص رؤياك»، وما تعلّمنا إياه القصة عن التأويل والتواضع أمام الغيب.";
 
 export const metadata: Metadata = {
-  title: { absolute: `${title} — ${SITE.name}` },
+  title: { absolute: title },
   description,
   alternates: { canonical: `${SITE.url}/ruya-fi-alquran/` },
   openGraph: { title, description, url: `${SITE.url}/ruya-fi-alquran/`, type: "article" },

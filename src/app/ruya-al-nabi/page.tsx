@@ -11,7 +11,7 @@ const description =
   "ماذا تعني رؤية النبي محمد ﷺ في المنام؟ قراءة هادئة تستند إلى التراث الإسلامي والحديث الشريف «من رآني في المنام فقد رآني»، بلا ادّعاء يقينٍ عن الغيب ولا ترهيب.";
 
 export const metadata: Metadata = {
-  title: { absolute: `${title} — ${SITE.name}` },
+  title: { absolute: title },
   description,
   alternates: { canonical: `${SITE.url}/ruya-al-nabi/` },
   openGraph: { title, description, url: `${SITE.url}/ruya-al-nabi/`, type: "article" },

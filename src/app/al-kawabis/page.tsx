@@ -11,7 +11,7 @@ const description =
   "لماذا نرى الكوابيس والأحلام المزعجة؟ وماذا نفعل بعدها؟ دليل هادئ يجمع بين علم النوم وآداب السنّة، بلا ترهيب — خطوات عملية تريح القلب وتحسّن النوم.";
 
 export const metadata: Metadata = {
-  title: { absolute: `${title} — ${SITE.name}` },
+  title: { absolute: title },
   description,
   alternates: { canonical: `${SITE.url}/al-kawabis/` },
   openGraph: { title, description, url: `${SITE.url}/al-kawabis/`, type: "article" },

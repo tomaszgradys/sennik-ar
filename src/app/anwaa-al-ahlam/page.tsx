@@ -11,7 +11,7 @@ const description =
   "دليل هادئ وواضح لأنواع الأحلام في الثقافة العربية والإسلامية: الرؤيا الصادقة، والحلم، وحديث النفس، وأضغاث الأحلام. متى نأخذ الحلم على محمل الجد وآداب التعامل معه.";
 
 export const metadata: Metadata = {
-  title: { absolute: `${title} — ${SITE.name}` },
+  title: { absolute: title },
   description,
   alternates: { canonical: `${SITE.url}/anwaa-al-ahlam/` },
   openGraph: { title, description, url: `${SITE.url}/anwaa-al-ahlam/`, type: "article" },

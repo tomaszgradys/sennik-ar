@@ -17,11 +17,11 @@ export async function generateMetadata({ params }: { params: Promise<{ n: string
   const { n } = await params;
   const content = numberContent(n);
   if (!content) return { title: "لم يُعثر على الرقم" };
-  const title = `الرقم ${n} — المعنى والرمزية في الأحلام`;
+  const title = `الرقم ${n}: لماذا يتكرر أمامك؟ — المعنى والرمزية`;
   const url = `${SITE.url}${numberPath(n)}`;
   const ogImage = `${SITE.url}/og/number-${n}.jpg`;
   return {
-    title: { absolute: `${title} — ${SITE.name}` },
+    title: { absolute: title },
     description: content.metaDescription,
     alternates: { canonical: url },
     openGraph: { title, description: content.metaDescription, url, type: "article", images: [{ url: ogImage, width: 1200, height: 630 }] },

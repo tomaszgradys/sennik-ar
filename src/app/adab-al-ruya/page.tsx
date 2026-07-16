@@ -11,7 +11,7 @@ const description =
   "دليل هادئ لآداب الرؤيا كما وردت في السنّة: كيف تتعامل مع الرؤيا الطيبة والحلم المزعج، ولماذا لا يُحكى الكابوس. خطوات مطمئنة بلا ترهيب.";
 
 export const metadata: Metadata = {
-  title: { absolute: `${title} — ${SITE.name}` },
+  title: { absolute: title },
   description,
   alternates: { canonical: `${SITE.url}/adab-al-ruya/` },
   openGraph: { title, description, url: `${SITE.url}/adab-al-ruya/`, type: "article" },

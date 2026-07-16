@@ -24,7 +24,7 @@ export async function generateMetadata({ params }: { params: Promise<{ name: str
   const url = `${SITE.url}${namePath(slug)}`;
   const ogImage = `${SITE.url}/og/name-${slug}.jpg`;
   return {
-    title: { absolute: `${title} — ${SITE.name}` },
+    title: { absolute: title },
     description: content.metaDescription,
     alternates: { canonical: url },
     openGraph: { title, description: content.metaDescription, url, type: "article", images: [{ url: ogImage, width: 1200, height: 630 }] },

@@ -13,7 +13,7 @@ const description =
   "تفسير الأحلام على طريقة ابن سيرين والتراث العربي، بقراءة هادئة تجمع بين الرمز وعلم النفس. تعرّف على معاني أشهر رموز الأحلام: الثعبان، والأسنان، والماء، والزواج والمزيد.";
 
 export const metadata: Metadata = {
-  title: { absolute: `${title} — ${SITE.name}` },
+  title: { absolute: title },
   description,
   alternates: { canonical: `${SITE.url}/tafsir-ibn-sirin/` },
   openGraph: { title, description, url: `${SITE.url}/tafsir-ibn-sirin/`, type: "article" },
