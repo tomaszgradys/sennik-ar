@@ -75,7 +75,15 @@ export async function generateMetadata({
     title: { absolute: metaTitle(entry) },
     description: entry.content.metaDescription,
     alternates: { canonical },
-    robots: weak ? { index: false, follow: true } : undefined,
+    // Klucz `robots` MUSI ZNIKNĄĆ dla stron mocnych, a nie być `undefined`: Next scala
+
+    // metadane płytko PO KLUCZACH, więc `robots: undefined` NADPISUJE wpis z layoutu
+
+    // i strona zostaje zupełnie bez znacznika — kasowało to max-image-preview:large
+
+    // (bilet do Google Discover) na wszystkich stronach snów.
+
+    ...(weak ? { robots: { index: false, follow: true } } : {}),
     openGraph: {
       title: ogTitle(entry),
       description: ogDescription(entry),
