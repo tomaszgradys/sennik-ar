@@ -66,7 +66,13 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     images: ["/og/default.jpg"],
   },
-  robots: { index: true, follow: true },
+  // max-image-preview:large to warunek wejścia do Google Discover — bez niego Google
+  // pokazuje najwyżej miniaturę i karta praktycznie nie ma szans (dotyczy też grafik
+  // przy zwykłych wynikach). max-snippet/-video: bez limitu długości.
+  // Świadomie BEZ `index: true, follow: true`: to i tak domyślne zachowanie, a jawny
+  // wpis dublował się z automatycznym `noindex`, który Next wstawia na stronach 404 —
+  // dawało dwa sprzeczne znaczniki. Podstrony noindex nadpisują to swoim metadata.
+  robots: { "max-image-preview": "large", "max-snippet": -1, "max-video-preview": -1 },
 };
 
 export const viewport: Viewport = {
