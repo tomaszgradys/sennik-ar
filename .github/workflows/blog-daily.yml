@@ -40,10 +40,6 @@ jobs:
           EVENT: ${{ github.event_name }}
         run: node scripts/blog-gate.mjs >> "$GITHUB_OUTPUT"
 
-      - name: Losowe opóźnienie w godzinie
-        if: steps.gate.outputs.proceed == 'true' && github.event_name == 'schedule'
-        run: sleep $(( RANDOM % 2700 )) # 0-45 min
-
       - name: Instalacja zależności
         if: steps.gate.outputs.proceed == 'true'
         run: npm install --no-audit --no-fund
